@@ -1,0 +1,40 @@
+{
+  "name": "mrn",
+  "version": "0.2.0",
+  "description": "React Native Material Design Components",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint ./lib ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binggg/mrn.git"
+  },
+  "keywords": [
+    "react-native",
+    "material",
+    "design",
+    "ui",
+    "components",
+    "react-component"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/material-react-native/mrn/issues"
+  },
+  "homepage": "https://github.com/material-react-native/mrn",
+  "peerDependencies": {
+    "react-native": "^0.16.0"
+  },
+  "dependencies": {
+    "react-native-material-design-styles": "^0.2.6",
+    "react-native-vector-icons": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.6.0",
+    "eslint-plugin-react": "^3.5.1"
+  }
+}
