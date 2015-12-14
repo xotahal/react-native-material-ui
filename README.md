@@ -4,19 +4,16 @@ This is currently a loose fork from the original [mrn](https://github.com/binggg
 
 Please use the original repository until this is in a stable state.
 
-## Changes
+## Installation
 
-- ESLint / Cleanup
-- Various bug fixes
-- Use of the default MaterialIcons vector icons (allows for much simpler installation)
+```
+npm install mrn --save
+```
 
-Please see the [roadmap](https://github.com/binggg/mrn/issues/22) on the original repository for more information.
+[Copy the font](https://github.com/oblador/react-native-vector-icons#android) file to your local working directory:
+
+`./node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf` -> `./android/app/src/main/assets/fonts`.
 
 ## React Native 0.16
 
 This library only works with React Native 0.16 due to the breaking changes with Babel and font loading it introduced.
-
-## Known Issues
-
-- The `List` component has currently not yet been ported over.
-- Disabled elements still trigger the ripple animation.
