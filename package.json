@@ -1,15 +1,15 @@
 {
-  "name": "mrn",
-  "version": "0.2.0",
+  "name": "react-native-material-design",
+  "version": "0.1.0",
   "description": "React Native Material Design Components",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint ./lib ./tests"
+    "lint": "./node_modules/.bin/eslint ./lib"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/binggg/mrn.git"
+    "url": "https://github.com/react-native-material-design/react-native-material-design"
   },
   "keywords": [
     "react-native",
@@ -17,14 +17,14 @@
     "design",
     "ui",
     "components",
-    "react-component"
+    "react-component",
+    "android"
   ],
-  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/material-react-native/mrn/issues"
+    "url": "https://github.com/react-native-material-design/react-native-material-design/issues"
   },
-  "homepage": "https://github.com/material-react-native/mrn",
+  "homepage": "https://github.com/react-native-material-design/react-native-material-design",
   "peerDependencies": {
     "react-native": "^0.16.0"
   },
