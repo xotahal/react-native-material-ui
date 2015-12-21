@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-design",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React Native Material Design Components",
   "main": "lib/index.js",
   "scripts": {
@@ -25,12 +25,9 @@
     "url": "https://github.com/react-native-material-design/react-native-material-design/issues"
   },
   "homepage": "https://github.com/react-native-material-design/react-native-material-design",
-  "peerDependencies": {
-    "react-native": "^0.16.0"
-  },
   "dependencies": {
     "react-native-material-design-styles": "^0.2.6",
-    "react-native-vector-icons": "^1.0.0"
+    "react-native-vector-icons": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.6",
