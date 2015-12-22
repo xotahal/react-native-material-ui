@@ -4,6 +4,8 @@ React Native components which implement [Material Design](https://www.google.com
 
 Credits to **@binggg** for the original [mrn](https://github.com/binggg/mrn) repository.
 
+> Please keep in mind this is still a work in progress.
+
 ## Installation
 
 ```
@@ -28,7 +30,9 @@ This library only works with React Native 0.16+ due to the breaking changes with
 
 ## Documentation
 
-Coming soon.
+Documentation is still work in progress and subject to change:
+
+http://react-native-material-design.github.io
 
 ## Contributing
 
