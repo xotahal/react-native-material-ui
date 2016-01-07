@@ -7,7 +7,8 @@ many bug fixes, extra components, backward compatibility to Android SDK API 16 a
 
 > Please keep in mind this is still a work in progress. The master branch is subject to breaking changes.
 
-Looking for a demo? [Check out the repo](https://github.com/react-native-material-design/demo-app).
+Looking for a demo app? [Check out the repo](https://github.com/react-native-material-design/demo-app).
+Or view it online [here](https://appetize.io/app/hyp1m20y515c16cj5yw2karcjg)!
 
 ## Installation
 
