@@ -1,4 +1,4 @@
-# ![Logo](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png) React Native Material Design
+# React Native Material Design
 
 React Native components which implement [Material Design](https://www.google.com/design/spec/material-design/introduction.html).
 
