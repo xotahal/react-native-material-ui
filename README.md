@@ -1,5 +1,10 @@
 # React Native Material Design
 
+
+[![Dependency Status](https://david-dm.org/react-native-material-design/react-native-material-design.svg)](https://david-dm.org/react-native-material-design/react-native-material-design.svg)
+[![GitHub issues](https://img.shields.io/github/issues/react-native-material-design/react-native-material-design.svg)](https://github.com/react-native-material-design/react-native-material-design/issues)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/react-native-material-design/react-native-material-design/master/LICENSE)
+
 React Native components which implement [Material Design](https://www.google.com/design/spec/material-design/introduction.html).
 
 This repository has been heavily developed on top of the [mrn](https://github.com/binggg/mrn) project started by **@binggg**. Improvements include support for the latest React Native versions,
