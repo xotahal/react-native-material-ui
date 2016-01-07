@@ -1,5 +1,7 @@
 # React Native Material Design
 
+[![Join the chat at https://gitter.im/react-native-material-design/react-native-material-design](https://badges.gitter.im/react-native-material-design/react-native-material-design.svg)](https://gitter.im/react-native-material-design/react-native-material-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 [![Dependency Status](https://david-dm.org/react-native-material-design/react-native-material-design.svg)](https://david-dm.org/react-native-material-design/react-native-material-design.svg)
 [![GitHub issues](https://img.shields.io/github/issues/react-native-material-design/react-native-material-design.svg)](https://github.com/react-native-material-design/react-native-material-design/issues)
