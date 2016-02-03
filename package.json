@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-design",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "React Native Material Design Components",
   "main": "lib/index.js",
   "scripts": {
