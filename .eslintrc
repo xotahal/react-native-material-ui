@@ -1,46 +1,48 @@
 {
-  "parser": "babel-eslint",
+  "parser"  : "babel-eslint",
   "plugins": [
-    "react"
   ],
-  "ecmaFeatures": {
-    "jsx": true
-  },
+  "extends" : ["airbnb"],
   "rules": {
-    // Strict mode
-    "strict": [2, "never"],
-
-    // Code style
-    "indent": 2,
-    "quotes": [2, "single"],
-    "no-unused-vars": 1,
-    "no-undef": 1,
-    "object-curly-spacing": [2, "always"],
-
-    // JSX
-    "jsx-quotes": 1,
-
-    // React
-    "react/display-name": 0,
-    "react/jsx-boolean-value": 1,
-    "react/jsx-closing-bracket-location": 1,
-    "react/jsx-curly-spacing": 1,
-    "react/jsx-max-props-per-line": 0,
-    "react/jsx-indent-props": 0,
-    "react/jsx-no-duplicate-props": 1,
-    "react/jsx-no-undef": 1,
-    "react/jsx-sort-prop-types": 0,
-    "react/jsx-sort-props": 0,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
-    "react/no-danger": 0,
-    "react/no-set-state": 0,
-    "react/no-did-mount-set-state": 1,
-    "react/no-did-update-set-state": 1,
-    "react/no-multi-comp": 1,
-    "react/no-unknown-property": 1,
-    "react/require-extension": 1,
-    "react/self-closing-comp": 1,
-    "react/wrap-multilines": 1
+    // Soft some rules.
+    "comma-dangle": 0, // Nobody cares about commas.
+    "default-case": 0, // Required default case is nonsense.
+    "indent": [2, 4, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
+    "new-cap": [2, {"capIsNew": false, "newIsCap": true}], // For Record() etc.
+    "no-floating-decimal": 0, // .5 is just fine.
+    "no-nested-ternary": 0, // It's nice for JSX.
+    "no-param-reassign": 0, // We love param reassignment. Naming is hard.
+    "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
+    // eslint-plugin-import
+    "import/no-unresolved": [2, {"commonjs": true}],
+    "import/named": 2,
+    "import/default": 2,
+    "import/namespace": 2,
+    "import/export": 2,
+    // Overide Stateless
+    "react/prefer-stateless-function": 0
+  },
+  "globals": {
+    "after": false,
+    "afterEach": false,
+    "before": false,
+    "beforeEach": false,
+    "describe": false,
+    "it": false,
+    "require": false
+  },
+  "settings": {
+    "import/ignore": [
+      "node_modules",
+      "\\.json$"
+    ],
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".json"
+      ]
+    }
   }
 }
