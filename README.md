@@ -84,25 +84,24 @@ Toolbar has the search feature!
 
 ## Dropdown menu
 
-[Dropdown](https://www.google.com/design/spec/components/menus.html#) menu is quite popular on the android devices and this library implements it. If you want to use it you have to wrapp your (ideally) top component into a `MenuController` component. Then you can put a `Menu` component everywhere in your application. 
+You can use dropdown menu on Toolbar and ListItem. You just have to define menuActions. The `onPress` function returns result (either 'itemPressed' or 'dismissed') and index of item in list (0 for 'First', 1 for 'Second' in these examples).
 
 ```js
-<MenuController style={{ flex: 1 }}>
-  <App style={{ flex: 1 }}>
-    // here is your application
-    // ...
-    // in your application can be <Menu /> component
-    <Menu ref="menu">
-      <MenuItem label="First item" onPress={() => { }} />
-      <MenuItem label="Second item" onPress={() => { }} />
-    </Menu>
-  </App>
-</MenuController>
+<Toolbar
+  menuActions={{
+    labels: ['First', 'Second'],
+    onPress: (result, index) => { }
+  }}
+/>
 ```
-
-### How it's work?
-
-If user presses button which should open a Menu the `MenuController` will render children at first (your application) then will render overlay layer (for close the menu) and then will render the menu. That means the `MenuController` holds all menus in the application.
+```js
+<ListItem
+  menuActions={{
+    labels: ['First', 'Second'],
+    onPress: (result, index) => { }
+  }}
+/>
+```
 
 ![Dropdown] (https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/dropdown/dropdown.gif)
 
