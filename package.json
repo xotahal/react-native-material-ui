@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint ./lib"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,13 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.0-beta.6",
-    "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.2.3"
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.2.2",
+    "react": "^15.2.1",
+    "react-native": "^0.30.0"
   }
 }
