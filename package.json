@@ -27,7 +27,7 @@
   "homepage": "https://github.com/xotahal/react-native-material-ui",
   "dependencies": {
     "react-native-material-design-styles": "^0.2.6",
-    "react-native-vector-icons": "^1.0.3"
+    "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.0-beta.6",
