@@ -43,6 +43,39 @@ class ReactNativeComponent extends React.Component {
 
 > You may need to restart your packager in order for the icons to render.
 
+# Native Feature Installation
+
+Some features like the [SnackBar](#SnackBar) need a module installation to work.
+
+* Include the module in `android/settings.gradle`:
+```
+...
+include ':react-native-material-ui'
+project(':react-native-material-ui').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-material-ui/android')
+...
+```
+
+* Add the module dependency to your app build in `android/app/build.gradle`:
+```
+dependencies {
+   ...
+   compile project(':react-native-material-ui')
+}
+```
+* Open your MainApplication.java in `android/app/src/main/.../MainApplication.java` and edit:
+```java
+...
+import com.material.ui.MaterialUIPackage; // import the material-ui package
+...
+  @Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        new MaterialUIPackage() // add the package here
+    );
+  }
+
+```
 
 ## Examples
 
@@ -66,6 +99,7 @@ This library needs better documentation of components. For now, in this section 
 - [Drawer](#drawer)
 - [Dropdown menu](#dropdown-menu)
 - [Toolbar](#toolbar)
+- [SnackBar](#SnackBar)
 
 ## Toolbar
 
@@ -109,4 +143,27 @@ You can use dropdown menu on Toolbar and ListItem. You just have to define menuA
 
 ![Drawer] (https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/drawer/drawer.gif)
 
+## SnackBar
 
+This is an android [SnackBar](http://developer.android.com/reference/android/support/design/widget/Snackbar.html) for react-native, please check Native Features Installation to properly use it.
+
+```js
+import { SnackBar } from 'react-native-material-ui';
+
+...
+ // show some message
+ SnackBar.show("Hello I'm a snackbar message");
+ 
+ // use options - show message with duration
+ SnackBar.show("Auto close in 5 seconds", {
+   duration: 5000
+ });
+ 
+ // with action button
+ SnackBar.show("Snackbar with action button", {
+   actionLabel: 'Undo',
+   actionColor: '#EEFF41',
+   actionCallback: () => alert("Snackbar closed")
+ });
+...
+```
