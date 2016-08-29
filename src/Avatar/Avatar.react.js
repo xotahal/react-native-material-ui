@@ -1,4 +1,4 @@
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, StyleSheet } from 'react-native';
 import Container from '../Container';
 import Icon from '../Icon';
 import React, { Component, PropTypes } from 'react';
@@ -17,20 +17,15 @@ const propTypes = {
     */
     text: PropTypes.string,
     /**
-    * Size of avatar component (default: 40).
+    * Inline style of avatar
     */
-    size: PropTypes.number,
-    /**
-    * Color of inside element.
-    */
-    color: PropTypes.string,
-    /**
-    * Color of avatar's background.
-    */
-    backgroundColor: PropTypes.string,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        content: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
-    size: 40,
+    style: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -38,18 +33,17 @@ const contextTypes = {
 
 function getStyles(props, context) {
     const { avatar } = context.uiTheme;
-    const size = props.size || avatar.size;
 
-    const styles = {
-        width: size,
-        height: size,
-        borderRadius: size / 2,
-        backgroundColor: props.backgroundColor || avatar.backgroundColor,
-        alignItems: 'center',
-        justifyContent: 'center',
+    return {
+        container: [
+            avatar.container,
+            props.style.container,
+        ],
+        content: [
+            avatar.content,
+            props.style.content,
+        ],
     };
-
-    return styles;
 }
 
 class Avatar extends Component {
@@ -57,21 +51,22 @@ class Avatar extends Component {
         const { image, icon, text } = this.props;
 
         let content = null;
-        const { avatar } = this.context.uiTheme;
+        const { avatar, spacing } = this.context.uiTheme;
+        const styles = getStyles(this.props, this.context);
 
         if (icon) {
-            content = <Icon name={icon} color={avatar.color} size={avatar.size * 0.6} />;
+            const color = StyleSheet.flatten(avatar.content).color;
+            content = <Icon name={icon} color={color} size={spacing.iconSize} />;
         } else if (text) {
-            content = <Text style={{ color: avatar.color }}>{text}</Text>;
+            content = <Text style={styles.content}>{text}</Text>;
         } else if (image) {
             content = image;
         }
 
-        const styles = getStyles(this.props, this.context);
 
         return (
             <Container>
-                <View style={styles} >
+                <View style={styles.container} >
                     {content}
                 </View>
             </Container>

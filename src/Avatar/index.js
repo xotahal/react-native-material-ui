@@ -1,1 +1,1 @@
-export default from './Avatar.react';
+export { default } from './Avatar.react';

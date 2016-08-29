@@ -1,29 +1,31 @@
 import {
-  cyan500, cyan700,
+  cyan500,
   pinkA200,
-  grey100, grey300, grey400, grey500,
-  white, darkBlack, fullBlack, lightBlack, minBlack, faintBlack,
+  grey300,
+  white,
+  black,
 } from '../colors';
+
+import Color from 'color';
 import spacing from '../spacing';
 
 export default {
     spacing,
     fontFamily: 'Roboto',
     palette: {
-        primary1Color: cyan500,
-        primary2Color: cyan700,
-        primary3Color: grey400,
-        accent1Color: pinkA200,
-        accent2Color: grey100,
-        accent3Color: grey500,
-        textColor: darkBlack,
-        secondaryTextColor: lightBlack,
+        // main theme colors
+        primaryColor: cyan500,
+        accentColor: pinkA200,
+        // text color palette
+        primaryTextColor: Color(black).alpha(.87).rgbaString(),
+        secondaryTextColor: Color(black).alpha(.54).rgbaString(),
         alternateTextColor: white,
+        // backgournds and borders
         canvasColor: white,
         borderColor: grey300,
-        disabledColor: minBlack,
-        pickerHeaderColor: cyan500,
-        clockCircleColor: faintBlack,
-        shadowColor: fullBlack,
+        // disabledColor: minBlack,
+        // pickerHeaderColor: cyan500,
+        // clockCircleColor: faintBlack,
+        // shadowColor: fullBlack,
     },
 };
