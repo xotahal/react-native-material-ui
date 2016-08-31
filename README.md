@@ -1,3 +1,7 @@
+
+# New version in [v1.0.0 branch](https://github.com/xotahal/react-native-material-ui/tree/v1.0.0) 
+Although this version is under :construction:, consider to use it, because current version will be outdated in couple of weeks. [Please see issue#15](https://github.com/xotahal/react-native-material-ui/issues/15)
+
 # React Native Material Design
 
 [![npm](https://img.shields.io/npm/v/react-native-material-ui.svg)](https://www.npmjs.com/package/react-native-material-ui)
@@ -6,6 +10,8 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/xotahal/react-native-material-ui/master/LICENSE)
 
 React Native components which implement [Material Design](https://www.google.com/design/spec/material-design/introduction.html).
+
+
 
 This repository has been forked from the [react-native-material-design](https://github.com/react-native-material-design/react-native-material-design) project started by **@Ehesp**.
 
