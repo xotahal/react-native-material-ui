@@ -40,8 +40,38 @@ export default function getTheme(theme, ...more) {
             text: {
                 color: palette.secondaryTextColor,
                 // https://material.google.com/components/subheaders.html#subheaders-grid-subheaders
-                fontWeight: typography.fontWeightMedium,
+                ...typography.subheading,
             },
+        }),
+        toolbar: StyleSheet.create({
+            container: {
+                backgroundColor: palette.primaryColor,
+                height: 56,
+                flexDirection: 'row',
+                alignItems: 'center',
+                elevation: 4,
+            },
+            leftElementContainer: { },
+            leftElement: {
+                margin: 16,
+                color: palette.alternateTextColor,
+            },
+            centerElementContainer: {
+                flex: 1,
+                marginLeft: 16,
+            },
+            titleText: {
+                color: palette.alternateTextColor,
+                ...typography.appBar,
+            },
+            rightElementContainer: {
+                flexDirection: 'row',
+            },
+            rightElement: {
+                margin: 16,
+                color: palette.alternateTextColor,
+            },
+            // searchInput: TYPO.paperFontTitle,
         }),
     }, theme);
 
