@@ -31,6 +31,57 @@ export default function getTheme(theme, ...more) {
                 color: palette.canvasColor,
             },
         }),
+        divider: {
+            backgroundColor: palette.borderColor,
+            height: StyleSheet.hairlineWidth,
+        },
+        listItem: {
+            container: {
+                backgroundColor: '#ffffff',
+                height: 56,
+                alignItems: 'center',
+            },
+            contentViewContainer: {
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+            },
+            leftElementContainer: {
+                width: 40,
+                marginLeft: 16,
+            },
+            centerElementContainer: {
+                paddingLeft: 16,
+                flex: 1,
+            },
+            textViewContainer: { },
+            primaryText: {
+                lineHeight: 24,
+                color: palette.primaryTextColor,
+                ...typography.subheading,
+            },
+            firstLine: {
+                flexDirection: 'row',
+            },
+            primaryTextContainer: {
+                flex: 1,
+            },
+            secondaryText: {
+                lineHeight: 22,
+                color: palette.secondaryText,
+                ...typography.body1,
+            },
+            rightElementContainer: {
+            },
+            leftElement: {
+                margin: 16,
+                color: palette.secondaryTextColor,
+            },
+            rightElement: {
+                margin: 16,
+                color: palette.secondaryTextColor,
+            },
+        },
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create({
             container: {
@@ -40,7 +91,7 @@ export default function getTheme(theme, ...more) {
             text: {
                 color: palette.secondaryTextColor,
                 // https://material.google.com/components/subheaders.html#subheaders-grid-subheaders
-                ...typography.subheading,
+                ...typography.body2,
             },
         }),
         toolbar: StyleSheet.create({

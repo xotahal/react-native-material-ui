@@ -20,7 +20,11 @@ export default {
         fontWeight: fontWeight.normal,
         fontSize: 16,
     },
-    body: {
+    body2: {
+        fontWeight: fontWeight.medium,
+        fontSize: 14,
+    },
+    body1: {
         fontWeight: fontWeight.normal,
         fontSize: 14,
     },

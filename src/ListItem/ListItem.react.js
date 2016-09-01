@@ -1,0 +1,363 @@
+import {
+    StyleSheet,
+    View,
+    Text,
+    TouchableWithoutFeedback,
+    TouchableNativeFeedback,
+} from 'react-native';
+import Divider from '../Divider';
+import Icon from '../Icon';
+import IconToggle from '../IconToggle';
+import React, { Component, PropTypes } from 'react';
+
+const propTypes = {
+    // generally
+    dense: PropTypes.bool,
+    // should render divider after list item?
+    divider: PropTypes.bool,
+    onPress: PropTypes.func,
+    onPressValue: PropTypes.any,
+    numberOfLines: React.PropTypes.oneOf([1, 2, 3, 'dynamic']),
+    style: PropTypes.object,
+
+    // left side
+    leftElement: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]),
+    onLeftElementPress: PropTypes.func,
+
+    // center side
+    centerElement: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+        PropTypes.shape({
+            primaryText: PropTypes.string.isRequired,
+            secondaryText: PropTypes.string,
+        }),
+    ]),
+
+    // right side
+    rightElement: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]),
+    onRightElementPress: PropTypes.func,
+};
+const defaultProps = {
+    numberOfLines: 1,
+    style: {},
+};
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
+};
+
+function getNumberOfLines(props) {
+    const { numberOfLines, centerElement } = props;
+
+    if (centerElement && centerElement.secondaryText && (!numberOfLines || numberOfLines < 2)) {
+        return 2;
+    }
+
+    return numberOfLines || 1;
+}
+/**
+* Please see this: https://material.google.com/components/lists.html#lists-specs
+*/
+function getListItemHeight(props, state) {
+    const { leftElement, dense } = props;
+    const { numberOfLines } = state;
+
+    if (numberOfLines === 'dynamic') {
+        return null;
+    }
+
+    if (!leftElement && numberOfLines === 1) {
+        return dense ? 40 : 48;
+    }
+
+    if (numberOfLines === 1) {
+        return dense ? 48 : 56;
+    } else if (numberOfLines === 2) {
+        return dense ? 60 : 72;
+    } else if (numberOfLines === 3) {
+        return dense ? 80 : 88;
+    }
+
+    return null;
+}
+function getStyles(props, context, state) {
+    const { rightElement } = props;
+    const { listItem } = context.uiTheme;
+    const { numberOfLines } = state;
+
+
+    const container = {
+        height: getListItemHeight(props, state),
+    };
+    const leftElementContainer = {};
+
+    if (numberOfLines === 'dynamic') {
+        container.paddingVertical = 8;
+        leftElementContainer.alignSelf = 'flex-start';
+    }
+    if (typeof rightElement !== 'string') {
+        container.paddingRight = 16;
+    }
+
+    return {
+        container: [
+            listItem.container,
+            container,
+            props.style.container,
+        ],
+        content: [
+            listItem.content,
+            props.style.content,
+        ],
+        contentViewContainer: [
+            listItem.contentViewContainer,
+            props.style.contentViewContainer,
+        ],
+        leftElementContainer: [
+            listItem.leftElementContainer,
+            leftElementContainer,
+            props.style.leftElementContainer,
+        ],
+        centerElementContainer: [
+            listItem.centerElementContainer,
+            props.style.centerElementContainer,
+        ],
+        textViewContainer: [
+            listItem.textViewContainer,
+            props.style.textViewContainer,
+        ],
+        primaryText: [
+            listItem.primaryText,
+            props.style.primaryText,
+        ],
+        firstLine: [
+            listItem.firstLine,
+            props.style.firstLine,
+        ],
+        primaryTextContainer: [
+            listItem.primaryTextContainer,
+            props.style.primaryTextContainer,
+        ],
+        secondaryText: [
+            listItem.secondaryText,
+            props.style.secondaryText,
+        ],
+        rightElementContainer: [
+            listItem.rightElementContainer,
+            props.style.rightElementContainer,
+        ],
+        leftElement: [
+            listItem.leftElement,
+            props.style.leftElement,
+        ],
+        rightElement: [
+            listItem.rightElement,
+            props.style.rightElement,
+        ],
+    };
+}
+
+class ListItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            numberOfLines: getNumberOfLines(props),
+        };
+    }
+    componentWillReceiveProps(nextPros) {
+        this.setState({ numberOfLines: getNumberOfLines(nextPros) });
+    }
+    onListItemPressed = () => {
+        const { onPress, onPressValue } = this.props;
+
+        if (onPress) {
+            onPress(onPressValue);
+        }
+    };
+    onLeftElementPressed = () => {
+        const { onLeftElementPress, onPress, onPressValue } = this.props;
+
+        if (onLeftElementPress) {
+            onLeftElementPress(onPressValue);
+        }
+        if (onPress) {
+            onPress(onPressValue);
+        }
+    };
+    onRightElementPressed = () => {
+        const { onRightElementPress, onPressValue } = this.props;
+
+        if (onRightElementPress) {
+            onRightElementPress(onPressValue);
+        }
+    };
+    renderLeftElement = (styles) => {
+        const { leftElement } = this.props;
+
+        if (!leftElement) {
+            return null;
+        }
+
+        const flattenLeftElement = StyleSheet.flatten(styles.leftElement);
+        let content = null;
+
+        if (typeof leftElement === 'string') {
+            content = (
+                <TouchableWithoutFeedback onPress={this.onLeftElementPressed}>
+                    <Icon name={leftElement} color={flattenLeftElement.color} size={24} />
+                </TouchableWithoutFeedback>
+            );
+        } else {
+            content = (
+                <TouchableWithoutFeedback onPress={this.onLeftElementPressed}>
+                    <View>
+                        {leftElement}
+                    </View>
+                </TouchableWithoutFeedback>
+            );
+        }
+
+        return (
+            <View style={styles.leftElementContainer}>
+                {content}
+            </View>
+        );
+    }
+    renderCenterElement = (styles) => {
+        const { centerElement } = this.props;
+        const numberOfLines = this.state.numberOfLines === 'dynamic' ? null : 1;
+
+        let content = null;
+
+        if (React.isValidElement(centerElement)) {
+            content = centerElement;
+        } else if (centerElement) {
+            let primaryText = null;
+            let secondaryText = null;
+
+            if (typeof centerElement === 'string') {
+                primaryText = centerElement;
+            } else {
+                primaryText = centerElement.primaryText;
+                secondaryText = centerElement.secondaryText;
+            }
+
+
+            content = (
+                <View style={styles.textViewContainer}>
+                    <View style={styles.firstLine}>
+                        <View style={styles.primaryTextContainer}>
+                            <Text numberOfLines={numberOfLines} style={styles.primaryText}>
+                                {primaryText}
+                            </Text>
+                        </View>
+                    </View>
+                    {secondaryText &&
+                        <View>
+                            <Text numberOfLines={numberOfLines} style={styles.secondaryText}>
+                                {secondaryText}
+                            </Text>
+                        </View>
+                    }
+                </View>
+            );
+        }
+
+
+        return (
+            <View style={styles.centerElementContainer}>
+                {content}
+            </View>
+        );
+    }
+    renderRightElement = (styles) => {
+        const { rightElement } = this.props;
+
+        let content = null;
+        let elements = null;
+
+        if (typeof rightElement === 'string') {
+            elements = [rightElement];
+        } else if (Array.isArray(rightElement)) {
+            elements = rightElement;
+        }
+
+        const flattenRightElement = StyleSheet.flatten(styles.rightElement);
+
+        if (elements) {
+            content = elements.map((action, i) => (
+                <IconToggle
+                    key={`${action}${i}`}
+                    color={flattenRightElement.color}
+                    onPress={() => this.onRightElementPressed({ action })}
+                >
+                    <Icon name={action} size={24} style={styles.rightElement} />
+                </IconToggle>
+            ));
+        } else {
+            content = (
+                <TouchableWithoutFeedback onPress={this.onRightElementPressed}>
+                    <View>
+                        {rightElement}
+                    </View>
+                </TouchableWithoutFeedback>
+            );
+        }
+
+        return (
+            <View style={styles.rightElementContainer}>
+                {content}
+            </View>
+        );
+    }
+    renderDivider = () => {
+        const { divider } = this.props;
+
+        if (!divider) {
+            return null;
+        }
+
+        return <Divider />;
+    }
+    render() {
+        const { onPress } = this.props;
+
+        const styles = getStyles(this.props, this.context, this.state);
+
+        const content = (
+            <View>
+                <View style={styles.container}>
+                    <View style={styles.contentViewContainer}>
+                        {this.renderLeftElement(styles)}
+                        {this.renderCenterElement(styles)}
+                        {this.renderRightElement(styles)}
+                    </View>
+                </View>
+                {this.renderDivider()}
+            </View>
+        );
+
+        if (onPress) {
+            return (
+                <TouchableNativeFeedback onPress={this.onListItemPressed}>
+                    {content}
+                </TouchableNativeFeedback>
+            );
+        }
+
+        return content;
+    }
+}
+
+ListItem.propTypes = propTypes;
+ListItem.defaultProps = defaultProps;
+ListItem.contextTypes = contextTypes;
+
+export default ListItem;
