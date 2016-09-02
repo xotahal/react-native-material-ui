@@ -34,11 +34,11 @@ const propTypes = {
     style: PropTypes.shape({
         container: Animated.View.propTypes.style,
         leftElementContainer: View.propTypes.style,
-        leftElement: View.propTypes.style,
+        leftElement: Text.propTypes.style,
         centerElementContainer: Animated.View.propTypes.style,
         titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
-        rightElement: View.propTypes.style,
+        rightElement: Text.propTypes.style,
     }),
     title: PropTypes.string,
     translucent: PropTypes.bool,
