@@ -95,14 +95,15 @@ function getStyles(props, context, state) {
     const container = {
         height: getListItemHeight(props, state),
     };
+    const contentViewContainer = {};
     const leftElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
-        container.paddingVertical = 8;
+        contentViewContainer.paddingVertical = 8;
         leftElementContainer.alignSelf = 'flex-start';
     }
     if (typeof rightElement !== 'string') {
-        container.paddingRight = 16;
+        contentViewContainer.paddingRight = 16;
     }
 
     return {
@@ -117,6 +118,7 @@ function getStyles(props, context, state) {
         ],
         contentViewContainer: [
             listItem.contentViewContainer,
+            contentViewContainer,
             props.style.contentViewContainer,
         ],
         leftElementContainer: [
@@ -326,33 +328,38 @@ class ListItem extends Component {
 
         return <Divider />;
     }
+    renderContent = (styles) => (
+        <View style={styles.contentViewContainer}>
+            {this.renderLeftElement(styles)}
+            {this.renderCenterElement(styles)}
+            {this.renderRightElement(styles)}
+        </View>
+    )
     render() {
         const { onPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 
-        const content = (
-            <View>
-                <View style={styles.container}>
-                    <View style={styles.contentViewContainer}>
-                        {this.renderLeftElement(styles)}
-                        {this.renderCenterElement(styles)}
-                        {this.renderRightElement(styles)}
-                    </View>
-                </View>
-                {this.renderDivider()}
-            </View>
-        );
+        // renders left element, center element and right element
+        let content = this.renderContent(styles);
 
         if (onPress) {
-            return (
-                <TouchableNativeFeedback onPress={this.onListItemPressed}>
+            content = (
+                <TouchableNativeFeedback delayPressIn={50} onPress={this.onListItemPressed}>
                     {content}
                 </TouchableNativeFeedback>
             );
         }
 
-        return content;
+
+        return (
+            <View>
+                <View style={styles.container}>
+                    {content}
+                </View>
+                {this.renderDivider()}
+            </View>
+        );
     }
 }
 

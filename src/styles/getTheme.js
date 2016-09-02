@@ -39,7 +39,6 @@ export default function getTheme(theme, ...more) {
             container: {
                 backgroundColor: '#ffffff',
                 height: 56,
-                alignItems: 'center',
             },
             contentViewContainer: {
                 flex: 1,
