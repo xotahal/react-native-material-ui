@@ -32,10 +32,10 @@ const propTypes = {
         autoFocus: PropTypes.bool,
     }),
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: Animated.View.propTypes.style,
         leftElementContainer: View.propTypes.style,
         leftElement: View.propTypes.style,
-        centerElementContainer: View.propTypes.style,
+        centerElementContainer: Animated.View.propTypes.style,
         titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
         rightElement: View.propTypes.style,
@@ -89,9 +89,20 @@ const contextTypes = {
 function getStyles(props, context) {
     const { toolbar } = context.uiTheme;
 
+    const container = {};
+
+    if (props.translucent) {
+        container.position = 'absolute';
+        container.elevation = 0;
+        container.top = 0;
+        container.left = 0;
+        container.right = 0;
+    }
+
     return {
         container: [
             toolbar.container,
+            container,
             props.style.container,
         ],
         leftElementContainer: [
