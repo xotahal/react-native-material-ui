@@ -2,7 +2,7 @@
   "name": "react-native-material-ui",
   "version": "0.6.3",
   "description": "React Native Material Design Components",
-  "main": "lib/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./"
