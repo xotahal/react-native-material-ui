@@ -188,8 +188,7 @@ class ListItem extends Component {
 
         if (onLeftElementPress) {
             onLeftElementPress(onPressValue);
-        }
-        if (onPress) {
+        } else if (onPress) {
             onPress(onPressValue);
         }
     };
