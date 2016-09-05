@@ -61,6 +61,15 @@ export default function getTheme(theme, ...more) {
                 color: palette.disabledTextColor,
             },
         }),
+        card: StyleSheet.create({
+            container: {
+                backgroundColor: '#ffffff',
+                borderRadius: 2,
+                marginTop: 8,
+                marginHorizontal: 8,
+                elevation: 2,
+            },
+        }),
         divider: {
             backgroundColor: palette.borderColor,
             height: StyleSheet.hairlineWidth,
