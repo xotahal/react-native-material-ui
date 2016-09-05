@@ -121,7 +121,23 @@ export default function getTheme(theme, ...more) {
                 margin: 16,
                 color: palette.alternateTextColor,
             },
-            // searchInput: TYPO.paperFontTitle,
+        }),
+        toolbarSearchActive: StyleSheet.create({
+            container: {
+                backgroundColor: palette.canvasColor,
+            },
+            leftElement: {
+                color: palette.secondaryTextColor,
+            },
+            centerElementContainer: { },
+            titleText: {
+                flex: 1,
+                marginLeft: 16,
+                color: palette.primaryTextColor,
+            },
+            rightElement: {
+                color: palette.secondaryTextColor,
+            },
         }),
     }, theme);
 

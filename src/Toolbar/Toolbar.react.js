@@ -86,47 +86,54 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-function getStyles(props, context) {
-    const { toolbar } = context.uiTheme;
+function getStyles(props, context, state) {
+    const { toolbar, toolbarSearchActive } = context.uiTheme;
 
-    const container = {};
+    const local = {};
+    const isSearchActive = state.isSearchActive;
 
     if (props.translucent) {
-        container.position = 'absolute';
-        container.elevation = 0;
-        container.top = 0;
-        container.left = 0;
-        container.right = 0;
+        local.container = {
+            ...StyleSheet.absoluteFillObject,
+            elevation: 0,
+        };
     }
 
     return {
         container: [
             toolbar.container,
-            container,
+            local.container,
+            isSearchActive && toolbarSearchActive.container,
             props.style.container,
         ],
         leftElementContainer: [
             toolbar.leftElementContainer,
+            isSearchActive && toolbarSearchActive.leftElementContainer,
             props.style.leftElementContainer,
         ],
         leftElement: [
             toolbar.leftElement,
+            isSearchActive && toolbarSearchActive.leftElement,
             props.style.leftElement,
         ],
         centerElementContainer: [
             toolbar.centerElementContainer,
+            isSearchActive && toolbarSearchActive.centerElementContainer,
             props.style.centerElementContainer,
         ],
         titleText: [
             toolbar.titleText,
+            isSearchActive && toolbarSearchActive.titleText,
             props.style.titleText,
         ],
         rightElementContainer: [
             toolbar.rightElementContainer,
+            isSearchActive && toolbarSearchActive.rightElementContainer,
             props.style.rightElementContainer,
         ],
         rightElement: [
             toolbar.rightElement,
+            isSearchActive && toolbarSearchActive.rightElement,
             props.style.rightElement,
         ],
     };
@@ -378,7 +385,7 @@ class Toolbar extends Component {
         );
     }
     render() {
-        const styles = getStyles(this.props, this.context);
+        const styles = getStyles(this.props, this.context, this.state);
 
         return (
             <Animated.View style={styles.container}>
