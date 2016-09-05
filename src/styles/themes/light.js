@@ -24,6 +24,7 @@ export default {
         borderColor: Color(black).alpha(.12).rgbaString(),
         // https://material.google.com/style/color.html#color-text-background-colors
         disabledColor: Color(black).alpha(.38).rgbaString(),
+        disabledTextColor: Color(black).alpha(.26).rgbaString(),
         activeIcon: Color(black).alpha(.54).rgbaString(),
         inactiveIcon: Color(black).alpha(.38).rgbaString(),
         // pickerHeaderColor: cyan500,

@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+import {
+  black,
+} from './colors';
+
 import Color from 'color';
 import lightTheme from './themes/light';
 import merge from 'lodash/merge';
@@ -29,6 +33,32 @@ export default function getTheme(theme, ...more) {
             },
             content: {
                 color: palette.canvasColor,
+            },
+        }),
+        button: StyleSheet.create({
+            container: {
+                height: 36,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingHorizontal: 16,
+                borderRadius: 2,
+                flexDirection: 'row',
+            },
+            text: {
+                color: black,
+                ...typography.buttons,
+            },
+        }),
+        buttonFlat: StyleSheet.create({}),
+        buttonRaised: StyleSheet.create({
+            container: {
+                backgroundColor: '#fff',
+                borderColor: 'rgba(0,0,0,.12)',
+            },
+        }),
+        buttonDisabled: StyleSheet.create({
+            text: {
+                color: palette.disabledTextColor,
             },
         }),
         divider: {
