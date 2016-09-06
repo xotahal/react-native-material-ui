@@ -70,6 +70,21 @@ export default function getTheme(theme, ...more) {
                 elevation: 2,
             },
         }),
+        checkbox: StyleSheet.create({
+            container: {
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+            },
+            icon: {
+                color: palette.primaryColor,
+            },
+            label: {
+                color: black,
+                marginLeft: 20,
+                flex: 1,
+            },
+        }),
         divider: {
             backgroundColor: palette.borderColor,
             height: StyleSheet.hairlineWidth,

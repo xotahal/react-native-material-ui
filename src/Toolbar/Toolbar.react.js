@@ -196,7 +196,6 @@ class Toolbar extends Component {
     }
     renderLeftElement = (style) => {
         const { leftElement, onLeftElementPress } = this.props;
-        const { spacing } = this.context.uiTheme;
 
         if (!leftElement) {
             return null;
