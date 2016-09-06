@@ -212,7 +212,7 @@ class ListItem extends Component {
         if (typeof leftElement === 'string') {
             content = (
                 <TouchableWithoutFeedback onPress={this.onLeftElementPressed}>
-                    <Icon name={leftElement} color={flattenLeftElement.color} size={24} />
+                    <Icon name={leftElement} color={flattenLeftElement.color} />
                 </TouchableWithoutFeedback>
             );
         } else {

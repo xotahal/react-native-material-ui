@@ -74,6 +74,17 @@ export default function getTheme(theme, ...more) {
             backgroundColor: palette.borderColor,
             height: StyleSheet.hairlineWidth,
         },
+        iconToggle: StyleSheet.create({
+            container: {
+                width: spacing.iconSize * 2,
+                height: spacing.iconSize * 2,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            icon: {
+                color: palette.secondaryTextColor,
+            },
+        }),
         listItem: {
             container: {
                 backgroundColor: '#ffffff',
@@ -110,13 +121,13 @@ export default function getTheme(theme, ...more) {
                 ...typography.body1,
             },
             rightElementContainer: {
+                paddingRight: 4,
             },
             leftElement: {
                 margin: 16,
                 color: palette.secondaryTextColor,
             },
             rightElement: {
-                margin: 16,
                 color: palette.secondaryTextColor,
             },
         },
@@ -139,15 +150,15 @@ export default function getTheme(theme, ...more) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 elevation: 4,
+                paddingHorizontal: 4,
             },
             leftElementContainer: { },
             leftElement: {
-                margin: 16,
                 color: palette.alternateTextColor,
             },
             centerElementContainer: {
                 flex: 1,
-                marginLeft: 16,
+                marginLeft: 20,
             },
             titleText: {
                 color: palette.alternateTextColor,
@@ -157,7 +168,6 @@ export default function getTheme(theme, ...more) {
                 flexDirection: 'row',
             },
             rightElement: {
-                margin: 16,
                 color: palette.alternateTextColor,
             },
         }),

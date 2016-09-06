@@ -1,48 +1,97 @@
-import { Text, View, Animated } from 'react-native';
+import { View, Animated, StyleSheet } from 'react-native';
 import React, { Component, PropTypes } from 'react';
+import Icon from '../Icon';
+import Color from 'color';
 
-const styles = {
-    badgeContainer: {
-        position: 'absolute',
-        borderRadius: 7.5,
-        width: 15,
-        height: 15,
-    },
-    badgeText: {
-        textAlign: 'center',
-    },
+const propTypes = {
+    color: PropTypes.string,
+    /**
+    * The color of the underlay that will show when the touch is active.
+    */
+    underlayColor: PropTypes.string,
+    /**
+    * Size of underlayColor
+    */
+    percent: PropTypes.number,
+    /**
+    * If true, the interaction will be forbidden
+    */
+    disabled: PropTypes.bool,
+    /**
+    * Size of icon (default is 24 - see spacing in palette)
+    */
+    size: PropTypes.number,
+    /**
+    * Name of icon to show
+    */
+    name: PropTypes.string,
+
+    /**
+    * It'll be used instead of icon (see props name) if exists
+    */
+    children: PropTypes.element,
+    /**
+    * Call when icon was pressed
+    */
+    onPress: PropTypes.func,
+};
+const defaultProps = {
+    disabled: false,
+    percent: 90,
+    style: {},
+};
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
 };
 
-export default class IconToggle extends Component {
+function getStyles(props, context) {
+    const { iconToggle, palette } = context.uiTheme;
 
-    static propTypes = {
-        color: PropTypes.string.isRequired,
-        opacity: PropTypes.number,
-        disabled: PropTypes.bool,
-        onPress: PropTypes.func,
-        percent: PropTypes.number,
-        children: PropTypes.element.isRequired,
-        badge: PropTypes.shape({
-            value: PropTypes.number,
-            animate: PropTypes.bool,
-            backgroundColor: PropTypes.string,
-            textColor: PropTypes.string,
-        }),
+    const local = {};
+
+    if (props.color) {
+        local.icon = {
+            color: props.color,
+        };
+    }
+    if (props.size) {
+        local.container = {
+            width: props.size * 2,
+            height: props.size * 2,
+        };
+    }
+
+    return {
+        container: [
+            iconToggle.container,
+            local.container,
+            props.style.container,
+        ],
+        icon: [
+            iconToggle.icon,
+            local.icon,
+            props.style.icon,
+            // diabled has the highest priority - because user can use color props and disabled
+            // together
+            props.disabled && { color: palette.disabledColor },
+        ],
     };
+}
 
-    static defaultProps = {
-        opacity: .1,
-        disabled: false,
-        percent: 90,
-    };
+class IconToggle extends Component {
+    constructor(props, context) {
+        super(props, context);
 
-    constructor(props) {
-        super(props);
+        this.maxOpacity = 0.26;
+
+        const { spacing } = context.uiTheme;
+        const iconSize = props.size || spacing.iconSize;
+
         this.state = {
             scaleValue: new Animated.Value(0.01),
-            opacityValue: new Animated.Value(0.1),
-            maxOpacity: props.opacity,
-            size: null,
+            opacityValue: new Animated.Value(0.26),
+            rippleSize: iconSize * 2,
+            iconSize,
         };
         this.responder = {
             onStartShouldSetResponder: () => true,
@@ -51,28 +100,13 @@ export default class IconToggle extends Component {
             onResponderTerminate: this.unHighlight,
         };
     }
-
-    componentDidUpdate(prevProps) {
-        if (this.props && this.props.badge) {
-            if (this.props.badge.value !== prevProps.badge.value) {
-                this.animateBadgeCounter();
-            }
-        }
-    }
-
-    setSize = (event) => {
+    onLayout = (event) => {
         const { width, height } = event.nativeEvent.layout;
 
         this.setState({
             size: width > height ? width : height,
         });
     };
-
-
-    /**
-     *
-     * @private
-     */
     highlight = () => {
         if (!this.props.disabled) {
             Animated.timing(this.state.scaleValue, {
@@ -80,17 +114,11 @@ export default class IconToggle extends Component {
                 duration: 150,
             }).start();
             Animated.timing(this.state.opacityValue, {
-                toValue: this.state.maxOpacity,
+                toValue: this.maxOpacity,
                 duration: 100,
             }).start();
         }
     };
-
-
-    /**
-     *
-     * @private
-     */
     unHighlight = () => {
         if (!this.props.disabled) {
             Animated.timing(this.state.scaleValue, {
@@ -102,27 +130,6 @@ export default class IconToggle extends Component {
             }).start();
         }
     };
-
-    /**
-     *
-     * @private
-     */
-    animateBadgeCounter = () => {
-        if (this.badgeAnim && this.props.badge && this.props.badge.animate !== false) {
-            Animated.spring(this.badgeAnim, {
-                toValue: 0,   // Returns to the start
-                velocity: 8,  // Velocity makes it move
-                tension: -5, // Slow
-                friction: 1,  // Oscillate a lot
-                duration: 300,
-            }).start();
-        }
-    };
-
-    /**
-     *
-     * @private
-     */
     handleResponderEnd = () => {
         const { disabled, onPress } = this.props;
 
@@ -134,102 +141,71 @@ export default class IconToggle extends Component {
             }
         }
     };
-
-    render() {
-        const { scaleValue, opacityValue, size } = this.state;
-        const { color, children } = this.props;
-
-        let { badge } = this.props;
+    renderRippleView = (styles) => {
+        const { scaleValue, opacityValue } = this.state;
+        const { size } = this.state;
         let { percent } = this.props;
 
-        if (percent < 0) {
-            percent = 0;
-        }
-        if (percent > 100) {
-            percent = 100;
-        }
-
+        // normalize
+        percent = Math.max(percent, 0);
+        percent = Math.min(percent, 100);
         percent = percent / 100;
 
-
-        if (badge && typeof badge.value === 'number') {
-            const backgroundColor = badge.backgroundColor || 'paperRed';
-            const textColor = badge.textColor || '#ffffff';
-
-            badge = Object.assign({},
-                { value: badge.value },
-                { backgroundColor },
-                { textColor }
-            );
+        if (!size) {
+            return null;
         }
 
-        this.badgeAnim = this.badgeAnim || new Animated.Value(0);
+        const color = Color(StyleSheet.flatten(styles.icon).color);
+        // https://material.google.com/components/buttons.html#buttons-toggle-buttons
+        this.maxOpacity = color.dark() ? 0.12 : 0.30;
+
+        return (
+            <Animated.View
+                style={[{
+                    position: 'absolute',
+                    left: ((1 - percent) * size) / 2,
+                    top: ((1 - percent) * size) / 2,
+                    width: percent * size,
+                    height: percent * size,
+                    borderRadius: percent * size / 2,
+                    transform: [{ scale: scaleValue }],
+                    opacity: opacityValue,
+                    backgroundColor: color.hexString(),
+                }]}
+            />
+        );
+    }
+    renderIcon = (styles) => {
+        const { name, children } = this.props;
+        const { iconSize } = this.state;
+
+        if (children) {
+            return children;
+        }
+
+        const color = StyleSheet.flatten(styles.icon).color;
+
+        return <Icon name={name} color={color} size={iconSize} />;
+    }
+    render() {
+        const styles = getStyles(this.props, this.context, this.state);
 
         return (
             <View {...this.responder}>
                 <View>
-                    {size &&
-                        <Animated.View
-                            style={[{
-                                position: 'absolute',
-                                left: ((1 - percent) * size) / 2,
-                                top: ((1 - percent) * size) / 2,
-                                width: percent * size,
-                                height: percent * size,
-                                borderRadius: percent * size / 2,
-                                transform: [{ scale: scaleValue }],
-                                opacity: opacityValue,
-                                backgroundColor: color,
-                            }]}
-                        />
-                    }
-                    <View style={{ backgroundColor: 'transparent' }} onLayout={this.setSize}>
-                        {children}
+                    {this.renderRippleView(styles)}
+                    <View style={styles.container} onLayout={this.onLayout}>
+                        {this.renderIcon(styles)}
                     </View>
-                    {size && badge && typeof badge.value === 'number' &&
-                        <Animated.View
-                            style={[
-                                styles.badgeContainer, {
-                                    backgroundColor: badge.backgroundColor,
-                                    top: size / 10,
-                                    right: size / 10,
-                                    transform: [   // Array order matters
-                                        { scale: this.badgeAnim.interpolate({
-                                            inputRange: [0, 1],
-                                            outputRange: [1, 1.25],
-                                        }) },
-                                        { translateX: this.badgeAnim.interpolate({
-                                            inputRange: [0, 1],
-                                            outputRange: [0, -6],
-                                        }) },
-                                        { translateY: this.badgeAnim.interpolate({
-                                            inputRange: [0, 1],
-                                            outputRange: [0, 5],
-                                        }) },
-                                        { rotate: this.badgeAnim.interpolate({
-                                            inputRange: [0, 1],
-                                            outputRange: [
-                                                '0deg', '45deg', // 'deg' or 'rad'
-                                            ],
-                                        }) },
-                                    ] },
-                            ]}
-                        >
-                            <View style={{ flex: 1, justifyContent: 'center' }}>
-                                <Text
-                                    style={[
-                                        styles.badgeText,
-                                      { color: badge.textColor },
-                                        badge.value > 99 ? { fontSize: 8 } : { fontSize: 10 },
-                                    ]}
-                                >
-                                    {badge.value}
-                                </Text>
-                            </View>
-                        </Animated.View>
-                    }
                 </View>
             </View>
         );
     }
 }
+
+IconToggle.propTypes = propTypes;
+IconToggle.defaultProps = defaultProps;
+IconToggle.contextTypes = contextTypes;
+
+
+export default IconToggle;

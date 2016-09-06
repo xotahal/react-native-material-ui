@@ -214,14 +214,12 @@ class Toolbar extends Component {
 
         return (
             <View style={style.leftElementContainer}>
-                <IconToggle color={flattenLeftElement.color} onPress={onPress}>
-                    <Icon
-                        name={iconName}
-                        size={spacing.iconSize}
-                        color={flattenLeftElement.color}
-                        style={style.leftElement}
-                    />
-                </IconToggle>
+                <IconToggle
+                    name={iconName}
+                    color={flattenLeftElement.color}
+                    onPress={onPress}
+                    style={style.leftElement}
+                />
             </View>
         );
     }
@@ -308,7 +306,6 @@ class Toolbar extends Component {
                             name={action}
                             size={spacing.iconSize}
                             color={flattenRightElement.color}
-                            style={style.rightElement}
                         />
                     );
                 }

@@ -1,30 +1,38 @@
 import { default as VectorIcon } from 'react-native-vector-icons/MaterialIcons';
 import React, { Component, PropTypes } from 'react';
 
-export default class Icon extends Component {
+const propTypes = {
+    name: PropTypes.string.isRequired,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    size: PropTypes.number,
+    color: PropTypes.string,
+};
+const defaultProps = { };
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
+};
 
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-        style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-        size: PropTypes.number,
-        color: PropTypes.string,
-    };
-
-    static defaultProps = {
-        size: 30,
-        color: '#757575',
-    };
-
+class Icon extends Component {
     render() {
         const { name, style, size, color } = this.props;
+        const { palette, spacing } = this.context.uiTheme;
+
+        const iconColor = color || palette.secondaryTextColor;
+        const iconSize = size || spacing.iconSize;
 
         return (
             <VectorIcon
                 name={name}
-                size={size}
-                color={color}
+                size={iconSize}
+                color={iconColor}
                 style={style}
             />
         );
     }
 }
+
+Icon.propTypes = propTypes;
+Icon.defaultProps = defaultProps;
+Icon.contextTypes = contextTypes;
+
+export default Icon;
