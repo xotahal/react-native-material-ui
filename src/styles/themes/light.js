@@ -7,9 +7,11 @@ import {
 
 import Color from 'color';
 import spacing from '../spacing';
+import typography from '../typography';
 
 export default {
     spacing,
+    typography,
     fontFamily: 'Roboto',
     palette: {
         // main theme colors
