@@ -65,7 +65,7 @@ export default function getTheme(theme, ...more) {
             container: {
                 backgroundColor: '#ffffff',
                 borderRadius: 2,
-                marginTop: 8,
+                marginVertical: 4,
                 marginHorizontal: 8,
                 elevation: 2,
             },
