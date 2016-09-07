@@ -6,6 +6,9 @@ const fontWeight = {
 
 // https://material.google.com/style/typography.html
 
+// Line heights
+// https://material.google.com/style/typography.html#typography-line-height
+
 export default {
     fontWeight,
     appBar: {
@@ -19,13 +22,16 @@ export default {
     subheading: {
         fontWeight: fontWeight.normal,
         fontSize: 16,
+        lineHeight: 24,
     },
     body2: {
         fontWeight: fontWeight.medium,
         fontSize: 14,
+        lineHeight: 24,
     },
     body1: {
         fontWeight: fontWeight.normal,
         fontSize: 14,
+        lineHeight: 20,
     },
 };
