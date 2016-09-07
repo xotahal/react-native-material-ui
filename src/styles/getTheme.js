@@ -63,11 +63,44 @@ export default function getTheme(theme, ...more) {
         }),
         card: StyleSheet.create({
             container: {
-                backgroundColor: '#ffffff',
+                backgroundColor: palette.canvasColor,
                 borderRadius: 2,
                 marginVertical: 4,
                 marginHorizontal: 8,
                 elevation: 2,
+            },
+        }),
+        dialog: StyleSheet.create({
+            container: {
+                backgroundColor: palette.canvasColor,
+                borderRadius: 2,
+                elevation: 24,
+                width: 280,
+                paddingTop: 24,
+                paddingHorizontal: 24,
+            },
+            titleContainer: {
+                paddingBottom: 20,
+            },
+            titleText: {
+                fontSize: 20,
+                fontWeight: 'bold',
+                color: 'black',
+            },
+            contentContainer: {
+                paddingBottom: 24,
+            },
+            // TODO: merge actionsContainer with actionsInnerContainer
+            actionsContainer: {
+                height: 56,
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+            },
+            actionsInnerContainer: {
+                margin: 8,
+            },
+            defaultActionsContainer: {
+                flexDirection: 'row',
             },
         }),
         checkbox: StyleSheet.create({
