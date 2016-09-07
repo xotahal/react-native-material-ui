@@ -1,5 +1,5 @@
 
-# New version in [v1.0.0 branch](https://github.com/xotahal/react-native-material-ui/tree/v1.0.0) 
+# New version
 Although this version is under :construction:, consider to use it, because current version will be outdated in couple of weeks. [Please see issue#15](https://github.com/xotahal/react-native-material-ui/issues/15)
 
 # React Native Material Design
