@@ -17,6 +17,10 @@ const propTypes = {
     */
     text: PropTypes.string,
     /**
+    * It's just sugar for: style: { width: size, height: size, borderRadius: size / 2 }
+    */
+    size: PropTypes.number,
+    /**
     * Inline style of avatar
     */
     style: PropTypes.shape({
@@ -33,14 +37,27 @@ const contextTypes = {
 
 function getStyles(props, context) {
     const { avatar } = context.uiTheme;
+    const { size } = props;
+
+    const local = {};
+
+    if (size) {
+        local.container = {
+            height: size,
+            width: size,
+            borderRadius: size / 2,
+        };
+    }
 
     return {
         container: [
             avatar.container,
+            local.container,
             props.style.container,
         ],
         content: [
             avatar.content,
+            local.content,
             props.style.content,
         ],
     };
