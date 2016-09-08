@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import {
-  black,
+  black, grey100, grey500, white,
 } from './colors';
 
 import Color from 'color';
@@ -118,10 +118,106 @@ export default function getTheme(theme, ...more) {
                 flex: 1,
             },
         }),
+        // TODO: add StyleSheet
         divider: {
             backgroundColor: palette.borderColor,
             height: StyleSheet.hairlineWidth,
         },
+        drawer: StyleSheet.create({
+            container: {
+                flex: 1,
+            },
+        }),
+        drawerHeader: StyleSheet.create({
+            container: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+            },
+            contentContainer: {
+                backgroundColor: grey500,
+                height: 150,
+            },
+        }),
+        drawerHeaderAccount: StyleSheet.create({
+            container: {
+                flex: 1,
+                paddingBottom: 8,
+            },
+            accountContainer: {
+                flex: 1,
+                paddingHorizontal: 16,
+                marginBottom: 8,
+            },
+            topContainer: {
+                flex: 1,
+                justifyContent: 'center',
+            },
+            avatarsContainer: {
+                flexDirection: 'row',
+            },
+            activeAvatarContainer: {
+                flex: 1,
+            },
+            inactiveAvatarContainer: {
+                paddingLeft: 8,
+            },
+        }),
+        drawerHeaderListItem: StyleSheet.create({
+            container: {
+                backgroundColor: grey500,
+            },
+            primaryText: {
+                color: white,
+            },
+            secondaryText: {
+                color: white,
+            },
+            rightElement: {
+                color: white,
+            },
+        }),
+        drawerSection: StyleSheet.create({
+            container: {
+                paddingVertical: 8,
+            },
+            item: {
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+                height: 48,
+                paddingLeft: 16,
+            },
+            subheader: {
+                flex: 1,
+            },
+            icon: {
+                position: 'absolute',
+                top: 13,
+            },
+            value: {
+                flex: 1,
+                paddingLeft: 56,
+                top: 2,
+            },
+            label: {
+                paddingRight: 16,
+                top: 2,
+            },
+        }),
+        drawerSectionActiveItem: StyleSheet.create({
+            container: {
+                backgroundColor: grey100,
+            },
+            leftElement: {
+                color: palette.primaryColor,
+            },
+            primaryText: {
+                ...typography.buttons,
+                color: palette.primaryColor,
+            },
+        }),
         iconToggle: StyleSheet.create({
             container: {
                 width: spacing.iconSize * 2,
