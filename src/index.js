@@ -1,6 +1,7 @@
 import * as COLOR from './styles/colors';
 
 export { COLOR };
+export { default as ThemeProvider } from './styles/ThemeProvider.react';
 // components
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';

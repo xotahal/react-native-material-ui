@@ -7,7 +7,6 @@ import {
 import Color from 'color';
 import lightTheme from './themes/light';
 import merge from 'lodash/merge';
-import typography from './typography';
 
 function darkenOrLighten(color, ratio = 0.15) {
     const c = Color(color);
@@ -17,12 +16,12 @@ function darkenOrLighten(color, ratio = 0.15) {
 export default function getTheme(theme, ...more) {
     theme = merge(lightTheme, theme, ...more);
 
-    const { palette, spacing } = theme;
-    // const baseTheme = { spacing, fontFamily, palette };
+    const { spacing, fontFamily, typography, palette } = theme;
+    const baseTheme = { spacing, fontFamily, typography, palette };
 
     theme = merge({
         // https://material.google.com/layout/metrics-keylines.html#metrics-keylines-touch-target-size
-        avatar: StyleSheet.create({
+        avatar: StyleSheet.create(merge({
             container: {
                 width: spacing.avatarSize,
                 height: spacing.avatarSize,
@@ -34,8 +33,8 @@ export default function getTheme(theme, ...more) {
             content: {
                 color: palette.canvasColor,
             },
-        }),
-        button: StyleSheet.create({
+        }, theme.avatar)),
+        button: StyleSheet.create(merge({
             container: {
                 height: 36,
                 alignItems: 'center',
@@ -48,20 +47,20 @@ export default function getTheme(theme, ...more) {
                 color: black,
                 ...typography.buttons,
             },
-        }),
-        buttonFlat: StyleSheet.create({}),
-        buttonRaised: StyleSheet.create({
+        }, theme.button)),
+        buttonFlat: StyleSheet.create(merge({}, theme.buttonFlat)),
+        buttonRaised: StyleSheet.create(merge({
             container: {
                 backgroundColor: '#fff',
                 borderColor: 'rgba(0,0,0,.12)',
             },
-        }),
-        buttonDisabled: StyleSheet.create({
+        }, theme.buttonRaised)),
+        buttonDisabled: StyleSheet.create(merge({
             text: {
                 color: palette.disabledTextColor,
             },
-        }),
-        card: StyleSheet.create({
+        }, theme.buttonDisabled)),
+        card: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.canvasColor,
                 borderRadius: 2,
@@ -69,8 +68,8 @@ export default function getTheme(theme, ...more) {
                 marginHorizontal: 8,
                 elevation: 2,
             },
-        }),
-        dialog: StyleSheet.create({
+        }, theme.card)),
+        dialog: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.canvasColor,
                 borderRadius: 2,
@@ -102,8 +101,8 @@ export default function getTheme(theme, ...more) {
             defaultActionsContainer: {
                 flexDirection: 'row',
             },
-        }),
-        checkbox: StyleSheet.create({
+        }, theme.dialog)),
+        checkbox: StyleSheet.create(merge({
             container: {
                 flex: 1,
                 flexDirection: 'row',
@@ -117,18 +116,18 @@ export default function getTheme(theme, ...more) {
                 marginLeft: 20,
                 flex: 1,
             },
-        }),
+        }, theme.checkbox)),
         // TODO: add StyleSheet
         divider: {
             backgroundColor: palette.borderColor,
             height: StyleSheet.hairlineWidth,
         },
-        drawer: StyleSheet.create({
+        drawer: StyleSheet.create(merge({
             container: {
                 flex: 1,
             },
-        }),
-        drawerHeader: StyleSheet.create({
+        }, theme.drawer)),
+        drawerHeader: StyleSheet.create(merge({
             container: {
                 position: 'absolute',
                 top: 0,
@@ -139,8 +138,8 @@ export default function getTheme(theme, ...more) {
                 backgroundColor: grey500,
                 height: 150,
             },
-        }),
-        drawerHeaderAccount: StyleSheet.create({
+        }, theme.drawerHeader)),
+        drawerHeaderAccount: StyleSheet.create(merge({
             container: {
                 flex: 1,
                 paddingBottom: 8,
@@ -163,8 +162,8 @@ export default function getTheme(theme, ...more) {
             inactiveAvatarContainer: {
                 paddingLeft: 8,
             },
-        }),
-        drawerHeaderListItem: StyleSheet.create({
+        }, theme.drawerHeaderAccount)),
+        drawerHeaderListItem: StyleSheet.create(merge({
             container: {
                 backgroundColor: grey500,
             },
@@ -177,8 +176,8 @@ export default function getTheme(theme, ...more) {
             rightElement: {
                 color: white,
             },
-        }),
-        drawerSection: StyleSheet.create({
+        }, theme.drawerHeaderListItem)),
+        drawerSection: StyleSheet.create(merge({
             container: {
                 paddingVertical: 8,
             },
@@ -205,8 +204,8 @@ export default function getTheme(theme, ...more) {
                 paddingRight: 16,
                 top: 2,
             },
-        }),
-        drawerSectionActiveItem: StyleSheet.create({
+        }, theme.drawerSection)),
+        drawerSectionActiveItem: StyleSheet.create(merge({
             container: {
                 backgroundColor: grey100,
             },
@@ -217,8 +216,8 @@ export default function getTheme(theme, ...more) {
                 ...typography.buttons,
                 color: palette.primaryColor,
             },
-        }),
-        iconToggle: StyleSheet.create({
+        }, theme.drawerSectionActiveItem)),
+        iconToggle: StyleSheet.create(merge({
             container: {
                 width: spacing.iconSize * 2,
                 height: spacing.iconSize * 2,
@@ -228,7 +227,7 @@ export default function getTheme(theme, ...more) {
             icon: {
                 color: palette.secondaryTextColor,
             },
-        }),
+        }, theme.iconToggle)),
         listItem: {
             container: {
                 backgroundColor: '#ffffff',
@@ -276,7 +275,7 @@ export default function getTheme(theme, ...more) {
             },
         },
         // https://material.google.com/components/subheaders.html#
-        subheader: StyleSheet.create({
+        subheader: StyleSheet.create(merge({
             container: {
                 height: 48,
                 justifyContent: 'center',
@@ -286,8 +285,8 @@ export default function getTheme(theme, ...more) {
                 // https://material.google.com/components/subheaders.html#subheaders-grid-subheaders
                 ...typography.body2,
             },
-        }),
-        toolbar: StyleSheet.create({
+        }, theme.subheader)),
+        toolbar: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.primaryColor,
                 height: 56,
@@ -314,8 +313,8 @@ export default function getTheme(theme, ...more) {
             rightElement: {
                 color: palette.alternateTextColor,
             },
-        }),
-        toolbarSearchActive: StyleSheet.create({
+        }, theme.toolbar)),
+        toolbarSearchActive: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.canvasColor,
             },
@@ -331,10 +330,8 @@ export default function getTheme(theme, ...more) {
             rightElement: {
                 color: palette.secondaryTextColor,
             },
-        }),
-    }, theme);
-
-    // theme.prepareStyles = compose(...theme);
+        }, theme.toolbarSearchActive)),
+    }, baseTheme);
 
     return theme;
 }
