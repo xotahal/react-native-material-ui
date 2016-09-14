@@ -1,30 +1,16 @@
 
-# New version
-Although this version is under :construction:, consider to use it, because current version will be outdated in couple of weeks. [Please see issue#15](https://github.com/xotahal/react-native-material-ui/issues/15)
-
-# React Native Material Design
+# React Native Material UI
+**Highly customizable material design components for React Native!**
 
 [![npm](https://img.shields.io/npm/v/react-native-material-ui.svg)](https://www.npmjs.com/package/react-native-material-ui)
 [![Dependency Status](https://david-dm.org/react-native-material-design/react-native-material-design.svg)](https://david-dm.org/react-native-material-design/react-native-material-design.svg)
 [![GitHub issues](https://img.shields.io/github/issues/xotahal/react-native-material-ui.svg)](https://github.com/xotahal/react-native-material-ui/issues)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/xotahal/react-native-material-ui/master/LICENSE)
 
-React Native components which implement [Material Design](https://www.google.com/design/spec/material-design/introduction.html).
-
-
-
-This repository has been forked from the [react-native-material-design](https://github.com/react-native-material-design/react-native-material-design) project started by **@Ehesp**.
-
-Supported is [React Native](https://github.com/facebook/react-native) 0.16+
-
-- [Getting Started](#getting-started)
-- [Examples](#examples)
-- [Components](#components)
-
 
 # Getting Started
 
-```
+```bash
 npm i react-native-material-ui --save
 ```
 
@@ -32,25 +18,89 @@ Copy the `MaterialIcons` font file from [react-native-vector-icons](https://gith
 
 `./node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf` -> `./android/app/src/main/assets/fonts`.
 
-## Usage
+# Usage
 
-Import any required components into your project, for example:
+To achieve the level of customizability, React Native Material UI is using a single JS object called uiTheme that is passed in via context. By default, this uiTheme object is based on the lightTheme that you can find [here](https://github.com/xotahal/react-native-material-ui/blob/master/src/styles/themes/light.js). So, you can change almost everything very easily.
+
+The uiTheme object contains the following keys:
+
+	spacing: {} // can be used to change the spacing of components.
+	fontFamily: {} // can be used to change the default font family.
+	palette: {  // can be used to change the color of components.
+        primaryColor: blue500,
+        accentColor: red500,
+        ...
+	}
+	typography: {} // can be used to change the typography of components
+	// you can change style of every each component
+	avatar: {}
+	button: {}
+	toolbar: {}
+	...
+
 
 ```js
-import React from 'react-native';
-import { Button } from 'react-native-material-ui';
+import React, { Component } from 'react';
+import { Navigator, NativeModules } from 'react-native';
 
-class ReactNativeComponent extends React.Component {
-  render() {
-    return <Button text="Submit" />
-  }
+import { COLOR, ThemeProvider } from '../react-native-material-ui';
+
+// you can set your style right here, it'll be propagated to application
+const uiTheme = {
+    palette: {
+        primaryColor: COLOR.green500,
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+};
+
+class Main extends Component {
+    render() {
+        return (
+            <ThemeProvider uiTheme={uiTheme}>
+                <App />
+            </ThemeProvider>
+        );
+    }
 }
 ```
+**It means, if you want to change primary color of your application for example. You can just pass to ThemeProvider object with your own settings.** Your settings will be merged with default theme.
 
-> You may need to restart your packager in order for the icons to render.
+## What else?
+Another great feature is, you can use the uiTheme everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
 
+```js
+import ...
 
-## Examples
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
+};
+
+class MyButton extends Component {
+    render() {
+	    // it's really easy to get primary color everywhere in your app
+        const { primaryColor } = this.context.uiTheme.palette;
+
+        return ...
+    }
+}
+
+export ...
+```
+
+## Local changes
+Of course, sometimes we need to change style of only one component. It means, all `buttons` have red background, but facebook login button that should have blue background. Every each component have `style` property. So you can very easily overide whatever you want.
+
+```js
+<Button style={{ container: { backgroundColor: 'blue' }}} />
+```
+# Examples
+
+You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-demo-app)!
+
 
 ![Example 1](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-1.jpg "Example 1")
 ![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg "Example 2")
@@ -62,57 +112,16 @@ class ReactNativeComponent extends React.Component {
 
 This library needs better documentation of components. For now, in this section are some gifs and pictures.
 
-- [Avatar] (#avatar)
-- [Button] (#button)
-- [Checkbox] (#checkbox)
-- [Icon] (#icon)
-- [List item] (#list-item)
-- [Radio button] (#radio-button)
-- [Card] (#card)
-- [Drawer](#drawer)
-- [Dropdown menu](#dropdown-menu)
-- [Toolbar](#toolbar)
-
-## Toolbar
-
-Toolbar has the search feature!
-
-```js
-<Toolbar
-  searchable={{
-    onChangeText: () => { },
-    placeholder: 'Search'
-  }}
-/>
-```
-
-![Toolbar] (https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbar/searchable.gif "Searchable toolbar")
-
-## Dropdown menu
-
-You can use dropdown menu on Toolbar and ListItem. You just have to define menuActions. The `onPress` function returns result (either 'itemPressed' or 'dismissed') and index of item in list (0 for 'First', 1 for 'Second' in these examples).
-
-```js
-<Toolbar
-  menuActions={{
-    labels: ['First', 'Second'],
-    onPress: (result, index) => { }
-  }}
-/>
-```
-```js
-<ListItem
-  menuActions={{
-    labels: ['First', 'Second'],
-    onPress: (result, index) => { }
-  }}
-/>
-```
-
-![Dropdown] (https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/dropdown/dropdown.gif)
-
-## Drawer with [account style](https://www.google.com/design/spec/patterns/navigation-drawer.html#navigation-drawer-specs) header
-
-![Drawer] (https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/drawer/drawer.gif)
-
-
+- Avatar
+- [Button](#docs/Button)
+- Card
+- Checkbox
+- Dialog
+- Divider
+- Drawer
+- Icon
+- Icon toggles
+- List item
+- Radio button
+- Subheader
+- Toolbar
