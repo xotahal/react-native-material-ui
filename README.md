@@ -113,7 +113,7 @@ You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-d
 This library needs better documentation of components. For now, in this section are some gifs and pictures.
 
 - Avatar
-- [Button](#docs/Button)
+- [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - Card
 - Checkbox
 - Dialog
