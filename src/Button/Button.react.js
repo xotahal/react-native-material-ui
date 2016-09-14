@@ -3,14 +3,37 @@ import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 
 const propTypes = {
+    /**
+    * If true button will be disabled
+    */
     disabled: PropTypes.bool,
+    /**
+    * If true button will be raised
+    */
     raised: PropTypes.bool,
-
+    /**
+    * Called when button is pressed. Text is passed as param
+    */
     onPress: PropTypes.func,
+    /**
+    * Called when button is long pressed. Text is passed as param
+    */
     onLongPress: PropTypes.func,
-
+    /**
+    * Text will be shown on button
+    */
     text: PropTypes.string.isRequired,
+    /**
+    * If specified it'll be shown before text
+    */
     icon: PropTypes.string,
+    /**
+    * You can overide any style for this button
+    */
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        text: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     primary: false,
