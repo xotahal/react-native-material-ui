@@ -22,7 +22,7 @@ function getStyles(props, context) {
 
     if (image) {
         local.contentContainer = {
-            backgroundColor: image,
+            backgroundColor: null,
         };
     }
 
