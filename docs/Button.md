@@ -1,5 +1,5 @@
 # [Button](https://material.google.com/components/buttons.html)
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons/buttons-1.jpg" height="560">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-1.jpg" height="560">
 
 ### Usage
 
