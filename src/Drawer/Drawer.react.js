@@ -15,14 +15,26 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
+function getStyles(props, context) {
+    const { drawer } = context.uiTheme;
+
+    return {
+        container: [
+            drawer.container,
+            props.style.container,
+        ],
+    };
+}
+
 class Drawer extends Component {
     render() {
         const { children } = this.props;
 
+        const styles = getStyles(this.props, this.context);
 
         return (
             <Container>
-                <ScrollView>
+                <ScrollView style={styles.container}>
                     {children}
                 </ScrollView>
             </Container>

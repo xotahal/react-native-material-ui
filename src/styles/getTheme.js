@@ -125,6 +125,7 @@ export default function getTheme(theme, ...more) {
         drawer: StyleSheet.create(merge({
             container: {
                 flex: 1,
+                backgroundColor: white,
             },
         }, theme.drawer)),
         drawerHeader: StyleSheet.create(merge({
