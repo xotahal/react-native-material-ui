@@ -1,31 +1,22 @@
-# [Button](https://material.google.com/components/buttons.html)
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons/buttons-1.jpg" height="560">
+# [Action Button](https://material.google.com/components/buttons-floating-action-button.html)
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-1.jpg" height="560">
 
 ### Usage
 
 ```js
 ...
-import { Button } from '../react-native-material-ui';
+import { ActionButton } from '../react-native-material-ui';
 ...
 render() {
     <View>
-        <Button primary text="Primary" /> // flat button with primary color
-        <Button accent text="Accent" /> // flat button with accent color
-        <Button raised primary text="Primary" /> // raised button with primary color
+        <ActionButton /> // default with icon (default icon is +)
+        <ActionButton icon="done" /> // with done icon
     </View>
 }
 ```
 ### API
 ```js
 const propTypes = {
-    /**
-    * If true button will be disabled
-    */
-    disabled: PropTypes.bool,
-    /**
-    * If true button will be raised
-    */
-    raised: PropTypes.bool,
     /**
     * Called when button is pressed. Text is passed as param
     */
@@ -35,10 +26,6 @@ const propTypes = {
     */
     onLongPress: PropTypes.func,
     /**
-    * Text will be shown on button
-    */
-    text: PropTypes.string.isRequired,
-    /**
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,
@@ -47,7 +34,7 @@ const propTypes = {
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
-        text: Text.propTypes.style,
+        icon: Text.propTypes.style,
     }),
 };
 ```
