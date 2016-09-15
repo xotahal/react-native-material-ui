@@ -20,6 +20,17 @@ export default function getTheme(theme, ...more) {
     const baseTheme = { spacing, fontFamily, typography, palette };
 
     theme = merge({
+        actionButton: StyleSheet.create(merge({
+            container: {
+                height: 56,
+                width: 56,
+                borderRadius: 56 / 2,
+                backgroundColor: palette.accentColor,
+            },
+            icon: {
+                color: white,
+            },
+        }, theme.actionButton)),
         // https://material.google.com/layout/metrics-keylines.html#metrics-keylines-touch-target-size
         avatar: StyleSheet.create(merge({
             container: {
