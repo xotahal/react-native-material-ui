@@ -1,4 +1,4 @@
-import { View, Text, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { View, Text, TouchableNativeFeedback } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 
