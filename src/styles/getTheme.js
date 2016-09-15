@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import {
-  black, grey100, grey500, white,
+  black, grey100, grey500, white, transparent,
 } from './colors';
 
 import Color from 'color';
@@ -166,16 +166,7 @@ export default function getTheme(theme, ...more) {
         }, theme.drawerHeaderAccount)),
         drawerHeaderListItem: StyleSheet.create(merge({
             container: {
-                backgroundColor: grey500,
-            },
-            primaryText: {
-                color: white,
-            },
-            secondaryText: {
-                color: white,
-            },
-            rightElement: {
-                color: white,
+                backgroundColor: transparent,
             },
         }, theme.drawerHeaderListItem)),
         drawerSection: StyleSheet.create(merge({
