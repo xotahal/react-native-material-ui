@@ -97,6 +97,17 @@ Of course, sometimes we need to change style of only one component. It means, al
 ```js
 <Button style={{ container: { backgroundColor: 'blue' }}} />
 ```
+# Animations are included
+
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-speedDial.gif" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar.gif" width="280">
+
+Note: You have to allow the animations for Android ([see React Native's documentation](http://facebook.github.io/react-native/releases/0.33/docs/animations.html#layoutanimation))
+```js
+UIManager.setLayoutAnimationEnabledExperimental && 
+UIManager.setLayoutAnimationEnabledExperimental(true);
+```
+
 # Examples
 
 You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-demo-app)!
