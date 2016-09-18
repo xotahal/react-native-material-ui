@@ -27,6 +27,32 @@ export default function getTheme(theme, ...more) {
                 borderRadius: 56 / 2,
                 backgroundColor: palette.accentColor,
             },
+            toolbarContainer: {
+                flex: 1,
+                height: 56,
+                backgroundColor: palette.accentColor,
+                flexDirection: 'row',
+            },
+            toolbarActionContainer: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            speedDialContainer: {
+                flex: 1,
+                marginBottom: 16,
+                alignItems: 'center',
+            },
+            speedDialActionContainer: {
+                elevation: 2,
+                marginBottom: 16,
+                height: 40,
+                width: 40,
+                borderRadius: 40 / 2,
+                backgroundColor: grey500,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
             icon: {
                 color: white,
             },
