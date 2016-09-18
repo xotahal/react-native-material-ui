@@ -127,7 +127,7 @@ class ActionButton extends Component {
 
         return (
             <View style={{ position: 'absolute', bottom: 0, right: 0, left: 0 }}>
-                <View style={styles.toolbarContainer}>
+                <View key="main-button" style={styles.toolbarContainer}>
                     {actions.map(action => (
                         <View key={action} style={styles.toolbarActionContainer}>
                             <IconToggle
