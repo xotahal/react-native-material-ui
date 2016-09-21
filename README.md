@@ -111,7 +111,8 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 
 You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-demo-app)!
 
-
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-1.png" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-anim-1.gif" width="280">
 ![Example 1](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-1.jpg "Example 1")
 ![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg "Example 2")
 ![Example 3](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-3.jpg "Example 3")
@@ -135,4 +136,4 @@ Here is a list of all component included in this library. (I'm working on docume
 - List item
 - Radio button
 - Subheader
-- Toolbar
+- [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
