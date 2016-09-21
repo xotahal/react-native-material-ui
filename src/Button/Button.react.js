@@ -1,6 +1,7 @@
-import { View, Text, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
+import RippleFeedback from '../RippleFeedback';
 
 const propTypes = {
     /**
@@ -153,7 +154,7 @@ class Button extends Component {
         }
 
         return (
-            <TouchableNativeFeedback
+            <RippleFeedback
                 onPress={!disabled ? this.onPress : null}
                 onLongPress={!disabled ? onLongPress : null}
                 onPressIn={raised ? this.setElevation : null}
@@ -161,7 +162,7 @@ class Button extends Component {
                 delayPressIn={50}
             >
                 {content}
-            </TouchableNativeFeedback>
+            </RippleFeedback>
         );
     }
 }

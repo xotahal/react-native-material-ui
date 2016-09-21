@@ -1,5 +1,6 @@
-import { View, TouchableNativeFeedback } from 'react-native';
+import { View } from 'react-native';
 import React, { Component, PropTypes } from 'react';
+import RippleFeedback from '../RippleFeedback';
 
 import Title from './Title.react';
 import Content from './Content.react';
@@ -43,11 +44,11 @@ class Dialog extends Component {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <TouchableNativeFeedback onPress={onPress} >
+            <RippleFeedback onPress={onPress} >
                 <View style={styles.container}>
                     {children}
                 </View>
-            </TouchableNativeFeedback>
+            </RippleFeedback>
         );
     }
 

@@ -3,11 +3,11 @@ import {
     View,
     Text,
     TouchableWithoutFeedback,
-    TouchableNativeFeedback,
 } from 'react-native';
 import Divider from '../Divider';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
+import RippleFeedback from '../RippleFeedback';
 import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
@@ -344,9 +344,9 @@ class ListItem extends Component {
 
         if (onPress) {
             content = (
-                <TouchableNativeFeedback delayPressIn={50} onPress={this.onListItemPressed}>
+                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed}>
                     {content}
-                </TouchableNativeFeedback>
+                </RippleFeedback>
             );
         }
 

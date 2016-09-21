@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import IconToggle from '../IconToggle';
+import RippleFeedback from '../RippleFeedback';
 
 const propTypes = {
     /**
@@ -104,9 +105,9 @@ class Checkbox extends Component {
         }
 
         return (
-            <TouchableNativeFeedback onPress={this.onPress}>
+            <RippleFeedback onPress={this.onPress}>
                 {content}
-            </TouchableNativeFeedback>
+            </RippleFeedback>
         );
     }
 }

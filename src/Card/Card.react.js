@@ -1,5 +1,6 @@
-import { View, TouchableNativeFeedback } from 'react-native';
+import { View } from 'react-native';
 import React, { Component, PropTypes } from 'react';
+import RippleFeedback from '../RippleFeedback';
 
 const propTypes = {
     children: PropTypes.node,
@@ -47,9 +48,9 @@ class Card extends Component {
 
         if (onPress) {
             return (
-                <TouchableNativeFeedback onPress={onPress}>
+                <RippleFeedback onPress={onPress}>
                     {content}
-                </TouchableNativeFeedback>
+                </RippleFeedback>
             );
         }
 

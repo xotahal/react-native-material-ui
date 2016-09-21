@@ -1,7 +1,8 @@
-import { View, Text, TouchableNativeFeedback, LayoutAnimation } from 'react-native';
+import { View, Text, LayoutAnimation } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
+import RippleFeedback from '../RippleFeedback';
 
 const propTypes = {
     /**
@@ -150,13 +151,13 @@ class ActionButton extends Component {
                 <View style={styles.speedDialContainer}>
                     {actions.map(action => (
                         <View key={action} style={styles.speedDialActionContainer}>
-                            <TouchableNativeFeedback
-                                background={TouchableNativeFeedback.Ripple('#AAF', true)}
+                            <RippleFeedback
+                                color="#AAF"
                                 onPress={() => this.onPress(action)}
                                 delayPressIn={20}
                             >
                                 {this.renderIconButton(styles, action)}
-                            </TouchableNativeFeedback>
+                            </RippleFeedback>
                         </View>
                     ))}
                 </View>
@@ -169,8 +170,8 @@ class ActionButton extends Component {
 
         return (
             <View key="main-button" style={styles.container}>
-                <TouchableNativeFeedback
-                    background={TouchableNativeFeedback.Ripple('#AAF', true)}
+                <RippleFeedback
+                    color="#AAF"
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
                     onPressIn={() => this.setState({ elevation: 4 })}
@@ -178,7 +179,7 @@ class ActionButton extends Component {
                     delayPressIn={20}
                 >
                     {this.renderIconButton(styles, icon)}
-                </TouchableNativeFeedback>
+                </RippleFeedback>
             </View>
         );
     }
