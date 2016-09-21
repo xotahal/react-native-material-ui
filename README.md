@@ -1,5 +1,5 @@
 
-# React Native Material UI
+# React Native Material UI (iOS and Android supported)
 **Highly customizable material design components for React Native!**
 
 [![npm](https://img.shields.io/npm/v/react-native-material-ui.svg)](https://www.npmjs.com/package/react-native-material-ui)
@@ -8,14 +8,19 @@
 
 
 # Getting Started
-
 ```bash
 npm i react-native-material-ui --save
 ```
 
+## Setting of vector icons
+You can see [this repo](https://github.com/oblador/react-native-vector-icons) for much more informations.
+
+### Android (see [original](https://github.com/oblador/react-native-vector-icons#android))
 Copy the `MaterialIcons` font file from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons#android) to your local working directory:
 
 `./node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf` -> `./android/app/src/main/assets/fonts`.
+
+### iOS (see [original](https://github.com/oblador/react-native-vector-icons#ios))
 
 # Usage
 
