@@ -13,7 +13,7 @@ npm i react-native-material-ui --save
 ```
 
 ## Setting of vector icons
-You can see [this repo](https://github.com/oblador/react-native-vector-icons) for much more informations.
+You can see [this repo](https://github.com/oblador/react-native-vector-icons) for much more information.
 
 ### Android (see [original](https://github.com/oblador/react-native-vector-icons#android))
 Copy the `MaterialIcons` font file from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons#android) to your local working directory:
