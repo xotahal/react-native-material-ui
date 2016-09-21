@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
+import getPlatformElevation from '../styles/getPlatformElevation';
 
 const propTypes = {
     /**
@@ -70,7 +71,12 @@ function getStyles(props, context, state) {
         local.text = { color: palette.canvasColor };
     }
 
-    local.container.elevation = raised ? state.elevation : null;
+    if (raised) {
+        local.container = {
+            ...local.container,
+            ...getPlatformElevation(state.elevation),
+        };
+    }
 
     return {
         container: [
