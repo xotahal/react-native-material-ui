@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+import { fontWeight } from './typography';
 import {
   black, grey100, grey500, white, transparent,
 } from './colors';
@@ -355,6 +356,7 @@ export default function getTheme(theme, ...more) {
                 flex: 1,
                 marginLeft: 16,
                 color: palette.primaryTextColor,
+                fontWeight: fontWeight.normal,
             },
             rightElement: {
                 color: palette.secondaryTextColor,
