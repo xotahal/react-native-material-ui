@@ -1,6 +1,8 @@
 import { Platform } from 'react-native';
 import { black } from './colors';
 
+export const ELEVATION_ZINDEX = 1;
+
 const getPlatformElevation = (elevation) => {
     if (Platform.OS === 'ios') {
         if (elevation !== 0) {
@@ -14,7 +16,7 @@ const getPlatformElevation = (elevation) => {
                 },
                 // we need to have zIndex on iOS, otherwise the shadow is under components that
                 // are rendered later
-                zIndex: 1,
+                zIndex: ELEVATION_ZINDEX,
             };
         }
 

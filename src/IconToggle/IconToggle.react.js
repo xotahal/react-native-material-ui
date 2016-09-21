@@ -1,5 +1,7 @@
-import { View, Animated, StyleSheet } from 'react-native';
+import { View, Animated, StyleSheet, Platform } from 'react-native';
 import React, { Component, PropTypes } from 'react';
+
+import { ELEVATION_ZINDEX } from '../styles/getPlatformElevation';
 import Icon from '../Icon';
 import Color from 'color';
 
@@ -171,6 +173,10 @@ class IconToggle extends Component {
                     transform: [{ scale: scaleValue }],
                     opacity: opacityValue,
                     backgroundColor: color.hexString(),
+                    // we need set zindex for iOS, because the components with elevation have the
+                    // zindex set as well, thus, there could be displayed backgroundColor of
+                    // component with bigger zindex - and that's not good
+                    zIndex: Platform.OS === 'ios' ? ELEVATION_ZINDEX : null,
                 }]}
             />
         );
