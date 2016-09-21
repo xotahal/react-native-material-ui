@@ -8,6 +8,7 @@ import {
 import Color from 'color';
 import lightTheme from './themes/light';
 import merge from 'lodash/merge';
+import getPlatformElevation from './getPlatformElevation';
 
 function darkenOrLighten(color, ratio = 0.15) {
     const c = Color(color);
@@ -45,7 +46,7 @@ export default function getTheme(theme, ...more) {
                 alignItems: 'center',
             },
             speedDialActionContainer: {
-                elevation: 2,
+                ...getPlatformElevation(2),
                 marginBottom: 16,
                 height: 40,
                 width: 40,
@@ -104,14 +105,14 @@ export default function getTheme(theme, ...more) {
                 borderRadius: 2,
                 marginVertical: 4,
                 marginHorizontal: 8,
-                elevation: 2,
+                ...getPlatformElevation(2),
             },
         }, theme.card)),
         dialog: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.canvasColor,
                 borderRadius: 2,
-                elevation: 24,
+                ...getPlatformElevation(24),
                 width: 280,
                 paddingTop: 24,
                 paddingHorizontal: 24,
@@ -322,8 +323,8 @@ export default function getTheme(theme, ...more) {
                 height: 56,
                 flexDirection: 'row',
                 alignItems: 'center',
-                elevation: 4,
                 paddingHorizontal: 4,
+                ...getPlatformElevation(4),
             },
             leftElementContainer: { },
             leftElement: {

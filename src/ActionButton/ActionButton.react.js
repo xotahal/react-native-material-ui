@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
+import getPlatformElevation from '../styles/getPlatformElevation';
 
 const propTypes = {
     /**
@@ -58,7 +59,10 @@ function getStyles(props, context, state) {
         };
     }
 
-    local.container.elevation = state.elevation;
+    local.container = {
+        ...local.container,
+        ...getPlatformElevation(state.elevation),
+    };
 
     return {
         container: [
