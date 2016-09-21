@@ -17,20 +17,42 @@ const UIManager = NativeModules.UIManager;
 
 
 const propTypes = {
-    // generally
-    iconProps: PropTypes.shape({
-        size: PropTypes.number,
-        color: PropTypes.string,
-    }),
+    /**
+    * Indicates if search is active or not
+    */
     isSearchActive: PropTypes.bool,
+    /**
+    * When you want to activate search feature you have to pass this object with config of search.
+    */
     searchable: PropTypes.shape({
+        /**
+        * Called when search text was changed.
+        */
         onChangeText: PropTypes.func,
+        /**
+        * Called when search was closed.
+        */
         onSearchClosed: PropTypes.func,
-        placeholder: PropTypes.string,
+        /**
+        * Called when search was opened.
+        */
         onSearchPressed: PropTypes.func,
+        /**
+        * Called when user press submit button on hw keyboard
+        */
         onSubmitEditing: PropTypes.func,
+        /**
+        * Will shown as placeholder for search input.
+        */
+        placeholder: PropTypes.string,
+        /**
+        * Indicates when input should be focused after the search is opened.
+        */
         autoFocus: PropTypes.bool,
     }),
+    /**
+    * You can overide any style for the component via this prop
+    */
     style: PropTypes.shape({
         container: Animated.View.propTypes.style,
         leftElementContainer: View.propTypes.style,
@@ -40,30 +62,63 @@ const propTypes = {
         rightElementContainer: View.propTypes.style,
         rightElement: Text.propTypes.style,
     }),
-    title: PropTypes.string,
+    /**
+    * Just alias for style={{ rightElement: {}, leftElement: {}}}
+    */
+    iconProps: PropTypes.shape({
+        size: PropTypes.number,
+        color: PropTypes.string,
+    }),
+    /**
+    * DEPRECATED: (use style prop instead)
+    * If it's true, the toolbar has elevation set to 0 and position absolute, left, right set to 0.
+    * This prop will be deprecated probably, because it's not pretty clear what it does. I use
+    * it during the animation of toolbar, but I can use the style prop that is much more obvious.
+    */
     translucent: PropTypes.bool,
+    /**
+    * Called when centerElement was pressed.
+    * TODO: better to rename to onCenterElementPress
+    */
     onPress: PropTypes.func,
-    onPressValue: PropTypes.any,
-
-    // left side
+    /**
+    * Will be shown on the left side.
+    */
     leftElement: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string,
     ]),
+    /**
+    * Called when leftElement was pressed.
+    */
     onLeftElementPress: PropTypes.func,
-
-    // center
+    /**
+    * Will be shown between leftElement and rightElement. Usually use for title.
+    */
     centerElement: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string,
     ]),
-
-    // right side
+    /**
+    * Will be shown on the right side.
+    */
     rightElement: PropTypes.oneOfType([
-        PropTypes.element, // whatever you want to have on the right side
-        PropTypes.string, // one action - alias for ['icon1']
-        PropTypes.arrayOf(PropTypes.string), // for many actions ['icon1', 'icon2', ...]
-        PropTypes.shape({ // for actions + menu
+        /**
+        * Whatever you want to have on the right side
+        */
+        PropTypes.element,
+        /**
+        * One action (name of icon). Alias for ['icon1'].
+        */
+        PropTypes.string,
+        /**
+        * For many actions: ['icon1', 'icon2', ...]
+        */
+        PropTypes.arrayOf(PropTypes.string),
+        /**
+        * For actions and menu. The menu will be shown as last one icon.
+        */
+        PropTypes.shape({
             actions: PropTypes.arrayOf(
                 PropTypes.oneOfType([
                     PropTypes.element,
@@ -76,10 +131,13 @@ const propTypes = {
             }),
         }),
     ]),
+    /**
+    * Called when rightElement was pressed.
+    */
     onRightElementPress: PropTypes.func,
 };
 const defaultProps = {
-    elevation: 4,
+    elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
     style: {},
 };
 const contextTypes = {
@@ -155,7 +213,11 @@ class Toolbar extends Component {
             findNodeHandle(this.refs.menu),
             labels,
             () => {},
-            (result, index) => onRightElementPress({ action: 'menu', result, index })
+            (result, index) => {
+                if (onRightElementPress) {
+                    onRightElementPress({ action: 'menu', result, index });
+                }
+            }
         );
     };
     onSearchTextChanged = (value) => {
@@ -197,7 +259,7 @@ class Toolbar extends Component {
     renderLeftElement = (style) => {
         const { leftElement, onLeftElementPress } = this.props;
 
-        if (!leftElement) {
+        if (!leftElement && !this.state.isSearchActive) {
             return null;
         }
 
@@ -275,6 +337,7 @@ class Toolbar extends Component {
         }
 
         let actionsMap = [];
+        let result = [];
 
         if (rightElement) {
             if (typeof rightElement === 'string') {
@@ -287,7 +350,6 @@ class Toolbar extends Component {
         }
 
         const flattenRightElement = StyleSheet.flatten(style.rightElement);
-        let result = [];
 
         if (actionsMap) {
             result = actionsMap.map((action, index) => {
@@ -323,20 +385,20 @@ class Toolbar extends Component {
             });
         }
 
+        if (React.isValidElement(rightElement)) {
+            result.push(React.cloneElement(rightElement, { key: 'customRightElement' }));
+        }
+
         if (this.state.isSearchActive && this.state.searchValue.length > 0) {
             result.push(
                 <IconToggle
                     key="searchClear"
+                    name="clear"
+                    size={spacing.iconSize}
                     color={flattenRightElement.color}
+                    style={style.rightElement}
                     onPress={() => this.onSearchTextChanged('')}
-                >
-                    <Icon
-                        name="clear"
-                        size={spacing.iconSize}
-                        color={flattenRightElement.color}
-                        style={style.rightElement}
-                    />
-                </IconToggle>
+                />
             );
         }
 
@@ -344,16 +406,11 @@ class Toolbar extends Component {
             result.push(
                 <IconToggle
                     key="searchIcon"
+                    name="search"
                     color={flattenRightElement.color}
                     onPress={this.onSearchPressed}
-                >
-                    <Icon
-                        name="search"
-                        size={spacing.iconSize}
-                        color={flattenRightElement.color}
-                        style={style.rightElement}
-                    />
-                </IconToggle>
+                    style={style.rightElement}
+                />
             );
         }
         if (rightElement && rightElement.menu && !this.state.isSearchActive) {
