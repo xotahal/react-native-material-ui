@@ -156,11 +156,12 @@ export default function getTheme(theme, ...more) {
                 flex: 1,
             },
         }, theme.checkbox)),
-        // TODO: add StyleSheet
-        divider: {
-            backgroundColor: palette.borderColor,
-            height: StyleSheet.hairlineWidth,
-        },
+        divider: StyleSheet.create(merge({
+            container: {
+                backgroundColor: palette.borderColor,
+                height: StyleSheet.hairlineWidth,
+            },
+        }, theme.divider)),
         drawer: StyleSheet.create(merge({
             container: {
                 flex: 1,
@@ -259,7 +260,7 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
         }, theme.iconToggle)),
-        listItem: {
+        listItem: StyleSheet.create(merge({
             container: {
                 backgroundColor: '#ffffff',
                 height: 56,
@@ -304,7 +305,7 @@ export default function getTheme(theme, ...more) {
             rightElement: {
                 color: palette.secondaryTextColor,
             },
-        },
+        }, theme.listItem)),
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create(merge({
             container: {

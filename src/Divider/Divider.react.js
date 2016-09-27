@@ -8,6 +8,7 @@ const propTypes = {
 };
 const defaultProps = {
     inset: false,
+    style: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -16,13 +17,17 @@ const contextTypes = {
 function getStyles(props, context) {
     const { divider } = context.uiTheme;
 
-    const insetStyle = props.inset ? { marginLeft: 72 } : null;
+    const local = {
+        container: props.inset ? { marginLeft: 72 } : null,
+    };
 
-    return [
-        divider,
-        insetStyle,
-        props.style,
-    ];
+    return {
+        container: [
+            divider.container,
+            local.container,
+            props.style.container,
+        ],
+    };
 }
 
 class Divider extends Component {
@@ -30,7 +35,7 @@ class Divider extends Component {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <View style={styles} />
+            <View style={styles.container} />
         );
     }
 }
