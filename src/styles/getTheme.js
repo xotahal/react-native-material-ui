@@ -7,7 +7,7 @@ import {
 
 import Color from 'color';
 import lightTheme from './themes/light';
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 import getPlatformElevation from './getPlatformElevation';
 
 function darkenOrLighten(color, ratio = 0.15) {
