@@ -223,7 +223,7 @@ class Toolbar extends Component {
     onSearchTextChanged = (value) => {
         const { searchable } = this.props;
 
-        if (isFunction(searchable.onChangeText)) {
+        if (searchable && isFunction(searchable.onChangeText)) {
             searchable.onChangeText(value);
         }
 
@@ -232,7 +232,7 @@ class Toolbar extends Component {
     onSearchPressed = () => {
         const { searchable } = this.props;
 
-        if (isFunction(searchable.onSearchPressed)) {
+        if (searchable && isFunction(searchable.onSearchPressed)) {
             searchable.onSearchPressed();
         }
 
@@ -244,7 +244,7 @@ class Toolbar extends Component {
     onSearchClosePressed = () => {
         const { searchable } = this.props;
 
-        if (isFunction(searchable.onSearchClosed)) {
+        if (searchable && isFunction(searchable.onSearchClosed)) {
             searchable.onSearchClosed();
         }
 
@@ -337,8 +337,11 @@ class Toolbar extends Component {
     }
     renderRightElement = (style) => {
         const { rightElement, onRightElementPress, searchable } = this.props;
+        const { isSearchActive, searchValue } = this.state;
         const { spacing } = this.context.uiTheme;
 
+        // if there is no rightElement and searchable feature is off then we are sure on the right
+        // is nothing
         if (!rightElement && !searchable) {
             return null;
         }
@@ -396,31 +399,35 @@ class Toolbar extends Component {
             result.push(React.cloneElement(rightElement, { key: 'customRightElement' }));
         }
 
-        if (this.state.isSearchActive && this.state.searchValue.length > 0) {
-            result.push(
-                <IconToggle
-                    key="searchClear"
-                    name="clear"
-                    size={spacing.iconSize}
-                    color={flattenRightElement.color}
-                    style={style.rightElement}
-                    onPress={() => this.onSearchTextChanged('')}
-                />
-            );
+
+        // if searchable feature is on and search is active with some text, then we show clear
+        // button, to be able to clear text
+        if (searchable) {
+            if (isSearchActive && searchValue.length > 0) {
+                result.push(
+                    <IconToggle
+                        key="searchClear"
+                        name="clear"
+                        size={spacing.iconSize}
+                        color={flattenRightElement.color}
+                        style={style.rightElement}
+                        onPress={() => this.onSearchTextChanged('')}
+                    />
+                );
+            } else {
+                result.push(
+                    <IconToggle
+                        key="searchIcon"
+                        name="search"
+                        color={flattenRightElement.color}
+                        onPress={this.onSearchPressed}
+                        style={style.rightElement}
+                    />
+                );
+            }
         }
 
-        if (searchable && !this.state.isSearchActive) {
-            result.push(
-                <IconToggle
-                    key="searchIcon"
-                    name="search"
-                    color={flattenRightElement.color}
-                    onPress={this.onSearchPressed}
-                    style={style.rightElement}
-                />
-            );
-        }
-        if (rightElement && rightElement.menu && !this.state.isSearchActive) {
+        if (rightElement && rightElement.menu && !isSearchActive) {
             result.push(
                 <IconToggle
                     key="menuIcon"
