@@ -106,14 +106,24 @@ Of course, sometimes we need to change style of only one component. It means, al
 ```
 # Animations are included
 
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-speedDial.gif" width="280">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar.gif" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
 
 Note: You have to allow the animations for Android ([see React Native's documentation](http://facebook.github.io/react-native/releases/0.33/docs/animations.html#layoutanimation))
 ```js
 UIManager.setLayoutAnimationEnabledExperimental && 
 UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
+# Themes are supported
+
+
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-2.png" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-3.png" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-4.png" width="285">
+
+# Toolbar with search feature
+
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-search.gif" width="285">
 
 # Examples
 
