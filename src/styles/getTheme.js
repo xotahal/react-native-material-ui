@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import Color from 'color';
+import merge from 'lodash.merge';
+
 import { fontWeight } from './typography';
 import {
   black, grey100, grey500, white, transparent,
 } from './colors';
 
-import Color from 'color';
 import lightTheme from './themes/light';
-import merge from 'lodash.merge';
 import getPlatformElevation from './getPlatformElevation';
 
 function darkenOrLighten(color, ratio = 0.15) {
@@ -21,17 +22,24 @@ export default function getTheme(theme, ...more) {
     const { spacing, fontFamily, typography, palette } = theme;
     const baseTheme = { spacing, fontFamily, typography, palette };
 
+    const actionButtonSize = 56;
+
     theme = merge({
         actionButton: StyleSheet.create(merge({
             container: {
-                height: 56,
-                width: 56,
-                borderRadius: 56 / 2,
+                height: actionButtonSize,
+                width: actionButtonSize,
+                borderRadius: actionButtonSize / 2,
                 backgroundColor: palette.accentColor,
+
+            },
+            overlayContainer: {
+                ...StyleSheet.absoluteFillObject,
+                backgroundColor: Color('#fff').alpha(0.8).rgbaString(),
             },
             toolbarContainer: {
                 flex: 1,
-                height: 56,
+                height: actionButtonSize,
                 backgroundColor: palette.accentColor,
                 flexDirection: 'row',
             },
@@ -41,19 +49,36 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
             },
             speedDialContainer: {
-                flex: 1,
-                marginBottom: 16,
-                alignItems: 'center',
+                position: 'absolute',
+                bottom: 20,
+                right: 20,
+                alignItems: 'flex-end',
             },
             speedDialActionContainer: {
-                ...getPlatformElevation(2),
-                marginBottom: 16,
-                height: 40,
-                width: 40,
-                borderRadius: 40 / 2,
-                backgroundColor: grey500,
+                flexDirection: 'row',
+                alignItems: 'center',
+                paddingVertical: 8,
+                paddingLeft: 8,
+            },
+            speedDialActionIconContainer: {
+                width: actionButtonSize,
                 alignItems: 'center',
                 justifyContent: 'center',
+            },
+            speedDialActionIcon: {
+                ...getPlatformElevation(2),
+                height: actionButtonSize - 16,
+                width: actionButtonSize - 16,
+                borderRadius: (actionButtonSize - 16) / 2,
+                backgroundColor: grey500,
+            },
+            speedDialActionLabelContainer: {
+                ...getPlatformElevation(2),
+                borderRadius: 2,
+                marginRight: 24,
+                paddingVertical: 2,
+                paddingHorizontal: 8,
+                backgroundColor: grey100,
             },
             icon: {
                 color: white,

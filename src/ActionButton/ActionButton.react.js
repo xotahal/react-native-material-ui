@@ -1,15 +1,22 @@
-import { View, Text, LayoutAnimation } from 'react-native';
+import { View, Text, LayoutAnimation, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 import getPlatformElevation from '../styles/getPlatformElevation';
+import Container from '../Container';
 
 const propTypes = {
     /**
     * Array of names of icons that will be shown after the main button is pressed
     */
-    actions: PropTypes.array,
+    actions: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.shape({
+            icon: PropTypes.string,
+            label: PropTypes.string,
+        })),
+    ]),
     /**
     * Called when button is pressed. Text is passed as param
     */
@@ -70,6 +77,11 @@ function getStyles(props, context, state) {
             local.container,
             props.style.container,
         ],
+        overlayContainer: [
+            actionButton.overlayContainer,
+            local.overlayContainer,
+            props.style.overlayContainer,
+        ],
         toolbarContainer: [
             actionButton.toolbarContainer,
             local.toolbarContainer,
@@ -89,6 +101,21 @@ function getStyles(props, context, state) {
             actionButton.speedDialActionContainer,
             local.speedDialActionContainer,
             props.style.speedDialActionContainer,
+        ],
+        speedDialActionLabelContainer: [
+            actionButton.speedDialActionLabelContainer,
+            local.speedDialActionLabelContainer,
+            props.style.speedDialActionLabelContainer,
+        ],
+        speedDialActionIconContainer: [
+            actionButton.speedDialActionIconContainer,
+            local.speedDialActionIconContainer,
+            props.style.speedDialActionIconContainer,
+        ],
+        speedDialActionIcon: [
+            actionButton.speedDialActionIcon,
+            local.speedDialActionIcon,
+            props.style.speedDialActionIcon,
         ],
         icon: [
             actionButton.icon,
@@ -113,7 +140,16 @@ class ActionButton extends Component {
         }
     }
     onPress = (action) => {
-        const { onPress, transition } = this.props;
+        const { onPress } = this.props;
+
+        this.toggleState();
+
+        if (onPress) {
+            onPress(action);
+        }
+    }
+    toggleState = () => {
+        const { transition } = this.props;
 
         if (this.state.render === 'button') {
             if (transition) {
@@ -121,10 +157,6 @@ class ActionButton extends Component {
             }
         } else {
             this.setState({ render: 'button' });
-        }
-
-        if (onPress) {
-            onPress(action);
         }
     }
     renderToolbarTransition = (styles) => {
@@ -151,26 +183,30 @@ class ActionButton extends Component {
         const { actions } = this.props;
 
         return (
-            <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
+            <View style={[StyleSheet.absoluteFillObject, { flex: 1 }]}>
+                <TouchableWithoutFeedback onPress={this.toggleState}>
+                    <View style={styles.overlayContainer} />
+                </TouchableWithoutFeedback>
                 <View style={styles.speedDialContainer}>
-                    {actions.map(action => (
-                        <View key={action} style={styles.speedDialActionContainer}>
-                            <RippleFeedback
-                                color="#AAF"
-                                onPress={() => this.onPress(action)}
-                                delayPressIn={20}
-                            >
-                                {this.renderIconButton(styles, action)}
-                            </RippleFeedback>
-                        </View>
-                    ))}
+                    <View style={{ alignItems: 'flex-end', marginBottom: 16 }}>
+                        {actions.map((action) => {
+                            if (typeof action === 'string') {
+                                return this.renderAction(styles, action);
+                            }
+
+                            return this.renderLabelAction(styles, action.icon, action.label);
+                        })}
+                    </View>
+                    {this.renderMainButton(styles)}
                 </View>
-                {this.renderMainButton(styles)}
             </View>
         );
     }
     renderMainButton = (styles) => {
         const { onLongPress, icon } = this.props;
+        const { render } = this.state;
+
+        const mainIcon = render !== 'button' ? 'clear' : icon;
 
         return (
             <View key="main-button" style={styles.container}>
@@ -182,17 +218,38 @@ class ActionButton extends Component {
                     onPressOut={() => this.setState({ elevation: 2 })}
                     delayPressIn={20}
                 >
-                    {this.renderIconButton(styles, icon)}
+                    {this.renderIconButton(styles, mainIcon)}
                 </RippleFeedback>
             </View>
         );
     }
+    renderAction = (styles, icon) => (
+        <View key={icon} style={styles.speedDialActionIconContainer}>
+            <View style={styles.speedDialActionIcon}>
+                <RippleFeedback
+                    color="#AAF"
+                    onPress={() => this.onPress(icon)}
+                    delayPressIn={20}
+                >
+                    {this.renderIconButton(styles, icon)}
+                </RippleFeedback>
+            </View>
+        </View>
+    )
+    renderLabelAction = (styles, icon, label) => (
+        <View key={icon} style={styles.speedDialActionContainer}>
+            <View style={styles.speedDialActionLabelContainer}>
+                <Text>{label}</Text>
+            </View>
+            {this.renderAction(styles, icon)}
+        </View>
+    )
     renderIconButton = (styles, name) => (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={name} style={styles.icon} />
         </View>
     )
-    renderButton = (styles) => (
+    renderButton = styles => (
         <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
             {this.renderMainButton(styles)}
         </View>
