@@ -22,24 +22,24 @@ export default function getTheme(theme, ...more) {
     const { spacing, fontFamily, typography, palette } = theme;
     const baseTheme = { spacing, fontFamily, typography, palette };
 
-    const actionButtonSize = 56;
-
     theme = merge({
         actionButton: StyleSheet.create(merge({
             container: {
-                height: actionButtonSize,
-                width: actionButtonSize,
-                borderRadius: actionButtonSize / 2,
+                height: spacing.actionButtonSize,
+                width: spacing.actionButtonSize,
+                borderRadius: spacing.actionButtonSize / 2,
                 backgroundColor: palette.accentColor,
-
             },
             overlayContainer: {
                 ...StyleSheet.absoluteFillObject,
                 backgroundColor: Color('#fff').alpha(0.8).rgbaString(),
+                // we need overlay to be above the toolbar - so maybe we could use some variable
+                // to get elevation for toolbar and this overlay
+                ...getPlatformElevation(4),
             },
             toolbarContainer: {
                 flex: 1,
-                height: actionButtonSize,
+                height: spacing.actionButtonSize,
                 backgroundColor: palette.accentColor,
                 flexDirection: 'row',
             },
@@ -57,19 +57,19 @@ export default function getTheme(theme, ...more) {
             speedDialActionContainer: {
                 flexDirection: 'row',
                 alignItems: 'center',
-                paddingVertical: 8,
                 paddingLeft: 8,
             },
             speedDialActionIconContainer: {
-                width: actionButtonSize,
+                width: spacing.actionButtonSize,
+                height: spacing.actionButtonSize,
                 alignItems: 'center',
                 justifyContent: 'center',
             },
             speedDialActionIcon: {
                 ...getPlatformElevation(2),
-                height: actionButtonSize - 16,
-                width: actionButtonSize - 16,
-                borderRadius: (actionButtonSize - 16) / 2,
+                height: spacing.actionButtonSize - 16,
+                width: spacing.actionButtonSize - 16,
+                borderRadius: (spacing.actionButtonSize - 16) / 2,
                 backgroundColor: grey500,
             },
             speedDialActionLabelContainer: {

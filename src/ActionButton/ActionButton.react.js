@@ -185,20 +185,22 @@ class ActionButton extends Component {
         return (
             <View style={[StyleSheet.absoluteFillObject, { flex: 1 }]}>
                 <TouchableWithoutFeedback onPress={this.toggleState}>
-                    <View style={styles.overlayContainer} />
-                </TouchableWithoutFeedback>
-                <View style={styles.speedDialContainer}>
-                    <View style={{ alignItems: 'flex-end', marginBottom: 16 }}>
-                        {actions.map((action) => {
-                            if (typeof action === 'string') {
-                                return this.renderAction(styles, action);
-                            }
+                    <View style={styles.overlayContainer}>
+                        <View style={styles.speedDialContainer}>
+                            <View style={{ alignItems: 'flex-end', marginBottom: 16 }}>
+                                {actions.map((action) => {
+                                    if (typeof action === 'string') {
+                                        return this.renderAction(styles, action);
+                                    }
 
-                            return this.renderLabelAction(styles, action.icon, action.label);
-                        })}
+                                    return this.renderLabelAction(
+                                        styles, action.icon, action.label);
+                                })}
+                            </View>
+                            {this.renderMainButton(styles)}
+                        </View>
                     </View>
-                    {this.renderMainButton(styles)}
-                </View>
+                </TouchableWithoutFeedback>
             </View>
         );
     }
