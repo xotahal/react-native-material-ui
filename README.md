@@ -146,7 +146,7 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - Card
 - Checkbox
-- Dialog
+- [Dialog](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Dialog.md)
 - Divider
 - Drawer
 - Icon
