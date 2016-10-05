@@ -19,6 +19,16 @@ render() {
 ```js
 const propTypes = {
     /**
+    * Array of names of icons that will be shown after the main button is pressed
+    */
+    actions: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.shape({
+            icon: PropTypes.string,
+            label: PropTypes.string,
+        })),
+    ]),
+    /**
     * Called when button is pressed. Text is passed as param
     */
     onPress: PropTypes.func,
@@ -30,6 +40,11 @@ const propTypes = {
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,
+    /**
+    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
+    * to another view - depends on transition value.
+    */
+    transition: PropTypes.oneOf(['toolbar', 'speedDial']),
     /**
     * You can overide any style for this button
     */
