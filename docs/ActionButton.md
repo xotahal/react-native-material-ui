@@ -1,7 +1,6 @@
 # [Action Button](https://material.google.com/components/buttons-floating-action-button.html)
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-1.jpg" width="280">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-speedDial.gif" width="280">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar.gif" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
 
 ### Usage
 
@@ -40,3 +39,6 @@ const propTypes = {
     }),
 };
 ```
+
+##### TODO
+- [ ] Improve animations
