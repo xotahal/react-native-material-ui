@@ -148,7 +148,7 @@ function getStyles(props, context, state) {
     const { toolbar, toolbarSearchActive } = context.uiTheme;
 
     const local = {};
-    const isSearchActive = state.isSearchActive;
+    const isSearchActive = props.searchable && state.isSearchActive;
 
     if (props.translucent) {
         local.container = {
@@ -257,7 +257,7 @@ class Toolbar extends Component {
         this.searchFieldRef.focus();
     }
     renderLeftElement = (style) => {
-        const { leftElement, onLeftElementPress } = this.props;
+        const { searchable, leftElement, onLeftElementPress } = this.props;
 
         if (!leftElement && !this.state.isSearchActive) {
             return null;
@@ -266,7 +266,7 @@ class Toolbar extends Component {
         let iconName = leftElement;
         let onPress = onLeftElementPress;
 
-        if (this.state.isSearchActive) {
+        if (searchable && this.state.isSearchActive) {
             iconName = 'arrow-back';
             onPress = this.onSearchClosePressed;
         }
@@ -285,47 +285,54 @@ class Toolbar extends Component {
         );
     }
     renderCenterElement = (style) => {
-        if (!this.state.isSearchActive) {
-            const { centerElement, onPress } = this.props;
+        const { searchable, centerElement, onPress } = this.props;
 
-            let content = null;
-
-            if (typeof centerElement === 'string') {
-                content = (
-                    <Animated.View style={style.centerElementContainer}>
-                        <Text numberOfLines={1} style={style.titleText}>
-                            {centerElement}
-                        </Text>
-                    </Animated.View>
-                );
-            } else {
-                content = centerElement;
-            }
-
-            if (!content) {
-                return null;
-            }
-
+        // there can be situastion like this:
+        // 1. Given toolbar with title and searchable feature
+        // 2. User presses search icon - isSearchActive === true
+        // 3. User writes some search text and then select searched items in list (just example)
+        // 4. Then you want to display to user he has 'n' selected items
+        // 5. So you render toolbar with another props like centerElement==="n items selected" but
+        //    you don't want user to be able search anymore (after he has selected something)
+        // 6. So this.props.searchable===null and isSearchActive === true, if you pass searchable
+        //    object again to this instance, search text and isSearchActive will be still set
+        if (searchable && this.state.isSearchActive) {
             return (
-                <TouchableWithoutFeedback key="center" onPress={onPress}>
-                    {content}
-                </TouchableWithoutFeedback>
+                <TextInput
+                    ref={(ref) => { this.searchFieldRef = ref; }}
+                    autoFocus={searchable.autoFocus}
+                    onChangeText={this.onSearchTextChanged}
+                    onSubmitEditing={searchable.onSubmitEditing}
+                    placeholder={searchable.placeholder}
+                    style={style.titleText}
+                    underlineColorAndroid="transparent"
+                    value={this.state.searchValue}
+                />
             );
         }
 
-        const { searchable } = this.props;
+        let content = null;
+
+        if (typeof centerElement === 'string') {
+            content = (
+                <Animated.View style={style.centerElementContainer}>
+                    <Text numberOfLines={1} style={style.titleText}>
+                        {centerElement}
+                    </Text>
+                </Animated.View>
+            );
+        } else {
+            content = centerElement;
+        }
+
+        if (!content) {
+            return null;
+        }
 
         return (
-            <TextInput
-                ref={(ref) => { this.searchFieldRef = ref; }}
-                autoFocus={searchable.autoFocus}
-                onChangeText={this.onSearchTextChanged}
-                onSubmitEditing={searchable.onSubmitEditing}
-                placeholder={searchable.placeholder}
-                style={style.titleText}
-                underlineColorAndroid="transparent"
-                value={this.state.searchValue}
-            />
+            <TouchableWithoutFeedback key="center" onPress={onPress}>
+                {content}
+            </TouchableWithoutFeedback>
         );
     }
     renderRightElement = (style) => {
