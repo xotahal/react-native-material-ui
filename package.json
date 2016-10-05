@@ -32,7 +32,9 @@
     "color": "^0.11.3",
     "lodash.merge": "^4.0.0",
     "react-native-material-design-styles": "^0.2.6",
-    "react-native-vector-icons": "^2.0.3"
+    "react-native-vector-icons": "^2.0.3",
+    "react": "15.3.1",
+    "react-native": "^0.34.0"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
@@ -42,7 +44,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react-native": "^1.9.0",
     "eslint": "^3.6.1",
-    "eslint-config-airbnb": "^11.1.0",
+    "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.0",
     "eslint-plugin-react": "^6.3.0",

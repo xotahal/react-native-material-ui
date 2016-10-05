@@ -1,6 +1,6 @@
+import React, { Component, PropTypes } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import HeaderAccount from './HeaderAccount.react';
-import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
     image: PropTypes.shape({ type: PropTypes.oneOf([Image]) }),

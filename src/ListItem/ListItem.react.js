@@ -1,14 +1,15 @@
+import React, { Component, PropTypes } from 'react';
 import {
     StyleSheet,
     View,
     Text,
     TouchableWithoutFeedback,
 } from 'react-native';
+
 import Divider from '../Divider';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
-import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
     // generally
@@ -327,7 +328,7 @@ class ListItem extends Component {
 
         return <Divider />;
     }
-    renderContent = (styles) => (
+    renderContent = styles => (
         <View style={styles.contentViewContainer}>
             {this.renderLeftElement(styles)}
             {this.renderCenterElement(styles)}

@@ -1,3 +1,4 @@
+import Color from 'color';
 import {
   blue500,
   red500,
@@ -5,7 +6,6 @@ import {
   black,
 } from '../colors';
 
-import Color from 'color';
 import spacing from '../spacing';
 import typography from '../typography';
 

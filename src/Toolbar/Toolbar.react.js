@@ -1,3 +1,4 @@
+import React, { Component, PropTypes } from 'react';
 import {
     Animated,
     findNodeHandle,
@@ -11,7 +12,6 @@ import {
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
-import React, { Component, PropTypes } from 'react';
 
 const UIManager = NativeModules.UIManager;
 
@@ -210,7 +210,7 @@ class Toolbar extends Component {
         const { onRightElementPress } = this.props;
 
         UIManager.showPopupMenu(
-            findNodeHandle(this.refs.menu),
+            findNodeHandle(this.menu),
             labels,
             () => {},
             (result, index) => {
@@ -435,7 +435,7 @@ class Toolbar extends Component {
                     onPress={() => this.onMenuPressed(rightElement.menu.labels)}
                 >
                     <Icon
-                        ref="menu"
+                        ref={(c) => { this.menu = c; }}
                         name="more-vert"
                         size={spacing.iconSize}
                         color={flattenRightElement.color}

@@ -4,7 +4,6 @@ import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 import getPlatformElevation from '../styles/getPlatformElevation';
-import Container from '../Container';
 
 const propTypes = {
     /**

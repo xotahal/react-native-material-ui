@@ -1,6 +1,5 @@
-import Checkbox from '../Checkbox';
 import React, { Component, PropTypes } from 'react';
-
+import Checkbox from '../Checkbox';
 
 const propTypes = {
     label: PropTypes.string,

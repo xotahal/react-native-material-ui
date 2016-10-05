@@ -1,9 +1,9 @@
 import { View, Animated, StyleSheet, Platform } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 
+import Color from 'color';
 import { ELEVATION_ZINDEX } from '../styles/getPlatformElevation';
 import Icon from '../Icon';
-import Color from 'color';
 
 const propTypes = {
     color: PropTypes.string,
@@ -151,7 +151,7 @@ class IconToggle extends Component {
         // normalize
         percent = Math.max(percent, 0);
         percent = Math.min(percent, 100);
-        percent = percent / 100;
+        percent /= 100;
 
         if (!size) {
             return null;
@@ -169,7 +169,7 @@ class IconToggle extends Component {
                     top: ((1 - percent) * size) / 2,
                     width: percent * size,
                     height: percent * size,
-                    borderRadius: percent * size / 2,
+                    borderRadius: (percent * size) / 2,
                     transform: [{ scale: scaleValue }],
                     opacity: opacityValue,
                     backgroundColor: color.hexString(),

@@ -1,7 +1,7 @@
+import React, { Component, PropTypes } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import Container from '../Container';
 import Icon from '../Icon';
-import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
     /**
