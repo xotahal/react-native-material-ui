@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import {
     Animated,
+    BackAndroid,
     findNodeHandle,
-    StyleSheet,
     NativeModules,
+    Platform,
+    StyleSheet,
     Text,
     TextInput,
     TouchableWithoutFeedback,
@@ -220,6 +222,10 @@ class Toolbar extends Component {
             }
         );
     };
+    onSearchCloseRequested = () => {
+        this.onSearchClosePressed();
+        return true; // because we need to stop propagation
+    }
     onSearchTextChanged = (value) => {
         const { searchable } = this.props;
 
@@ -232,9 +238,15 @@ class Toolbar extends Component {
     onSearchPressed = () => {
         const { searchable } = this.props;
 
+        // on android it's typical that back button closes search input on toolbar
+        if (Platform.OS !== 'ios') {
+            BackAndroid.addEventListener('onSearchCloseRequested', this.onSearchCloseRequested);
+        }
+
         if (searchable && isFunction(searchable.onSearchPressed)) {
             searchable.onSearchPressed();
         }
+
 
         this.setState({
             isSearchActive: true,
@@ -244,9 +256,14 @@ class Toolbar extends Component {
     onSearchClosePressed = () => {
         const { searchable } = this.props;
 
+        if (Platform.OS !== 'ios') {
+            BackAndroid.removeEventListener('onSearchCloseRequested', this.onSearchCloseRequested);
+        }
+
         if (searchable && isFunction(searchable.onSearchClosed)) {
             searchable.onSearchClosed();
         }
+
 
         this.setState({
             isSearchActive: false,
