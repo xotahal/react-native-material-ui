@@ -198,15 +198,39 @@ function getStyles(props, context, state) {
         ],
     };
 }
+const addBackButtonListener = (callback) => {
+    if (Platform.OS !== 'ios') {
+        return BackAndroid.addEventListener('closeRequested', callback);
+    }
+
+    return () => {};
+};
 
 class Toolbar extends Component {
     constructor(props) {
         super(props);
 
+        // if search is active by default we need to listen back button
+        if (props.isSearchActive) {
+            this.backButtonListener = addBackButtonListener(this.onSearchCloseRequested);
+        } else {
+            this.backButtonListener = { remove: () => {} };
+        }
+
         this.state = {
             isSearchActive: props.isSearchActive,
             searchValue: '',
         };
+    }
+    componentWillReceiveProps(nextProps) {
+        // if user remove searchable feature we need to remove back button listener
+        if (!nextProps.searchable) {
+            this.backButtonListener.remove();
+        }
+        // searchable is set and isSearchActive is true, then we need to listen back button
+        if (nextProps.searchable && this.state.isSearchActive) {
+            this.backButtonListener = addBackButtonListener(this.onSearchCloseRequested);
+        }
     }
     onMenuPressed = (labels) => {
         const { onRightElementPress } = this.props;
@@ -239,9 +263,7 @@ class Toolbar extends Component {
         const { searchable } = this.props;
 
         // on android it's typical that back button closes search input on toolbar
-        if (Platform.OS !== 'ios') {
-            BackAndroid.addEventListener('onSearchCloseRequested', this.onSearchCloseRequested);
-        }
+        this.backButtonListener = addBackButtonListener(this.onSearchCloseRequested);
 
         if (searchable && isFunction(searchable.onSearchPressed)) {
             searchable.onSearchPressed();
@@ -256,9 +278,7 @@ class Toolbar extends Component {
     onSearchClosePressed = () => {
         const { searchable } = this.props;
 
-        if (Platform.OS !== 'ios') {
-            BackAndroid.removeEventListener('onSearchCloseRequested', this.onSearchCloseRequested);
-        }
+        this.backButtonListener.remove();
 
         if (searchable && isFunction(searchable.onSearchClosed)) {
             searchable.onSearchClosed();
