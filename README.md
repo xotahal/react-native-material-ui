@@ -13,7 +13,7 @@
 
 # Getting Started
 ```bash
-npm i react-native-material-ui --save
+$ npm i react-native-material-ui --save
 ```
 
 ## Setting of vector icons
@@ -87,7 +87,7 @@ class Main extends Component {
 **It means, if you want to change primary color of your application for example. You can just pass to ThemeProvider object with your own settings.** Your settings will be merged with default theme.
 
 ## What else?
-Another great feature is, you can use the uiTheme everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
+Another great feature is, you can use the `uiTheme` everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
 
 ```js
 import ...
@@ -109,7 +109,7 @@ export ...
 ```
 
 ## Local changes
-Of course, sometimes we need to change style of only one component. It means, all `buttons` have red background, but facebook login button that should have blue background. Every each component have `style` property. So you can very easily overide whatever you want.
+Of course, sometimes we need to change style of only one component. It means, all `buttons` have red background, but facebook login button that should have blue background. Every each component have `style` property. So you can very easily override whatever you want.
 
 ```js
 <Button style={{ container: { backgroundColor: 'blue' }}} />
