@@ -53,6 +53,13 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
+function getNumberOfSecondaryTextLines(numberOfLines) {
+    if (numberOfLines === 'dynamic') {
+        return null;
+    }
+
+    return numberOfLines - 1;
+}
 function getNumberOfLines(props) {
     const { numberOfLines, centerElement } = props;
 
@@ -234,7 +241,7 @@ class ListItem extends Component {
     }
     renderCenterElement = (styles) => {
         const { centerElement } = this.props;
-        const numberOfLines = this.state.numberOfLines === 'dynamic' ? null : 1;
+        const numberOfLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
 
         let content = null;
 
@@ -256,7 +263,7 @@ class ListItem extends Component {
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
                         <View style={styles.primaryTextContainer}>
-                            <Text numberOfLines={numberOfLines} style={styles.primaryText}>
+                            <Text numberOfLines={1} style={styles.primaryText}>
                                 {primaryText}
                             </Text>
                         </View>
