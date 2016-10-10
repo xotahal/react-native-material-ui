@@ -23,7 +23,7 @@ You can see [this repo](https://github.com/oblador/react-native-vector-icons) fo
 > Make sure you have atleast v0.31.0 react-native version.
 
 ```bash
-react-native link react-native-vector-icons
+$ react-native link react-native-vector-icons
 ```
 
 ### Manual Installation
