@@ -29,7 +29,7 @@ function getStyles(props, context) {
         container: [
             card.container,
             local.container,
-            props.style.container,
+            props.style,
         ],
     };
 }
