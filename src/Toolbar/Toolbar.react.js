@@ -11,7 +11,6 @@ import {
     TouchableWithoutFeedback,
     View,
 } from 'react-native';
-import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
 
@@ -58,19 +57,16 @@ const propTypes = {
     style: PropTypes.shape({
         container: Animated.View.propTypes.style,
         leftElementContainer: View.propTypes.style,
-        leftElement: Text.propTypes.style,
+        leftElement: IconToggle.propTypes.style,
         centerElementContainer: Animated.View.propTypes.style,
         titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
-        rightElement: Text.propTypes.style,
+        rightElement: IconToggle.propTypes.style,
     }),
     /**
-    * Just alias for style={{ rightElement: {}, leftElement: {}}}
+    * This size is used for each icon on the toolbar
     */
-    iconProps: PropTypes.shape({
-        size: PropTypes.number,
-        color: PropTypes.string,
-    }),
+    size: PropTypes.number,
     /**
     * DEPRECATED: (use style prop instead)
     * If it's true, the toolbar has elevation set to 0 and position absolute, left, right set to 0.
@@ -294,7 +290,7 @@ class Toolbar extends Component {
         this.searchFieldRef.focus();
     }
     renderLeftElement = (style) => {
-        const { searchable, leftElement, onLeftElementPress } = this.props;
+        const { searchable, leftElement, onLeftElementPress, size } = this.props;
 
         if (!leftElement && !this.state.isSearchActive) {
             return null;
@@ -316,7 +312,8 @@ class Toolbar extends Component {
                     name={iconName}
                     color={flattenLeftElement.color}
                     onPress={onPress}
-                    style={style.leftElement}
+                    size={size}
+                    style={flattenLeftElement}
                 />
             </View>
         );
@@ -373,9 +370,8 @@ class Toolbar extends Component {
         );
     }
     renderRightElement = (style) => {
-        const { rightElement, onRightElementPress, searchable } = this.props;
+        const { rightElement, onRightElementPress, searchable, size } = this.props;
         const { isSearchActive, searchValue } = this.state;
-        const { spacing } = this.context.uiTheme;
 
         // if there is no rightElement and searchable feature is off then we are sure on the right
         // is nothing
@@ -400,34 +396,21 @@ class Toolbar extends Component {
 
         if (actionsMap) {
             result = actionsMap.map((action, index) => {
-                let content = null;
-
                 if (React.isValidElement(action)) {
-                    content = React.cloneElement(action, {
-                        size: spacing.iconSize,
-                        color: flattenRightElement.color,
-                        style: style.rightElement,
-                    });
-                } else {
-                    content = (
-                        <Icon
-                            name={action}
-                            size={spacing.iconSize}
-                            color={flattenRightElement.color}
-                        />
-                    );
+                    return action;
                 }
 
                 return (
                     <IconToggle
                         key={index}
+                        name={action}
                         color={flattenRightElement.color}
+                        size={size}
+                        style={flattenRightElement}
                         onPress={() =>
                             onRightElementPress && onRightElementPress({ action, index })
                         }
-                    >
-                        {content}
-                    </IconToggle>
+                    />
                 );
             });
         }
@@ -445,9 +428,9 @@ class Toolbar extends Component {
                     <IconToggle
                         key="searchClear"
                         name="clear"
-                        size={spacing.iconSize}
                         color={flattenRightElement.color}
-                        style={style.rightElement}
+                        size={size}
+                        style={flattenRightElement}
                         onPress={() => this.onSearchTextChanged('')}
                     />
                 );
@@ -457,8 +440,9 @@ class Toolbar extends Component {
                         key="searchIcon"
                         name="search"
                         color={flattenRightElement.color}
+                        size={size}
                         onPress={this.onSearchPressed}
-                        style={style.rightElement}
+                        style={flattenRightElement}
                     />
                 );
             }
@@ -466,19 +450,27 @@ class Toolbar extends Component {
 
         if (rightElement && rightElement.menu && !isSearchActive) {
             result.push(
-                <IconToggle
-                    key="menuIcon"
-                    color={flattenRightElement.color}
-                    onPress={() => this.onMenuPressed(rightElement.menu.labels)}
-                >
-                    <Icon
+                <View>
+                    {/* We need this view as an anchor for drop down menu. findNodeHandle can
+                        find just view with width and height, even it needs backgroundColor :/
+                    */}
+                    <View
                         ref={(c) => { this.menu = c; }}
-                        name="more-vert"
-                        size={spacing.iconSize}
-                        color={flattenRightElement.color}
-                        style={style.rightElement}
+                        style={{
+                            backgroundColor: 'transparent',
+                            width: 1,
+                            height: StyleSheet.hairlineWidth,
+                        }}
                     />
-                </IconToggle>
+                    <IconToggle
+                        key="menuIcon"
+                        name="more-vert"
+                        color={flattenRightElement.color}
+                        size={size}
+                        onPress={() => this.onMenuPressed(rightElement.menu.labels)}
+                        style={flattenRightElement}
+                    />
+                </View>
             );
         }
 

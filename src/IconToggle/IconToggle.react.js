@@ -56,12 +56,6 @@ function getStyles(props, context) {
             color: props.color,
         };
     }
-    if (props.size) {
-        local.container = {
-            width: props.size * 2,
-            height: props.size * 2,
-        };
-    }
 
     return {
         container: [
@@ -79,6 +73,21 @@ function getStyles(props, context) {
         ],
     };
 }
+/**
+* Returns size of icon. Priority order: style prop, size prop, spacing.iconSize.
+*/
+function getIconSize(props, spacing) {
+    const { icon } = props.style;
+
+    if (icon && icon.width) {
+        return icon.width;
+    }
+    if (props.size) {
+        return props.size;
+    }
+
+    return spacing.iconSize;
+}
 
 class IconToggle extends Component {
     constructor(props, context) {
@@ -87,7 +96,7 @@ class IconToggle extends Component {
         this.maxOpacity = 0.26;
 
         const { spacing } = context.uiTheme;
-        const iconSize = props.size || spacing.iconSize;
+        const iconSize = getIconSize(props, spacing);
 
         this.state = {
             scaleValue: new Animated.Value(0.01),
