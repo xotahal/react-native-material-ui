@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 
 const propTypes = {
@@ -27,7 +27,7 @@ function getStyles(props, context) {
     };
 }
 
-class DialogHeader extends Component {
+class DialogHeader extends PureComponent {
     render() {
         const { children } = this.props;
 

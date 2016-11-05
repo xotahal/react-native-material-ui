@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import Container from '../Container';
 import Icon from '../Icon';
@@ -63,7 +63,7 @@ function getStyles(props, context) {
     };
 }
 
-class Avatar extends Component {
+class Avatar extends PureComponent {
     render() {
         const { image, icon, text } = this.props;
 

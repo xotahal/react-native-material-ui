@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { Platform, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
 
 const propTypes = {
@@ -21,7 +21,7 @@ function isCompatible() {
     return Platform.Version >= 21;
 }
 
-class RippleFeedback extends Component {
+class RippleFeedback extends PureComponent {
     render() {
         const { children, color, borderless, ...otherProps } = this.props;
 

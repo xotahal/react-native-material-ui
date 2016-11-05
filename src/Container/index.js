@@ -1,11 +1,11 @@
 import { View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 const propTypes = {
     children: PropTypes.node,
 };
 
-class Container extends Component {
+class Container extends PureComponent {
     render() {
         return (
             <View style={{ flex: 1 }}>

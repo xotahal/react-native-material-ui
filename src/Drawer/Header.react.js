@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import HeaderAccount from './HeaderAccount.react';
 
@@ -39,7 +39,7 @@ function getStyles(props, context) {
     };
 }
 
-class Header extends Component {
+class Header extends PureComponent {
     render() {
         const { image, children } = this.props;
 

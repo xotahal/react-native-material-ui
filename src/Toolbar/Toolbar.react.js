@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import {
     Animated,
     BackAndroid,
@@ -202,7 +202,7 @@ const addBackButtonListener = (callback) => {
     return () => {};
 };
 
-class Toolbar extends Component {
+class Toolbar extends PureComponent {
     constructor(props) {
         super(props);
 

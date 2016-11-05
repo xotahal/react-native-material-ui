@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 
 const propTypes = {
@@ -30,7 +30,7 @@ function getStyles(props, context) {
     };
 }
 
-class Divider extends Component {
+class Divider extends PureComponent {
     render() {
         const styles = getStyles(this.props, this.context);
 

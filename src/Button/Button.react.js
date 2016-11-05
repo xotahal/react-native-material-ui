@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
 import getPlatformElevation from '../styles/getPlatformElevation';
@@ -98,7 +98,7 @@ function getStyles(props, context, state) {
     };
 }
 
-class Button extends Component {
+class Button extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {

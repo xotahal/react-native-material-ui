@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { View } from 'react-native';
 import Button from '../Button';
 
@@ -24,7 +24,7 @@ function getStyles(props, context) {
     };
 }
 
-class DialogDefaultActions extends Component {
+class DialogDefaultActions extends PureComponent {
     constructor(props) {
         super(props);
 

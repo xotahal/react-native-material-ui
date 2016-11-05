@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { ScrollView } from 'react-native';
 import Container from '../Container';
 
@@ -26,7 +26,7 @@ function getStyles(props, context) {
     };
 }
 
-class Drawer extends Component {
+class Drawer extends PureComponent {
     render() {
         const { children } = this.props;
 

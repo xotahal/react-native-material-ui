@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Checkbox from '../Checkbox';
 
 const propTypes = {
@@ -13,7 +13,7 @@ const defaultProps = {
     disabled: false,
 };
 
-class RadioButton extends Component {
+class RadioButton extends PureComponent {
     onPress = () => {
         const { value, checked, disabled, onSelect } = this.props;
 

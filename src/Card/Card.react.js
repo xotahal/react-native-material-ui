@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import RippleFeedback from '../RippleFeedback';
 
 const propTypes = {
@@ -34,7 +34,7 @@ function getStyles(props, context) {
     };
 }
 
-class Card extends Component {
+class Card extends PureComponent {
     render() {
         const { onPress, children } = this.props;
 

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { View } from 'react-native';
 import Subheader from '../Subheader';
 import Divider from '../Divider';
@@ -55,7 +55,7 @@ function getStyles(props, context) {
     };
 }
 
-class Section extends Component {
+class Section extends PureComponent {
     renderTitle = () => {
         const { title } = this.props;
 

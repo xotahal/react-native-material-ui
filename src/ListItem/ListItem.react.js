@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import {
     StyleSheet,
     View,
@@ -173,7 +173,7 @@ function getStyles(props, context, state) {
     };
 }
 
-class ListItem extends Component {
+class ListItem extends PureComponent {
     constructor(props) {
         super(props);
 

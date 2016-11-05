@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 const propTypes = {
     text: PropTypes.string.isRequired,
@@ -32,7 +32,7 @@ function getStyles(props, context) {
     };
 }
 
-class Subheader extends Component {
+class Subheader extends PureComponent {
     render() {
         const { text, lines } = this.props;
 

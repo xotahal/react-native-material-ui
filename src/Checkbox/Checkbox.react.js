@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 
@@ -69,7 +69,7 @@ function getStyles(props, context) {
     };
 }
 
-class Checkbox extends Component {
+class Checkbox extends PureComponent {
     onPress = () => {
         const { checked, disabled, onCheck, value } = this.props;
 

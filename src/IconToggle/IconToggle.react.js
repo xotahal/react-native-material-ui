@@ -1,5 +1,5 @@
 import { View, Animated, StyleSheet, Platform } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 import Color from 'color';
 import { ELEVATION_ZINDEX } from '../styles/getPlatformElevation';
@@ -89,7 +89,7 @@ function getIconSize(props, spacing) {
     return spacing.iconSize;
 }
 
-class IconToggle extends Component {
+class IconToggle extends PureComponent {
     constructor(props, context) {
         super(props, context);
 

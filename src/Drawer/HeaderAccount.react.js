@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
 import ListItem from '../ListItem';
 
@@ -48,7 +48,7 @@ function getStyles(props, context) {
     };
 }
 
-class HeaderAcount extends Component {
+class HeaderAcount extends PureComponent {
     renderFooter = () => {
         const { footer } = this.props;
 

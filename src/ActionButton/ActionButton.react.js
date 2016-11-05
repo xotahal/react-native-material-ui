@@ -1,5 +1,5 @@
 import { View, Text, LayoutAnimation, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
@@ -124,7 +124,7 @@ function getStyles(props, context, state) {
     };
 }
 
-class ActionButton extends Component {
+class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
 

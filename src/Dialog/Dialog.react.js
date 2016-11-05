@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import RippleFeedback from '../RippleFeedback';
 
 import Title from './Title.react';
@@ -37,7 +37,7 @@ function getStyles(props, context) {
     };
 }
 
-class Dialog extends Component {
+class Dialog extends PureComponent {
     render() {
         const { onPress, children } = this.props;
 

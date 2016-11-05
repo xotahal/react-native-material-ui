@@ -1,5 +1,5 @@
 import { default as VectorIcon } from 'react-native-vector-icons/MaterialIcons';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 const propTypes = {
     name: PropTypes.string.isRequired,
@@ -12,7 +12,7 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-class Icon extends Component {
+class Icon extends PureComponent {
     render() {
         const { name, style, size, color } = this.props;
         const { palette, spacing } = this.context.uiTheme;

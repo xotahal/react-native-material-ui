@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 const propTypes = {
     children: PropTypes.node.isRequired,
@@ -26,7 +26,7 @@ function getStyles(props, context) {
     };
 }
 
-class DialogFooter extends Component {
+class DialogFooter extends PureComponent {
     render() {
         const { children } = this.props;
 
