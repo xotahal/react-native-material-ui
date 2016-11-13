@@ -263,7 +263,7 @@ class ListItem extends PureComponent {
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
                         <View style={styles.primaryTextContainer}>
-                            <Text numberOfLines={1} style={styles.primaryText}>
+                            <Text numberOfLines={numberOfLines} style={styles.primaryText}>
                                 {primaryText}
                             </Text>
                         </View>
