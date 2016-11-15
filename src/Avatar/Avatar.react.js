@@ -1,6 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
-import Container from '../Container';
 import Icon from '../Icon';
 
 const propTypes = {
