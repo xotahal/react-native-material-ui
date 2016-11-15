@@ -82,11 +82,11 @@ class Avatar extends PureComponent {
 
 
         return (
-            <Container>
+            <View style={{ flexGrow: 1 }}>
                 <View style={styles.container} >
                     {content}
                 </View>
-            </Container>
+            </View>
         );
     }
 }
