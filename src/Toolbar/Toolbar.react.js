@@ -450,7 +450,7 @@ class Toolbar extends PureComponent {
 
         if (rightElement && rightElement.menu && !isSearchActive) {
             result.push(
-                <View>
+                <View key="menuIcon">
                     {/* We need this view as an anchor for drop down menu. findNodeHandle can
                         find just view with width and height, even it needs backgroundColor :/
                     */}
@@ -463,7 +463,6 @@ class Toolbar extends PureComponent {
                         }}
                     />
                     <IconToggle
-                        key="menuIcon"
                         name="more-vert"
                         color={flattenRightElement.color}
                         size={size}
