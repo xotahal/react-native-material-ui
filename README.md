@@ -153,6 +153,7 @@ Here is a list of all component included in this library. (I'm working on docume
 
 - [Action Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ActionButton.md)
 - Avatar
+- [Badge](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Badge.md)
 - [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - Card
 - Checkbox
