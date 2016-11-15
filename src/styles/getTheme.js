@@ -98,6 +98,22 @@ export default function getTheme(theme, ...more) {
                 color: palette.canvasColor,
             },
         }, theme.avatar)),
+        badge: StyleSheet.create(merge({
+            container: {
+                position: 'absolute',
+                width: 16,
+                height: 16,
+                borderRadius: 8,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: palette.primaryColor,
+            },
+            content: {
+                color: palette.canvasColor,
+                fontWeight: fontWeight.medium,
+                fontSize: 12,
+            },
+        }, theme.badge)),
         button: StyleSheet.create(merge({
             container: {
                 height: 36,

@@ -6,6 +6,7 @@ export { default as RippleFeedback } from './RippleFeedback';
 // components
 export { default as ActionButton } from './ActionButton';
 export { default as Avatar } from './Avatar';
+export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
