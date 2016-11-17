@@ -298,7 +298,7 @@ class Toolbar extends PureComponent {
 
         if (!this.state.isSearchActive && React.isValidElement(leftElement)) {
             return (
-              React.cloneElement(leftElement, { key: 'customRightElement' })
+              React.cloneElement(leftElement, { key: 'customLeftElement' })
             );
         }
 
