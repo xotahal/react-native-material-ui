@@ -166,3 +166,8 @@ Here is a list of all component included in this library. (I'm working on docume
 - Radio button
 - Subheader
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/badge.svg?style=beer-square)](https://beerpay.io/xotahal/react-native-material-ui)  [![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/make-wish.svg?style=flat-square)](https://beerpay.io/xotahal/react-native-material-ui?focus=wish)
