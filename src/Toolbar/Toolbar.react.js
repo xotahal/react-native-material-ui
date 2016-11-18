@@ -296,6 +296,14 @@ class Toolbar extends PureComponent {
             return null;
         }
 
+        if (!this.state.isSearchActive && React.isValidElement(leftElement)) {
+            return (
+                <View style={style.leftElementContainer}>
+                    {React.cloneElement(leftElement, { key: 'customLeftElement' })}
+                </View>
+            );
+        }
+
         let iconName = leftElement;
         let onPress = onLeftElementPress;
 
