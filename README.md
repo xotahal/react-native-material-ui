@@ -7,6 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/xotahal/react-native-material-ui.svg)](https://github.com/xotahal/react-native-material-ui/issues)
 [![Dependencies](https://david-dm.org/xotahal/react-native-material-ui.svg)](https://david-dm.org/xotahal/react-native-material-ui.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/xotahal/react-native-material-ui/master/LICENSE)
+[![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/badge.svg?style=beer-square)](https://beerpay.io/xotahal/react-native-material-ui)  [![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/make-wish.svg?style=flat-square)](https://beerpay.io/xotahal/react-native-material-ui?focus=wish)
 
 
 
