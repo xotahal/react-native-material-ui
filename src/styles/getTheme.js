@@ -333,7 +333,7 @@ export default function getTheme(theme, ...more) {
             },
             secondaryText: {
                 lineHeight: 22,
-                color: palette.secondaryText,
+                color: palette.secondaryTextColor,
                 ...typography.body1,
             },
             rightElementContainer: {
