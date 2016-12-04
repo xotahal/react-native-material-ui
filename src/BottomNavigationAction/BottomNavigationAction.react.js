@@ -8,6 +8,7 @@ const propTypes = {
   iconName: PropTypes.string.isRequired,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   isActive: PropTypes.bool,
+  onPress: PropTypes.func.isRequired,
 };
 
 const defaultProps = {};
