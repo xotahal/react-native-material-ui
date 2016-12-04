@@ -303,7 +303,7 @@ export default function getTheme(theme, ...more) {
         }, theme.iconToggle)),
         listItem: StyleSheet.create(merge({
             container: {
-                backgroundColor: '#ffffff',
+                backgroundColor: palette.canvasColor,
                 height: 56,
             },
             contentViewContainer: {
@@ -406,6 +406,8 @@ export default function getTheme(theme, ...more) {
             },
         }, theme.toolbarSearchActive)),
     }, baseTheme);
+    
+    //TODO(Zino Hofmann): Add BottomNaviagtion component to uiTheme.
 
     return theme;
 }
