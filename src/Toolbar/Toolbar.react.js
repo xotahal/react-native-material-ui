@@ -197,9 +197,9 @@ function getStyles(props, context, state) {
 const addBackButtonListener = (callback) => {
     if (Platform.OS !== 'ios') {
         return BackAndroid.addEventListener('closeRequested', callback);
+    } else { 
+        this.backButtonListener = { remove: () => {} }; 
     }
-
-    return () => {};
 };
 
 class Toolbar extends PureComponent {
