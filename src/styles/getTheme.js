@@ -435,8 +435,6 @@ export default function getTheme(theme, ...more) {
             },
         }, theme.toolbarSearchActive)),
     }, baseTheme);
-    
-    //TODO(Zino Hofmann): Add BottomNaviagtion component to uiTheme.
 
     return theme;
 }
