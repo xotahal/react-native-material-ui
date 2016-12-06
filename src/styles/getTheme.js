@@ -140,6 +140,33 @@ export default function getTheme(theme, ...more) {
                 color: palette.disabledTextColor,
             },
         }, theme.buttonDisabled)),
+        bottomNavigation: StyleSheet.create(merge({
+            container: {
+                flexDirection: 'row',
+                height: 56,
+                backgroundColor: palette.canvasColor,
+                borderTopColor: palette.borderColor,
+                borderTopWidth: StyleSheet.hairlineWidth,
+                ...getPlatformElevation(8),
+            },
+        }, theme.bottomNavigation)),
+        bottomNavigationAction: StyleSheet.create(merge({
+            container: {
+                flex: 1,
+                alignItems: 'center',
+                maxWidth: 168,
+                minWidth: 80,
+                paddingBottom: 12,
+                paddingTop: 8,
+                paddingLeft: 12,
+                paddingRight: 12,
+            },
+            label: {
+                fontSize: 12,
+                textAlign: 'center',
+                color: palette.secondaryTextColor,
+            },
+        }, theme.bottomNavigationAction)),
         card: StyleSheet.create(merge({
             container: {
                 backgroundColor: palette.canvasColor,
@@ -406,8 +433,6 @@ export default function getTheme(theme, ...more) {
             },
         }, theme.toolbarSearchActive)),
     }, baseTheme);
-    
-    //TODO(Zino Hofmann): Add BottomNaviagtion component to uiTheme.
 
     return theme;
 }
