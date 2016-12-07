@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { View, Text } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 import BottomNavigationAction from './BottomNavigationAction.react';
 
@@ -25,10 +25,8 @@ const defaultProps = {
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
-function getStyles(props, context) {
+function getStyles(props, local, context) {
     const { bottomNavigation } = context.uiTheme;
-
-    const local = {};
 
     return {
         container: [
@@ -44,12 +42,59 @@ function getStyles(props, context) {
 */
 
 class BottomNavigation extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            moveAnimated: new Animated.Value(0 - this.context.uiTheme.bottomNavigation.container.height),
+        };
+    }
+
+    componentDidMount() {
+        Animated.timing(this.state.moveAnimated, {
+            toValue: 0,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+        }).start();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.shouldShow !== this.props.shouldShow && nextProps.shouldShow === true) {
+            this._show();
+        }
+
+        if (nextProps.shouldHide !== this.props.shouldHide && nextProps.shouldHide === true) {
+            this._hide();
+        }
+    }
+
+    _show = () => {
+        Animated.timing(this.state.moveAnimated, {
+            toValue: 0,
+            delay: 0,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+        }).start();
+    }
+
+    _hide = () => {
+        Animated.timing(this.state.moveAnimated, {
+            toValue: 0 - this.context.uiTheme.bottomNavigation.container.height,
+            duration: 195,
+            easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+        }).start();
+    }
+
     render() {
         const { active, children } = this.props;
-        const styles = getStyles(this.props, this.context);
+        const local = {
+          container: {
+            bottom: this.state.moveAnimated,
+          },
+        };
+        const styles = getStyles(this.props, local, this.context);
 
         return (
-            <View style={styles.container}>
+            <Animated.View style={styles.container}>
                 {React.Children.map(
                     children,
                     child => React.cloneElement(child, {
@@ -57,7 +102,7 @@ class BottomNavigation extends PureComponent {
                         active: child.key === active,
                     })
                 )}
-            </View>
+            </Animated.View>
         );
     }
 }
