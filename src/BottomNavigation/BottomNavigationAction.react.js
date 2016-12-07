@@ -30,7 +30,6 @@ const propTypes = {
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
-
 };
 const defaultProps = {
     active: false,

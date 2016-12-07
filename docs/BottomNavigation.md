@@ -45,12 +45,22 @@ render() {
 ```js
 const propTypes = {
     /**
-    * Node list with BottomNavigationAction components
+    * The key of selected/active tab
     */
-    children: PropTypes.bool.isRequired,
+    active: PropTypes.string,
     /**
-    * You can overide any style for this bottom navigation
+    * BottomNavigation.Action nodes
     */
-    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+    children: PropTypes.node.isRequired,
+    /**
+    * Wether or not the BottomNaviagtion should show
+    */
+    hidden: PropTypes.bool,
+    /**
+    * Inline style of bottom navigation
+    */
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+    }),
 };
 ```

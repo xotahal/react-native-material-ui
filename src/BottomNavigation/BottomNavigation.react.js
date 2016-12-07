@@ -13,6 +13,10 @@ const propTypes = {
     */
     children: PropTypes.node.isRequired,
     /**
+    * Wether or not the BottomNaviagtion should show
+    */
+    hidden: PropTypes.bool,
+    /**
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
@@ -20,13 +24,16 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    hidden: false,
     style: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
-function getStyles(props, local, context) {
+
+function getStyles(props, context) {
     const { bottomNavigation } = context.uiTheme;
+    const local = {};
 
     return {
         container: [
@@ -42,28 +49,20 @@ function getStyles(props, local, context) {
 */
 
 class BottomNavigation extends PureComponent {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            moveAnimated: new Animated.Value(0 - this.context.uiTheme.bottomNavigation.container.height),
+            moveAnimated: new Animated.Value(0),
         };
     }
 
-    componentDidMount() {
-        Animated.timing(this.state.moveAnimated, {
-            toValue: 0,
-            duration: 225,
-            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-        }).start();
-    }
-
     componentWillReceiveProps(nextProps) {
-        if (nextProps.shouldShow !== this.props.shouldShow && nextProps.shouldShow === true) {
-            this._show();
-        }
-
-        if (nextProps.shouldHide !== this.props.shouldHide && nextProps.shouldHide === true) {
-            this._hide();
+        if (nextProps.hidden !== this.props.hidden) {
+            if (nextProps.hidden === true) {
+                this._hide();
+            } else {
+                this._show();
+            }
         }
     }
 
@@ -86,15 +85,10 @@ class BottomNavigation extends PureComponent {
 
     render() {
         const { active, children } = this.props;
-        const local = {
-          container: {
-            bottom: this.state.moveAnimated,
-          },
-        };
-        const styles = getStyles(this.props, local, this.context);
+        const styles = getStyles(this.props, this.context);
 
         return (
-            <Animated.View style={styles.container}>
+            <Animated.View style={[styles.container, { bottom: this.state.moveAnimated }]}>
                 {React.Children.map(
                     children,
                     child => React.cloneElement(child, {

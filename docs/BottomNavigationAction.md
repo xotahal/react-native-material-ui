@@ -45,20 +45,28 @@ render() {
 ```js
 const propTypes = {
     /**
-    * Sets the label of the navigation action
+    * Will be rendered above the label as a content of the action.
     */
-    label: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
     /**
-    * The vector icon name for the navigation action
+    * Will be rendered under the icon as a content of the action.
     */
-    iconName: PropTypes.string.isRequired,
+    label: PropTypes.string,
     /**
-    * Sets the action on active based on the state.
+    * True if the action is active (for now it'll be highlight by primary color)
     */
-    isActive: PropTypes.bool,
+    active: PropTypes.bool.isRequired,
     /**
-    * You can overide any style for this bottom navigation
+    * Callback for on press event.
     */
-    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+    onPress: PropTypes.func,
+    /**
+    * Inline style of bottom navigation
+    */
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        active: Text.propTypes.style,
+        disabled: Text.propTypes.style,
+    }),
 };
 ```
