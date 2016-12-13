@@ -14,21 +14,23 @@ const uiTheme = {
 };
 
 
-test('objects exist', () => {
-    const theme = getTheme(uiTheme);
+describe('getTheme', () => {
+    it('objects exist', () => {
+        const theme = getTheme(uiTheme);
 
-    expect(!!theme.palette).toBeTruthy();
-    expect(!!theme.fontFamily).toBeTruthy();
-    expect(!!theme.spacing).toBeTruthy();
-    expect(!!theme.typography).toBeTruthy();
+        expect(!!theme.palette).toBeTruthy();
+        expect(!!theme.fontFamily).toBeTruthy();
+        expect(!!theme.spacing).toBeTruthy();
+        expect(!!theme.typography).toBeTruthy();
 
-    expect(!!theme.actionButton).toBeTruthy();
-    expect(!!theme.actionButton.container).toBeTruthy();
-    expect(!!theme.listItem).toBeTruthy();
-});
-test('merges properly', () => {
-    const theme = getTheme(uiTheme);
+        expect(!!theme.actionButton).toBeTruthy();
+        expect(!!theme.actionButton.container).toBeTruthy();
+        expect(!!theme.listItem).toBeTruthy();
+    });
+    it('merges properly', () => {
+        const theme = getTheme(uiTheme);
 
-    expect(theme.palette.primaryColor).toBe('#fff');
-    expect(theme.actionButton.container.width).toBe(100);
+        expect(theme.palette.primaryColor).toBe('#fff');
+        expect(theme.actionButton.container.width).toBe(100);
+    });
 });

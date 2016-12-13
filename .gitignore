@@ -40,6 +40,7 @@ fastlane/README*
 # Directories #
 ###############
 .gradle
+coverage
 build
 node_modules
 xcuserdata

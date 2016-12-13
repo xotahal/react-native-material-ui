@@ -12,7 +12,9 @@
     "url": "https://github.com/xotahal/react-native-material-ui"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "react-native",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "react-native",
@@ -41,11 +43,13 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react-native": "^1.9.0",
-    "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "^6.8.0",
-    "jest": "^17.0.3"
+    "eslint": "^3.11.1",
+    "jest": "^17.0.3",
+    "react-native": "^0.39.2",
+    "react": "^15.4.1"
   }
 }
