@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { Platform, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**

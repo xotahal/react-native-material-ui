@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import { View, Animated, StyleSheet, Platform } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 import Color from 'color';
 import { ELEVATION_ZINDEX } from '../styles/getPlatformElevation';

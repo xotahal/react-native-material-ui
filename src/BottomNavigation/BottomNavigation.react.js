@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 import BottomNavigationAction from './BottomNavigationAction.react';
 
@@ -55,7 +57,7 @@ class BottomNavigation extends PureComponent {
                     child => React.cloneElement(child, {
                         ...child.props,
                         active: child.key === active,
-                    })
+                    }),
                 )}
             </View>
         );

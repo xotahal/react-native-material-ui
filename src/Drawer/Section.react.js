@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { View } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import Subheader from '../Subheader';
 import Divider from '../Divider';
 import ListItem from '../ListItem';

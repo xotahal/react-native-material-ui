@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { ScrollView } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import Container from '../Container';
 
 import Header from './Header.react';

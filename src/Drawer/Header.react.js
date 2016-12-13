@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import HeaderAccount from './HeaderAccount.react';
 
 const propTypes = {

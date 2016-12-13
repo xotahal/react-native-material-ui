@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import ListItem from '../ListItem';
 
 const propTypes = {
@@ -88,7 +90,7 @@ class HeaderAcount extends PureComponent {
                                         <View style={[styles.inactiveAvatarContainer]}>
                                             {account.avatar}
                                         </View>
-                                    </TouchableWithoutFeedback>
+                                    </TouchableWithoutFeedback>,
                                 )
                             }
                         </View>

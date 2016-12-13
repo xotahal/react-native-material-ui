@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import { View, Text, LayoutAnimation, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
+/* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
