@@ -1,0 +1,8 @@
+exports[`test default props 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  } />
+`;
