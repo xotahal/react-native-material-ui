@@ -60,7 +60,7 @@ const propTypes = {
         leftElementContainer: View.propTypes.style,
         leftElement: View.propTypes.style,
         centerElementContainer: View.propTypes.style,
-        titleText: View.propTypes.style,
+        titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
         rightElement: IconToggle.propTypes.style,
     }),
