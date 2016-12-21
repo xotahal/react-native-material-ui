@@ -13,7 +13,10 @@ const propTypes = {
     * If string, result will be <Icon name={icon} ...rest />
     * If ReactElement, will be used as is
     */
-    icon: PropTypes.node.isRequired,
+    icon: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]).isRequired,
     /**
     * Will be rendered under the icon as a content of the action.
     */
