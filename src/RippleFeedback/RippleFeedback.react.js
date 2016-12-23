@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
-import { Platform, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+import { Platform, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
@@ -30,9 +30,9 @@ class RippleFeedback extends PureComponent {
 
         if (!isCompatible()) {
             return (
-                <TouchableWithoutFeedback {...otherProps}>
+                <TouchableOpacity {...otherProps}>
                     {children}
-                </TouchableWithoutFeedback>
+                </TouchableOpacity>
             );
         }
 
