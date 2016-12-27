@@ -20,6 +20,7 @@ render() {
 const propTypes = {
     /**
     * Array of names of icons (or elements) that will be shown after the main button is pressed
+    * Remember, you should specify key for each element, if you use array of elements
     */
     actions: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),

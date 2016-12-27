@@ -10,6 +10,7 @@ import getPlatformElevation from '../styles/getPlatformElevation';
 const propTypes = {
     /**
     * Array of names of icons (or elements) that will be shown after the main button is pressed
+    * Remember, you should specify key for each element, if you use array of elements
     */
     actions: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
@@ -242,6 +243,9 @@ class ActionButton extends PureComponent {
         }
 
         if (React.isValidElement(icon)) {
+            if (icon.key) {
+                key = icon.key;
+            }
             content = <RippleFeedback
                         color="#AAF"
                         onPress={() => this.onPress(key)}
@@ -263,23 +267,39 @@ class ActionButton extends PureComponent {
             </View>
         )
     }
-    renderToolbarElementAction = (styles, icon) => (
-        <View key={icon} style={styles.toolbarActionContainer}>
-            {this.renderToolbarAction(styles, icon)}
-        </View>
-    )
+    renderToolbarElementAction = (styles, icon) => {
+        let key = icon;
+        if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
+        }
+        return (
+            <View key={key} style={styles.toolbarActionContainer}>
+                {this.renderToolbarAction(styles, icon)}
+            </View>
+        )
+    }
     /**
     * TODO: implement labels for toolbar?
     */
-    renderToolbarLabelAction  = (styles, icon, label, name) => (
-        <View key={icon} style={styles.toolbarActionContainer}>
-            {this.renderToolbarAction(styles, icon, name)}
-        </View>
-    )
+    renderToolbarLabelAction  = (styles, icon, label, name) => {
+        let key = icon;
+        if (name) {
+            key = name;
+        } else if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
+        }
+        return(
+            <View key={key} style={styles.toolbarActionContainer}>
+                {this.renderToolbarAction(styles, icon, name)}
+            </View>
+        )
+    }
     renderAction = (styles, icon, name) => {
         let key = icon;
         if (name) {
             key = name;
+        } else if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
         }
         return (
             <View key={key} style={styles.speedDialActionIconContainer}>
@@ -295,19 +315,33 @@ class ActionButton extends PureComponent {
             </View>
         )
     }
-    renderElementAction = (styles, icon) => (
-        <View key={icon} style={styles.speedDialActionContainer}>
-            {this.renderAction(styles, icon)}
-        </View>
-    )
-    renderLabelAction = (styles, icon, label, name) => (
-        <View key={icon} style={styles.speedDialActionContainer}>
-            <View style={styles.speedDialActionLabelContainer}>
-                <Text>{label}</Text>
+    renderElementAction = (styles, icon) => {
+        let key = icon;
+        if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
+        }
+        return(
+            <View key={key} style={styles.speedDialActionContainer}>
+                {this.renderAction(styles, icon)}
             </View>
-            {this.renderAction(styles, icon, name)}
-        </View>
-    )
+        )
+    }
+    renderLabelAction = (styles, icon, label, name) => {
+        let key = icon;
+        if (name) {
+            key = name;
+        } else if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
+        }
+        return(
+            <View key={key} style={styles.speedDialActionContainer}>
+                <View style={styles.speedDialActionLabelContainer}>
+                    <Text>{label}</Text>
+                </View>
+                {this.renderAction(styles, icon, name)}
+            </View>
+        )
+    }
     renderIconButton = (styles, icon) => {
         let result;
         if (React.isValidElement(icon)) {
