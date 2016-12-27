@@ -19,13 +19,18 @@ render() {
 ```js
 const propTypes = {
     /**
-    * Array of names of icons that will be shown after the main button is pressed
+    * Array of names of icons (or elements) that will be shown after the main button is pressed
     */
     actions: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.element),
         PropTypes.arrayOf(PropTypes.shape({
-            icon: PropTypes.string,
+            icon: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element,
+            ]),
             label: PropTypes.string,
+            name:  PropTypes.string,
         })),
     ]),
     /**
