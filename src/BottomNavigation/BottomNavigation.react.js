@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Animated, Easing } from 'react-native';
+import { View, Platform, Animated, Easing } from 'react-native';
 
 import BottomNavigationAction from './BottomNavigationAction.react';
 
@@ -69,17 +69,18 @@ class BottomNavigation extends PureComponent {
     _show = () => {
         Animated.timing(this.state.moveAnimated, {
             toValue: 0,
-            delay: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+            useNativeDriver: (Platform.OS === 'ios') ? false : true,
         }).start();
     }
 
     _hide = () => {
         Animated.timing(this.state.moveAnimated, {
-            toValue: 0 - this.context.uiTheme.bottomNavigation.container.height,
+            toValue: this.context.uiTheme.bottomNavigation.container.height,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+            useNativeDriver: (Platform.OS === 'ios') ? false : true,
         }).start();
     }
 
@@ -88,7 +89,7 @@ class BottomNavigation extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <Animated.View style={[styles.container, { bottom: this.state.moveAnimated }]}>
+            <Animated.View style={[styles.container, { transform: [{ translateY: this.state.moveAnimated }]}]}>
                 {React.Children.map(
                     children,
                     child => React.cloneElement(child, {

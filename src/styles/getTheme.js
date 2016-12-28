@@ -143,7 +143,6 @@ export default function getTheme(theme, ...more) {
         bottomNavigation: StyleSheet.create(merge({
             container: {
                 flexDirection: 'row',
-                position: 'relative',
                 height: 56,
                 backgroundColor: palette.canvasColor,
                 borderTopColor: palette.borderColor,
