@@ -73,7 +73,7 @@ class BottomNavigation extends PureComponent {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: (Platform.OS === 'ios') ? false : true,
+            useNativeDriver: Platform.OS === 'ios',
         }).start();
     }
 
@@ -82,7 +82,7 @@ class BottomNavigation extends PureComponent {
             toValue: this.context.uiTheme.bottomNavigation.container.height,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: (Platform.OS === 'ios') ? false : true,
+            useNativeDriver: Platform.OS === 'ios',
         }).start();
     }
 
