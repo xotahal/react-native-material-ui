@@ -15,6 +15,7 @@
     "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
     // eslint-plugin-import
     "import/no-unresolved": [2, {"commonjs": true}],
+    "import/no-extraneous-dependencies": 0,
     "import/named": 2,
     "import/default": 2,
     "import/namespace": 2,

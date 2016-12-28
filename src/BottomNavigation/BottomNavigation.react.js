@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
 import { View, Platform, Animated, Easing } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 import BottomNavigationAction from './BottomNavigationAction.react';
 
@@ -59,14 +61,14 @@ class BottomNavigation extends PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.hidden !== this.props.hidden) {
             if (nextProps.hidden === true) {
-                this._hide();
+                this.hide();
             } else {
-                this._show();
+                this.show();
             }
         }
     }
 
-    _show = () => {
+    show = () => {
         Animated.timing(this.state.moveAnimated, {
             toValue: 0,
             duration: 225,
@@ -75,7 +77,7 @@ class BottomNavigation extends PureComponent {
         }).start();
     }
 
-    _hide = () => {
+    hide = () => {
         Animated.timing(this.state.moveAnimated, {
             toValue: this.context.uiTheme.bottomNavigation.container.height,
             duration: 195,
@@ -89,13 +91,19 @@ class BottomNavigation extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <Animated.View style={[styles.container, { transform: [{ translateY: this.state.moveAnimated }]}]}>
+            <Animated.View
+                style={[styles.container, {
+                    transform: [{
+                        translateY: this.state.moveAnimated,
+                    }],
+                }]}
+            >
                 {React.Children.map(
                     children,
                     child => React.cloneElement(child, {
                         ...child.props,
                         active: child.key === active,
-                    })
+                    }),
                 )}
             </Animated.View>
         );

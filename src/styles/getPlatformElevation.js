@@ -1,4 +1,6 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import { Platform } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import { black } from './colors';
 
 export const ELEVATION_ZINDEX = 1;

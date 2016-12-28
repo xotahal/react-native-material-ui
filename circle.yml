@@ -1,0 +1,25 @@
+machine:
+  node:
+    version: stable
+  environment:
+    YARN_VERSION: 0.17.10
+    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  pre:
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      fi
+  cache_directories:
+    - ~/.yarn
+    - ~/.cache/yarn
+  override:
+    - yarn
+
+test:
+  override:
+    - yarn lint
+    - yarn test
+  post:
+    - bash <(curl -s https://codecov.io/bash)

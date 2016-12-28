@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import { Text, View } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
+/* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 
 const propTypes = {

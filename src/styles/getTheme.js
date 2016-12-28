@@ -1,4 +1,6 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import { StyleSheet } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 import Color from 'color';
 import merge from 'lodash.merge';

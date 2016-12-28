@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { View } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import Button from '../Button';
 
 const propTypes = {
@@ -51,7 +53,7 @@ class DialogDefaultActions extends PureComponent {
                             text={action}
                             onPress={this.onActionPressed}
                         />
-                    </View>
+                    </View>,
                 )}
             </View>
         );

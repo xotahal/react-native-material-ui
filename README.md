@@ -3,13 +3,11 @@
 **Highly customizable material design components for React Native!**
 
 [![npm](https://img.shields.io/npm/v/react-native-material-ui.svg)](https://www.npmjs.com/package/react-native-material-ui)
+[![codecov](https://codecov.io/gh/xotahal/react-native-material-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/xotahal/react-native-material-ui)
 [![npm](https://img.shields.io/npm/dm/react-native-material-ui.svg)](https://img.shields.io/npm/dm/react-native-material-ui.svg)
 [![GitHub issues](https://img.shields.io/github/issues/xotahal/react-native-material-ui.svg)](https://github.com/xotahal/react-native-material-ui/issues)
 [![Dependencies](https://david-dm.org/xotahal/react-native-material-ui.svg)](https://david-dm.org/xotahal/react-native-material-ui.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/xotahal/react-native-material-ui/master/LICENSE)
-[![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/badge.svg?style=beer-square)](https://beerpay.io/xotahal/react-native-material-ui)  [![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/make-wish.svg?style=flat-square)](https://beerpay.io/xotahal/react-native-material-ui?focus=wish)
-
-
 
 
 # Getting Started
@@ -142,6 +140,7 @@ You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-d
 
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-1.png" width="280">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-anim-1.gif" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-1.gif" width="285">
 ![Example 1](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-1.jpg "Example 1")
 ![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg "Example 2")
 ![Example 3](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-3.jpg "Example 3")
@@ -155,6 +154,7 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Action Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ActionButton.md)
 - Avatar
 - [Badge](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Badge.md)
+- [Bottom Navigation](https://github.com/xotahal/react-native-material-ui/blob/master/docs/BottomNavigation.md)
 - [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - Card
 - Checkbox
@@ -167,8 +167,3 @@ Here is a list of all component included in this library. (I'm working on docume
 - Radio button
 - Subheader
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/badge.svg?style=beer-square)](https://beerpay.io/xotahal/react-native-material-ui)  [![Beerpay](https://beerpay.io/xotahal/react-native-material-ui/make-wish.svg?style=flat-square)](https://beerpay.io/xotahal/react-native-material-ui?focus=wish)

@@ -40,6 +40,7 @@ fastlane/README*
 # Directories #
 ###############
 .gradle
+coverage
 build
 node_modules
 xcuserdata
@@ -48,3 +49,5 @@ log.android
 .idea
 webpack-assets.json
 *report*
+
+yarn.lock

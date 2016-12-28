@@ -1,16 +1,17 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import {
     Animated,
     BackAndroid,
     findNodeHandle,
     NativeModules,
-    Platform,
     StyleSheet,
     Text,
     TextInput,
     TouchableWithoutFeedback,
     View,
 } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
 
@@ -194,13 +195,7 @@ function getStyles(props, context, state) {
         ],
     };
 }
-const addBackButtonListener = (callback) => {
-    if (Platform.OS !== 'ios') {
-        return BackAndroid.addEventListener('closeRequested', callback);
-    }
-
-    return () => {};
-};
+const addBackButtonListener = callback => BackAndroid.addEventListener('closeRequested', callback);
 
 class Toolbar extends PureComponent {
     constructor(props) {
@@ -239,7 +234,7 @@ class Toolbar extends PureComponent {
                 if (onRightElementPress) {
                     onRightElementPress({ action: 'menu', result, index });
                 }
-            }
+            },
         );
     };
     onSearchCloseRequested = () => {
@@ -440,7 +435,7 @@ class Toolbar extends PureComponent {
                         size={size}
                         style={flattenRightElement}
                         onPress={() => this.onSearchTextChanged('')}
-                    />
+                    />,
                 );
             } else {
                 result.push(
@@ -451,7 +446,7 @@ class Toolbar extends PureComponent {
                         size={size}
                         onPress={this.onSearchPressed}
                         style={flattenRightElement}
-                    />
+                    />,
                 );
             }
         }
@@ -477,7 +472,7 @@ class Toolbar extends PureComponent {
                         onPress={() => this.onMenuPressed(rightElement.menu.labels)}
                         style={flattenRightElement}
                     />
-                </View>
+                </View>,
             );
         }
 

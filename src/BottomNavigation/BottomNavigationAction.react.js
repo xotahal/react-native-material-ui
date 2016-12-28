@@ -1,15 +1,21 @@
+/* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
 
-
 const propTypes = {
     /**
     * Will be rendered above the label as a content of the action.
+    * If string, result will be <Icon name={icon} ...rest />
+    * If ReactElement, will be used as is
     */
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]).isRequired,
     /**
     * Will be rendered under the icon as a content of the action.
     */
@@ -74,18 +80,29 @@ function getStyles(props, context) {
     };
 }
 
-
 class BottomNavigationAction extends PureComponent {
+    renderIcon(icon, styles, color) {
+        let element;
+        if (React.isValidElement(icon)) {
+            element = icon;
+        } else {
+            element = <Icon name={icon} style={styles.icon} color={color} />;
+        }
+        return element;
+    }
+
     render() {
         const { icon, label, onPress } = this.props;
 
         const styles = getStyles(this.props, this.context);
         const color = StyleSheet.flatten(styles.icon).color;
 
+        const iconElement = this.renderIcon(icon, styles, color);
+
         return (
             <RippleFeedback onPress={onPress}>
                 <View style={styles.container}>
-                    <Icon name={icon} style={styles.icon} color={color} />
+                    {iconElement}
                     <Text style={styles.label}>{label}</Text>
                 </View>
             </RippleFeedback>
