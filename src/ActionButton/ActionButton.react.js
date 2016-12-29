@@ -21,7 +21,7 @@ const propTypes = {
                 PropTypes.element,
             ]),
             label: PropTypes.string,
-            name:  PropTypes.string,
+            name: PropTypes.string,
         })),
     ]),
     /**
@@ -172,12 +172,12 @@ class ActionButton extends PureComponent {
         return (
             <View style={{ position: 'absolute', bottom: 0, right: 0, left: 0 }}>
                 <View key="main-button" style={styles.toolbarContainer}>
-                    {actions.map(action => {
+                    {actions.map((action) => {
                         if (typeof action === 'string') {
-                            return this.renderToolbarAction(styles, action)
+                            return this.renderToolbarAction(styles, action);
                         }
                         if (React.isValidElement(action)) {
-                            return this.renderToolbarElementAction(styles, action)
+                            return this.renderToolbarElementAction(styles, action);
                         }
                         return this.renderToolbarLabelAction(
                             styles, action.icon, action.label, action.name);
@@ -201,7 +201,7 @@ class ActionButton extends PureComponent {
                                     }
 
                                     if (React.isValidElement(action)) {
-                                        return this.renderElementAction(styles, action)
+                                        return this.renderElementAction(styles, action);
                                     }
 
                                     return this.renderLabelAction(
@@ -237,7 +237,8 @@ class ActionButton extends PureComponent {
         );
     }
     renderToolbarAction = (styles, icon, name) => {
-        let key = icon, content;
+        let key = icon;
+        let content;
         if (name) {
             key = name;
         }
@@ -246,26 +247,28 @@ class ActionButton extends PureComponent {
             if (icon.key) {
                 key = icon.key;
             }
-            content = <RippleFeedback
-                        color="#AAF"
-                        onPress={() => this.onPress(key)}
-                        delayPressIn={20}
-                      >
-                        {this.renderIconButton(styles, icon)}
-                    </RippleFeedback>
+            content = (
+                <RippleFeedback
+                    color="#AAF"
+                    onPress={() => this.onPress(key)}
+                    delayPressIn={20}
+                >
+                    {this.renderIconButton(styles, icon)}
+                </RippleFeedback>);
         } else {
-            content = <IconToggle
-                            key={key}
-                            name={key}
-                            onPress={() => this.onPress(key)}
-                            style={{ icon: styles.icon }}
-                        />
+            content = (
+                <IconToggle
+                    key={key}
+                    name={key}
+                    onPress={() => this.onPress(key)}
+                    style={{ icon: styles.icon }}
+                />);
         }
         return (
             <View key={key} style={styles.toolbarActionContainer}>
                 {content}
             </View>
-        )
+        );
     }
     renderToolbarElementAction = (styles, icon) => {
         let key = icon;
@@ -276,23 +279,23 @@ class ActionButton extends PureComponent {
             <View key={key} style={styles.toolbarActionContainer}>
                 {this.renderToolbarAction(styles, icon)}
             </View>
-        )
+        );
     }
     /**
     * TODO: implement labels for toolbar?
     */
-    renderToolbarLabelAction  = (styles, icon, label, name) => {
+    renderToolbarLabelAction = (styles, icon, label, name) => {
         let key = icon;
         if (name) {
             key = name;
         } else if (React.isValidElement(icon) && icon.key) {
             key = icon.key;
         }
-        return(
+        return (
             <View key={key} style={styles.toolbarActionContainer}>
                 {this.renderToolbarAction(styles, icon, name)}
             </View>
-        )
+        );
     }
     renderAction = (styles, icon, name) => {
         let key = icon;
@@ -313,18 +316,18 @@ class ActionButton extends PureComponent {
                     </RippleFeedback>
                 </View>
             </View>
-        )
+        );
     }
     renderElementAction = (styles, icon) => {
         let key = icon;
         if (React.isValidElement(icon) && icon.key) {
             key = icon.key;
         }
-        return(
+        return (
             <View key={key} style={styles.speedDialActionContainer}>
                 {this.renderAction(styles, icon)}
             </View>
-        )
+        );
     }
     renderLabelAction = (styles, icon, label, name) => {
         let key = icon;
@@ -333,14 +336,14 @@ class ActionButton extends PureComponent {
         } else if (React.isValidElement(icon) && icon.key) {
             key = icon.key;
         }
-        return(
+        return (
             <View key={key} style={styles.speedDialActionContainer}>
                 <View style={styles.speedDialActionLabelContainer}>
                     <Text>{label}</Text>
                 </View>
                 {this.renderAction(styles, icon, name)}
             </View>
-        )
+        );
     }
     renderIconButton = (styles, icon) => {
         let result;
@@ -349,9 +352,11 @@ class ActionButton extends PureComponent {
         } else {
             result = <Icon name={icon} style={styles.icon} />;
         }
-        return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    {result}
-               </View>;
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                {result}
+            </View>
+        );
     }
     renderButton = styles => (
         <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
