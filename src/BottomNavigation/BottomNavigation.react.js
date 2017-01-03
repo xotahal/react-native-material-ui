@@ -73,16 +73,16 @@ class BottomNavigation extends PureComponent {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'ios',
+            useNativeDriver: Platform.OS === 'android',
         }).start();
     }
 
     hide = () => {
         Animated.timing(this.state.moveAnimated, {
-            toValue: this.context.uiTheme.bottomNavigation.container.height,
+            toValue: getStyles(this.props, this.context).container.height,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: Platform.OS === 'ios',
+            useNativeDriver: Platform.OS === 'android',
         }).start();
     }
 
