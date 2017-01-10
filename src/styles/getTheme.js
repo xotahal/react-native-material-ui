@@ -168,6 +168,16 @@ export default function getTheme(theme, ...more) {
                 textAlign: 'center',
                 color: palette.secondaryTextColor,
             },
+            containerActive: {
+                paddingTop: 6
+            },
+            iconActive: {
+                color: palette.primaryColor
+            },
+            labelActive: {
+                color: palette.primaryColor,
+                fontSize: 14
+            }
         }, theme.bottomNavigationAction)),
         card: StyleSheet.create(merge({
             container: {
