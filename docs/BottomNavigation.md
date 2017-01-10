@@ -8,7 +8,7 @@
 import { BottomNavigation } from 'react-native-material-ui';
 ...
 render() {
-    <BottomNavigation active={this.state.active} >
+    <BottomNavigation active={this.state.active} hidden={false} >
         <BottomNavigation.Action
             key="today"
             icon="today"
@@ -49,6 +49,10 @@ const propTypes = {
     */
     children: PropTypes.node.isRequired,
     /**
+    * Wether or not the BottomNaviagtion should show
+    */
+    hidden: PropTypes.bool, /* DEFAULT: false */
+    /*
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
@@ -82,6 +86,5 @@ const propTypes = {
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
-
 };
 ```

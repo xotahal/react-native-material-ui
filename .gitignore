@@ -49,3 +49,5 @@ log.android
 .idea
 webpack-assets.json
 *report*
+
+yarn.lock
