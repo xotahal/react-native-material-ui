@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { View, Platform, Animated, Easing } from 'react-native';
+import { View, Platform, Animated, Easing, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import BottomNavigationAction from './BottomNavigationAction.react';
@@ -49,16 +49,20 @@ function getStyles(props, context) {
 * Component for bottom navigation
 * https://material.google.com/components/bottom-navigation.html
 */
-
 class BottomNavigation extends PureComponent {
-    constructor() {
-        super();
+    constructor(props, context) {
+        super(props, context);
+
         this.state = {
+            styles: getStyles(props, context),
             moveAnimated: new Animated.Value(0),
         };
     }
-
     componentWillReceiveProps(nextProps) {
+        if (nextProps.style !== this.props.style) {
+            this.setState({ styles: getStyles(nextProps, this.context) });
+        }
+
         if (nextProps.hidden !== this.props.hidden) {
             if (nextProps.hidden === true) {
                 this.hide();
@@ -67,7 +71,6 @@ class BottomNavigation extends PureComponent {
             }
         }
     }
-
     show = () => {
         Animated.timing(this.state.moveAnimated, {
             toValue: 0,
@@ -76,19 +79,19 @@ class BottomNavigation extends PureComponent {
             useNativeDriver: Platform.OS === 'android',
         }).start();
     }
-
     hide = () => {
-        Animated.timing(this.state.moveAnimated, {
-            toValue: getStyles(this.props, this.context).container.height,
+        const { moveAnimated, styles } = this.state;
+
+        Animated.timing(moveAnimated, {
+            toValue: StyleSheet.flatten(styles.container).height,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
             useNativeDriver: Platform.OS === 'android',
         }).start();
     }
-
     render() {
         const { active, children } = this.props;
-        const styles = getStyles(this.props, this.context);
+        const { styles } = this.state;
 
         return (
             <Animated.View
