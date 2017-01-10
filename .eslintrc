@@ -26,6 +26,9 @@
     "react/jsx-indent-props": [2, 4],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/no-unused-prop-types": 0,
+    // this could be on, but I have to resolve couple of things
+    // see https://github.com/eslint/eslint/issues/5139
+    "class-methods-use-this": "off",
   },
   "globals": {
     "after": false,
