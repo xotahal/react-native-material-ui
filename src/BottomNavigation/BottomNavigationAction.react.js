@@ -6,7 +6,6 @@ import { StyleSheet, View, Text } from 'react-native';
 import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
 
-
 const propTypes = {
     /**
     * Will be rendered above the label as a content of the action.
@@ -37,7 +36,6 @@ const propTypes = {
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
-
 };
 const defaultProps = {
     active: false,
@@ -82,9 +80,7 @@ function getStyles(props, context) {
     };
 }
 
-
 class BottomNavigationAction extends PureComponent {
-
     renderIcon(icon, styles, color) {
         let element;
         if (React.isValidElement(icon)) {
