@@ -37,6 +37,10 @@ const propTypes = {
     */
     onLongPress: PropTypes.func,
     /**
+    * Set true if you want to hide action button
+    */
+    hidden: PropTypes.bool,
+    /**
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,

@@ -26,6 +26,11 @@ export default function getTheme(theme, ...more) {
 
     theme = merge({
         actionButton: StyleSheet.create(merge({
+            positionContainer: {
+                position: 'absolute',
+                bottom: 20,
+                right: 20,
+            },
             container: {
                 height: spacing.actionButtonSize,
                 width: spacing.actionButtonSize,
@@ -39,6 +44,12 @@ export default function getTheme(theme, ...more) {
                 // to get elevation for toolbar and this overlay
                 ...getPlatformElevation(4),
             },
+            toolbarPositionContainer: {
+                position: 'absolute',
+                bottom: 0,
+                right: 0,
+                left: 0,
+            },
             toolbarContainer: {
                 flex: 1,
                 height: spacing.actionButtonSize,
@@ -51,9 +62,6 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
             },
             speedDialContainer: {
-                position: 'absolute',
-                bottom: 20,
-                right: 20,
                 alignItems: 'flex-end',
             },
             speedDialActionContainer: {
