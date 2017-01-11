@@ -1,5 +1,6 @@
 # [BottomNavigation](https://material.google.com/components/bottom-navigation.html)
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-1.gif" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
 
 ### Usage
 
@@ -8,7 +9,7 @@
 import { BottomNavigation } from 'react-native-material-ui';
 ...
 render() {
-    <BottomNavigation active={this.state.active} >
+    <BottomNavigation active={this.state.active} hidden={false} >
         <BottomNavigation.Action
             key="today"
             icon="today"
@@ -49,6 +50,10 @@ const propTypes = {
     */
     children: PropTypes.node.isRequired,
     /**
+    * Wether or not the BottomNaviagtion should show
+    */
+    hidden: PropTypes.bool, /* DEFAULT: false */
+    /*
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
@@ -82,6 +87,5 @@ const propTypes = {
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
-
 };
 ```

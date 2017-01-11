@@ -1,6 +1,15 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View, Text, LayoutAnimation, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
+import {
+    View,
+    Text,
+    LayoutAnimation,
+    StyleSheet,
+    TouchableWithoutFeedback,
+    Animated,
+    Easing,
+    Platform,
+} from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
@@ -33,6 +42,10 @@ const propTypes = {
     */
     onLongPress: PropTypes.func,
     /**
+    * Set true if you want to hide action button
+    */
+    hidden: PropTypes.bool,
+    /**
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,
@@ -52,6 +65,7 @@ const propTypes = {
 const defaultProps = {
     icon: 'add',
     style: {},
+    hidden: false,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -79,6 +93,16 @@ function getStyles(props, context, state) {
     };
 
     return {
+        positionContainer: [
+            actionButton.positionContainer,
+            local.positionContainer,
+            props.style.positionContainer,
+        ],
+        toolbarPositionContainer: [
+            actionButton.toolbarPositionContainer,
+            local.toolbarPositionContainer,
+            props.style.toolbarPositionContainer,
+        ],
         container: [
             actionButton.container,
             local.container,
@@ -136,10 +160,22 @@ class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
 
+        const scaleValue = props.hidden ? 0.01 : 1;
+
         this.state = {
             render: 'button',
             elevation: 2,
+            scaleValue: new Animated.Value(scaleValue),
         };
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.hidden !== this.props.hidden) {
+            if (nextProps.hidden === true) {
+                this.hide();
+            } else {
+                this.show();
+            }
+        }
     }
     componentWillUpdate(nextProps, nextState) {
         if (this.state.render !== nextState.render) {
@@ -166,11 +202,29 @@ class ActionButton extends PureComponent {
             this.setState({ render: 'button' });
         }
     }
+    show = () => {
+        Animated.timing(this.state.scaleValue, {
+            toValue: 1,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+            useNativeDriver: Platform.OS === 'android',
+        }).start();
+    }
+    hide = () => {
+        Animated.timing(this.state.scaleValue, {
+            // TODO: why is not 0 here?
+            // see: https://github.com/facebook/react-native/issues/10510
+            toValue: 0.01,
+            duration: 195,
+            easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+            useNativeDriver: Platform.OS === 'android',
+        }).start();
+    }
     renderToolbarTransition = (styles) => {
         const { actions } = this.props;
 
         return (
-            <View style={{ position: 'absolute', bottom: 0, right: 0, left: 0 }}>
+            <View style={styles.toolbarPositionContainer}>
                 <View key="main-button" style={styles.toolbarContainer}>
                     {actions.map((action) => {
                         if (typeof action === 'string') {
@@ -193,7 +247,7 @@ class ActionButton extends PureComponent {
             <View style={[StyleSheet.absoluteFillObject, { flex: 1 }]}>
                 <TouchableWithoutFeedback onPress={this.toggleState}>
                     <View style={styles.overlayContainer}>
-                        <View style={styles.speedDialContainer}>
+                        <View style={[styles.positionContainer, styles.speedDialContainer]}>
                             <View style={{ alignItems: 'flex-end', marginBottom: 16 }}>
                                 {actions.map((action) => {
                                     if (typeof action === 'string') {
@@ -359,9 +413,15 @@ class ActionButton extends PureComponent {
         );
     }
     renderButton = styles => (
-        <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
+        <Animated.View
+            style={[styles.positionContainer, {
+                transform: [{
+                    scale: this.state.scaleValue,
+                }],
+            }]}
+        >
             {this.renderMainButton(styles)}
-        </View>
+        </Animated.View>
     );
     render() {
         const { render } = this.state;

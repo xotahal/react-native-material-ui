@@ -1,6 +1,8 @@
 # [Action Button](https://material.google.com/components/buttons-floating-action-button.html)
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
+
 
 ### Usage
 
@@ -42,6 +44,10 @@ const propTypes = {
     * Called when button is long pressed. Text is passed as param
     */
     onLongPress: PropTypes.func,
+    /**
+    * Set true if you want to hide action button
+    */
+    hidden: PropTypes.bool,
     /**
     * If specified it'll be shown before text
     */
