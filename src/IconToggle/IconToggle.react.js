@@ -189,7 +189,7 @@ class IconToggle extends PureComponent {
                     borderRadius: (rippleSize) / 2,
                     transform: [{ scale: scaleValue }],
                     opacity: opacityValue,
-                    backgroundColor: color.hexString(),
+                    backgroundColor: color.toString(),
                     // we need set zindex for iOS, because the components with elevation have the
                     // zindex set as well, thus, there could be displayed backgroundColor of
                     // component with bigger zindex - and that's not good

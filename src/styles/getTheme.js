@@ -39,7 +39,7 @@ export default function getTheme(theme, ...more) {
             },
             overlayContainer: {
                 ...StyleSheet.absoluteFillObject,
-                backgroundColor: Color('#fff').alpha(0.8).rgbaString(),
+                backgroundColor: Color('#fff').alpha(0.8).toString(),
                 // we need overlay to be above the toolbar - so maybe we could use some variable
                 // to get elevation for toolbar and this overlay
                 ...getPlatformElevation(4),
@@ -100,7 +100,7 @@ export default function getTheme(theme, ...more) {
                 width: spacing.avatarSize,
                 height: spacing.avatarSize,
                 borderRadius: spacing.avatarSize / 2,
-                backgroundColor: darkenOrLighten(palette.canvasColor, 0.26).hexString(),
+                backgroundColor: darkenOrLighten(palette.canvasColor, 0.26).toString(),
                 alignItems: 'center',
                 justifyContent: 'center',
             },
