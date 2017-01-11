@@ -177,15 +177,15 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
             containerActive: {
-                paddingTop: 6
+                paddingTop: 6,
             },
             iconActive: {
-                color: palette.primaryColor
+                color: palette.primaryColor,
             },
             labelActive: {
                 color: palette.primaryColor,
-                fontSize: 14
-            }
+                fontSize: 14,
+            },
         }, theme.bottomNavigationAction)),
         card: StyleSheet.create(merge({
             container: {
