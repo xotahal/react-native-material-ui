@@ -7,7 +7,7 @@ import merge from 'lodash.merge';
 
 import { fontWeight } from './typography';
 import {
-  black, grey100, grey500, white, transparent,
+  black, grey100, grey500, grey600, white, transparent,
 } from './colors';
 
 import lightTheme from './themes/light';
@@ -81,6 +81,9 @@ export default function getTheme(theme, ...more) {
                 width: spacing.actionButtonSize - 16,
                 borderRadius: (spacing.actionButtonSize - 16) / 2,
                 backgroundColor: grey500,
+            },
+            speedDialActionLabel: {
+                color: grey600,
             },
             speedDialActionLabelContainer: {
                 ...getPlatformElevation(2),
