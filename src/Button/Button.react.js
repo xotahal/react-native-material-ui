@@ -28,6 +28,10 @@ const propTypes = {
     */
     text: PropTypes.string.isRequired,
     /**
+    * Button text will be in uppercase letters
+    */
+    upperCase: PropTypes.bool,
+    /**
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,
@@ -44,6 +48,7 @@ const defaultProps = {
     accent: false,
     disabled: false,
     raised: false,
+    upperCase: true,
     style: {},
 };
 const contextTypes = {
@@ -144,7 +149,7 @@ class Button extends PureComponent {
         );
     }
     render() {
-        const { text, disabled, raised, onLongPress } = this.props;
+        const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 
@@ -152,7 +157,7 @@ class Button extends PureComponent {
             <View style={styles.container}>
                 {this.renderIcon(styles)}
                 <Text style={styles.text}>
-                    {text.toUpperCase()}
+                    {upperCase ? text.toUpperCase() : text}
                 </Text>
             </View>
         );
