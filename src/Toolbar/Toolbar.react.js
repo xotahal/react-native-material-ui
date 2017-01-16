@@ -315,7 +315,9 @@ class Toolbar extends PureComponent {
         }).start();
     }
     hide = () => {
-        Animated.timing(this.state.moveAnimated, {
+        const { moveAnimated, styles } = this.state;
+
+        Animated.timing(moveAnimated, {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
@@ -527,11 +529,11 @@ class Toolbar extends PureComponent {
 
         return (
             <Animated.View
-              style={[styles.container, {
-                  transform: [{
-                      translateY: this.state.moveAnimated,
-                  }],
-              }]}
+                style={[styles.container, {
+                    transform: [{
+                        translateY: this.state.moveAnimated,
+                    }],
+                }]}
             >
                 {this.renderLeftElement(styles)}
                 {this.renderCenterElement(styles)}
