@@ -53,15 +53,23 @@ const propTypes = {
         * Indicates when input should be focused after the search is opened.
         */
         autoFocus: PropTypes.bool,
+        /**
+        * Enable auto-capitalize for search input
+        */
+        autoCapitalize: PropTypes.string,
+        /**
+        * Enable auto-correct for search input
+        */
+        autoCorrect: PropTypes.bool,
     }),
     /**
     * You can overide any style for the component via this prop
     */
     style: PropTypes.shape({
-        container: Animated.View.propTypes.style,
+        container: View.propTypes.style,
         leftElementContainer: View.propTypes.style,
-        leftElement: IconToggle.propTypes.style,
-        centerElementContainer: Animated.View.propTypes.style,
+        leftElement: View.propTypes.style,
+        centerElementContainer: View.propTypes.style,
         titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
         rightElement: IconToggle.propTypes.style,
@@ -368,6 +376,8 @@ class Toolbar extends PureComponent {
                 <TextInput
                     ref={(ref) => { this.searchFieldRef = ref; }}
                     autoFocus={searchable.autoFocus}
+                    autoCapitalize={searchable.autoCapitalize}
+                    autoCorrect={searchable.autoCorrect}
                     onChangeText={this.onSearchTextChanged}
                     onSubmitEditing={searchable.onSubmitEditing}
                     placeholder={searchable.placeholder}

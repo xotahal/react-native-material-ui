@@ -26,6 +26,11 @@ export default function getTheme(theme, ...more) {
 
     theme = merge({
         actionButton: StyleSheet.create(merge({
+            positionContainer: {
+                position: 'absolute',
+                bottom: 20,
+                right: 20,
+            },
             container: {
                 height: spacing.actionButtonSize,
                 width: spacing.actionButtonSize,
@@ -34,10 +39,16 @@ export default function getTheme(theme, ...more) {
             },
             overlayContainer: {
                 ...StyleSheet.absoluteFillObject,
-                backgroundColor: Color('#fff').alpha(0.8).rgbaString(),
+                backgroundColor: Color('#fff').alpha(0.8).toString(),
                 // we need overlay to be above the toolbar - so maybe we could use some variable
                 // to get elevation for toolbar and this overlay
                 ...getPlatformElevation(4),
+            },
+            toolbarPositionContainer: {
+                position: 'absolute',
+                bottom: 0,
+                right: 0,
+                left: 0,
             },
             toolbarContainer: {
                 flex: 1,
@@ -51,9 +62,6 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
             },
             speedDialContainer: {
-                position: 'absolute',
-                bottom: 20,
-                right: 20,
                 alignItems: 'flex-end',
             },
             speedDialActionContainer: {
@@ -74,6 +82,9 @@ export default function getTheme(theme, ...more) {
                 borderRadius: (spacing.actionButtonSize - 16) / 2,
                 backgroundColor: grey500,
             },
+            speedDialActionLabel: {
+                color: palette.secondaryTextColor,
+            },
             speedDialActionLabelContainer: {
                 ...getPlatformElevation(2),
                 borderRadius: 2,
@@ -92,7 +103,7 @@ export default function getTheme(theme, ...more) {
                 width: spacing.avatarSize,
                 height: spacing.avatarSize,
                 borderRadius: spacing.avatarSize / 2,
-                backgroundColor: darkenOrLighten(palette.canvasColor, 0.26).hexString(),
+                backgroundColor: darkenOrLighten(palette.canvasColor, 0.26).toString(),
                 alignItems: 'center',
                 justifyContent: 'center',
             },
@@ -167,6 +178,16 @@ export default function getTheme(theme, ...more) {
                 fontSize: 12,
                 textAlign: 'center',
                 color: palette.secondaryTextColor,
+            },
+            containerActive: {
+                paddingTop: 6,
+            },
+            iconActive: {
+                color: palette.primaryColor,
+            },
+            labelActive: {
+                color: palette.primaryColor,
+                fontSize: 14,
             },
         }, theme.bottomNavigationAction)),
         card: StyleSheet.create(merge({

@@ -47,14 +47,14 @@ const contextTypes = {
 };
 
 function getStyles(props, context) {
-    const { bottomNavigationAction, palette } = context.uiTheme;
+    const { bottomNavigationAction } = context.uiTheme;
 
     const local = {};
 
     if (props.active) {
-        local.container = { paddingTop: 6 };
-        local.icon = { color: palette.primaryColor };
-        local.label = { color: palette.primaryColor, fontSize: 14 };
+        local.container = bottomNavigationAction.containerActive;
+        local.icon = bottomNavigationAction.iconActive;
+        local.label = bottomNavigationAction.labelActive;
     }
 
     if (!props.label) {
