@@ -127,6 +127,11 @@ function getStyles(props, context, state) {
             local.speedDialActionContainer,
             props.style.speedDialActionContainer,
         ],
+        speedDialActionLabel: [
+            actionButton.speedDialActionLabel,
+            local.speedDialActionLabel,
+            props.style.speedDialActionLabel,
+        ],
         speedDialActionLabelContainer: [
             actionButton.speedDialActionLabelContainer,
             local.speedDialActionLabelContainer,
@@ -296,7 +301,7 @@ class ActionButton extends PureComponent {
     renderLabelAction = (styles, icon, label) => (
         <View key={icon} style={styles.speedDialActionContainer}>
             <View style={styles.speedDialActionLabelContainer}>
-                <Text>{label}</Text>
+                <Text style={styles.speedDialActionLabel}>{label}</Text>
             </View>
             {this.renderAction(styles, icon)}
         </View>
