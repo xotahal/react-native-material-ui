@@ -64,11 +64,7 @@ class Snackbar extends PureComponent {
 
         return (
             <Animated.View
-                style={[styles.container, {
-                    transform: [{
-                        translateY: this.state.moveAnimated,
-                    }],
-                }]}
+                style={styles.container}
             >
                 <Text>{ message }</Text>
             </Animated.View>
