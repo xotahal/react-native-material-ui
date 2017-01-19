@@ -404,11 +404,11 @@ export default function getTheme(theme, ...more) {
                 height: 48,
                 backgroundColor: '#323232',
                 paddingHorizontal: 24,
-                paddingVertical: 14,
                 ...getPlatformElevation(4),
             },
             message: {
                 fontSize: 14,
+                marginVertical: 14,
                 color: '#ffffff',
             },
         }, theme.snackbar)),

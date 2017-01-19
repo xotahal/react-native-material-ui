@@ -44,6 +44,11 @@ function getStyles(props, context) {
             local.container,
             props.style.container,
         ],
+        message: [
+            snackbar.message,
+            local.message,
+            props.style.message,
+        ],
     };
 }
 
