@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { View, Text, Animated } from 'react-native';
 
 
@@ -57,7 +57,7 @@ function getStyles(props, context) {
 * Component for snackbars
 * https://material.io/guidelines/components/snackbars-toasts.html
 */
-class Snackbar extends Component {
+class Snackbar extends PureComponent {
     render() {
         const { message } = this.props;
         const styles = getStyles(this.props, this.context);

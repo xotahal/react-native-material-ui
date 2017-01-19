@@ -1,1 +1,1 @@
-export { default } from 'Snackbar.react';
+export { default } from './Snackbar.react';
