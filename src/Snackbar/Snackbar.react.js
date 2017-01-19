@@ -2,7 +2,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { View, Text, Animated } from 'react-native';
 
-
 const propTypes = {
     /**
     * The text message to display.
@@ -36,23 +35,12 @@ const contextTypes = {
 };
 
 function getStyles(props, context) {
-    // const { snackbar } = context.uiTheme;
-    const local = {
-        container: {
-            height: 48,
-            backgroundColor: '#323232',
-            paddingHorizontal: 24,
-        },
-        text: {
-            fontSize: 14,
-            marginVertical: 14,
-            color: '#ffffff',
-        },
-    };
+    const { snackbar } = context.uiTheme;
+    const local = {};
 
     return {
         container: [
-            // snackbar.container,
+            snackbar.container,
             local.container,
             props.style.container,
         ],
@@ -69,10 +57,8 @@ class Snackbar extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <Animated.View
-                style={styles.container}
-            >
-                <Text>{ message.toUpperCase() }</Text>
+            <Animated.View style={styles.container} >
+                <Text style={styles.message} >{ message.toUpperCase() }</Text>
             </Animated.View>
         );
     }

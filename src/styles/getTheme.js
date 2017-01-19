@@ -397,6 +397,21 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
         }, theme.listItem)),
+        // https://material.io/guidelines/components/snackbars-toasts.html
+        snackbar: StyleSheet.create(merge({
+            container: {
+                flexDirection: 'row',
+                height: 48,
+                backgroundColor: '#323232',
+                paddingHorizontal: 24,
+                paddingVertical: 14,
+                ...getPlatformElevation(4),
+            },
+            message: {
+                fontSize: 14,
+                color: '#ffffff',
+            },
+        }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create(merge({
             container: {
