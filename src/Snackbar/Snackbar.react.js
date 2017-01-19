@@ -39,8 +39,14 @@ function getStyles(props, context) {
     // const { snackbar } = context.uiTheme;
     const local = {
         container: {
-            heigth: 48,
+            height: 48,
             backgroundColor: '#323232',
+            paddingHorizontal: 24,
+        },
+        text: {
+            fontSize: 14,
+            marginVertical: 14,
+            color: '#ffffff',
         },
     };
 
@@ -66,7 +72,7 @@ class Snackbar extends PureComponent {
             <Animated.View
                 style={styles.container}
             >
-                <Text>{ message }</Text>
+                <Text>{ message.toUpperCase() }</Text>
             </Animated.View>
         );
     }
