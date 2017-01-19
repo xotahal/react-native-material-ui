@@ -21,3 +21,4 @@ export { default as ListItem } from './ListItem';
 export { default as RadioButton } from './RadioButton';
 export { default as Subheader } from './Subheader';
 export { default as Toolbar } from './Toolbar';
+export { default as Snackbar } from './Snackbar';
