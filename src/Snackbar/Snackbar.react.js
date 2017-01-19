@@ -1,13 +1,25 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { View, Text, Platform, Animated, Easing, StyleSheet } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 
 
 const propTypes = {
     /**
-    * Wether or not the BottomNaviagtion should show
+    * The text message to display.
     */
-    hidden: PropTypes.bool,
+    message: PropTypes.string.isRequired,
+    /**
+    * The amount of time in milliseconds to show the snackbar.
+    */
+    timeout: PropTypes.number,
+    /**
+    * The function to execute when the action is clicked.
+    */
+    actionHandler: PropTypes.func,
+    /**
+    * The function to execute when the action is clicked.
+    */
+    actionText: PropTypes.string,
     /**
     * Inline style of bottom navigation
     */
@@ -16,7 +28,7 @@ const propTypes = {
     }),
 };
 const defaultProps = {
-    hidden: false,
+    timeout: 2750,
     style: {},
 };
 const contextTypes = {
@@ -24,56 +36,30 @@ const contextTypes = {
 };
 
 function getStyles(props, context) {
-    const { snackbar } = context.uiTheme;
-    const local = {};
+    // const { snackbar } = context.uiTheme;
+    const local = {
+        container: {
+            heigth: 48,
+            backgroundColor: '#323232',
+        },
+    };
 
     return {
         container: [
-            snackbar.container,
+            // snackbar.container,
             local.container,
             props.style.container,
         ],
     };
 }
+
 /**
-* Component for bottom navigation
-* https://material.google.com/components/bottom-navigation.html
+* Component for snackbars
+* https://material.io/guidelines/components/snackbars-toasts.html
 */
 class Snackbar extends PureComponent {
-    constructor() {
-        super();
-        this.state = {
-            moveAnimated: new Animated.Value(0),
-        };
-    }
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.hidden !== this.props.hidden) {
-            if (nextProps.hidden === true) {
-                this.hide();
-            } else {
-                this.show();
-            }
-        }
-    }
-    show = () => {
-        Animated.timing(this.state.moveAnimated, {
-            toValue: 0,
-            duration: 225,
-            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
-        }).start();
-    }
-    hide = () => {
-        const { moveAnimated, styles } = this.state;
-
-        Animated.timing(moveAnimated, {
-            toValue: StyleSheet.flatten(styles.container).height,
-            duration: 195,
-            easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: Platform.OS === 'android',
-        }).start();
-    }
     render() {
+        const { message } = this.props;
         const styles = getStyles(this.props, this.context);
 
         return (
@@ -84,7 +70,7 @@ class Snackbar extends PureComponent {
                     }],
                 }]}
             >
-                <Text>Snackbar</Text>
+                <Text>{ message }</Text>
             </Animated.View>
         );
     }
