@@ -66,11 +66,11 @@ function getStyles(props, context) {
             props.style.message,
         ],
         // TODO: Please explain me how to combine this or do we need to fix the button comopnent.
-        action: {
-            ...snackbar.action,
-            // ...local.action,
-            // ...props.style.action,
-        },
+        action: [
+            snackbar.action,
+            local.action,
+            props.style.action,
+        ],
     };
 }
 
@@ -143,7 +143,7 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={styles.action}
+                    style={{ container: styles.action }}
                     text={actionText}
                     onPress={actionHandler}
                     primary
