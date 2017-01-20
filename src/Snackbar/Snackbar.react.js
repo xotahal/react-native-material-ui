@@ -76,16 +76,18 @@ class Snackbar extends PureComponent {
         const styles = getStyles(props, context);
         this.state = {
             styles,
-            moveAnimated: new Animated.Value(-1 * StyleSheet.flatten(styles.container).height),
+            moveAnimated: new Animated.Value(StyleSheet.flatten(styles.container).height),
         };
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.visible !== this.props.visible) {
             if (nextProps.visible === true) {
+                console.log('nextProps.visible === true');
                 this.show(nextProps.bottomNavigation);
                 this.setHideTimer();
             } else {
+                console.log('nextProps.visible !== true');
                 this.hide();
             }
         }
@@ -97,12 +99,14 @@ class Snackbar extends PureComponent {
         if (timeout > 0) {
             clearTimeout(this.hideTimer);
             this.hideTimer = setTimeout(() => {
+                console.log('requestClose');
                 onRequestClose();
             }, timeout);
         }
     }
 
     show = (bottomNavigation) => {
+        console.log('show');
         let toValue = 0;
         if (bottomNavigation) {
             // TODO: Get bottom navigation height from context.
@@ -118,9 +122,10 @@ class Snackbar extends PureComponent {
     }
 
     hide = () => {
+        console.log('hide');
         const { moveAnimated, styles } = this.state;
         Animated.timing(moveAnimated, {
-            toValue: (-1 * StyleSheet.flatten(styles.container).height),
+            toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
             useNativeDriver: Platform.OS === 'android',
@@ -130,13 +135,13 @@ class Snackbar extends PureComponent {
 
     render() {
         const { message } = this.props;
-        const styles = getStyles(this.props, this.context);
+        const { styles, moveAnimated } = this.state;
 
         return (
             <Animated.View
                 style={[styles.container, {
                     transform: [{
-                        translateY: this.state.moveAnimated,
+                        translateY: moveAnimated,
                     }],
                 }]}
             >
