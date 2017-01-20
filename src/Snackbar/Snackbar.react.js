@@ -83,7 +83,7 @@ class Snackbar extends PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.visible !== this.props.visible) {
             if (nextProps.visible === true) {
-                this.show(nextProps.bottomNavigation);
+                this.show();
                 this.setHideTimer();
             } else {
                 this.hide();
@@ -102,15 +102,12 @@ class Snackbar extends PureComponent {
         }
     }
 
-    show = (bottomNavigation) => {
-        let toValue = 0;
-        if (bottomNavigation) {
-            // TODO: Get bottom navigation height from context.
-            toValue = 56;
-        }
+    show = () => {
+        // TODO: Get bottom navigation height from context.
+        const { bottomNavigation } = this.props;
 
         Animated.timing(this.state.moveAnimated, {
-            toValue,
+            toValue: bottomNavigation ? 56 : 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
