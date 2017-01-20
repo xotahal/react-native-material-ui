@@ -66,8 +66,8 @@ function getStyles(props, context) {
             props.style.message,
         ],
         action: [
-            // snackbar.action,
-            // local.action,
+            snackbar.action,
+            local.action,
             props.style.action,
         ],
     };
