@@ -65,11 +65,11 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
-        action: [
-            snackbar.action,
-            local.action,
-            props.style.action,
-        ],
+        action: {
+            ...snackbar.action,
+            ...local.action,
+            ...props.style.action,
+        },
     };
 }
 
@@ -142,7 +142,7 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={{ container: { height: 14, paddingHorizontal: 0 } }}
+                    style={styles.action}
                     text={actionText}
                     onPress={actionHandler}
                     primary
