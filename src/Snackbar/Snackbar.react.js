@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { View, Text, Animated } from 'react-native';
+import { View, Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
 
 const propTypes = {
     /**
@@ -8,9 +8,21 @@ const propTypes = {
     */
     message: PropTypes.string.isRequired,
     /**
+    * Whether or not the snackbar is visible.
+    */
+    visible: PropTypes.bool.isRequired,
+    /**
     * The amount of time in milliseconds to show the snackbar.
     */
-    timeout: PropTypes.number,
+    timeout: PropTypes.number.isRequired,
+    /**
+    * Callback for when the timeout finishes.
+    */
+    onRequestClose: PropTypes.func.isRequired,
+    /**
+    * Whether or not there is a bottom navigation on the screen.
+    */
+    bottomNavigation: PropTypes.bool.isRequired,
     /**
     * The function to execute when the action is clicked.
     */
@@ -20,14 +32,16 @@ const propTypes = {
     */
     actionText: PropTypes.string,
     /**
-    * Inline style of bottom navigation
+    * Inline style of snackbar
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
     }),
 };
 const defaultProps = {
+    visible: false,
     timeout: 2750,
+    bottomNavigation: false,
     style: {},
 };
 const contextTypes = {
@@ -57,13 +71,76 @@ function getStyles(props, context) {
 * https://material.io/guidelines/components/snackbars-toasts.html
 */
 class Snackbar extends PureComponent {
+    constructor(props, context) {
+        super(props, context);
+        const styles = getStyles(props, context);
+        this.state = {
+            styles,
+            moveAnimated: new Animated.Value(-1 * StyleSheet.flatten(styles.container).height),
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.visible !== this.props.visible) {
+            if (nextProps.visible === true) {
+                this.show(nextProps.bottomNavigation);
+                this.setHideTimer();
+            } else {
+                this.hide();
+            }
+        }
+    }
+
+    setHideTimer() {
+        const { timeout, onRequestClose } = this.props;
+
+        if (timeout > 0) {
+            clearTimeout(this.hideTimer);
+            this.hideTimer = setTimeout(() => {
+                onRequestClose();
+            }, timeout);
+        }
+    }
+
+    show = (bottomNavigation) => {
+        let toValue = 0;
+        if (bottomNavigation) {
+            // TODO: Get bottom navigation height from context.
+            toValue = 56;
+        }
+
+        Animated.timing(this.state.moveAnimated, {
+            toValue,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+            useNativeDriver: Platform.OS === 'android',
+        }).start();
+    }
+
+    hide = () => {
+        const { moveAnimated, styles } = this.state;
+        Animated.timing(moveAnimated, {
+            toValue: (-1 * StyleSheet.flatten(styles.container).height),
+            duration: 195,
+            easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+            useNativeDriver: Platform.OS === 'android',
+        }).start();
+    }
+
+
     render() {
         const { message } = this.props;
         const styles = getStyles(this.props, this.context);
 
         return (
-            <Animated.View style={styles.container} >
-                <Text style={styles.message} >{ message.toUpperCase() }</Text>
+            <Animated.View
+                style={[styles.container, {
+                    transform: [{
+                        translateY: this.state.moveAnimated,
+                    }],
+                }]}
+            >
+                <Text style={styles.message} >{ message }</Text>
             </Animated.View>
         );
     }
