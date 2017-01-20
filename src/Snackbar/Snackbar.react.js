@@ -142,7 +142,7 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={styles.action}
+                    style={{ container: { height: 14, paddingHorizontal: 0 } }}
                     text={actionText}
                     onPress={actionHandler}
                     primary
