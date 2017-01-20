@@ -160,8 +160,8 @@ export default function getTheme(theme, ...more) {
                 backgroundColor: palette.canvasColor,
                 borderTopColor: palette.borderColor,
                 borderTopWidth: StyleSheet.hairlineWidth,
-                zIndex: 8,
                 ...getPlatformElevation(8),
+                zIndex: 8,
             },
         }, theme.bottomNavigation)),
         bottomNavigationAction: StyleSheet.create(merge({
@@ -401,15 +401,16 @@ export default function getTheme(theme, ...more) {
         // https://material.io/guidelines/components/snackbars-toasts.html
         snackbar: StyleSheet.create(merge({
             container: {
-                zIndex: 4,
                 flexDirection: 'row',
                 height: 48,
                 backgroundColor: '#323232',
                 paddingHorizontal: 24,
                 ...getPlatformElevation(4),
+                zIndex: 4,
             },
             message: {
                 fontSize: 14,
+                lineHeight: 14,
                 marginVertical: 14,
                 color: '#ffffff',
             },
