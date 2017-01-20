@@ -403,6 +403,7 @@ export default function getTheme(theme, ...more) {
             container: {
                 flexDirection: 'row',
                 height: 48,
+                alignItems: 'center',
                 backgroundColor: '#323232',
                 paddingHorizontal: 24,
                 ...getPlatformElevation(4),
@@ -410,7 +411,6 @@ export default function getTheme(theme, ...more) {
             },
             message: {
                 fontSize: 14,
-                lineHeight: 14,
                 marginVertical: 14,
                 color: '#ffffff',
             },
