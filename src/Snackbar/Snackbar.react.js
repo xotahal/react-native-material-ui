@@ -107,7 +107,7 @@ class Snackbar extends PureComponent {
         const { bottomNavigation } = this.props;
 
         Animated.timing(this.state.moveAnimated, {
-            toValue: 56,
+            toValue: bottomNavigation ? -56 : 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
