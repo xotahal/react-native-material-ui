@@ -65,10 +65,11 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
+        // TODO: Please explain me how to combine this or do we need to fix the button comopnent.
         action: {
             ...snackbar.action,
-            ...local.action,
-            ...props.style.action,
+            // ...local.action,
+            // ...props.style.action,
         },
     };
 }
