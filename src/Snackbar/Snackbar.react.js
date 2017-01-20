@@ -65,6 +65,11 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
+        action: [
+            snackbar.action,
+            local.action,
+            props.style.action,
+        ],
     };
 }
 
@@ -140,6 +145,7 @@ class Snackbar extends PureComponent {
                     style={styles.action}
                     text={actionText}
                     onPress={actionHandler}
+                    primary
                 />
             );
         }

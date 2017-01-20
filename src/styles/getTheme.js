@@ -410,9 +410,13 @@ export default function getTheme(theme, ...more) {
                 zIndex: 4,
             },
             message: {
+                flex: 1,
                 fontSize: 14,
                 marginVertical: 14,
                 color: '#ffffff',
+            },
+            action: {
+
             },
         }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
