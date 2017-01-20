@@ -2,6 +2,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { View, Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
 
+import Button from '../Button';
+
 const propTypes = {
     /**
     * The text message to display.
@@ -103,11 +105,15 @@ class Snackbar extends PureComponent {
     }
 
     show = () => {
-        // TODO: Get bottom navigation height from context.
         const { bottomNavigation } = this.props;
+        let toValue = 0;
+        if (bottomNavigation) {
+            // TODO: Get bottom navigation height from context.
+            toValue = -56;
+        }
 
         Animated.timing(this.state.moveAnimated, {
-            toValue: bottomNavigation ? -56 : 0,
+            toValue,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
@@ -124,6 +130,21 @@ class Snackbar extends PureComponent {
         }).start();
     }
 
+    renderAction = () => {
+        const { actionText, actionHandler } = this.props;
+        const { styles } = this.state;
+
+        if (actionText && (typeof actionHandler === 'function')) {
+            return (
+                <Button
+                    style={styles.action}
+                    text={actionText}
+                    onPress={actionHandler}
+                />
+            );
+        }
+        return null;
+    }
 
     render() {
         const { message } = this.props;
@@ -138,6 +159,7 @@ class Snackbar extends PureComponent {
                 }]}
             >
                 <Text style={styles.message} >{ message }</Text>
+                {this.renderAction()}
             </Animated.View>
         );
     }
