@@ -160,6 +160,7 @@ export default function getTheme(theme, ...more) {
                 backgroundColor: palette.canvasColor,
                 borderTopColor: palette.borderColor,
                 borderTopWidth: StyleSheet.hairlineWidth,
+                zIndex: 8,
                 ...getPlatformElevation(8),
             },
         }, theme.bottomNavigation)),
@@ -400,6 +401,7 @@ export default function getTheme(theme, ...more) {
         // https://material.io/guidelines/components/snackbars-toasts.html
         snackbar: StyleSheet.create(merge({
             container: {
+                zIndex: 4,
                 flexDirection: 'row',
                 height: 48,
                 backgroundColor: '#323232',

@@ -83,11 +83,9 @@ class Snackbar extends PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.visible !== this.props.visible) {
             if (nextProps.visible === true) {
-                console.log('nextProps.visible === true');
                 this.show(nextProps.bottomNavigation);
                 this.setHideTimer();
             } else {
-                console.log('nextProps.visible !== true');
                 this.hide();
             }
         }
@@ -99,14 +97,12 @@ class Snackbar extends PureComponent {
         if (timeout > 0) {
             clearTimeout(this.hideTimer);
             this.hideTimer = setTimeout(() => {
-                console.log('requestClose');
                 onRequestClose();
             }, timeout);
         }
     }
 
     show = (bottomNavigation) => {
-        console.log('show');
         let toValue = 0;
         if (bottomNavigation) {
             // TODO: Get bottom navigation height from context.
@@ -122,7 +118,6 @@ class Snackbar extends PureComponent {
     }
 
     hide = () => {
-        console.log('hide');
         const { moveAnimated, styles } = this.state;
         Animated.timing(moveAnimated, {
             toValue: (StyleSheet.flatten(styles.container).height),
