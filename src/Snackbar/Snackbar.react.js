@@ -138,12 +138,11 @@ class Snackbar extends PureComponent {
     renderAction = () => {
         const { actionText, actionHandler } = this.props;
         const { styles } = this.state;
-        const style = StyleSheet.flatten(styles.action);
 
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={style}
+                    style={styles.action}
                     text={actionText}
                     onPress={actionHandler}
                     primary
