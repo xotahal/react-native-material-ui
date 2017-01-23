@@ -67,18 +67,6 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
-        button: {
-            container: [
-                snackbar.button.container,
-                local.button.container,
-                props.style.button.container,
-            ],
-            text: [
-                snackbar.button.text,
-                local.button.text,
-                props.style.button.text,
-            ],
-        },
     };
 }
 
@@ -172,13 +160,12 @@ class Snackbar extends PureComponent {
     }
 
     renderAction = () => {
-        const { actionText, actionHandler } = this.props;
-        const { styles } = this.state;
+        const { actionText, actionHandler, style } = this.props;
 
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={styles.button}
+                    style={style.button}
                     text={actionText}
                     onPress={actionHandler}
                     primary
