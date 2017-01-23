@@ -307,7 +307,8 @@ class Toolbar extends PureComponent {
         this.searchFieldRef.focus();
     }
     show = () => {
-        Animated.timing(this.state.moveAnimated, {
+        const { moveAnimated } = this.state;
+        Animated.timing(moveAnimated, {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
@@ -315,8 +316,8 @@ class Toolbar extends PureComponent {
         }).start();
     }
     hide = () => {
-        const { moveAnimated, styles } = this.state;
-
+        const { moveAnimated } = this.state;
+        const styles = getStyles(this.props, this.context, this.state);
         Animated.timing(moveAnimated, {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
