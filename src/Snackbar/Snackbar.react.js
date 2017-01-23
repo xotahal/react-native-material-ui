@@ -39,8 +39,7 @@ const propTypes = {
     style: PropTypes.shape({
         container: View.propTypes.style,
         message: View.propTypes.style,
-        actionContainer: View.propTypes.style,
-        actionText: View.propTypes.style,
+        button: Button.propTypes.style,
     }),
 };
 const defaultProps = {
@@ -68,16 +67,18 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
-        actionContainer: [
-            snackbar.actionContainer,
-            local.actionContainer,
-            props.style.actionContainer,
-        ],
-        actionText: [
-            snackbar.actionText,
-            local.actionText,
-            props.style.actionText,
-        ],
+        button: {
+            container: [
+                snackbar.button.container,
+                local.button.container,
+                props.style.button.container,
+            ],
+            text: [
+                snackbar.button.text,
+                local.button.text,
+                props.style.button.text,
+            ],
+        },
     };
 }
 
@@ -96,14 +97,20 @@ class Snackbar extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.visible !== this.props.visible) {
+        const { style, visible, bottomNavigation } = this.props;
+
+        if (nextProps.style !== style) {
+            this.setState({ styles: getStyles(this.props, this.context) });
+        }
+
+        if (nextProps.visible !== visible) {
             if (nextProps.visible === true) {
                 this.show(nextProps.bottomNavigation);
                 this.setHideTimer();
             } else {
                 this.hide();
             }
-        } else if ((nextProps.bottomNavigation !== this.props.bottomNavigation)
+        } else if ((nextProps.bottomNavigation !== bottomNavigation)
         && nextProps.visible) {
             this.move(nextProps.bottomNavigation);
         }
@@ -171,7 +178,7 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={{ container: styles.actionContainer, text: styles.actionText }}
+                    style={styles.button}
                     text={actionText}
                     onPress={actionHandler}
                     primary

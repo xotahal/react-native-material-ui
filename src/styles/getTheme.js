@@ -7,7 +7,7 @@ import merge from 'lodash.merge';
 
 import { fontWeight } from './typography';
 import {
-  black, grey100, grey500, white, transparent,
+  black, grey100, grey500, white, transparent, snackbarColor,
 } from './colors';
 
 import lightTheme from './themes/light';
@@ -402,25 +402,25 @@ export default function getTheme(theme, ...more) {
         snackbar: StyleSheet.create(merge({
             container: {
                 flexDirection: 'row',
-                height: 48,
+                height: spacing.snackbarHeight,
                 alignItems: 'center',
-                backgroundColor: '#323232',
+                backgroundColor: snackbarColor,
                 paddingHorizontal: 24,
                 ...getPlatformElevation(4),
                 zIndex: 4,
             },
             message: {
                 flex: 1,
-                fontSize: 14,
                 marginVertical: 14,
-                color: '#ffffff',
+                color: white,
+                ...typography.body2,
+                lineHeight: 14,
             },
-            actionContainer: {
-                height: 14,
-                paddingHorizontal: 0,
-            },
-            actionText: {
-
+            button: {
+                container: {
+                    height: 14,
+                    paddingHorizontal: 0,
+                },
             },
         }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#

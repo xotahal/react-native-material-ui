@@ -274,3 +274,6 @@ export const grey900 = '#212121';
 export const black = '#000000';
 export const white = '#ffffff';
 export const transparent = 'transparent';
+
+// https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs
+export const snackbarColor = '#323232';
