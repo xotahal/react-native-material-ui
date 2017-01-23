@@ -38,6 +38,9 @@ const propTypes = {
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
+        message: View.propTypes.style,
+        actionContainer: View.propTypes.style,
+        actionText: View.propTypes.style,
     }),
 };
 const defaultProps = {
@@ -65,11 +68,15 @@ function getStyles(props, context) {
             local.message,
             props.style.message,
         ],
-        // TODO: Please explain me how to combine this or do we need to fix the button comopnent.
-        action: [
-            snackbar.action,
-            local.action,
-            props.style.action,
+        actionContainer: [
+            snackbar.actionContainer,
+            local.actionContainer,
+            props.style.actionContainer,
+        ],
+        actionText: [
+            snackbar.actionText,
+            local.actionText,
+            props.style.actionText,
         ],
     };
 }
@@ -143,7 +150,7 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={{ container: styles.action }}
+                    style={{ container: styles.actionContainer, text: styles.actionText }}
                     text={actionText}
                     onPress={actionHandler}
                     primary

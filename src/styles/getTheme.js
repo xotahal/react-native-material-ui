@@ -415,9 +415,12 @@ export default function getTheme(theme, ...more) {
                 marginVertical: 14,
                 color: '#ffffff',
             },
-            action: {
+            actionContainer: {
                 height: 14,
                 paddingHorizontal: 0,
+            },
+            actionText: {
+
             },
         }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
