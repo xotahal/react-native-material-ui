@@ -65,9 +65,6 @@ function getStyles(props, context, state) {
     };
 
     if(!disabled){
-        //Is this really necessary?  Isn't it handled in getTheme.js? 
-        //Answer = It's not, base controls are stored in getTheme and the control itself determines colors... 
-        //seems backwards.
         if (primary && !raised) {
             local.text = { color: palette.primaryColor };
         } else if (accent && !raised) {
@@ -89,13 +86,7 @@ function getStyles(props, context, state) {
             ...getPlatformElevation(state.elevation),
         };
     }
-    //This seems a bit stange at first glance 
-    //since we are returning a list of refferences that may contain false or undefined.
-    //Not only that but all of the base styling is stored in an external file... 
-    //Wouldnt' it make more sense to include it in the components file for better encapsulation?
-    //I would've expected to see theme info in the getTheme not the base settings for the control itself...
 
-    //Disabled attribute should over-ride style props as those are likely for the active state.
     return {
         container: [
             button.container,
@@ -163,8 +154,6 @@ class Button extends PureComponent {
         const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
-        console.log(text);
-        console.log(styles);
         
         const content = (
             <View style={styles.container}>
