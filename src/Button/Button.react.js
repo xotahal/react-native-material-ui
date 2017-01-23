@@ -94,23 +94,25 @@ function getStyles(props, context, state) {
     //Not only that but all of the base styling is stored in an external file... 
     //Wouldnt' it make more sense to include it in the components file for better encapsulation?
     //I would've expected to see theme info in the getTheme not the base settings for the control itself...
+
+    //Disabled attribute should over-ride style props as those are likely for the active state.
     return {
         container: [
             button.container,
             !raised && buttonFlat.container,
             raised && buttonRaised.container,
-            (disabled && raised) && buttonRaisedDisabled.container,            
             local.container,
             props.style.container,
+            (disabled && raised) && buttonRaisedDisabled.container,
         ],
         text: [
             button.text,
             !raised && buttonFlat.text,
             raised && buttonRaised.text,
-            (disabled && raised) && buttonRaisedDisabled.text,
-            (disabled && !raised) && buttonDisabled.text,
             local.text,
             props.style.text,
+            (disabled && raised) && buttonRaisedDisabled.text,
+            (disabled && !raised) && buttonDisabled.text,
         ],
     };
 }
@@ -161,7 +163,7 @@ class Button extends PureComponent {
         const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
-        console.log(styles);
+        console.log(text + ": " styles);
         
         const content = (
             <View style={styles.container}>
