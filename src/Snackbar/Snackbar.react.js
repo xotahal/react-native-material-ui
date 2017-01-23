@@ -98,14 +98,14 @@ class Snackbar extends PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.visible !== this.props.visible) {
             if (nextProps.visible === true) {
-                this.show();
+                this.show(nextProps.bottomNavigation);
                 this.setHideTimer();
             } else {
                 this.hide();
             }
         } else if ((nextProps.bottomNavigation !== this.props.bottomNavigation)
         && nextProps.visible) {
-            this.move(nextProps.bottomNavigation ? -56 : 0);
+            this.move(nextProps.bottomNavigation);
         }
     }
 
@@ -120,8 +120,7 @@ class Snackbar extends PureComponent {
         }
     }
 
-    show = () => {
-        const { bottomNavigation } = this.props;
+    show = (bottomNavigation) => {
         let toValue = 0;
         if (bottomNavigation) {
             // TODO: Get bottom navigation height from context.
@@ -146,12 +145,17 @@ class Snackbar extends PureComponent {
         }).start();
     }
 
-    move = (toValue) => {
+    move = (bottomNavigation) => {
         const { moveAnimated } = this.state;
+        const toValue = bottomNavigation ? -56 : 0;
+        const duration = bottomNavigation ? 225 : 195;
+        const easing = bottomNavigation ?
+          Easing.bezier(0.0, 0.0, 0.2, 1) : Easing.bezier(0.4, 0.0, 0.6, 1);
+
         Animated.timing(moveAnimated, {
             toValue,
-            duration: 195,
-            easing: Easing.bezier(0.4, 0.0, 1, 1),
+            duration,
+            easing,
             useNativeDriver: Platform.OS === 'android',
         }).start();
     }
