@@ -146,7 +146,7 @@ class Snackbar extends PureComponent {
         }).start();
     }
 
-    hide = (toValue) => {
+    move = (toValue) => {
         const { moveAnimated } = this.state;
         Animated.timing(moveAnimated, {
             toValue,
