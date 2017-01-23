@@ -109,6 +109,10 @@ class Snackbar extends PureComponent {
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.hideTimer);
+    }
+
     setHideTimer() {
         const { timeout, onRequestClose } = this.props;
 
