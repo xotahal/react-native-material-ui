@@ -56,7 +56,7 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state) {
-    const { button, buttonFlat, buttonDisabled, buttonRaised } = context.uiTheme;
+    const { button, buttonFlat, buttonRaised, buttonDisabled, buttonRaisedDisabled } = context.uiTheme;
     const { primary, accent, disabled, raised } = props;
     const { palette } = context.uiTheme;
 
