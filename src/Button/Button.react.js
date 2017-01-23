@@ -64,18 +64,23 @@ function getStyles(props, context, state) {
         container: {},
     };
 
-    if (primary && !raised) {
-        local.text = { color: palette.primaryColor };
-    } else if (accent && !raised) {
-        local.text = { color: palette.accentColor };
-    }
+    if(!disabled){
+        //Is this really necessary?  Isn't it handled in getTheme.js? 
+        //Answer = It's not, base controls are stored in getTheme and the control itself determines colors... 
+        //seems backwards.
+        if (primary && !raised) {
+            local.text = { color: palette.primaryColor };
+        } else if (accent && !raised) {
+            local.text = { color: palette.accentColor };
+        }
 
-    if (primary && raised) {
-        local.container.backgroundColor = palette.primaryColor;
-        local.text = { color: palette.canvasColor };
-    } else if (accent && raised) {
-        local.container.backgroundColor = palette.accentColor;
-        local.text = { color: palette.canvasColor };
+        if (primary && raised) {
+            local.container.backgroundColor = palette.primaryColor;
+            local.text = { color: palette.canvasColor };
+        } else if (accent && raised) {
+            local.container.backgroundColor = palette.accentColor;
+            local.text = { color: palette.canvasColor };
+        }
     }
 
     if (raised) {
@@ -84,23 +89,26 @@ function getStyles(props, context, state) {
             ...getPlatformElevation(state.elevation),
         };
     }
-
-    console.log(buttonDisabled.container);
-
+    //This seems a bit stange at first glance 
+    //since we are returning a list of refferences that may contain false or undefined.
+    //Not only that but all of the base styling is stored in an external file... 
+    //Wouldnt' it make more sense to include it in the components file for better encapsulation?
+    //I would've expected to see theme info in the getTheme not the base settings for the control itself...
     return {
         container: [
             button.container,
             !raised && buttonFlat.container,
-            disabled && buttonDisabled.container,
             raised && buttonRaised.container,
+            (disabled && raised) && buttonRaisedDisabled.container,            
             local.container,
             props.style.container,
         ],
         text: [
             button.text,
             !raised && buttonFlat.text,
-            disabled && buttonDisabled.text,
             raised && buttonRaised.text,
+            (disabled && raised) && buttonRaisedDisabled.text,
+            (disabled && !raised) && buttonDisabled.text,
             local.text,
             props.style.text,
         ],
