@@ -85,6 +85,8 @@ function getStyles(props, context, state) {
         };
     }
 
+    console.log(buttonDisabled.container);
+
     return {
         container: [
             button.container,
@@ -138,7 +140,6 @@ class Button extends PureComponent {
             return null;
         }
 
-
         return (
             <Icon
                 name={icon}
@@ -152,8 +153,7 @@ class Button extends PureComponent {
         const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
-        console.log(styles);
-
+        
         const content = (
             <View style={styles.container}>
                 {this.renderIcon(styles)}
