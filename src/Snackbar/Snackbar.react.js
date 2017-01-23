@@ -160,12 +160,20 @@ class Snackbar extends PureComponent {
     }
 
     renderAction = () => {
-        const { actionText, actionHandler, style } = this.props;
+        const { actionText, actionHandler } = this.props;
+
+        // TODO: I don't get this styling could you tell me how I get this as default?
+        const style = {
+            container: {
+                height: 14,
+                paddingHorizontal: 0,
+            },
+        };
 
         if (actionText && (typeof actionHandler === 'function')) {
             return (
                 <Button
-                    style={style.button}
+                    style={style}
                     text={actionText}
                     onPress={actionHandler}
                     primary

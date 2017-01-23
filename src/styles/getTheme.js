@@ -416,12 +416,6 @@ export default function getTheme(theme, ...more) {
                 ...typography.body2,
                 lineHeight: 14,
             },
-            button: {
-                container: {
-                    height: 14,
-                    paddingHorizontal: 0,
-                },
-            },
         }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create(merge({
