@@ -163,7 +163,8 @@ class Button extends PureComponent {
         const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
-        console.log(text + ": " styles);
+        console.log(text);
+        console.log(styles);
         
         const content = (
             <View style={styles.container}>
