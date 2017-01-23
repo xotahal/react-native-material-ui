@@ -196,6 +196,15 @@ class ActionButton extends PureComponent {
             onPress(action);
         }
     }
+    getActionItemKey = ({ icon, name }) => {
+        let key = icon;
+        if (name) {
+            key = name;
+        } else if (React.isValidElement(icon) && icon.key) {
+            key = icon.key;
+        }
+        return key;
+    }
     toggleState = () => {
         const { transition } = this.props;
 
@@ -296,16 +305,10 @@ class ActionButton extends PureComponent {
         );
     }
     renderToolbarAction = (styles, icon, name) => {
-        let key = icon;
         let content;
-        if (name) {
-            key = name;
-        }
+        const key = this.getActionItemKey({ icon, name });
 
         if (React.isValidElement(icon)) {
-            if (icon.key) {
-                key = icon.key;
-            }
             content = (
                 <RippleFeedback
                     color="#AAF"
@@ -330,10 +333,7 @@ class ActionButton extends PureComponent {
         );
     }
     renderToolbarElementAction = (styles, icon) => {
-        let key = icon;
-        if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
+        const key = this.getActionItemKey({ icon });
         return (
             <View key={key} style={styles.toolbarActionContainer}>
                 {this.renderToolbarAction(styles, icon)}
@@ -344,12 +344,7 @@ class ActionButton extends PureComponent {
     * TODO: implement labels for toolbar?
     */
     renderToolbarLabelAction = (styles, icon, label, name) => {
-        let key = icon;
-        if (name) {
-            key = name;
-        } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
+        const key = this.getActionItemKey({ icon, name });
         return (
             <View key={key} style={styles.toolbarActionContainer}>
                 {this.renderToolbarAction(styles, icon, name)}
@@ -357,12 +352,7 @@ class ActionButton extends PureComponent {
         );
     }
     renderAction = (styles, icon, name) => {
-        let key = icon;
-        if (name) {
-            key = name;
-        } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
+        const key = this.getActionItemKey({ icon, name });
         return (
             <View key={key} style={styles.speedDialActionIconContainer}>
                 <View style={styles.speedDialActionIcon}>
@@ -378,10 +368,7 @@ class ActionButton extends PureComponent {
         );
     }
     renderElementAction = (styles, icon) => {
-        let key = icon;
-        if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
+        const key = this.getActionItemKey({ icon });
         return (
             <View key={key} style={styles.speedDialActionContainer}>
                 {this.renderAction(styles, icon)}
@@ -389,12 +376,7 @@ class ActionButton extends PureComponent {
         );
     }
     renderLabelAction = (styles, icon, label, name) => {
-        let key = icon;
-        if (name) {
-            key = name;
-        } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
+        const key = this.getActionItemKey({ icon, name });
         return (
             <View key={key} style={styles.speedDialActionContainer}>
                 <View style={styles.speedDialActionLabelContainer}>
