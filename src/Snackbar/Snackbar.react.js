@@ -103,6 +103,9 @@ class Snackbar extends PureComponent {
             } else {
                 this.hide();
             }
+        } else if ((nextProps.bottomNavigation !== this.props.bottomNavigation)
+        && nextProps.visible) {
+            this.move(nextProps.bottomNavigation ? -56 : 0);
         }
     }
 
@@ -138,7 +141,17 @@ class Snackbar extends PureComponent {
         Animated.timing(moveAnimated, {
             toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
-            easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+            easing: Easing.bezier(0.4, 0.0, 1, 1),
+            useNativeDriver: Platform.OS === 'android',
+        }).start();
+    }
+
+    hide = (toValue) => {
+        const { moveAnimated } = this.state;
+        Animated.timing(moveAnimated, {
+            toValue,
+            duration: 195,
+            easing: Easing.bezier(0.4, 0.0, 1, 1),
             useNativeDriver: Platform.OS === 'android',
         }).start();
     }
