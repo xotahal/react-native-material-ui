@@ -56,15 +56,15 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state) {
-    const { button, buttonFlat, buttonRaised, buttonDisabled, buttonRaisedDisabled } = context.uiTheme;
+    const { button, buttonFlat, buttonRaised } = context.uiTheme;
+    const { palette, buttonDisabled, buttonRaisedDisabled } = context.uiTheme;
     const { primary, accent, disabled, raised } = props;
-    const { palette } = context.uiTheme;
 
     const local = {
         container: {},
     };
 
-    if(!disabled){
+    if (!disabled) {
         if (primary && !raised) {
             local.text = { color: palette.primaryColor };
         } else if (accent && !raised) {
@@ -154,7 +154,7 @@ class Button extends PureComponent {
         const { text, disabled, raised, upperCase, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
-        
+
         const content = (
             <View style={styles.container}>
                 {this.renderIcon(styles)}
