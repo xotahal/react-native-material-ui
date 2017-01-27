@@ -36,7 +36,10 @@ const propTypes = {
     /**
     * Take a look at the Button component for more details.
     */
-    button: PropTypes.shape({ ...Button.propTypes }),
+    button: PropTypes.shape({
+        ...Button.propTypes,
+        text: PropTypes.string,
+    }),
     /**
     * Inline style of snackbar
     */
@@ -50,9 +53,7 @@ const defaultProps = {
     timeout: 2750,
     bottomNavigation: false,
     style: {},
-    button: {
-        text: '',
-    },
+    button: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
