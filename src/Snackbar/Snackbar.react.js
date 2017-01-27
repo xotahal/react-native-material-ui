@@ -172,11 +172,11 @@ class Snackbar extends PureComponent {
             if (button !== 'undefined' && 'style' in button) {
                 styles.container = {
                     ...button.style.container,
-                    ...snackbar.actionContainer,
+                    ...StyleSheet.flatten(snackbar.actionContainer),
                 };
             } else {
                 styles.container = {
-                    ...snackbar.actionContainer,
+                    ...StyleSheet.flatten(snackbar.actionContainer),
                 };
             }
 
