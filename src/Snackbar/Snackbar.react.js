@@ -50,6 +50,7 @@ const defaultProps = {
     timeout: 2750,
     bottomNavigation: false,
     style: {},
+    button: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -165,16 +166,23 @@ class Snackbar extends PureComponent {
     renderAction = () => {
         const { snackbar } = this.context.uiTheme;
         const { button, actionText, onActionPress } = this.props;
+        const styles = {};
 
         if (actionText && (typeof onActionPress === 'function')) {
+            if (button !== 'undefined' && 'style' in button) {
+                styles.container = {
+                    ...button.style.container,
+                    ...snackbar.actionContainer,
+                };
+            } else {
+                styles.container = {
+                    ...snackbar.actionContainer,
+                };
+            }
+
             return (
                 <Button
-                    style={{
-                        container: {
-                            ...button.style.container,
-                            ...snackbar.actionContainer,
-                        },
-                    }}
+                    style={styles}
                     text={actionText}
                     onPress={onActionPress}
                     {...button}
