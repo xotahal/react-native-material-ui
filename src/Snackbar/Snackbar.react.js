@@ -36,7 +36,7 @@ const propTypes = {
     /**
     * Take a look at the Button component for more details.
     */
-    button: Button.propTypes,
+    button: PropTypes.shape({ ...Button.propTypes }),
     /**
     * Inline style of snackbar
     */
@@ -171,13 +171,16 @@ class Snackbar extends PureComponent {
         if (actionText && (typeof onActionPress === 'function')) {
             if (button !== 'undefined' && 'style' in button) {
                 styles.container = {
-                    ...button.style.container,
                     ...StyleSheet.flatten(snackbar.actionContainer),
+                    ...button.style.container,
+                };
+                styles.text = {
+                    ...StyleSheet.flatten(snackbar.actionText),
+                    ...button.style.text,
                 };
             } else {
-                styles.container = {
-                    ...StyleSheet.flatten(snackbar.actionContainer),
-                };
+                styles.container = snackbar.actionContainer;
+                styles.text = snackbar.actionText;
             }
 
             return (

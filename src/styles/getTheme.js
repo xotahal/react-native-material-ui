@@ -420,6 +420,9 @@ export default function getTheme(theme, ...more) {
                 height: 14,
                 paddingHorizontal: 0,
             },
+            actionText: {
+                color: palette.primaryColor,
+            },
         }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create(merge({
