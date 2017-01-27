@@ -28,18 +28,21 @@ const propTypes = {
     /**
     * The function to execute when the action is clicked.
     */
-    actionHandler: PropTypes.func,
+    onActionPress: PropTypes.func,
     /**
     * The function to execute when the action is clicked.
     */
     actionText: PropTypes.string,
+    /**
+    * Take a look at the Button component for more details.
+    */
+    button: Button.propTypes,
     /**
     * Inline style of snackbar
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
         message: View.propTypes.style,
-        button: Button.propTypes.style,
     }),
 };
 const defaultProps = {
@@ -160,23 +163,21 @@ class Snackbar extends PureComponent {
     }
 
     renderAction = () => {
-        const { actionText, actionHandler } = this.props;
+        const { snackbar } = this.context.uiTheme;
+        const { button, actionText, onActionPress } = this.props;
 
-        // TODO: I don't get this styling could you tell me how I get this as default?
-        const style = {
-            container: {
-                height: 14,
-                paddingHorizontal: 0,
-            },
-        };
-
-        if (actionText && (typeof actionHandler === 'function')) {
+        if (actionText && (typeof onActionPress === 'function')) {
             return (
                 <Button
-                    style={style}
+                    style={{
+                        container: {
+                            ...button.style.container,
+                            ...snackbar.actionContainer,
+                        },
+                    }}
                     text={actionText}
-                    onPress={actionHandler}
-                    primary
+                    onPress={onActionPress}
+                    {...button}
                 />
             );
         }
