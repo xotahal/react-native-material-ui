@@ -114,7 +114,7 @@ function getStyles(props, context, state) {
     const leftElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
-        contentViewContainer.paddingVertical = 8;
+        contentViewContainer.paddingVertical = 16;
         leftElementContainer.alignSelf = 'flex-start';
     }
     if (typeof rightElement !== 'string') {
@@ -167,7 +167,7 @@ function getStyles(props, context, state) {
         ],
         tertiaryText: [
             listItem.tertiaryText,
-            props.style.secondaryText,
+            props.style.tertiaryText,
         ],
         rightElementContainer: [
             listItem.rightElementContainer,
@@ -252,7 +252,6 @@ class ListItem extends PureComponent {
     }
     renderCenterElement = (styles) => {
         const { centerElement } = this.props;
-        const numberOfLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
         let content = null;
 
         if (React.isValidElement(centerElement)) {
@@ -269,7 +268,9 @@ class ListItem extends PureComponent {
                 secondaryText = centerElement.secondaryText;
                 tertiaryText = centerElement.tertiaryText;
             }
-            const lineNumber = tertiaryText === undefined ? numberOfLines : 1;
+            const numberOfLines = !tertiaryText ?
+                getNumberOfSecondaryTextLines(this.state.numberOfLines) : 1;
+
             content = (
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
@@ -281,14 +282,14 @@ class ListItem extends PureComponent {
                     </View>
                     {secondaryText &&
                         <View>
-                            <Text numberOfLines={lineNumber} style={styles.secondaryText}>
+                            <Text numberOfLines={numberOfLines} style={styles.secondaryText}>
                                 {secondaryText}
                             </Text>
                         </View>
                     }
                     {tertiaryText &&
                         <View>
-                            <Text numberOfLines={lineNumber} style={styles.secondaryText}>
+                            <Text numberOfLines={numberOfLines} style={styles.tertiaryText}>
                                 {tertiaryText}
                             </Text>
                         </View>

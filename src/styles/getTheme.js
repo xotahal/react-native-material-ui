@@ -386,6 +386,11 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
                 ...typography.body1,
             },
+            tertiaryText: {
+                lineHeight: 22,
+                color: palette.secondaryTextColor,
+                ...typography.body1,
+            },
             rightElementContainer: {
                 paddingRight: 4,
             },
