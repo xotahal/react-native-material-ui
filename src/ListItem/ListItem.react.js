@@ -252,6 +252,7 @@ class ListItem extends PureComponent {
     }
     renderCenterElement = (styles) => {
         const { centerElement } = this.props;
+        const numberOfLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
         let content = null;
 
         if (React.isValidElement(centerElement)) {
@@ -270,7 +271,6 @@ class ListItem extends PureComponent {
             }
             const secondLineNumber = typeof tertiaryText === 'undefined' ? numberOfLines : 1;
             const thirdLineNumber = typeof tertiaryText === 'string' ? numberOfLines : 1;
-
             content = (
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
