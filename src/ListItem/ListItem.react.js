@@ -268,8 +268,8 @@ class ListItem extends PureComponent {
                 secondaryText = centerElement.secondaryText;
                 tertiaryText = centerElement.tertiaryText;
             }
-            const numberOfLines = !tertiaryText ?
-                getNumberOfSecondaryTextLines(this.state.numberOfLines) : 1;
+            const secondLineNumber = typeof tertiaryText === 'undefined' ? numberOfLines : 1;
+            const thirdLineNumber = typeof tertiaryText === 'string' ? numberOfLines : 1;
 
             content = (
                 <View style={styles.textViewContainer}>
@@ -282,14 +282,14 @@ class ListItem extends PureComponent {
                     </View>
                     {secondaryText &&
                         <View>
-                            <Text numberOfLines={numberOfLines} style={styles.secondaryText}>
+                            <Text numberOfLines={secondLineNumber} style={styles.secondaryText}>
                                 {secondaryText}
                             </Text>
                         </View>
                     }
                     {tertiaryText &&
                         <View>
-                            <Text numberOfLines={numberOfLines} style={styles.tertiaryText}>
+                            <Text numberOfLines={thirdLineNumber} style={styles.tertiaryText}>
                                 {tertiaryText}
                             </Text>
                         </View>
