@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View, Animated, StyleSheet, Platform, Easing, TouchableWithoutFeedback } from 'react-native';
+import { View, Animated, StyleSheet, Platform } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -13,10 +13,6 @@ const propTypes = {
     * The color of the underlay that will show when the touch is active.
     */
     underlayColor: PropTypes.string,
-    /**
-    * Max opacity of ripple effect
-    */
-    maxOpacity: PropTypes.number,
     /**
     * Size of underlayColor
     */
@@ -46,14 +42,13 @@ const propTypes = {
 const defaultProps = {
     disabled: false,
     percent: 90,
-    maxOpacity: 0.16,
     style: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-function getStyles(props, context, state) {
+function getStyles(props, context) {
     const { iconToggle, palette } = context.uiTheme;
 
     const local = {};
@@ -61,13 +56,6 @@ function getStyles(props, context, state) {
     if (props.color) {
         local.icon = {
             color: props.color,
-        };
-    }
-
-    if (state.containerSize) {
-        local.container = {
-            width: state.containerSize,
-            height: state.containerSize,
         };
     }
 
@@ -90,8 +78,7 @@ function getStyles(props, context, state) {
 /**
 * Returns size of icon. Priority order: style prop, size prop, spacing.iconSize.
 */
-function getIconSize(props, context) {
-    const { spacing } = context.uiTheme;
+function getIconSize(props, spacing) {
     const { icon } = props.style;
 
     if (icon && icon.width) {
@@ -103,93 +90,100 @@ function getIconSize(props, context) {
 
     return spacing.iconSize;
 }
-function getContainerSize(iconSize) {
-    return iconSize * 2;
-}
-function getRippleSize(containerSize, percent) {
-    return (percent / 100) * containerSize;
-}
 
 class IconToggle extends PureComponent {
     constructor(props, context) {
         super(props, context);
 
-        const iconSize = getIconSize(props, context);
-        const containerSize = getContainerSize(iconSize);
+        this.maxOpacity = 0.26;
+
+        const { spacing } = context.uiTheme;
+        const iconSize = getIconSize(props, spacing);
 
         this.state = {
             scaleValue: new Animated.Value(0.01),
-            opacityValue: new Animated.Value(props.maxOpacity),
-            containerSize,
+            opacityValue: new Animated.Value(0.26),
+            rippleSize: iconSize * 2,
             iconSize,
-            rippleSize: getRippleSize(containerSize, props.percent),
         };
-
-        this.onPressIn = this.onPressIn.bind(this);
-        this.onPressOut = this.onPressOut.bind(this);
+        this.responder = {
+            onStartShouldSetResponder: () => true,
+            onResponderGrant: this.highlight,
+            onResponderRelease: this.handleResponderEnd,
+            onResponderTerminate: this.unHighlight,
+        };
     }
-    componentWillReceiveProps(nextProps) {
-        const iconSize = getIconSize(nextProps, this.context);
-        if (this.state.iconSize !== iconSize || nextProps.percent !== this.props.percent) {
-            const containerSize = getContainerSize(iconSize);
+    onLayout = (event) => {
+        const { width, height } = event.nativeEvent.layout;
 
-            this.setState({
-                containerSize,
-                iconSize,
-                rippleSize: getRippleSize(containerSize, nextProps.percent),
-            });
-        }
-    }
-    onPressIn() {
-        const { disabled } = this.props;
-
-        if (!disabled) {
+        this.setState({
+            size: width > height ? width : height,
+        });
+    };
+    highlight = () => {
+        if (!this.props.disabled) {
             Animated.timing(this.state.scaleValue, {
                 toValue: 1,
-                duration: 225,
-                easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-                useNativeDriver: Platform.OS === 'android',
+                duration: 150,
+            }).start();
+            Animated.timing(this.state.opacityValue, {
+                toValue: this.maxOpacity,
+                duration: 100,
             }).start();
         }
-    }
-    onPressOut() {
-        const { disabled, onPress, maxOpacity } = this.props;
-
-        if (!disabled) {
+    };
+    unHighlight = () => {
+        if (!this.props.disabled) {
+            Animated.timing(this.state.scaleValue, {
+                toValue: 0.01,
+                duration: 1500,
+            }).start();
             Animated.timing(this.state.opacityValue, {
                 toValue: 0,
-                useNativeDriver: Platform.OS === 'android',
-            }).start(() => {
-                this.state.scaleValue.setValue(0.01);
-                this.state.opacityValue.setValue(maxOpacity);
-            });
+            }).start();
+        }
+    };
+    handleResponderEnd = () => {
+        const { disabled, onPress } = this.props;
+
+        if (!disabled) {
+            this.unHighlight();
 
             if (onPress) {
                 onPress();
             }
         }
-    }
+    };
     renderRippleView = (styles) => {
-        const { scaleValue, opacityValue, containerSize, rippleSize } = this.state;
+        const { scaleValue, opacityValue } = this.state;
+        const { size } = this.state;
+        let { percent } = this.props;
+
+        // normalize
+        percent = Math.max(percent, 0);
+        percent = Math.min(percent, 100);
+        percent /= 100;
+
+        if (!size) {
+            return null;
+        }
 
         const color = Color(StyleSheet.flatten(styles.icon).color);
         // https://material.google.com/components/buttons.html#buttons-toggle-buttons
         this.maxOpacity = color.dark() ? 0.12 : 0.30;
 
-        const top = (containerSize - rippleSize) / 2;
-
         return (
             <Animated.View
                 style={[{
                     position: 'absolute',
-                    top,
-                    left: top,
-                    width: rippleSize,
-                    height: rippleSize,
-                    borderRadius: (rippleSize) / 2,
+                    left: ((1 - percent) * size) / 2,
+                    top: ((1 - percent) * size) / 2,
+                    width: percent * size,
+                    height: percent * size,
+                    borderRadius: (percent * size) / 2,
                     transform: [{ scale: scaleValue }],
                     opacity: opacityValue,
-                    backgroundColor: color.toString(),
+                    backgroundColor: color.hexString(),
                     // we need set zindex for iOS, because the components with elevation have the
                     // zindex set as well, thus, there could be displayed backgroundColor of
                     // component with bigger zindex - and that's not good
@@ -214,14 +208,14 @@ class IconToggle extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         return (
-            <TouchableWithoutFeedback onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
+            <View {...this.responder}>
                 <View>
                     {this.renderRippleView(styles)}
-                    <View style={styles.container}>
+                    <View style={styles.container} onLayout={this.onLayout}>
                         {this.renderIcon(styles)}
                     </View>
                 </View>
-            </TouchableWithoutFeedback>
+            </View>
         );
     }
 }

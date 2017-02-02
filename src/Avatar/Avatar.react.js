@@ -14,14 +14,6 @@ const propTypes = {
     */
     icon: PropTypes.string,
     /**
-    * If passed in, this component will render an icon with this color.
-    */
-    iconColor: PropTypes.string,
-    /**
-    * If passed in, this component will render an icon with this size.
-    */
-    iconSize: PropTypes.number,
-    /**
     * If passed in, this component will render text element inside avatar.
     */
     text: PropTypes.string,
@@ -74,16 +66,15 @@ function getStyles(props, context) {
 
 class Avatar extends PureComponent {
     render() {
-        const { image, icon, iconSize, iconColor, text } = this.props;
+        const { image, icon, text } = this.props;
 
         let content = null;
         const { avatar, spacing } = this.context.uiTheme;
         const styles = getStyles(this.props, this.context);
 
         if (icon) {
-            const color = iconColor || StyleSheet.flatten(avatar.content).color;
-            const size = iconSize || spacing.iconSize;
-            content = <Icon name={icon} color={color} size={size} />;
+            const color = StyleSheet.flatten(avatar.content).color;
+            content = <Icon name={icon} color={color} size={spacing.iconSize} />;
         } else if (text) {
             content = <Text style={styles.content}>{text}</Text>;
         } else if (image) {

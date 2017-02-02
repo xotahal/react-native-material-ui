@@ -1,8 +1,6 @@
 # [Action Button](https://material.google.com/components/buttons-floating-action-button.html)
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
-
 
 ### Usage
 
@@ -21,19 +19,13 @@ render() {
 ```js
 const propTypes = {
     /**
-    * Array of names of icons (or elements) that will be shown after the main button is pressed
-    * Remember, you should specify key for each element, if you use array of elements
+    * Array of names of icons that will be shown after the main button is pressed
     */
     actions: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
-        PropTypes.arrayOf(PropTypes.element),
         PropTypes.arrayOf(PropTypes.shape({
-            icon: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
+            icon: PropTypes.string,
             label: PropTypes.string,
-            name:  PropTypes.string,
         })),
     ]),
     /**
