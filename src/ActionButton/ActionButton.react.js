@@ -18,19 +18,13 @@ import getPlatformElevation from '../styles/getPlatformElevation';
 
 const propTypes = {
     /**
-    * Array of names of icons (or elements) that will be shown after the main button is pressed
-    * Remember, you should specify key for each element, if you use array of elements
+    * Array of names of icons that will be shown after the main button is pressed
     */
     actions: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
-        PropTypes.arrayOf(PropTypes.element),
         PropTypes.arrayOf(PropTypes.shape({
-            icon: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
+            icon: PropTypes.string,
             label: PropTypes.string,
-            name: PropTypes.string,
         })),
     ]),
     /**
@@ -133,11 +127,6 @@ function getStyles(props, context, state) {
             local.speedDialActionContainer,
             props.style.speedDialActionContainer,
         ],
-        speedDialActionLabel: [
-            actionButton.speedDialActionLabel,
-            local.speedDialActionLabel,
-            props.style.speedDialActionLabel,
-        ],
         speedDialActionLabelContainer: [
             actionButton.speedDialActionLabelContainer,
             local.speedDialActionLabelContainer,
@@ -196,15 +185,6 @@ class ActionButton extends PureComponent {
             onPress(action);
         }
     }
-    getActionItemKey = ({ icon, name }) => {
-        let key = icon;
-        if (name) {
-            key = name;
-        } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
-        }
-        return key;
-    }
     toggleState = () => {
         const { transition } = this.props;
 
@@ -240,16 +220,16 @@ class ActionButton extends PureComponent {
         return (
             <View style={styles.toolbarPositionContainer}>
                 <View key="main-button" style={styles.toolbarContainer}>
-                    {actions.map((action) => {
-                        if (typeof action === 'string') {
-                            return this.renderToolbarAction(styles, action);
-                        }
-                        if (React.isValidElement(action)) {
-                            return this.renderToolbarElementAction(styles, action);
-                        }
-                        return this.renderToolbarLabelAction(
-                            styles, action.icon, action.label, action.name);
-                    })}
+                    {actions.map(action => (
+                        <View key={action} style={styles.toolbarActionContainer}>
+                            <IconToggle
+                                key={action}
+                                name={action}
+                                onPress={() => this.onPress(action)}
+                                style={{ icon: styles.icon }}
+                            />
+                        </View>
+                    ))}
                 </View>
             </View>
         );
@@ -268,12 +248,8 @@ class ActionButton extends PureComponent {
                                         return this.renderAction(styles, action);
                                     }
 
-                                    if (React.isValidElement(action)) {
-                                        return this.renderElementAction(styles, action);
-                                    }
-
                                     return this.renderLabelAction(
-                                        styles, action.icon, action.label, action.name);
+                                        styles, action.icon, action.label);
                                 })}
                             </View>
                             {this.renderMainButton(styles)}
@@ -304,101 +280,32 @@ class ActionButton extends PureComponent {
             </View>
         );
     }
-    renderToolbarAction = (styles, icon, name) => {
-        let content;
-        const key = this.getActionItemKey({ icon, name });
-
-        if (React.isValidElement(icon)) {
-            content = (
+    renderAction = (styles, icon) => (
+        <View key={icon} style={styles.speedDialActionIconContainer}>
+            <View style={styles.speedDialActionIcon}>
                 <RippleFeedback
                     color="#AAF"
-                    onPress={() => this.onPress(key)}
+                    onPress={() => this.onPress(icon)}
                     delayPressIn={20}
                 >
                     {this.renderIconButton(styles, icon)}
-                </RippleFeedback>);
-        } else {
-            content = (
-                <IconToggle
-                    key={key}
-                    name={key}
-                    onPress={() => this.onPress(key)}
-                    style={{ icon: styles.icon }}
-                />);
-        }
-        return (
-            <View key={key} style={styles.toolbarActionContainer}>
-                {content}
+                </RippleFeedback>
             </View>
-        );
-    }
-    renderToolbarElementAction = (styles, icon) => {
-        const key = this.getActionItemKey({ icon });
-        return (
-            <View key={key} style={styles.toolbarActionContainer}>
-                {this.renderToolbarAction(styles, icon)}
+        </View>
+    )
+    renderLabelAction = (styles, icon, label) => (
+        <View key={icon} style={styles.speedDialActionContainer}>
+            <View style={styles.speedDialActionLabelContainer}>
+                <Text>{label}</Text>
             </View>
-        );
-    }
-    /**
-    * TODO: implement labels for toolbar?
-    */
-    renderToolbarLabelAction = (styles, icon, label, name) => {
-        const key = this.getActionItemKey({ icon, name });
-        return (
-            <View key={key} style={styles.toolbarActionContainer}>
-                {this.renderToolbarAction(styles, icon, name)}
-            </View>
-        );
-    }
-    renderAction = (styles, icon, name) => {
-        const key = this.getActionItemKey({ icon, name });
-        return (
-            <View key={key} style={styles.speedDialActionIconContainer}>
-                <View style={styles.speedDialActionIcon}>
-                    <RippleFeedback
-                        color="#AAF"
-                        onPress={() => this.onPress(key)}
-                        delayPressIn={20}
-                    >
-                        {this.renderIconButton(styles, icon)}
-                    </RippleFeedback>
-                </View>
-            </View>
-        );
-    }
-    renderElementAction = (styles, icon) => {
-        const key = this.getActionItemKey({ icon });
-        return (
-            <View key={key} style={styles.speedDialActionContainer}>
-                {this.renderAction(styles, icon)}
-            </View>
-        );
-    }
-    renderLabelAction = (styles, icon, label, name) => {
-        const key = this.getActionItemKey({ icon, name });
-        return (
-            <View key={key} style={styles.speedDialActionContainer}>
-                <View style={styles.speedDialActionLabelContainer}>
-                    <Text style={styles.speedDialActionLabel}>{label}</Text>
-                </View>
-                {this.renderAction(styles, icon, name)}
-            </View>
-        );
-    }
-    renderIconButton = (styles, icon) => {
-        let result;
-        if (React.isValidElement(icon)) {
-            result = icon;
-        } else {
-            result = <Icon name={icon} style={styles.icon} />;
-        }
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {result}
-            </View>
-        );
-    }
+            {this.renderAction(styles, icon)}
+        </View>
+    )
+    renderIconButton = (styles, name) => (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Icon name={name} style={styles.icon} />
+        </View>
+    )
     renderButton = styles => (
         <Animated.View
             style={[styles.positionContainer, {

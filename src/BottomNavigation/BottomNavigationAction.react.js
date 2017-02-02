@@ -47,7 +47,7 @@ const contextTypes = {
 };
 
 function getStyles(props, context) {
-    const { bottomNavigationAction } = context.uiTheme;
+    const { bottomNavigationAction, palette } = context.uiTheme;
 
     const local = {};
 
