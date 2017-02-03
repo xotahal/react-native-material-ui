@@ -269,8 +269,8 @@ class ListItem extends PureComponent {
                 secondaryText = centerElement.secondaryText;
                 tertiaryText = centerElement.tertiaryText;
             }
-            const secondLineNumber = typeof tertiaryText === 'undefined' ? numberOfLines : 1;
-            const thirdLineNumber = typeof tertiaryText === 'string' ? numberOfLines : 1;
+            const secondLineNumber = !tertiaryText ? numberOfLines : 1;
+            const thirdLineNumber = tertiaryText ? numberOfLines : 1;
             content = (
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
