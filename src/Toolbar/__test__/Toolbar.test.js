@@ -46,7 +46,7 @@ describe('Left element', () => {
     it('left element only', () => {
         const subheader = renderer.create(
             <ThemeProvider>
-                <Toolbar leftElement="menu" />
+                <Toolbar leftElement="menu" centerElement="Test" />
             </ThemeProvider>
         ).toJSON();
 
@@ -68,7 +68,7 @@ describe('Right element', () => {
     it('right element only', () => {
         const subheader = renderer.create(
             <ThemeProvider>
-                <Toolbar rightElement="menu" />
+                <Toolbar centerElement="Test" rightElement="menu" />
             </ThemeProvider>
         ).toJSON();
 
@@ -78,6 +78,7 @@ describe('Right element', () => {
         const subheader = renderer.create(
             <ThemeProvider>
                 <Toolbar
+                    centerElement="Test"
                     rightElement={{
                         actions: ['edit'],
                         menu: { labels: ['Item 1', 'Item 2'] },
@@ -92,6 +93,7 @@ describe('Right element', () => {
         const subheader = renderer.create(
             <ThemeProvider>
                 <Toolbar
+                    centerElement="Test"
                     rightElement={
                         <Button
                             text="Save"

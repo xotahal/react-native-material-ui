@@ -291,7 +291,7 @@ class Toolbar extends PureComponent {
         const { width, height } = event.nativeEvent.layout;
 
         // pythagorean
-        const radius = Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2));
+        const radius = Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2)); // eslint-disable-line
         let diameter = radius * 2;
         // if there wasn't issue in react native we wouldn't do this
         // because there is issue in react native that we can't set scale value to 0, we need to use
@@ -450,7 +450,6 @@ class Toolbar extends PureComponent {
                     isSearchActive={isSearchActive}
                     onSearchPress={this.onSearchPressed}
                     onSearchClearRequest={this.onSearchClearRequested}
-                    onSearchIconLayout={this.onSearchIconLayout}
                     onRightElementPress={onRightElementPress}
                 />
             </Animated.View>

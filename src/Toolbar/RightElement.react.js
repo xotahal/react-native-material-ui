@@ -17,7 +17,7 @@ const propTypes = {
     rightElement: PropTypes.any,
     onRightElementPress: PropTypes.func,
     onSearchClearRequest: PropTypes.func.isRequired,
-    onSearchIconLayout: PropTypes.func.isRequired,
+    onSearchPress: PropTypes.func.isRequired,
 };
 const defaultProps = {
     style: {},
@@ -150,7 +150,7 @@ class RightElement extends PureComponent {
                         size={size}
                         style={flattenRightElement}
                         onPress={this.onSearchPressed}
-                    />
+                    />,
                 );
             }
         }
