@@ -83,6 +83,7 @@ class Avatar extends PureComponent {
         if (icon) {
             const color = iconColor || StyleSheet.flatten(avatar.content).color;
             const size = iconSize || spacing.iconSize;
+
             content = <Icon name={icon} color={color} size={size} />;
         } else if (text) {
             content = <Text style={styles.content}>{text}</Text>;
