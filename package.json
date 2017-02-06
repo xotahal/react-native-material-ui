@@ -53,7 +53,7 @@
     "jest": "^17.0.3",
     "react": "^15.4.1",
     "react-native": "^0.39.2",
-    "react-native-vector-icons": "^3.0.0"
+    "react-native-vector-icons": "^3.0.0",
     "react-test-renderer": "^15.4.1"
   }
 }
