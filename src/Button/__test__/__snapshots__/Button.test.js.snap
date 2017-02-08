@@ -44,9 +44,9 @@ exports[`Button accent, text, icon 1`] = `
           Object {
             "marginRight": 8,
           },
+          false,
+          false,
           undefined,
-          false,
-          false,
           undefined,
           undefined,
         ],
