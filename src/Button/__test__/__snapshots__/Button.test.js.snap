@@ -40,9 +40,16 @@ exports[`Button accent, text, icon 1`] = `
           "color": "#f44336",
           "fontSize": 24,
         },
-        Object {
-          "marginRight": 8,
-        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          undefined,
+          false,
+          false,
+          undefined,
+          undefined,
+        ],
         Object {
           "fontFamily": "Material Icons",
           "fontStyle": "normal",
@@ -330,9 +337,16 @@ exports[`Button primary, text, icon 1`] = `
           "color": "#2196f3",
           "fontSize": 24,
         },
-        Object {
-          "marginRight": 8,
-        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          false,
+          false,
+          undefined,
+          undefined,
+          undefined,
+        ],
         Object {
           "fontFamily": "Material Icons",
           "fontStyle": "normal",
@@ -559,9 +573,16 @@ exports[`Button raised, accent, text, icon 1`] = `
           "color": "#ffffff",
           "fontSize": 24,
         },
-        Object {
-          "marginRight": 8,
-        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          false,
+          false,
+          undefined,
+          undefined,
+          undefined,
+        ],
         Object {
           "fontFamily": "Material Icons",
           "fontStyle": "normal",
@@ -777,9 +798,16 @@ exports[`Button raised, primary, text, icon 1`] = `
           "color": "#ffffff",
           "fontSize": 24,
         },
-        Object {
-          "marginRight": 8,
-        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          false,
+          false,
+          undefined,
+          undefined,
+          undefined,
+        ],
         Object {
           "fontFamily": "Material Icons",
           "fontStyle": "normal",
