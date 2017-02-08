@@ -136,7 +136,7 @@ export default function getTheme(theme, ...more) {
             },
             text: {
                 color: black,
-                ...typography.buttons,
+//                 ...typography.buttons,
             },
         }, theme.button)),
         buttonFlat: StyleSheet.create(merge({}, theme.buttonFlat)),
