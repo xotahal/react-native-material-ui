@@ -140,6 +140,9 @@ export default function getTheme(theme, ...more) {
                 color: black,
                 ...typography.buttons,
             },
+            icon: {
+                marginRight: 8,
+            },
         }, theme.button)),
         buttonFlat: StyleSheet.create(merge({}, theme.buttonFlat)),
         buttonRaised: StyleSheet.create(merge({
