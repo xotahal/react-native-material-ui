@@ -56,26 +56,28 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state) {
-    const { button, buttonFlat, buttonDisabled, buttonRaised } = context.uiTheme;
+    const { button, buttonFlat, buttonRaised } = context.uiTheme;
+    const { palette, buttonDisabled, buttonRaisedDisabled } = context.uiTheme;
     const { primary, accent, disabled, raised } = props;
-    const { palette } = context.uiTheme;
 
     const local = {
         container: {},
     };
 
-    if (primary && !raised) {
-        local.text = { color: palette.primaryColor };
-    } else if (accent && !raised) {
-        local.text = { color: palette.accentColor };
-    }
+    if (!disabled) {
+        if (primary && !raised) {
+            local.text = { color: palette.primaryColor };
+        } else if (accent && !raised) {
+            local.text = { color: palette.accentColor };
+        }
 
-    if (primary && raised) {
-        local.container.backgroundColor = palette.primaryColor;
-        local.text = { color: palette.canvasColor };
-    } else if (accent && raised) {
-        local.container.backgroundColor = palette.accentColor;
-        local.text = { color: palette.canvasColor };
+        if (primary && raised) {
+            local.container.backgroundColor = palette.primaryColor;
+            local.text = { color: palette.canvasColor };
+        } else if (accent && raised) {
+            local.container.backgroundColor = palette.accentColor;
+            local.text = { color: palette.canvasColor };
+        }
     }
 
     if (raised) {
@@ -89,18 +91,19 @@ function getStyles(props, context, state) {
         container: [
             button.container,
             !raised && buttonFlat.container,
-            disabled && buttonDisabled.container,
             raised && buttonRaised.container,
             local.container,
             props.style.container,
+            (disabled && raised) && buttonRaisedDisabled.container,
         ],
         text: [
             button.text,
             !raised && buttonFlat.text,
-            disabled && buttonDisabled.text,
             raised && buttonRaised.text,
             local.text,
             props.style.text,
+            (disabled && raised) && buttonRaisedDisabled.text,
+            (disabled && !raised) && buttonDisabled.text,
         ],
     };
 }
@@ -137,7 +140,6 @@ class Button extends PureComponent {
         if (!icon) {
             return null;
         }
-
 
         return (
             <Icon

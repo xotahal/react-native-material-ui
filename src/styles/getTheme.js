@@ -153,6 +153,15 @@ export default function getTheme(theme, ...more) {
                 color: palette.disabledTextColor,
             },
         }, theme.buttonDisabled)),
+        buttonRaisedDisabled: StyleSheet.create(merge({
+            container: {
+                backgroundColor: palette.disabledColor,
+                borderColor: 'rgba(0,0,0,.12)',
+            },
+            text: {
+                color: palette.canvasColor,
+            },
+        }, theme.buttonDisabled)),
         bottomNavigation: StyleSheet.create(merge({
             container: {
                 flexDirection: 'row',
