@@ -37,6 +37,7 @@ const propTypes = {
         PropTypes.shape({
             primaryText: PropTypes.string.isRequired,
             secondaryText: PropTypes.string,
+            tertiaryText: PropTypes.string,
         }),
     ]),
 
@@ -65,7 +66,11 @@ function getNumberOfSecondaryTextLines(numberOfLines) {
 function getNumberOfLines(props) {
     const { numberOfLines, centerElement } = props;
 
-    if (centerElement && centerElement.secondaryText && (!numberOfLines || numberOfLines < 2)) {
+    if (centerElement && centerElement.secondaryText && centerElement.tertiaryText
+        && (!numberOfLines || numberOfLines < 3)) {
+        return 3;
+    } else if (centerElement && centerElement.secondaryText &&
+        (!numberOfLines || numberOfLines < 2)) {
         return 2;
     }
 
@@ -109,7 +114,7 @@ function getStyles(props, context, state) {
     const leftElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
-        contentViewContainer.paddingVertical = 8;
+        contentViewContainer.paddingVertical = 16;
         leftElementContainer.alignSelf = 'flex-start';
     }
     if (typeof rightElement !== 'string') {
@@ -159,6 +164,10 @@ function getStyles(props, context, state) {
         secondaryText: [
             listItem.secondaryText,
             props.style.secondaryText,
+        ],
+        tertiaryText: [
+            listItem.tertiaryText,
+            props.style.tertiaryText,
         ],
         rightElementContainer: [
             listItem.rightElementContainer,
@@ -244,7 +253,6 @@ class ListItem extends PureComponent {
     renderCenterElement = (styles) => {
         const { centerElement } = this.props;
         const numberOfLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
-
         let content = null;
 
         if (React.isValidElement(centerElement)) {
@@ -252,15 +260,17 @@ class ListItem extends PureComponent {
         } else if (centerElement) {
             let primaryText = null;
             let secondaryText = null;
+            let tertiaryText = null;
 
             if (typeof centerElement === 'string') {
                 primaryText = centerElement;
             } else {
                 primaryText = centerElement.primaryText;
                 secondaryText = centerElement.secondaryText;
+                tertiaryText = centerElement.tertiaryText;
             }
-
-
+            const secondLineNumber = !tertiaryText ? numberOfLines : 1;
+            const thirdLineNumber = tertiaryText ? numberOfLines : 1;
             content = (
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
@@ -272,15 +282,21 @@ class ListItem extends PureComponent {
                     </View>
                     {secondaryText &&
                         <View>
-                            <Text numberOfLines={numberOfLines} style={styles.secondaryText}>
+                            <Text numberOfLines={secondLineNumber} style={styles.secondaryText}>
                                 {secondaryText}
+                            </Text>
+                        </View>
+                    }
+                    {tertiaryText &&
+                        <View>
+                            <Text numberOfLines={thirdLineNumber} style={styles.tertiaryText}>
+                                {tertiaryText}
                             </Text>
                         </View>
                     }
                 </View>
             );
         }
-
 
         return (
             <View style={styles.centerElementContainer}>

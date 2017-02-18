@@ -82,6 +82,9 @@ export default function getTheme(theme, ...more) {
                 borderRadius: (spacing.actionButtonSize - 16) / 2,
                 backgroundColor: grey500,
             },
+            speedDialActionLabel: {
+                color: palette.secondaryTextColor,
+            },
             speedDialActionLabelContainer: {
                 ...getPlatformElevation(2),
                 borderRadius: 2,
@@ -379,6 +382,11 @@ export default function getTheme(theme, ...more) {
                 flex: 1,
             },
             secondaryText: {
+                lineHeight: 22,
+                color: palette.secondaryTextColor,
+                ...typography.body1,
+            },
+            tertiaryText: {
                 lineHeight: 22,
                 color: palette.secondaryTextColor,
                 ...typography.body1,
