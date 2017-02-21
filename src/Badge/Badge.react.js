@@ -28,6 +28,13 @@ const propTypes = {
     * Just sugar for style={{ container: { width: size, height: size, borderRadius: size / 2 }}}
     */
     size: PropTypes.number,
+    /**
+    * You can specify stroke for badge. Note that if you use stroke it swaps container and
+    * strokeContainer. So if you override styles of container you probably need to override
+    * strokeContainer instead the container. Because if you use stroke then the strokeContainer
+    * will be wrapper of whole badge component.
+    */
+    stroke: PropTypes.numer,
 };
 const defaultProps = {
     style: {
@@ -43,13 +50,26 @@ const contextTypes = {
 
 function getStyles(props, context) {
     const { badge, palette } = context.uiTheme;
-    const { accent, size } = props;
+    const { accent, size, stroke } = props;
 
     const local = {
         container: {},
+        strokeContainer: {},
     };
 
-    if (size) {
+    if (size && stroke) {
+        const strokeSize = size;
+        const contentSize = size - stroke;
+
+        local.strokeContainer.width = strokeSize;
+        local.strokeContainer.height = strokeSize;
+        local.strokeContainer.borderRadius = strokeSize / 2;
+
+        local.container.position = null;
+        local.container.width = contentSize;
+        local.container.height = contentSize;
+        local.container.borderRadius = contentSize / 2;
+    } else if (size && !stroke) {
         local.container.width = size;
         local.container.height = size;
         local.container.borderRadius = size / 2;
@@ -64,6 +84,11 @@ function getStyles(props, context) {
             badge.container,
             local.container,
             props.style.container,
+        ],
+        strokeContainer: [
+            badge.strokeContainer,
+            local.strokeContainer,
+            props.style.strokeContainer,
         ],
         content: [
             badge.content,
@@ -96,7 +121,7 @@ class Badge extends PureComponent {
         this.renderChildren = this.renderChildren.bind(this);
     }
     renderContent(styles) {
-        const { text, icon } = this.props;
+        const { text, icon, stroke } = this.props;
 
         let content = null;
 
@@ -107,9 +132,19 @@ class Badge extends PureComponent {
             content = <Text style={styles.content}>{text}</Text>;
         }
 
-        return (
+        const contentWrapper = (
             <View style={styles.container}>
                 {content}
+            </View>
+        );
+
+        if (!stroke) {
+            return contentWrapper;
+        }
+
+        return (
+            <View style={styles.strokeContainer}>
+                {contentWrapper}
             </View>
         );
     }

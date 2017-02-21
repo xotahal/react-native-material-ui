@@ -121,6 +121,15 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
                 backgroundColor: palette.primaryColor,
             },
+            strokeContainer: {
+                position: 'absolute',
+                width: 16,
+                height: 16,
+                borderRadius: 8,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: palette.canvasColor,
+            },
             content: {
                 color: palette.canvasColor,
                 fontWeight: fontWeight.medium,
