@@ -424,6 +424,7 @@ export default function getTheme(theme, ...more) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 paddingHorizontal: 4,
+                overflow: 'hidden',
                 ...getPlatformElevation(4),
             },
             leftElementContainer: { },
