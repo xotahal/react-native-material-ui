@@ -64,7 +64,7 @@ const propTypes = {
     style: PropTypes.shape({
         container: View.propTypes.style,
         leftElementContainer: View.propTypes.style,
-        leftElement: View.propTypes.style,
+        leftElement: IconToggle.propTypes.style,
         centerElementContainer: View.propTypes.style,
         titleText: Text.propTypes.style,
         rightElementContainer: View.propTypes.style,
@@ -406,12 +406,8 @@ class Toolbar extends PureComponent {
     }
     render() {
         const {
-            searchable,
-            leftElement,
             onLeftElementPress,
-            centerElement,
             onPress,
-            rightElement,
             onRightElementPress,
         } = this.props;
 
@@ -429,23 +425,20 @@ class Toolbar extends PureComponent {
             >
                 {this.renderAnimatedBackgrounds(styles)}
                 <LeftElement
-                    leftElement={leftElement}
+                    {...this.props}
                     onLeftElementPress={onLeftElementPress}
-                    searchable={searchable}
                     isSearchActive={isSearchActive}
                     onSearchClose={this.onSearchCloseRequested}
                 />
                 <CenterElement
-                    centerElement={centerElement}
+                    {...this.props}
                     onPress={onPress}
-                    searchable={searchable}
                     searchValue={searchValue}
                     isSearchActive={isSearchActive}
                     onSearchTextChange={this.onSearchTextChanged}
                 />
                 <RightElement
-                    rightElement={rightElement}
-                    searchable={searchable}
+                    {...this.props}
                     searchValue={searchValue}
                     isSearchActive={isSearchActive}
                     onSearchPress={this.onSearchPressed}
