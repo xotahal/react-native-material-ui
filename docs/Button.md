@@ -5,13 +5,14 @@
 
 ```js
 ...
-import { Button } from '../react-native-material-ui';
+import { Button } from 'react-native-material-ui';
 ...
 render() {
     <View>
         <Button primary text="Primary" /> // flat button with primary color
         <Button accent text="Accent" /> // flat button with accent color
         <Button raised primary text="Primary" /> // raised button with primary color
+        <Button disabled text="Disabled" /> // disabled button
     </View>
 }
 ```
@@ -39,6 +40,10 @@ const propTypes = {
     */
     text: PropTypes.string.isRequired,
     /**
+    * Button text will be in uppercase letters
+    */
+    upperCase: PropTypes.bool,
+    /**
     * If specified it'll be shown before text
     */
     icon: PropTypes.string,
@@ -49,5 +54,14 @@ const propTypes = {
         container: View.propTypes.style,
         text: Text.propTypes.style,
     }),
+};
+
+const defaultProps = {
+    primary: false,
+    accent: false,
+    disabled: false,
+    raised: false,
+    upperCase: true,
+    style: {},
 };
 ```
