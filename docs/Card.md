@@ -1,28 +1,16 @@
 # [Card](https://material.io/guidelines/components/cards.html)
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/dialogs-2.png" width="285">
 
 ### Usage
 
 ```js
 ...
-import { Dialog, DialogDefaultActions } from '../react-native-material-ui';
+import { Card } from '../react-native-material-ui';
 ...
 render() {
     <View>
-      <Dialog>
-        <Dialog.Title><Text>Hello world</Text></Dialog.Title>
-        <Dialog.Content>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Text>
-        </Dialog.Content>
-        <Dialog.Actions>
-          <DialogDefaultActions
-             actions={['Dismiss', 'Keep']}
-             onActionPress={() => {}}
-          />
-        </Dialog.Actions>
-      </Dialog>
+      <Card>
+        <Text>Hello world!</Text>
+      </Card>
     </View>
 }
 ```
@@ -38,12 +26,4 @@ const propTypes = {
     */
     style: PropTypes.object,
 };
-
-const defaultProps = {
-    style: {},
-};
 ```
-
-
-##### TODO
-- [ ] Add API to doc
