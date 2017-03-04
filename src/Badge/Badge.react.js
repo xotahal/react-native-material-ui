@@ -34,7 +34,7 @@ const propTypes = {
     * strokeContainer instead the container. Because if you use stroke then the strokeContainer
     * will be wrapper of whole badge component.
     */
-    stroke: PropTypes.numer,
+    stroke: PropTypes.number,
 };
 const defaultProps = {
     style: {
