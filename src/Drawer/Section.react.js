@@ -10,7 +10,7 @@ const propTypes = {
     title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string,
-        value: PropTypes.oneOfType([PropTypes.string,PropTypes.element]).isRequired,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
         label: PropTypes.string,
         onPress: PropTypes.func,
         onLongPress: PropTypes.func,
