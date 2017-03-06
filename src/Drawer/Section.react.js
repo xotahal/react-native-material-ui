@@ -10,7 +10,7 @@ const propTypes = {
     title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string,
-        value: PropTypes.oneOf([
+        value: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.element
         ]).isRequired,
