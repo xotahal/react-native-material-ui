@@ -130,18 +130,23 @@ class RightElement extends PureComponent {
         // if searchable feature is on and search is active with some text, then we show clear
         // button, to be able to clear text
         if (searchable) {
-            if (isSearchActive && searchValue.length > 0) {
-                result.push(
-                    <IconToggle
-                        key="searchClear"
-                        name="clear"
-                        color={flattenRightElement.color}
-                        size={size}
-                        style={flattenRightElement}
-                        onPress={onSearchClearRequest}
-                    />,
-                );
-            } else if (!isSearchActive) {
+            if (isSearchActive) {
+                // clear result to hide other icons
+                result = [];
+
+                if (searchValue.length > 0) {
+                    result.push(
+                        <IconToggle
+                            key="searchClear"
+                            name="clear"
+                            color={flattenRightElement.color}
+                            size={size}
+                            style={flattenRightElement}
+                            onPress={onSearchClearRequest}
+                        />,
+                    );
+                }
+            } else {
                 result.push(
                     <IconToggle
                         key="searchIcon"
