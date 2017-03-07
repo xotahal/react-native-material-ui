@@ -35,9 +35,18 @@ const propTypes = {
         PropTypes.element,
         PropTypes.string,
         PropTypes.shape({
-            primaryText: PropTypes.string.isRequired,
-            secondaryText: PropTypes.string,
-            tertiaryText: PropTypes.string,
+            primaryText: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element,
+            ]).isRequired,
+            secondaryText: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element,
+            ]),
+            tertiaryText: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element,
+            ]),
         }),
     ]),
 
