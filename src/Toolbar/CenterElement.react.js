@@ -8,7 +8,7 @@ const propTypes = {
     searchValue: PropTypes.string.isRequired,
     searchable: PropTypes.object,
     style: PropTypes.object,
-    centerElement: PropTypes.node.isRequired,
+    centerElement: PropTypes.node,
     onPress: PropTypes.func,
     onSearchTextChange: PropTypes.func.isRequired,
 };
