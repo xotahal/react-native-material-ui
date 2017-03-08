@@ -111,10 +111,6 @@ class CenterElement extends PureComponent {
             content = centerElement;
         }
 
-        if (!content) {
-            return null;
-        }
-
         return (
             <TouchableWithoutFeedback key="center" onPress={onPress}>
                 <Animated.View
