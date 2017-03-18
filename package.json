@@ -30,11 +30,13 @@
     "url": "https://github.com/xotahal/react-native-material-ui/issues"
   },
   "homepage": "https://github.com/xotahal/react-native-material-ui",
+  "peerDependencies": {
+    "react-native-vector-icons": "^4.0.0"
+  },
   "dependencies": {
     "color": "^1.0.3",
     "lodash.merge": "^4.0.0",
     "react-native-material-design-styles": "^0.2.6",
-    "react-native-vector-icons": "3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
