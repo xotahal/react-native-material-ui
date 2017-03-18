@@ -121,6 +121,15 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
                 backgroundColor: palette.primaryColor,
             },
+            strokeContainer: {
+                position: 'absolute',
+                width: 16,
+                height: 16,
+                borderRadius: 8,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: palette.canvasColor,
+            },
             content: {
                 color: palette.canvasColor,
                 fontWeight: fontWeight.medium,
@@ -139,6 +148,9 @@ export default function getTheme(theme, ...more) {
             text: {
                 color: black,
                 ...typography.buttons,
+            },
+            icon: {
+                marginRight: 8,
             },
         }, theme.button)),
         buttonFlat: StyleSheet.create(merge({}, theme.buttonFlat)),
@@ -421,6 +433,7 @@ export default function getTheme(theme, ...more) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 paddingHorizontal: 4,
+                overflow: 'hidden',
                 ...getPlatformElevation(4),
             },
             leftElementContainer: { },

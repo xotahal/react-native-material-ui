@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-ui",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "React Native Material Design Components",
   "main": "./index.js",
   "scripts": {
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/xotahal/react-native-material-ui",
   "peerDependencies": {
-    "react-native-vector-icons": "^3.0.0"
+    "react-native-vector-icons": "^4.0.0"
   },
   "dependencies": {
     "color": "^1.0.3",
@@ -52,8 +52,7 @@
     "eslint-plugin-react": "^6.8.0",
     "jest": "^17.0.3",
     "react": "^15.4.1",
-    "react-native": "^0.39.2",
-    "react-native-vector-icons": "^3.0.0",
+    "react-native": "^0.41.2",
     "react-test-renderer": "^15.4.1"
   }
 }

@@ -7,6 +7,7 @@ exports[`Center element center element only 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -120,6 +121,7 @@ exports[`Left element left element only 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -316,6 +318,7 @@ exports[`Right element right element - actions, menu 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -594,6 +597,7 @@ exports[`Right element right element - custom element 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -772,6 +776,7 @@ exports[`Right element right element only 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -968,6 +973,7 @@ exports[`Searchable searchable active 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -1186,6 +1192,7 @@ exports[`Searchable searchable object 1`] = `
       "backgroundColor": "#2196f3",
       "flexDirection": "row",
       "height": 56,
+      "overflow": "hidden",
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
