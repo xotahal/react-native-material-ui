@@ -7,7 +7,7 @@ import merge from 'lodash.merge';
 
 import { fontWeight } from './typography';
 import {
-  black, grey100, grey500, white, transparent,
+  black, grey100, grey500, white, transparent, snackbarColor,
 } from './colors';
 
 import lightTheme from './themes/light';
@@ -173,6 +173,7 @@ export default function getTheme(theme, ...more) {
                 borderTopColor: palette.borderColor,
                 borderTopWidth: StyleSheet.hairlineWidth,
                 ...getPlatformElevation(8),
+                zIndex: 8,
             },
         }, theme.bottomNavigation)),
         bottomNavigationAction: StyleSheet.create(merge({
@@ -415,6 +416,32 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
         }, theme.listItem)),
+        // https://material.io/guidelines/components/snackbars-toasts.html
+        snackbar: StyleSheet.create(merge({
+            container: {
+                flexDirection: 'row',
+                height: spacing.snackbarHeight,
+                alignItems: 'center',
+                backgroundColor: snackbarColor,
+                paddingHorizontal: 24,
+                ...getPlatformElevation(4),
+                zIndex: 4,
+            },
+            message: {
+                flex: 1,
+                marginVertical: 14,
+                color: white,
+                ...typography.body2,
+                lineHeight: 14,
+            },
+            actionContainer: {
+                height: 14,
+                paddingHorizontal: 0,
+            },
+            actionText: {
+                color: palette.primaryColor,
+            },
+        }, theme.snackbar)),
         // https://material.google.com/components/subheaders.html#
         subheader: StyleSheet.create(merge({
             container: {
