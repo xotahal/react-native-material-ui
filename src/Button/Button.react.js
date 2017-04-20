@@ -59,7 +59,14 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state) {
-    const { button, buttonFlat, buttonDisabled, buttonRaised } = context.uiTheme;
+    const {
+        button,
+        buttonFlat,
+        buttonRaised,
+        buttonDisabled,
+        buttonRaisedDisabled,
+    } = context.uiTheme;
+
     const { primary, accent, disabled, raised } = props;
     const { palette } = context.uiTheme;
 
@@ -67,21 +74,23 @@ function getStyles(props, context, state) {
         container: {},
     };
 
-    if (primary && !raised) {
-        local.text = { color: palette.primaryColor };
-    } else if (accent && !raised) {
-        local.text = { color: palette.accentColor };
+    if (!disabled) {
+        if (primary && !raised) {
+            local.text = { color: palette.primaryColor };
+        } else if (accent && !raised) {
+            local.text = { color: palette.accentColor };
+        }
+
+        if (primary && raised) {
+            local.container.backgroundColor = palette.primaryColor;
+            local.text = { color: palette.canvasColor };
+        } else if (accent && raised) {
+            local.container.backgroundColor = palette.accentColor;
+            local.text = { color: palette.canvasColor };
+        }
     }
 
-    if (primary && raised) {
-        local.container.backgroundColor = palette.primaryColor;
-        local.text = { color: palette.canvasColor };
-    } else if (accent && raised) {
-        local.container.backgroundColor = palette.accentColor;
-        local.text = { color: palette.canvasColor };
-    }
-
-    if (raised) {
+    if (raised && !disabled) {
         local.container = {
             ...local.container,
             ...getPlatformElevation(state.elevation),
@@ -92,16 +101,18 @@ function getStyles(props, context, state) {
         container: [
             button.container,
             !raised && buttonFlat.container,
-            disabled && buttonDisabled.container,
             raised && buttonRaised.container,
+            (!raised && disabled) && buttonDisabled.container,
+            (raised && disabled) && buttonRaisedDisabled.container,
             local.container,
             props.style.container,
         ],
         text: [
             button.text,
             !raised && buttonFlat.text,
-            disabled && buttonDisabled.text,
             raised && buttonRaised.text,
+            (!raised && disabled) && buttonDisabled.text,
+            (raised && disabled) && buttonRaisedDisabled.text,
             local.text,
             props.style.text,
         ],

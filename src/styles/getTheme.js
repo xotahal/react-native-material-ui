@@ -154,17 +154,25 @@ export default function getTheme(theme, ...more) {
             },
         }, theme.button)),
         buttonFlat: StyleSheet.create(merge({}, theme.buttonFlat)),
+        buttonDisabled: StyleSheet.create(merge({
+            text: {
+                color: palette.disabledTextColor,
+            },
+        }, theme.buttonDisabled)),
         buttonRaised: StyleSheet.create(merge({
             container: {
                 backgroundColor: '#fff',
                 borderColor: 'rgba(0,0,0,.12)',
             },
         }, theme.buttonRaised)),
-        buttonDisabled: StyleSheet.create(merge({
+        buttonRaisedDisabled: StyleSheet.create(merge({
+            container: {
+                backgroundColor: palette.borderColor,
+            },
             text: {
                 color: palette.disabledTextColor,
             },
-        }, theme.buttonDisabled)),
+        }, theme.buttonRaisedDisabled)),
         bottomNavigation: StyleSheet.create(merge({
             container: {
                 flexDirection: 'row',
