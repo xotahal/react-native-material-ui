@@ -20,13 +20,29 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state = {}) {
+    const { leftElement } = props;
     const { toolbar, toolbarSearchActive } = context.uiTheme;
     const { isSearchActive } = state;
+
+    const local = {};
+
+    if (props.color) {
+        local.icon = {
+            color: props.color,
+        };
+    }
+
+    if (!leftElement) {
+        local.centerElementContainer = {
+            marginLeft: 16,
+        };
+    }
 
     return {
         centerElementContainer: [
             toolbar.centerElementContainer,
             isSearchActive && toolbarSearchActive.centerElementContainer,
+            local.centerElementContainer,
             props.style.centerElementContainer,
         ],
         titleText: [
