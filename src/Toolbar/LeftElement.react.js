@@ -59,7 +59,7 @@ class LeftElement extends PureComponent {
         this.state = {
             styles: getStyles(this.props, this.context),
             leftElement: props.isSearchActive ? SEARCH_FORWARD_ICON : props.leftElement,
-            spinValue: new Animated.Value(0),
+            spinValue: new Animated.Value(props.isSearchActive ? 1 : 0),
         };
     }
     componentWillReceiveProps(nextProps) {
