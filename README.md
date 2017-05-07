@@ -34,6 +34,14 @@ Copy the `MaterialIcons` font file from [react-native-vector-icons](https://gith
 
 #### iOS (see [original](https://github.com/oblador/react-native-vector-icons#ios))
 
+## Adding Roboto Font
+This project uses Roboto as the main font for text. Make sure to add Roboto to your project, as it will give the following error on iOS.
+`Unrecognized font family Roboto`.
+
+You can obtain Roboto free from [here](https://fonts.google.com/specimen/Roboto).
+
+Here is a great tutorial which shows [how to add custom fonts](https://fonts.google.com/specimen/Roboto).
+
 # Usage
 
 To achieve the level of customizability, React Native Material UI is using a single JS object called uiTheme that is passed in via context. By default, this uiTheme object is based on the lightTheme that you can find [here](https://github.com/xotahal/react-native-material-ui/blob/master/src/styles/themes/light.js). So, you can change almost everything very easily.
