@@ -40,7 +40,7 @@ This project uses Roboto as the main font for text. Make sure to add Roboto to y
 
 You can obtain Roboto free from [here](https://fonts.google.com/specimen/Roboto).
 
-Here is a great tutorial which shows [how to add custom fonts](https://fonts.google.com/specimen/Roboto).
+Here is a great tutorial which shows [how to add custom fonts](https://medium.com/@danielskripnik/how-to-add-and-remove-custom-fonts-in-react-native-b2830084b0e4).
 
 # Usage
 
