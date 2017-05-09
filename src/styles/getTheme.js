@@ -472,7 +472,9 @@ export default function getTheme(theme, ...more) {
                 overflow: 'hidden',
                 ...getPlatformElevation(4),
             },
-            leftElementContainer: { },
+            leftElementContainer: {
+                backgroundColor: 'transparent',
+            },
             leftElement: {
                 color: palette.alternateTextColor,
             },
@@ -487,6 +489,7 @@ export default function getTheme(theme, ...more) {
             },
             rightElementContainer: {
                 flexDirection: 'row',
+                backgroundColor: 'transparent',
             },
             rightElement: {
                 color: palette.alternateTextColor,
