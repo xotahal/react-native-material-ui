@@ -4,7 +4,7 @@ import {
     Animated,
     Easing,
     Platform,
-    BackAndroid,
+    BackHandler,
     StyleSheet,
     Text,
     View,
@@ -151,7 +151,7 @@ const EMPTY_BACK_BUTTON_LISTENER = { remove: () => {} };
 const getBackButtonListener = (callback, isSearchActive) => {
     // if search is active by default we need to listen back button
     if (isSearchActive) {
-        return BackAndroid.addEventListener('closeRequested', callback);
+        return BackHandler.addEventListener('closeRequested', callback);
     }
 
     return EMPTY_BACK_BUTTON_LISTENER;
