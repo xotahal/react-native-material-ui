@@ -271,6 +271,7 @@ class Toolbar extends PureComponent {
             this.state.searchScaleValue.setValue(0.01);
             this.setState({ order: 'defaultFirst' });
             // on android it's typical that back button closes search input on toolbar
+            this.backButtonListener.remove();
             this.backButtonListener = getBackButtonListener(this.onSearchCloseRequested, false);
 
             this.onSearchClosed();
@@ -280,8 +281,6 @@ class Toolbar extends PureComponent {
     }
     onSearchClosed = () => {
         const { searchable } = this.props;
-
-        this.backButtonListener.remove();
 
         if (searchable && isFunction(searchable.onSearchClosed)) {
             searchable.onSearchClosed();
