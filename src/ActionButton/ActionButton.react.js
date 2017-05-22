@@ -169,6 +169,7 @@ class ActionButton extends PureComponent {
             render: 'button',
             elevation: 2,
             scaleValue: new Animated.Value(scaleValue),
+            snackbarOffset: new Animated.Value(0),
         };
     }
     componentWillReceiveProps(nextProps) {
@@ -288,7 +289,7 @@ class ActionButton extends PureComponent {
         const mainIcon = render !== 'button' ? 'clear' : icon;
 
         return (
-            <View key="main-button" style={styles.container}>
+            <Animated.View key="main-button" style={[styles.container, { marginBottom: this.state.snackbarOffset }]}>
                 <RippleFeedback
                     color="#AAF"
                     onPress={() => this.onPress('main-button')}
@@ -299,7 +300,7 @@ class ActionButton extends PureComponent {
                 >
                     {this.renderIconButton(styles, mainIcon)}
                 </RippleFeedback>
-            </View>
+            </Animated.View>
         );
     }
     renderToolbarAction = (styles, icon, name) => {
@@ -396,6 +397,27 @@ class ActionButton extends PureComponent {
                 {result}
             </View>
         );
+    }
+    avoidSnackbar({spring, delay, height}) {
+        const animation = Animated.sequence([
+            Animated.timing(
+                this.state.snackbarOffset,
+                {
+                    toValue: height,
+                    duration: spring
+                }
+            ),
+            Animated.delay(delay),
+            Animated.timing(
+                this.state.snackbarOffset,
+                {
+                    toValue: 0,
+                    duration: spring
+                }
+            )
+        ])
+
+        animation.start()
     }
     renderButton = styles => (
         <Animated.View style={styles.positionContainer}>
