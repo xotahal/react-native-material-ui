@@ -5,6 +5,8 @@ import {
     View,
     Text,
     TouchableWithoutFeedback,
+    NativeModules,
+    findNodeHandle,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -12,6 +14,8 @@ import Divider from '../Divider';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
+
+const UIManager = NativeModules.UIManager;
 
 const propTypes = {
     // generally
@@ -117,7 +121,8 @@ function getStyles(props, context, state) {
         contentViewContainer.paddingVertical = 16;
         leftElementContainer.alignSelf = 'flex-start';
     }
-    if (typeof rightElement !== 'string') {
+
+    if (!rightElement) {
         contentViewContainer.paddingRight = 16;
     }
 
@@ -195,6 +200,20 @@ class ListItem extends PureComponent {
     componentWillReceiveProps(nextPros) {
         this.setState({ numberOfLines: getNumberOfLines(nextPros) });
     }
+    onMenuPressed = (labels) => {
+        const { onRightElementPress } = this.props;
+
+        UIManager.showPopupMenu(
+            findNodeHandle(this.menu),
+            labels,
+            () => {},
+            (result, index) => {
+                if (onRightElementPress) {
+                    onRightElementPress({ action: 'menu', result, index });
+                }
+            },
+        );
+    };
     onListItemPressed = () => {
         const { onPress, onPressValue } = this.props;
 
@@ -307,13 +326,15 @@ class ListItem extends PureComponent {
     renderRightElement = (styles) => {
         const { rightElement } = this.props;
 
-        let content = null;
+        let content = [];
         let elements = null;
 
         if (typeof rightElement === 'string') {
             elements = [rightElement];
         } else if (Array.isArray(rightElement)) {
             elements = rightElement;
+        } else if (rightElement && rightElement.actions) {
+            elements = rightElement.actions;
         }
 
         const flattenRightElement = StyleSheet.flatten(styles.rightElement);
@@ -328,13 +349,32 @@ class ListItem extends PureComponent {
                     <Icon name={action} size={24} style={styles.rightElement} />
                 </IconToggle>
             ));
-        } else {
-            content = (
-                <TouchableWithoutFeedback onPress={this.onRightElementPressed}>
-                    <View>
-                        {rightElement}
-                    </View>
-                </TouchableWithoutFeedback>
+        }
+
+        if (React.isValidElement(rightElement)) {
+            content.push(React.cloneElement(rightElement, { key: 'customRightElement' }));
+        }
+
+        if (rightElement && rightElement.menu) {
+            // We need this view as an anchor for drop down menu. findNodeHandle can
+            // find just view with width and height, even it needs backgroundColor :/
+            content.push(
+                <View key="menuIcon">
+                    <View
+                        ref={(c) => { this.menu = c; }}
+                        style={{
+                            backgroundColor: 'transparent',
+                            width: StyleSheet.hairlineWidth,
+                            height: StyleSheet.hairlineWidth,
+                        }}
+                    />
+                    <IconToggle
+                        name="more-vert"
+                        color={flattenRightElement.color}
+                        onPress={() => this.onMenuPressed(rightElement.menu.labels)}
+                        style={flattenRightElement}
+                    />
+                </View>
             );
         }
 

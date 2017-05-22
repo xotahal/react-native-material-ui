@@ -415,6 +415,8 @@ export default function getTheme(theme, ...more) {
             },
             rightElementContainer: {
                 paddingRight: 4,
+                flexDirection: 'row',
+                backgroundColor: 'transparent',
             },
             leftElement: {
                 margin: 16,
