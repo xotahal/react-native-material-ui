@@ -201,7 +201,7 @@ class ListItem extends PureComponent {
         this.setState({ numberOfLines: getNumberOfLines(nextPros) });
     }
     onMenuPressed = (labels) => {
-        const { onRightElementPress } = this.props;
+        const { onRightElementPress, onPressValue } = this.props;
 
         UIManager.showPopupMenu(
             findNodeHandle(this.menu),
@@ -209,7 +209,12 @@ class ListItem extends PureComponent {
             () => {},
             (result, index) => {
                 if (onRightElementPress) {
-                    onRightElementPress({ action: 'menu', result, index });
+                    onRightElementPress({
+                        action: 'menu',
+                        result,
+                        index,
+                        value: onPressValue,
+                    });
                 }
             },
         );
