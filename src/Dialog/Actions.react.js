@@ -21,10 +21,6 @@ function getStyles(props, context) {
             dialog.actionsContainer,
             props.style.actionsContainer,
         ],
-        actionsInnerContainer: [
-            dialog.actionsInnerContainer,
-            props.style.actionsInnerContainer,
-        ],
     };
 }
 
@@ -36,9 +32,7 @@ class DialogFooter extends PureComponent {
 
         return (
             <View style={styles.actionsContainer}>
-                <View style={styles.actionsInnerContainer}>
-                    {children}
-                </View>
+                {children}
             </View>
         );
     }

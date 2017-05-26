@@ -19,43 +19,30 @@ function getStyles(props, context) {
     const { dialog } = context.uiTheme;
 
     return {
-        defaultActionsContainer: [
-            dialog.defaultActionsContainer,
-            props.style.defaultActionsContainer,
+        stackedActionsContainer: [
+            dialog.stackedActionsContainer,
+            props.style.stackedActionsContainer,
         ],
     };
 }
 
-class DialogDefaultActions extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.onActionPressed = this.onActionPressed.bind(this);
-    }
-    onActionPressed(action) {
-        const { onActionPress } = this.props;
-
-        if (onActionPress) {
-            onActionPress(action);
-        }
-    }
+class DialogStackedActions extends PureComponent {
     render() {
-        const { actions } = this.props;
+        const { actions, onActionPress } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
-            <View style={styles.defaultActionsContainer}>
+            <View style={styles.stackedActionsContainer}>
                 {actions.map(action =>
                     <Button
                         key={action}
                         primary
                         text={action}
-                        onPress={this.onActionPressed}
+                        onPress={onActionPress}
                         style={{
                             container: {
-                                marginLeft: 8,
-                                paddingHorizontal: 8,
+                                justifyContent: 'flex-end',
                             },
                         }}
                     />
@@ -65,8 +52,8 @@ class DialogDefaultActions extends PureComponent {
     }
 }
 
-DialogDefaultActions.propTypes = propTypes;
-DialogDefaultActions.defaultProps = defaultProps;
-DialogDefaultActions.contextTypes = contextTypes;
+DialogStackedActions.propTypes = propTypes;
+DialogStackedActions.defaultProps = defaultProps;
+DialogStackedActions.contextTypes = contextTypes;
 
-export default DialogDefaultActions;
+export default DialogStackedActions;
