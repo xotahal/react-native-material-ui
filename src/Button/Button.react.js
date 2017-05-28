@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ViewPropTypes } from 'react-native';
 import React, { PureComponent, PropTypes } from 'react';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
@@ -42,7 +42,7 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         text: Text.propTypes.style,
     }),
 };
