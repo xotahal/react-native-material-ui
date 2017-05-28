@@ -155,8 +155,6 @@ You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-d
 ![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg "Example 2")
 ![Example 3](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-3.jpg "Example 3")
 
-
-
 # Components
 
 Here is a list of all component included in this library. (I'm working on documentation for every each component. Be patient please :))
