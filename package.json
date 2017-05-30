@@ -3,6 +3,7 @@
   "version": "1.12.0",
   "description": "React Native Material Design Components",
   "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint ./"
