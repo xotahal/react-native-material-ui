@@ -7,7 +7,7 @@
   "rules": {
     // Soft some rules.
     "default-case": 0, // Required default case is nonsense.
-    "indent": [2, 4, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
+    "indent": [2, 4, { "SwitchCase": 1, "VariableDeclarator": 1 }],
     "new-cap": [2, {"capIsNew": false, "newIsCap": true}], // For Record() etc.
     "no-floating-decimal": 0, // .5 is just fine.
     "no-nested-ternary": 0, // It's nice for JSX.

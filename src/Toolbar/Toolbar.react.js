@@ -6,9 +6,11 @@ import {
     Platform,
     BackAndroid as DeprecatedBackAndroid,
     BackHandler,
+    Image,
     StyleSheet,
     Text,
     View,
+    Dimensions
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import LeftElement from './LeftElement.react';
@@ -376,7 +378,7 @@ class Toolbar extends PureComponent {
                 key="searchBackground"
                 style={[bgStyle, {
                     left: bgPosition,
-                    backgroundColor: searchActive.backgroundColor,
+                    backgroundColor: this.props.backgroundImg ? null : container.backgroundColor,
                     transform: [{ scale: searchScaleValue }],
                 }]}
             />
@@ -387,7 +389,7 @@ class Toolbar extends PureComponent {
                 key="defaultBackground"
                 style={[bgStyle, {
                     right: bgPosition,
-                    backgroundColor: container.backgroundColor,
+                    backgroundColor: this.props.backgroundImg ? null : container.backgroundColor,
                     transform: [{ scale: defaultScaleValue }],
                 }]}
             />
@@ -402,8 +404,18 @@ class Toolbar extends PureComponent {
         }
 
         return (
+            this.props.backgroundImg ?
+            <Image source={this.props.backgroundImg}
+              style={[StyleSheet.absoluteFill,{
+                flex: 1,
+                alignSelf: 'stretch',
+                width: null,
+                height: null,
+              }]}>
+              {content}
+            </Image> :
             <View style={StyleSheet.absoluteFill}>
-                {content}
+              {content}
             </View>
         );
     }
@@ -423,7 +435,7 @@ class Toolbar extends PureComponent {
                 onLayout={this.onLayout}
                 style={[
                     styles.container,
-                    { transform: [{ translateY: this.state.positionValue }] },
+                    { transform: [{ translateY: this.props.positionValue || this.state.positionValue }] },
                 ]}
             >
                 {this.renderAnimatedBackgrounds(styles)}
