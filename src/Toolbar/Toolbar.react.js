@@ -37,6 +37,10 @@ const propTypes = {
         */
         onSearchClosed: PropTypes.func,
         /**
+        * Called when search starts closing.
+        */
+        onSearchStartClosing: PropTypes.func,
+        /**
         * Called when search was opened.
         */
         onSearchPressed: PropTypes.func,
@@ -200,6 +204,11 @@ class Toolbar extends PureComponent {
         };
     }
     componentWillReceiveProps(nextProps) {
+        if (nextProps.value) {
+          this.setState({
+            searchValue: nextProps.value,
+          });
+        }
         // there should be also posibility to change search through props, so we need to check
         // props first and then we should check state if we need to change search state
         if (this.props.isSearchActive !== nextProps.isSearchActive) {
@@ -227,7 +236,7 @@ class Toolbar extends PureComponent {
     onSearchOpenRequested = () => {
         this.setState({
             isSearchActive: true,
-            searchValue: '',
+            // searchValue: '',
             // zIndex: 'toDefaultNext',
         });
 
@@ -246,6 +255,12 @@ class Toolbar extends PureComponent {
 
         if (searchable && isFunction(searchable.onSearchPressed)) {
             searchable.onSearchPressed();
+        }
+    }
+    onFiltersPressed = () => {
+        const { searchable } = this.props;
+        if (searchable && isFunction(searchable.onFiltersPressed)) {
+            searchable.onFiltersPressed();
         }
     }
     onSearchTextChanged = (value) => {
@@ -277,7 +292,7 @@ class Toolbar extends PureComponent {
             this.backButtonListener = getBackButtonListener(this.onSearchCloseRequested, false);
 
             this.onSearchClosed();
-        });
+        }, () => this.onSearchStartClosing());
 
         return true; // because we need to stop propagation
     }
@@ -288,6 +303,15 @@ class Toolbar extends PureComponent {
 
         if (searchable && isFunction(searchable.onSearchClosed)) {
             searchable.onSearchClosed();
+        }
+    }
+    onSearchStartClosing = () => {
+        const { searchable } = this.props;
+
+        // this.backButtonListener.remove();
+
+        if (searchable && isFunction(searchable.onSearchStartClosing)) {
+            searchable.onSearchStartClosing();
         }
     }
     onLayout = (event) => {
@@ -319,7 +343,8 @@ class Toolbar extends PureComponent {
             useNativeDriver: Platform.OS === 'android',
         }).start(onComplete);
     }
-    animateDefaultBackground = (onComplete) => {
+    animateDefaultBackground = (onComplete, onStart) => {
+        onStart();
         Animated.timing(this.state.defaultScaleValue, {
             toValue: 1,
             duration: 325,
@@ -445,6 +470,7 @@ class Toolbar extends PureComponent {
                     searchValue={searchValue}
                     isSearchActive={isSearchActive}
                     onSearchPress={this.onSearchPressed}
+                    onFiltersPress={this.onFiltersPressed}
                     onSearchClearRequest={this.onSearchClearRequested}
                     onRightElementPress={onRightElementPress}
                 />
