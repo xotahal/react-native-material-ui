@@ -333,8 +333,8 @@ class Toolbar extends PureComponent {
         this.searchFieldRef.focus();
     }
     show = () => {
-        const { moveAnimated } = this.state;
-        Animated.timing(moveAnimated, {
+        const { positionValue } = this.state;
+        Animated.timing(positionValue, {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
@@ -342,9 +342,9 @@ class Toolbar extends PureComponent {
         }).start();
     }
     hide = () => {
-        const { moveAnimated } = this.state;
+        const { positionValue } = this.state;
         const styles = getStyles(this.props, this.context, this.state);
-        Animated.timing(moveAnimated, {
+        Animated.timing(positionValue, {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
