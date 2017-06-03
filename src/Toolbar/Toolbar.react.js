@@ -10,7 +10,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import LeftElement from './LeftElement.react';
@@ -142,6 +142,8 @@ const propTypes = {
     * Called when rightElement was pressed.
     */
     onRightElementPress: PropTypes.func,
+    backgroundImg: PropTypes.any,
+    positionValue: Animated.Value,
 };
 const defaultProps = {
     elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
@@ -378,7 +380,7 @@ class Toolbar extends PureComponent {
                 key="searchBackground"
                 style={[bgStyle, {
                     left: bgPosition,
-                    backgroundColor: this.props.backgroundImg ? null : container.backgroundColor,
+                    backgroundColor: this.props.backgroundImg ? null : searchActive.backgroundColor,
                     transform: [{ scale: searchScaleValue }],
                 }]}
             />
@@ -405,18 +407,20 @@ class Toolbar extends PureComponent {
 
         return (
             this.props.backgroundImg ?
-            <Image source={this.props.backgroundImg}
-              style={[StyleSheet.absoluteFill,{
-                flex: 1,
-                alignSelf: 'stretch',
-                width: null,
-                height: null,
-              }]}>
-              {content}
-            </Image> :
-            <View style={StyleSheet.absoluteFill}>
-              {content}
-            </View>
+                <Image
+                    source={this.props.backgroundImg}
+                    style={[StyleSheet.absoluteFill, {
+                        flex: 1,
+                        alignSelf: 'stretch',
+                        width: null,
+                        height: null,
+                    }]}
+                >
+                    {content}
+                </Image> :
+                <View style={StyleSheet.absoluteFill}>
+                    {content}
+                </View>
         );
     }
     render() {
@@ -435,7 +439,8 @@ class Toolbar extends PureComponent {
                 onLayout={this.onLayout}
                 style={[
                     styles.container,
-                    { transform: [{ translateY: this.props.positionValue || this.state.positionValue }] },
+                    { transform: [{ translateY:
+                      this.props.positionValue || this.state.positionValue }] },
                 ]}
             >
                 {this.renderAnimatedBackgrounds(styles)}
