@@ -10,7 +10,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Dimensions,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import LeftElement from './LeftElement.react';
