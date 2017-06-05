@@ -140,11 +140,16 @@ const propTypes = {
     * Called when rightElement was pressed.
     */
     onRightElementPress: PropTypes.func,
+    /**
+    * Toggle animated background rendering
+    */
+    showAnimatedBackground: PropTypes.bool,
 };
 const defaultProps = {
     elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
     style: {},
     hidden: false,
+    showAnimatedBackground: true,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -412,6 +417,7 @@ class Toolbar extends PureComponent {
             onLeftElementPress,
             onPress,
             onRightElementPress,
+            showAnimatedBackground,
         } = this.props;
 
         const { isSearchActive, searchValue } = this.state;
@@ -426,7 +432,7 @@ class Toolbar extends PureComponent {
                     { transform: [{ translateY: this.state.positionValue }] },
                 ]}
             >
-                {this.renderAnimatedBackgrounds(styles)}
+                {showAnimatedBackground && this.renderAnimatedBackgrounds(styles)}
                 <LeftElement
                     {...this.props}
                     onLeftElementPress={onLeftElementPress}
