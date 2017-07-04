@@ -3,26 +3,38 @@
 // Definitions by: Kyle Roach <https://github.com/iRoachie>
 // TypeScript Version: 2.3.3
 
-import { Component } from 'react'
-import { ViewStyle, TextStyle } from 'react-native'
+declare module 'react-native-material-ui' {
+  import { Component } from 'react'
+  import { ViewStyle, TextStyle, Image } from 'react-native'
 
-interface IButtonStyle {
+  interface IButtonStyle {
     container?: ViewStyle
     text?: TextStyle
-}
+  }
 
-interface IButton {
-    disabled?: boolean
-    text: string
-    raised?: boolean
-    uppercase?: boolean
+  interface ICardStyle {
+    style?: ICardStyle
+  }
+
+  interface ICard {
+    style?: ICardStyle
+    onPress?(): void
+  }
+
+  interface IButton {
+    primary?: boolean
     accent?: boolean
+    disabled?: boolean
+    raised?: boolean
+    upperCase?: boolean
+    text: string
+    uppercase?: boolean
     icon?: string
     style?: IButtonStyle
     onPress(): void
-}
+  }
 
-interface IToolbarStyle {
+  interface IToolbarStyle {
     container?: ViewStyle
     leftElementContainer?: ViewStyle
     leftElement?: TextStyle
@@ -30,48 +42,52 @@ interface IToolbarStyle {
     titleText?: TextStyle
     rightElementContainer?: ViewStyle
     rightElement?: TextStyle
-}
+  }
 
-interface IToolbar {
+  interface IToolbar {
+    size?: number
+    hidden?: boolean
+    onPress?(): void
+    onLeftElementPress?(): void
+    onRightElementPress?(): void
     leftElement?: JSX.Element | string
     rightElement?: JSX.Element | string | string[]
     centerElement?: JSX.Element | string
     style?: IToolbarStyle
-    onLeftElementPress?(): void
-    onRightElementPress?(): void
     searchable?: object
-}
+  }
 
-interface IThemeProvider {
+  interface IThemeProvider {
     uiTheme: {}
-}
+  }
 
-interface IListItemCenterElement {
+  interface IListItemCenterElement {
     primaryText: string
     secondaryText?: string
-}
+  }
 
-interface IListItem {
+  interface IListItem {
     numberOfLines?: number
     leftElement?: JSX.Element | string
     rightElement?: JSX.Element | string
     centerElement: JSX.Element | string | IListItemCenterElement
     style?: IToolbarStyle
     dense?: boolean
+    divider?: boolean
     onPress?(): void
     onRightElementPress?(): void
-}
+  }
 
-interface IActionButton {
+  interface IActionButton {
     icon?: string
     onPress(): void
     style?: {
-        container?: ViewStyle,
-        icon?: any
+      container?: ViewStyle
+      icon?: any
     }
-}
+  }
 
-interface ICheckBox {
+  interface ICheckBox {
     label?: string
     value: string | number
     checked?: boolean
@@ -79,16 +95,95 @@ interface ICheckBox {
     uncheckedIcon?: string
     checkedIcon?: string
     style?: {
-        icon?: ViewStyle,
-        container?: ViewStyle,
-        label?: TextStyle
+      icon?: ViewStyle
+      container?: ViewStyle
+      label?: TextStyle
     }
     onCheck?(checked: boolean): void
-}
+  }
 
-export class ActionButton extends Component<IActionButton, any> { }
-export class Button extends Component<IButton, any> { }
-export class Checkbox extends Component<ICheckBox, any> { }
-export class ListItem extends Component<IListItem, any> { }
-export class ThemeProvider extends Component<IThemeProvider, any> { }
-export class Toolbar extends Component<IToolbar, any> { }
+  interface IAvatar {
+    image?: Image
+    icon?: string
+    iconColor?: string
+    iconSize?: number
+    text?: string
+    size?: number
+    style?: {
+      container?: ViewStyle
+      content?: ViewStyle
+    }
+  }
+
+  interface ISectionItem {
+    icon?: string
+    value?: string | JSX.Element
+    label?: string
+    onPress?(): void
+    onLongPress?(): void
+    active?: boolean
+    disabled?: boolean
+  }
+
+  interface IAccount {
+    avatar?: JSX.Element
+    onPress?(): void
+  }
+
+  interface IDrawerHeaderAccount {
+    avatar?: JSX.Element
+    accounts: IAccount[]
+    footer: any
+  }
+
+  interface IDrawerSection {
+    title?: string
+    items: ISectionItem[]
+    divider?: boolean
+  }
+
+  interface IDrawerHeader {
+    image?: Image[]
+    backgroundColor?: string
+  }
+
+  interface IDrawer {
+    style?: {
+      container?: ViewStyle
+    }
+  }
+
+  interface IIconToggle {
+    color?: string
+    underlayColor?: string
+    maxOpacity?: number
+    percent?: number
+    disabled?: boolean
+    size?: number
+    name?: string
+    onPress?(): void
+  }
+
+  export class ActionButton extends Component<IActionButton, any> {}
+  export class Button extends Component<IButton, any> {}
+  export class Checkbox extends Component<ICheckBox, any> {}
+  export class ListItem extends Component<IListItem, any> {}
+  export class ThemeProvider extends Component<IThemeProvider, any> {}
+  export class Toolbar extends Component<IToolbar, any> {}
+  export class Card extends Component<ICard, any> {}
+  export class Divider extends Component<any, any> {}
+  export class Avatar extends Component<IAvatar, any> {}
+  export class Drawer extends Component<IDrawer, any> {}
+  export namespace Drawer {
+    export class Header extends Component<IDrawerHeader, any> {}
+    export namespace Header {
+    export class Account extends Component<
+      IDrawerHeaderAccount,
+      any
+    > {}
+    }
+    export class Section extends Component<IDrawerSection, any> {}
+
+  }
+  export class IconToggle extends Component<IIconToggle, any> {}
+}
