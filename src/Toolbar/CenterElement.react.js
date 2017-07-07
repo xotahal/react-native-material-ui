@@ -102,7 +102,7 @@ class CenterElement extends PureComponent {
         //    object again to this instance, search text and isSearchActive will be still set
         let content = null;
 
-        if (isSearchActive) {
+        if (searchable && isSearchActive) {
             content = (
                 <TextInput
                     ref={(ref) => { this.searchFieldRef = ref; }}
