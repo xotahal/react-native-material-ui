@@ -66,12 +66,29 @@ declare module 'react-native-material-ui' {
     secondaryText?: string
   }
 
+  interface IListItemStyle {
+    container?: ViewStyle
+    content?: ViewStyle
+    contentViewContainer?: ViewStyle
+    leftElementContainer?: ViewStyle
+    centerElementContainer?: ViewStyle
+    textViewContainer?: ViewStyle
+    primaryText?: TextStyle
+    firstLine?: TextStyle
+    primaryTextContainer?: ViewStyle
+    secondaryText?: TextStyle
+    tertiaryText?: TextStyle
+    rightElementContainer?: ViewStyle
+    rightElement?: TextStyle
+    LeftElement?: TextStyle
+  }
+
   interface IListItem {
     numberOfLines?: number
     leftElement?: JSX.Element | string
     rightElement?: JSX.Element | string
     centerElement: JSX.Element | string | IListItemCenterElement
-    style?: IToolbarStyle
+    style?: IListItemStyle
     dense?: boolean
     divider?: boolean
     onPress?(): void
