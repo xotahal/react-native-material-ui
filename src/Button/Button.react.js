@@ -6,6 +6,8 @@ import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
 import getPlatformElevation from '../styles/getPlatformElevation';
 
+const ViewProps = ViewPropTypes || View.propTypes;
+
 const propTypes = {
     /**
     * If true button will be disabled
@@ -42,7 +44,7 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: ViewPropTypes.style,
+        container: ViewProps.style,
         text: Text.propTypes.style,
     }),
 };

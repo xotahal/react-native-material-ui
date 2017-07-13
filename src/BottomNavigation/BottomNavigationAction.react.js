@@ -6,6 +6,8 @@ import { StyleSheet, View, Text, ViewPropTypes } from 'react-native';
 import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
 
+const ViewProps = ViewPropTypes || View.propTypes;
+
 const propTypes = {
     /**
     * Will be rendered above the label as a content of the action.
@@ -32,7 +34,7 @@ const propTypes = {
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
-        container: ViewPropTypes.style,
+        container: ViewProps.style,
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),

@@ -4,6 +4,8 @@ import { View, Image, Text, StyleSheet, ViewPropTypes } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 
+const ViewProps = ViewPropTypes || View.propTypes;
+
 const propTypes = {
     /**
     * If passed in, this component will render image.
@@ -33,7 +35,7 @@ const propTypes = {
     * Inline style of avatar
     */
     style: PropTypes.shape({
-        container: ViewPropTypes.style,
+        container: ViewProps.style,
         content: Text.propTypes.style,
     }),
 };

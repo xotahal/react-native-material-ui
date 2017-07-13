@@ -1,9 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { Platform, Animated, Easing, StyleSheet, ViewPropTypes } from 'react-native';
+import { Platform, Animated, Easing, StyleSheet, ViewPropTypes, View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import BottomNavigationAction from './BottomNavigationAction.react';
+
+const ViewProps = ViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -22,7 +24,7 @@ const propTypes = {
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
-        container: ViewPropTypes.style,
+        container: ViewProps.style,
     }),
 };
 const defaultProps = {

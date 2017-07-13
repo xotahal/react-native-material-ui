@@ -1,8 +1,10 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PropTypes, PureComponent } from 'react';
-import { Text, Animated, Easing, Platform, StyleSheet, ViewPropTypes } from 'react-native';
+import { Text, Animated, Easing, Platform, StyleSheet, ViewPropTypes, View } from 'react-native';
 
 import Button from '../Button';
+
+const ViewProps = ViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -44,8 +46,8 @@ const propTypes = {
     * Inline style of snackbar
     */
     style: PropTypes.shape({
-        container: ViewPropTypes.style,
-        message: ViewPropTypes.style,
+        container: ViewProps.style,
+        message: ViewProps.style,
     }),
 };
 const defaultProps = {
