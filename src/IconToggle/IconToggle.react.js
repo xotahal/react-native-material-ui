@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import { View, Animated, StyleSheet, Platform, Easing, TouchableWithoutFeedback } from 'react-native';
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import Color from 'color';

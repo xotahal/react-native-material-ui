@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import getTheme from './getTheme';
 

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
 
 import Button from '../Button';
