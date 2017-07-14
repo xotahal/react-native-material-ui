@@ -27,7 +27,14 @@ class RippleFeedback extends PureComponent {
     render() {
         const { children, color, borderless, ...otherProps } = this.props;
 
-
+        if (Platform.OS === 'web') {
+            return (
+                <TouchableOpacity {...otherProps}>
+                  {children}
+                </TouchableOpacity>
+            );
+        }
+        
         if (!isCompatible()) {
             return (
                 <TouchableWithoutFeedback {...otherProps}>
