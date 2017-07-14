@@ -1,10 +1,3 @@
-/* eslint-disable import/no-unresolved, import/extensions */
-import { Platform } from 'react-native';
-/* eslint-enable import/no-unresolved, import/extensions */
-import { black } from './colors';
-
-export const ELEVATION_ZINDEX = 1;
-
 const elevations = [
     '0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);',
     '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);',
@@ -35,30 +28,8 @@ const elevations = [
 
 const getPlatformElevation = (elevation) => {
 
-    if (Platform.OS === 'web') {
-        return { boxShadow: elevations[elevation] }
-    }
-
-    if (Platform.OS === 'ios') {
-        if (elevation !== 0) {
-            return {
-                shadowColor: black,
-                shadowOpacity: 0.3,
-                shadowRadius: elevation,
-                shadowOffset: {
-                    height: 2,
-                    width: 0,
-                },
-                // we need to have zIndex on iOS, otherwise the shadow is under components that
-                // are rendered later
-                zIndex: ELEVATION_ZINDEX,
-            };
-        }
-
-        return { };
-    }
-
-    return { elevation };
+    return { boxShadow: elevations[elevation] }
+    
 };
 
 export default getPlatformElevation;
