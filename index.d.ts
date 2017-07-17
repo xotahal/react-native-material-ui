@@ -179,6 +179,10 @@ declare module 'react-native-material-ui' {
     size?: number
     name?: string
     onPress?(): void
+    style?: {
+      container?: ViewStyle
+      icon?: ViewStyle
+    }
   }
 
   interface IRippleFeedback {
