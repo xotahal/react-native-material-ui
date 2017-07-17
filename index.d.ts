@@ -181,7 +181,14 @@ declare module 'react-native-material-ui' {
     onPress?(): void
   }
 
+  interface IRippleFeedback {
+    color?: string
+    borderless?: boolean
+    children: JSX.Element
+  }
+
   export class ActionButton extends Component<IActionButton, any> {}
+  export class RippleFeedback extends Component<IRippleFeedback, any> {}
   export class Button extends Component<IButton, any> {}
   export class Checkbox extends Component<ICheckBox, any> {}
   export class ListItem extends Component<IListItem, any> {}
@@ -194,13 +201,9 @@ declare module 'react-native-material-ui' {
   export namespace Drawer {
     export class Header extends Component<IDrawerHeader, any> {}
     export namespace Header {
-    export class Account extends Component<
-      IDrawerHeaderAccount,
-      any
-    > {}
+      export class Account extends Component<IDrawerHeaderAccount, any> {}
     }
     export class Section extends Component<IDrawerSection, any> {}
-
   }
   export class IconToggle extends Component<IIconToggle, any> {}
 }
