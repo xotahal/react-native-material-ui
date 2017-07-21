@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import {
     View,
     Text,
@@ -8,6 +8,7 @@ import {
     TouchableWithoutFeedback,
     Animated,
 } from 'react-native';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
