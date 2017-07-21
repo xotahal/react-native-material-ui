@@ -200,6 +200,12 @@ class Toolbar extends PureComponent {
         };
     }
     componentWillReceiveProps(nextProps) {
+        // if search is active and we clicked on the results which does not allow search
+        // then close the previous search.
+        if (this.state.isSearchActive && !nextProps.searchable) {
+            this.onSearchCloseRequested();
+        }
+
         // there should be also posibility to change search through props, so we need to check
         // props first and then we should check state if we need to change search state
         if (this.props.isSearchActive !== nextProps.isSearchActive) {
