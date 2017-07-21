@@ -7,6 +7,7 @@ import {
     Platform,
     BackAndroid as DeprecatedBackAndroid,
     BackHandler,
+    Image,
     StyleSheet,
     Text,
     View,
@@ -141,6 +142,8 @@ const propTypes = {
     * Called when rightElement was pressed.
     */
     onRightElementPress: PropTypes.func,
+    backgroundImg: PropTypes.any,
+    positionValue: Animated.Value,
 };
 const defaultProps = {
     elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
@@ -338,8 +341,8 @@ class Toolbar extends PureComponent {
         this.searchFieldRef.focus();
     }
     show = () => {
-        const { moveAnimated } = this.state;
-        Animated.timing(moveAnimated, {
+        const { positionValue } = this.state;
+        Animated.timing(positionValue, {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
@@ -347,9 +350,9 @@ class Toolbar extends PureComponent {
         }).start();
     }
     hide = () => {
-        const { moveAnimated } = this.state;
+        const { positionValue } = this.state;
         const styles = getStyles(this.props, this.context, this.state);
-        Animated.timing(moveAnimated, {
+        Animated.timing(positionValue, {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
@@ -383,7 +386,7 @@ class Toolbar extends PureComponent {
                 key="searchBackground"
                 style={[bgStyle, {
                     left: bgPosition,
-                    backgroundColor: searchActive.backgroundColor,
+                    backgroundColor: this.props.backgroundImg ? null : searchActive.backgroundColor,
                     transform: [{ scale: searchScaleValue }],
                 }]}
             />
@@ -394,7 +397,7 @@ class Toolbar extends PureComponent {
                 key="defaultBackground"
                 style={[bgStyle, {
                     right: bgPosition,
-                    backgroundColor: container.backgroundColor,
+                    backgroundColor: this.props.backgroundImg ? null : container.backgroundColor,
                     transform: [{ scale: defaultScaleValue }],
                 }]}
             />
@@ -409,9 +412,21 @@ class Toolbar extends PureComponent {
         }
 
         return (
-            <View style={StyleSheet.absoluteFill}>
-                {content}
-            </View>
+            this.props.backgroundImg ?
+                <Image
+                    source={this.props.backgroundImg}
+                    style={[StyleSheet.absoluteFill, {
+                        flex: 1,
+                        alignSelf: 'stretch',
+                        width: null,
+                        height: null,
+                    }]}
+                >
+                    {content}
+                </Image> :
+                <View style={StyleSheet.absoluteFill}>
+                    {content}
+                </View>
         );
     }
     render() {
@@ -430,7 +445,8 @@ class Toolbar extends PureComponent {
                 onLayout={this.onLayout}
                 style={[
                     styles.container,
-                    { transform: [{ translateY: this.state.positionValue }] },
+                    { transform: [{ translateY:
+                      this.props.positionValue || this.state.positionValue }] },
                 ]}
             >
                 {this.renderAnimatedBackgrounds(styles)}
