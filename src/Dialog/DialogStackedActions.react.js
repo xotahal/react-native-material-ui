@@ -34,7 +34,7 @@ class DialogStackedActions extends PureComponent {
 
         return (
             <View style={styles.stackedActionsContainer}>
-                {actions.map(action =>
+                {actions.map(action => (
                     <Button
                         key={action}
                         primary
@@ -46,7 +46,7 @@ class DialogStackedActions extends PureComponent {
                             },
                         }}
                     />
-                )}
+                ))}
             </View>
         );
     }

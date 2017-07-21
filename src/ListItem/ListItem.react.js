@@ -363,7 +363,7 @@ class ListItem extends PureComponent {
         if (rightElement && rightElement.menu) {
             // We need this view as an anchor for drop down menu. findNodeHandle can
             // find just view with width and height, even it needs backgroundColor :/
-            content.push(
+            content.push((
                 <View key="menuIcon">
                     <View
                         ref={(c) => { this.menu = c; }}
@@ -380,7 +380,7 @@ class ListItem extends PureComponent {
                         style={flattenRightElement}
                     />
                 </View>
-            );
+            ));
         }
 
         return (

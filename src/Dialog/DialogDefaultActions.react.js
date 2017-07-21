@@ -46,7 +46,7 @@ class DialogDefaultActions extends PureComponent {
 
         return (
             <View style={styles.defaultActionsContainer}>
-                {actions.map(action =>
+                {actions.map(action => (
                     <Button
                         key={action}
                         primary
@@ -59,7 +59,7 @@ class DialogDefaultActions extends PureComponent {
                             },
                         }}
                     />
-                )}
+                ))}
             </View>
         );
     }
