@@ -14,7 +14,9 @@ import { ViewPropTypes } from '../utils';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**

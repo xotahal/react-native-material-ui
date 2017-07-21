@@ -6,7 +6,9 @@ import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**
