@@ -9,6 +9,7 @@ import {
     StyleSheet,
     Text,
     View,
+    ViewPropTypes,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import LeftElement from './LeftElement.react';
@@ -18,6 +19,7 @@ import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
 
 const BackAndroid = BackHandler || DeprecatedBackAndroid;
+const ViewProps = ViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -65,12 +67,12 @@ const propTypes = {
     * You can overide any style for the component via this prop
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        leftElementContainer: View.propTypes.style,
+        container: ViewProps.style,
+        leftElementContainer: ViewProps.style,
         leftElement: IconToggle.propTypes.style,
-        centerElementContainer: View.propTypes.style,
+        centerElementContainer: ViewProps.style,
         titleText: Text.propTypes.style,
-        rightElementContainer: View.propTypes.style,
+        rightElementContainer: ViewProps.style,
         rightElement: IconToggle.propTypes.style,
     }),
     /**

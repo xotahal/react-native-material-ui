@@ -1,10 +1,12 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ViewPropTypes } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
+
+const ViewProps = ViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -32,7 +34,7 @@ const propTypes = {
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewProps.style,
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),

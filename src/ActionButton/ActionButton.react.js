@@ -7,12 +7,15 @@ import {
     StyleSheet,
     TouchableWithoutFeedback,
     Animated,
+    ViewPropTypes,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 import getPlatformElevation from '../styles/getPlatformElevation';
+
+const ViewProps = ViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -56,7 +59,7 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewProps.style,
         icon: Text.propTypes.style,
     }),
 };
