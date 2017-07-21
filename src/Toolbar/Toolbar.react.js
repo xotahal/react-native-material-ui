@@ -5,20 +5,17 @@ import {
     Animated,
     Easing,
     Platform,
-    BackAndroid as DeprecatedBackAndroid,
-    BackHandler,
     StyleSheet,
     Text,
     View,
 } from 'react-native';
+import { ViewPropTypes, BackAndroid } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import LeftElement from './LeftElement.react';
 import CenterElement from './CenterElement.react';
 import RightElement from './RightElement.react';
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
-
-const BackAndroid = BackHandler || DeprecatedBackAndroid;
 
 const propTypes = {
     /**
@@ -66,12 +63,12 @@ const propTypes = {
     * You can overide any style for the component via this prop
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        leftElementContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        leftElementContainer: ViewPropTypes.style,
         leftElement: IconToggle.propTypes.style,
-        centerElementContainer: View.propTypes.style,
+        centerElementContainer: ViewPropTypes.style,
         titleText: Text.propTypes.style,
-        rightElementContainer: View.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
         rightElement: IconToggle.propTypes.style,
     }),
     /**
