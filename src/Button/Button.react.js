@@ -46,7 +46,7 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: ViewPropTypes,
+        container: ViewPropTypes.style,
         text: Text.propTypes.style,
     }),
 };
