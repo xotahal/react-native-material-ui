@@ -59,7 +59,6 @@ class Card extends PureComponent {
 
         return content;
     }
-
 }
 
 Card.propTypes = propTypes;

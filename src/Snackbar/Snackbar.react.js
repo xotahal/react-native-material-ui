@@ -158,7 +158,7 @@ class Snackbar extends PureComponent {
         const toValue = bottomNavigation ? -56 : 0;
         const duration = bottomNavigation ? 225 : 195;
         const easing = bottomNavigation ?
-          Easing.bezier(0.0, 0.0, 0.2, 1) : Easing.bezier(0.4, 0.0, 0.6, 1);
+            Easing.bezier(0.0, 0.0, 0.2, 1) : Easing.bezier(0.4, 0.0, 0.6, 1);
 
         Animated.timing(moveAnimated, {
             toValue,

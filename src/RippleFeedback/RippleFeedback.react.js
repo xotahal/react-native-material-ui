@@ -63,7 +63,6 @@ class RippleFeedback extends PureComponent {
             </TouchableNativeFeedback>
         );
     }
-
 }
 
 RippleFeedback.propTypes = propTypes;

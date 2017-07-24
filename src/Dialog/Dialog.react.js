@@ -54,7 +54,6 @@ class Dialog extends PureComponent {
             </RippleFeedback>
         );
     }
-
 }
 
 Dialog.propTypes = propTypes;

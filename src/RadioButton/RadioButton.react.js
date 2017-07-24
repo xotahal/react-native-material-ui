@@ -5,15 +5,16 @@ import PropTypes from 'prop-types';
 import Checkbox from '../Checkbox';
 
 const propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    onSelect: PropTypes.func,
+    onSelect: PropTypes.func.isRequired,
 };
 const defaultProps = {
     theme: 'light',
     disabled: false,
+    checked: false,
 };
 
 class RadioButton extends PureComponent {

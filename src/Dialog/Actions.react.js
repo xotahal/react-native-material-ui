@@ -37,7 +37,6 @@ class DialogFooter extends PureComponent {
             </View>
         );
     }
-
 }
 
 DialogFooter.propTypes = propTypes;
