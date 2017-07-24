@@ -1,8 +1,9 @@
 /* eslint-enable import/no-unresolved, import/extensions */
 import { black } from './colors';
 
-const getPlatformElevation = (elevation) => {
+export const ELEVATION_ZINDEX = 1;
 
+const getPlatformElevation = (elevation) => {
     if (elevation !== 0) {
         return {
             shadowColor: black,
@@ -17,9 +18,7 @@ const getPlatformElevation = (elevation) => {
             zIndex: ELEVATION_ZINDEX,
         };
     }
-
     return { };
-    
 };
 
 export default getPlatformElevation;

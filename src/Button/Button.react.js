@@ -2,10 +2,13 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**
@@ -43,7 +46,7 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes,
         text: Text.propTypes.style,
     }),
 };
