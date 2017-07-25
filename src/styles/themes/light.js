@@ -1,9 +1,9 @@
 import Color from 'color';
 import {
-  blue500,
-  red500,
-  white,
-  black,
+    blue500,
+    red500,
+    white,
+    black,
 } from '../colors';
 
 import spacing from '../spacing';

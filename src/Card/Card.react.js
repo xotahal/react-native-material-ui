@@ -11,6 +11,8 @@ const propTypes = {
     style: PropTypes.object,
 };
 const defaultProps = {
+    children: null,
+    onPress: null,
     style: {},
 };
 const contextTypes = {
@@ -59,7 +61,6 @@ class Card extends PureComponent {
 
         return content;
     }
-
 }
 
 Card.propTypes = propTypes;

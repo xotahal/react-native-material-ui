@@ -28,6 +28,7 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    active: null,
     hidden: false,
     style: {},
 };

@@ -54,6 +54,15 @@ const propTypes = {
     onRightElementPress: PropTypes.func,
 };
 const defaultProps = {
+    dense: false,
+    onPress: null,
+    onPressValue: null,
+    divider: false,
+    leftElement: null,
+    onLeftElementPress: null,
+    centerElement: null,
+    rightElement: null,
+    onRightElementPress: null,
     numberOfLines: 1,
     style: {},
 };
@@ -346,9 +355,9 @@ class ListItem extends PureComponent {
         const flattenRightElement = StyleSheet.flatten(styles.rightElement);
 
         if (elements) {
-            content = elements.map((action, i) => (
+            content = elements.map(action => (
                 <IconToggle
-                    key={`${action}${i}`}
+                    key={action}
                     color={flattenRightElement.color}
                     onPress={() => this.onRightElementPressed({ action })}
                 >

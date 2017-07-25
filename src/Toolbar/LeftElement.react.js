@@ -16,7 +16,12 @@ const propTypes = {
     onSearchClose: PropTypes.func,
 };
 const defaultProps = {
+    leftElement: null,
+    onLeftElementPress: null,
+    onSearchClose: null,
+    searchable: null,
     style: {},
+    size: 24,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,

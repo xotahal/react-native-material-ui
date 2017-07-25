@@ -65,6 +65,10 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    actions: null,
+    onPress: null,
+    onLongPress: null,
+    transition: null,
     icon: 'add',
     style: {},
     hidden: false,

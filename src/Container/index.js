@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
 };
 
 class Container extends PureComponent {

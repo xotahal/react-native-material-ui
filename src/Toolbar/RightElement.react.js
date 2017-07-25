@@ -12,7 +12,7 @@ const UIManager = NativeModules.UIManager;
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
     searchValue: PropTypes.string.isRequired,
-    searchable: PropTypes.object,
+    searchable: PropTypes.object.isRequired,
     style: PropTypes.object,
     size: PropTypes.number,
     rightElement: PropTypes.any,
@@ -21,6 +21,9 @@ const propTypes = {
     onSearchPress: PropTypes.func.isRequired,
 };
 const defaultProps = {
+    rightElement: null,
+    onRightElementPress: null,
+    size: null,
     style: {},
 };
 const contextTypes = {
@@ -110,7 +113,7 @@ class RightElement extends PureComponent {
 
                 return (
                     <IconToggle
-                        key={index}
+                        key={action}
                         name={action}
                         color={flattenRightElement.color}
                         size={size}

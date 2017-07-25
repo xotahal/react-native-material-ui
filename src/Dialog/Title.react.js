@@ -44,7 +44,6 @@ class DialogHeader extends PureComponent {
             </View>
         );
     }
-
 }
 
 DialogHeader.propTypes = propTypes;

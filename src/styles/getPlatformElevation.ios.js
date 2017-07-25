@@ -1,7 +1,6 @@
 /* eslint-enable import/no-unresolved, import/extensions */
 import { black } from './colors';
-
-export const ELEVATION_ZINDEX = 1;
+import { ELEVATION_ZINDEX } from './constants';
 
 const getPlatformElevation = (elevation) => {
     if (elevation !== 0) {

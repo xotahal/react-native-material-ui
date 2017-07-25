@@ -37,7 +37,6 @@ class DialogContent extends PureComponent {
             </View>
         );
     }
-
 }
 
 DialogContent.propTypes = propTypes;

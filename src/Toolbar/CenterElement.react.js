@@ -14,6 +14,9 @@ const propTypes = {
     onSearchTextChange: PropTypes.func.isRequired,
 };
 const defaultProps = {
+    onPress: null,
+    centerElement: null,
+    searchable: null,
     style: {},
 };
 const contextTypes = {
