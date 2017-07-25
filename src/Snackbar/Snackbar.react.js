@@ -51,6 +51,8 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    onActionPress: null,
+    actionText: null,
     visible: false,
     timeout: 2750,
     bottomNavigation: false,

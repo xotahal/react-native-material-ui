@@ -113,7 +113,7 @@ class RightElement extends PureComponent {
 
                 return (
                     <IconToggle
-                        key={index}
+                        key={action}
                         name={action}
                         color={flattenRightElement.color}
                         size={size}

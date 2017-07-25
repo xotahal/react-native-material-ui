@@ -40,6 +40,8 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    label: null,
+    onPress: null,
     active: false,
     disabled: false,
     style: {},

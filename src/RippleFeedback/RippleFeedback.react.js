@@ -18,6 +18,7 @@ const propTypes = {
     children: PropTypes.node.isRequired,
 };
 const defaultProps = {
+    color: null,
     borderless: true,
 };
 

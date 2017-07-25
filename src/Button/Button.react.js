@@ -51,6 +51,9 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    icon: null,
+    onPress: null,
+    onLongPress: null,
     primary: false,
     accent: false,
     disabled: false,

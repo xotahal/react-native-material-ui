@@ -40,6 +40,12 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    image: null,
+    icon: null,
+    iconColor: null,
+    iconSize: null,
+    text: null,
+    size: 48,
     style: {},
 };
 const contextTypes = {

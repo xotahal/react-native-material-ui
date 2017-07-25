@@ -271,7 +271,7 @@ exports[`Left element left element only 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -524,7 +524,7 @@ exports[`Right element right element - actions, menu 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -610,7 +610,7 @@ exports[`Right element right element - actions, menu 1`] = `
                   "color": "#ffffff",
                   "fontSize": 24,
                 },
-                undefined,
+                null,
                 Object {
                   "fontFamily": "Material Icons",
                   "fontStyle": "normal",
@@ -1013,7 +1013,7 @@ exports[`Right element right element only 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -1180,7 +1180,7 @@ exports[`Searchable searchable active 1`] = `
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -1415,7 +1415,7 @@ exports[`Searchable searchable object 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -1547,7 +1547,7 @@ exports[`Searchable searchable object 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",

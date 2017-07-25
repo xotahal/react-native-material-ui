@@ -147,6 +147,11 @@ const defaultProps = {
     onRightElementPress: null,
     rightElement: null,
     searchable: null,
+    onPress: null,
+    centerElement: null,
+    leftElement: null,
+    onLeftElementPress: null,
+    size: 24,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,

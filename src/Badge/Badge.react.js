@@ -38,6 +38,11 @@ const propTypes = {
     stroke: PropTypes.number,
 };
 const defaultProps = {
+    children: null,
+    text: null,
+    icon: null,
+    size: 4,
+    stroke: null,
     style: {
         container: {
             top: -8,

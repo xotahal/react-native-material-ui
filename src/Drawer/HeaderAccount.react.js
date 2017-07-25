@@ -14,6 +14,9 @@ const propTypes = {
     footer: PropTypes.object,
 };
 const defaultProps = {
+    avatar: null,
+    accounts: null,
+    footer: null,
     style: {},
 };
 const contextTypes = {
@@ -86,8 +89,8 @@ class HeaderAcount extends PureComponent {
                                 // TODO: slice of accounts
                                 // add more soficticated slice when there will be lots of accounts
                                 accounts &&
-                                accounts.slice(0, 3).map((account, index) =>
-                                    (<TouchableWithoutFeedback key={index} onPress={account.onPress}>
+                                accounts.slice(0, 3).map(account => (
+                                    <TouchableWithoutFeedback onPress={account.onPress}>
                                         <View style={[styles.inactiveAvatarContainer]}>
                                             {account.avatar}
                                         </View>

@@ -11,6 +11,8 @@ const propTypes = {
     style: PropTypes.object,
 };
 const defaultProps = {
+    children: null,
+    onPress: null,
     style: {},
 };
 const contextTypes = {

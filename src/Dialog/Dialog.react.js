@@ -10,19 +10,12 @@ import Content from './Content.react';
 import Actions from './Actions.react';
 
 const propTypes = {
-    theme: PropTypes.string,
-    overrides: PropTypes.shape({
-        backgroundColor: PropTypes.string,
-        rippleColor: PropTypes.string,
-    }),
-    elevation: PropTypes.number,
-    fullWidth: PropTypes.bool,
-    disabled: PropTypes.bool,
     onPress: PropTypes.func,
     children: PropTypes.node.isRequired,
     style: PropTypes.object,
 };
 const defaultProps = {
+    onPress: null,
     style: {},
 };
 const contextTypes = {
