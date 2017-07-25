@@ -1,4 +1,6 @@
-exports[`test default props 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default props 1`] = `
 <View
   style={
     Array [
@@ -11,7 +13,8 @@ exports[`test default props 1`] = `
       },
       undefined,
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -27,13 +30,14 @@ exports[`test default props 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     Test
   </Text>
 </View>
 `;
 
-exports[`test with inset 1`] = `
+exports[`with inset 1`] = `
 <View
   style={
     Array [
@@ -46,7 +50,8 @@ exports[`test with inset 1`] = `
       },
       undefined,
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -62,7 +67,8 @@ exports[`test with inset 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     Test
   </Text>
 </View>

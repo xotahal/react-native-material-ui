@@ -143,6 +143,15 @@ const defaultProps = {
     elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
     style: {},
     hidden: false,
+    isSearchActive: false,
+    onRightElementPress: null,
+    rightElement: null,
+    searchable: null,
+    onPress: null,
+    centerElement: null,
+    leftElement: null,
+    onLeftElementPress: null,
+    size: 24,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -177,9 +186,9 @@ class Toolbar extends PureComponent {
 
         const isSearchActive = props.isSearchActive || false;
         this.backButtonListener = getBackButtonListener(
-                                        this.onSearchCloseRequested,
-                                        isSearchActive,
-                                    );
+            this.onSearchCloseRequested,
+            isSearchActive,
+        );
 
         this.state = {
             // indicates if searc is activated
@@ -455,7 +464,6 @@ class Toolbar extends PureComponent {
             </Animated.View>
         );
     }
-
 }
 
 Toolbar.propTypes = propTypes;

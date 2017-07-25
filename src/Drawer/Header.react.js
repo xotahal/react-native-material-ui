@@ -11,6 +11,9 @@ const propTypes = {
     children: PropTypes.node,
 };
 const defaultProps = {
+    image: null,
+    backgroundColor: null,
+    children: null,
     style: {},
 };
 const contextTypes = {

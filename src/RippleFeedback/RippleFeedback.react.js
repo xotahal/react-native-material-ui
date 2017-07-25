@@ -18,6 +18,7 @@ const propTypes = {
     children: PropTypes.node.isRequired,
 };
 const defaultProps = {
+    color: null,
     borderless: true,
 };
 
@@ -63,7 +64,6 @@ class RippleFeedback extends PureComponent {
             </TouchableNativeFeedback>
         );
     }
-
 }
 
 RippleFeedback.propTypes = propTypes;

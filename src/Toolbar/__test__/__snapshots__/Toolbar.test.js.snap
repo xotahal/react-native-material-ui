@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Center element center element only 1`] = `
 <View
   onLayout={[Function]}
@@ -23,7 +25,8 @@ exports[`Center element center element only 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -33,7 +36,8 @@ exports[`Center element center element only 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -50,7 +54,8 @@ exports[`Center element center element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -67,7 +72,8 @@ exports[`Center element center element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     accessibilityComponentType={undefined}
@@ -85,11 +91,12 @@ exports[`Center element center element only 1`] = `
     style={
       Object {
         "flex": 1,
-        "marginLeft": 20,
+        "marginLeft": 16,
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -99,13 +106,15 @@ exports[`Center element center element only 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Test
     </Text>
   </View>
@@ -137,7 +146,8 @@ exports[`Left element left element only 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -147,7 +157,8 @@ exports[`Left element left element only 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -164,7 +175,8 @@ exports[`Left element left element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -181,18 +193,21 @@ exports[`Left element left element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     style={
       Object {
+        "backgroundColor": "transparent",
         "transform": Array [
           Object {
             "rotate": "0deg",
           },
         ],
       }
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -207,7 +222,8 @@ exports[`Left element left element only 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -226,7 +242,8 @@ exports[`Left element left element only 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -242,7 +259,8 @@ exports[`Left element left element only 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -253,14 +271,15 @@ exports[`Left element left element only 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>
@@ -286,7 +305,8 @@ exports[`Left element left element only 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -296,13 +316,15 @@ exports[`Left element left element only 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Test
     </Text>
   </View>
@@ -334,7 +356,8 @@ exports[`Right element right element - actions, menu 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -344,7 +367,8 @@ exports[`Right element right element - actions, menu 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -361,7 +385,8 @@ exports[`Right element right element - actions, menu 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -378,7 +403,8 @@ exports[`Right element right element - actions, menu 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     accessibilityComponentType={undefined}
@@ -396,11 +422,12 @@ exports[`Right element right element - actions, menu 1`] = `
     style={
       Object {
         "flex": 1,
-        "marginLeft": 20,
+        "marginLeft": 16,
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -410,13 +437,15 @@ exports[`Right element right element - actions, menu 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Test
     </Text>
   </View>
@@ -424,12 +453,14 @@ exports[`Right element right element - actions, menu 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
           "flexDirection": "row",
         },
         false,
         undefined,
       ]
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -444,7 +475,8 @@ exports[`Right element right element - actions, menu 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -463,7 +495,8 @@ exports[`Right element right element - actions, menu 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -479,7 +512,8 @@ exports[`Right element right element - actions, menu 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -490,14 +524,15 @@ exports[`Right element right element - actions, menu 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>
@@ -510,7 +545,8 @@ exports[`Right element right element - actions, menu 1`] = `
             "height": 0.5,
             "width": 1,
           }
-        } />
+        }
+      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
@@ -525,7 +561,8 @@ exports[`Right element right element - actions, menu 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={undefined}
-        testID={undefined}>
+        testID={undefined}
+      >
         <View
           style={
             Object {
@@ -544,7 +581,8 @@ exports[`Right element right element - actions, menu 1`] = `
               "width": 43.2,
               "zIndex": 1,
             }
-          } />
+          }
+        />
         <View
           style={
             Array [
@@ -560,7 +598,8 @@ exports[`Right element right element - actions, menu 1`] = `
               },
               undefined,
             ]
-          }>
+          }
+        >
           <Text
             accessible={true}
             allowFontScaling={false}
@@ -571,14 +610,15 @@ exports[`Right element right element - actions, menu 1`] = `
                   "color": "#ffffff",
                   "fontSize": 24,
                 },
-                undefined,
+                null,
                 Object {
                   "fontFamily": "Material Icons",
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
               ]
-            }>
+            }
+          >
             
           </Text>
         </View>
@@ -613,7 +653,8 @@ exports[`Right element right element - custom element 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -623,7 +664,8 @@ exports[`Right element right element - custom element 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -640,7 +682,8 @@ exports[`Right element right element - custom element 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -657,7 +700,8 @@ exports[`Right element right element - custom element 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     accessibilityComponentType={undefined}
@@ -675,11 +719,12 @@ exports[`Right element right element - custom element 1`] = `
     style={
       Object {
         "flex": 1,
-        "marginLeft": 20,
+        "marginLeft": 16,
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -689,13 +734,15 @@ exports[`Right element right element - custom element 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Test
     </Text>
   </View>
@@ -703,12 +750,14 @@ exports[`Right element right element - custom element 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
           "flexDirection": "row",
         },
         false,
         undefined,
       ]
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -735,11 +784,13 @@ exports[`Right element right element - custom element 1`] = `
           undefined,
           false,
           false,
+          false,
           Object {},
           undefined,
         ]
       }
-      testID={undefined}>
+      testID={undefined}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -754,12 +805,14 @@ exports[`Right element right element - custom element 1`] = `
             undefined,
             false,
             false,
+            false,
             undefined,
             Object {
               "color": "white",
             },
           ]
-        }>
+        }
+      >
         SAVE
       </Text>
     </View>
@@ -792,7 +845,8 @@ exports[`Right element right element only 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -802,7 +856,8 @@ exports[`Right element right element only 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -819,7 +874,8 @@ exports[`Right element right element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -836,7 +892,8 @@ exports[`Right element right element only 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     accessibilityComponentType={undefined}
@@ -854,11 +911,12 @@ exports[`Right element right element only 1`] = `
     style={
       Object {
         "flex": 1,
-        "marginLeft": 20,
+        "marginLeft": 16,
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -868,13 +926,15 @@ exports[`Right element right element only 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Test
     </Text>
   </View>
@@ -882,12 +942,14 @@ exports[`Right element right element only 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
           "flexDirection": "row",
         },
         false,
         undefined,
       ]
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -902,7 +964,8 @@ exports[`Right element right element only 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -921,7 +984,8 @@ exports[`Right element right element only 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -937,7 +1001,8 @@ exports[`Right element right element only 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -948,14 +1013,15 @@ exports[`Right element right element only 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>
@@ -989,7 +1055,8 @@ exports[`Searchable searchable active 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -999,7 +1066,8 @@ exports[`Searchable searchable active 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -1016,7 +1084,8 @@ exports[`Searchable searchable active 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -1033,18 +1102,21 @@ exports[`Searchable searchable active 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     style={
       Object {
+        "backgroundColor": "transparent",
         "transform": Array [
           Object {
-            "rotate": "0deg",
+            "rotate": "180deg",
           },
         ],
       }
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -1059,7 +1131,8 @@ exports[`Searchable searchable active 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -1078,7 +1151,8 @@ exports[`Searchable searchable active 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -1094,7 +1168,8 @@ exports[`Searchable searchable active 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -1105,14 +1180,15 @@ exports[`Searchable searchable active 1`] = `
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>
@@ -1138,7 +1214,8 @@ exports[`Searchable searchable active 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <TextInput
       autoCapitalize={undefined}
       autoCorrect={undefined}
@@ -1151,12 +1228,14 @@ exports[`Searchable searchable active 1`] = `
           Array [
             Object {
               "color": "#ffffff",
+              "fontFamily": "Roboto",
               "fontSize": 20,
               "fontWeight": "500",
             },
             Object {
               "color": "rgba(0, 0, 0, 0.87)",
               "flex": 1,
+              "fontFamily": "Roboto",
               "fontWeight": "400",
               "marginLeft": 16,
             },
@@ -1168,18 +1247,21 @@ exports[`Searchable searchable active 1`] = `
         ]
       }
       underlineColorAndroid="transparent"
-      value="" />
+      value=""
+    />
   </View>
   <View
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
           "flexDirection": "row",
         },
         undefined,
         undefined,
       ]
-    } />
+    }
+  />
 </View>
 `;
 
@@ -1208,7 +1290,8 @@ exports[`Searchable searchable object 1`] = `
       ],
       "zIndex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -1218,7 +1301,8 @@ exports[`Searchable searchable object 1`] = `
         "right": 0,
         "top": 0,
       }
-    }>
+    }
+  >
     <View
       style={
         Object {
@@ -1235,7 +1319,8 @@ exports[`Searchable searchable object 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
     <View
       style={
         Object {
@@ -1252,18 +1337,21 @@ exports[`Searchable searchable object 1`] = `
           ],
           "width": 0,
         }
-      } />
+      }
+    />
   </View>
   <View
     style={
       Object {
+        "backgroundColor": "transparent",
         "transform": Array [
           Object {
             "rotate": "0deg",
           },
         ],
       }
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -1278,7 +1366,8 @@ exports[`Searchable searchable object 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -1297,7 +1386,8 @@ exports[`Searchable searchable object 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -1313,7 +1403,8 @@ exports[`Searchable searchable object 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -1324,14 +1415,15 @@ exports[`Searchable searchable object 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>
@@ -1357,7 +1449,8 @@ exports[`Searchable searchable object 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -1367,13 +1460,15 @@ exports[`Searchable searchable object 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "Roboto",
             "fontSize": 20,
             "fontWeight": "500",
           },
           false,
           undefined,
         ]
-      }>
+      }
+    >
       Searchable
     </Text>
   </View>
@@ -1381,12 +1476,14 @@ exports[`Searchable searchable object 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
           "flexDirection": "row",
         },
         false,
         undefined,
       ]
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -1401,7 +1498,8 @@ exports[`Searchable searchable object 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}>
+      testID={undefined}
+    >
       <View
         style={
           Object {
@@ -1420,7 +1518,8 @@ exports[`Searchable searchable object 1`] = `
             "width": 43.2,
             "zIndex": 1,
           }
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -1436,7 +1535,8 @@ exports[`Searchable searchable object 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -1447,14 +1547,15 @@ exports[`Searchable searchable object 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>

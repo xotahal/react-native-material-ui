@@ -7,7 +7,7 @@ import merge from 'lodash.merge';
 
 import { fontWeight } from './typography';
 import {
-  black, grey100, grey500, white, transparent, snackbarColor,
+    black, grey100, grey500, white, transparent, snackbarColor,
 } from './colors';
 
 import lightTheme from './themes/light';

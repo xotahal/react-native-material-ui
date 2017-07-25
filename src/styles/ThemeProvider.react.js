@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import getTheme from './getTheme';
 
 const propTypes = {
-    children: PropTypes.element,
-    uiTheme: PropTypes.object,
+    children: PropTypes.element.isRequired,
+    uiTheme: PropTypes.object.isRequired,
 };
 const childContextTypes = {
     uiTheme: PropTypes.object.isRequired,
