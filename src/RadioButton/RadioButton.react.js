@@ -33,6 +33,7 @@ class RadioButton extends PureComponent {
             <Checkbox
                 checkedIcon="radio-button-checked"
                 uncheckedIcon="radio-button-unchecked"
+                onCheck={this.onPress}
                 {...this.props}
             />
         );
