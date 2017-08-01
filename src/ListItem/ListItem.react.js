@@ -359,10 +359,11 @@ class ListItem extends PureComponent {
                 <IconToggle
                     key={action}
                     color={flattenRightElement.color}
+                    name={action}
+                    size={24}
+                    style={styles.rightElement}
                     onPress={() => this.onRightElementPressed({ action })}
-                >
-                    <Icon name={action} size={24} style={styles.rightElement} />
-                </IconToggle>
+                />
             ));
         }
 
