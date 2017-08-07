@@ -25,6 +25,10 @@ const propTypes = {
     divider: PropTypes.bool,
     onPress: PropTypes.func,
     onPressValue: PropTypes.any,
+    /**
+    * Called when list item is long pressed.
+    */
+    onLongPress: PropTypes.func,
     numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
     style: PropTypes.object,
 
@@ -57,6 +61,7 @@ const defaultProps = {
     dense: false,
     onPress: null,
     onPressValue: null,
+    onLongPress: null,
     divider: false,
     leftElement: null,
     onLeftElementPress: null,
@@ -234,6 +239,13 @@ class ListItem extends PureComponent {
 
         if (onPress) {
             onPress(onPressValue);
+        }
+    };
+    onListItemLongPressed = () => {
+        const { onLongPress, onPressValue } = this.props;
+
+        if (onLongPress) {
+            onLongPress(onPressValue);
         }
     };
     onLeftElementPressed = () => {
@@ -417,16 +429,16 @@ class ListItem extends PureComponent {
         </View>
     )
     render() {
-        const { onPress } = this.props;
+        const { onPress, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 
         // renders left element, center element and right element
         let content = this.renderContent(styles);
 
-        if (onPress) {
+        if (onPress || onLongPress) {
             content = (
-                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed}>
+                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed} onLongPress={this.onListItemLongPressed} >
                     {content}
                 </RippleFeedback>
             );
