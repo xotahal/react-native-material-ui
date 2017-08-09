@@ -56,6 +56,10 @@ const propTypes = {
         PropTypes.string,
     ]),
     onRightElementPress: PropTypes.func,
+    /**
+     * Children passed into the `ListItem`.
+     */
+    children: PropTypes.node,
 };
 const defaultProps = {
     dense: false,
@@ -69,6 +73,7 @@ const defaultProps = {
     rightElement: null,
     onRightElementPress: null,
     numberOfLines: 1,
+    children: null,
     style: {},
 };
 const contextTypes = {
@@ -423,6 +428,7 @@ class ListItem extends PureComponent {
     }
     renderContent = styles => (
         <View style={styles.contentViewContainer}>
+            {this.props.children}
             {this.renderLeftElement(styles)}
             {this.renderCenterElement(styles)}
             {this.renderRightElement(styles)}
