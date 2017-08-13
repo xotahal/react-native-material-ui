@@ -25,6 +25,7 @@ const defaultProps = {
     onRightElementPress: null,
     size: null,
     style: {},
+    searchable: null,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
