@@ -410,7 +410,7 @@ class ListItem extends PureComponent {
         return <Divider />;
     }
     renderContent = styles => (
-        <View style={styles.contentViewContainer}>
+        <View style={styles.contentViewContainer} pointerEvents='box-only'>
             {this.renderLeftElement(styles)}
             {this.renderCenterElement(styles)}
             {this.renderRightElement(styles)}
