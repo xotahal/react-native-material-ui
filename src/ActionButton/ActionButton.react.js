@@ -400,7 +400,7 @@ class ActionButton extends PureComponent {
             result = <Icon name={icon} style={styles.icon} />;
         }
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} pointerEvents='box-only'>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} pointerEvents="box-only">
                 {result}
             </View>
         );

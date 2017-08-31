@@ -107,7 +107,7 @@ class BottomNavigationAction extends PureComponent {
 
         return (
             <RippleFeedback onPress={onPress}>
-                <View style={styles.container} pointerEvents='box-only'>
+                <View style={styles.container} pointerEvents="box-only">
                     {iconElement}
                     <Text style={styles.label}>{label}</Text>
                 </View>
