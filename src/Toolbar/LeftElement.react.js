@@ -28,7 +28,6 @@ const contextTypes = {
 };
 
 const SEARCH_BACK_ICON = 'arrow-back';
-const SEARCH_FORWARD_ICON = 'arrow-forward';
 
 function shouldUpdateStyles(props, nextProps) {
     if (props.style !== nextProps.styles) {
@@ -64,7 +63,7 @@ class LeftElement extends PureComponent {
 
         this.state = {
             styles: getStyles(this.props, this.context),
-            leftElement: props.isSearchActive ? SEARCH_FORWARD_ICON : props.leftElement,
+            leftElement: props.isSearchActive ? SEARCH_BACK_ICON : props.leftElement,
             spinValue: new Animated.Value(props.isSearchActive ? 1 : 0),
         };
     }
@@ -90,12 +89,7 @@ class LeftElement extends PureComponent {
             easing: Easing.linear,
             useNativeDriver: Platform.OS === 'android',
         }).start(() => {
-            let leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
-
-            if (!this.state.leftElement) {
-                // because there won't be animation in this case
-                leftElement = SEARCH_BACK_ICON;
-            }
+            let leftElement = activate ? SEARCH_BACK_ICON : this.props.leftElement;
 
             this.setState({ leftElement });
 
