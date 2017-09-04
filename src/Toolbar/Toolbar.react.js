@@ -157,9 +157,9 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-const getBackButtonListener = (callback, isSearchActive) => {
-    return BackAndroid.addEventListener('hardwareBackPress', callback);
-};
+const getBackButtonListener = (callback) =>
+    BackAndroid.addEventListener('hardwareBackPress', callback);
+
 // const isSearchable = props => (props.searchable && props.isSearchActive) || false;
 // const getIsSearchActive = (props, state) => (props.searchable && state.isSearchActive) || false;
 
@@ -179,7 +179,8 @@ class Toolbar extends PureComponent {
         super(props);
 
         const isSearchActive = props.isSearchActive || false;
-        this.backButtonListener = isSearchActive ? getBackButtonListener(this.onSearchCloseRequested) : null;
+        this.backButtonListener = isSearchActive ? 
+            getBackButtonListener(this.onSearchCloseRequested) : null;
 
         this.state = {
             // indicates if searc is activated
