@@ -157,7 +157,7 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-const getBackButtonListener = (callback) =>
+const getBackButtonListener = callback =>
     BackAndroid.addEventListener('hardwareBackPress', callback);
 
 // const isSearchable = props => (props.searchable && props.isSearchActive) || false;
@@ -179,7 +179,7 @@ class Toolbar extends PureComponent {
         super(props);
 
         const isSearchActive = props.isSearchActive || false;
-        this.backButtonListener = isSearchActive ? 
+        this.backButtonListener = isSearchActive ?
             getBackButtonListener(this.onSearchCloseRequested) : null;
 
         this.state = {
