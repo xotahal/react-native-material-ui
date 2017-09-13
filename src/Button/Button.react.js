@@ -9,6 +9,7 @@ import RippleFeedback from '../RippleFeedback';
 /* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
 /* eslint-enable import/no-unresolved, import/extensions */
+import getTheme from '../styles/getTheme';
 
 const propTypes = {
     /**
@@ -66,6 +67,9 @@ const contextTypes = {
 };
 
 function getStyles(props, context, state) {
+    if (!context.uiTheme) {
+        context.uiTheme = getTheme();
+    }
     const {
         button,
         buttonFlat,
