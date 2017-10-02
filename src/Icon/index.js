@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     name: PropTypes.string.isRequired,
-    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    style: PropTypes.any,
     size: PropTypes.number,
     color: PropTypes.string,
 };
