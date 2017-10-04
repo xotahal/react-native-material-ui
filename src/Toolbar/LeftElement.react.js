@@ -89,7 +89,7 @@ class LeftElement extends PureComponent {
             easing: Easing.linear,
             useNativeDriver: Platform.OS === 'android',
         }).start(() => {
-            let leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
+            const leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
 
             this.setState({ leftElement });
 
