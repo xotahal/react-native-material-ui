@@ -426,13 +426,16 @@ class ListItem extends PureComponent {
 
         return <Divider />;
     }
-    renderContent = styles => (
-        <View style={styles.contentViewContainer} pointerEvents="box-only">
-            {this.renderLeftElement(styles)}
-            {this.renderCenterElement(styles)}
-            {this.renderRightElement(styles)}
-        </View>
-    )
+    renderContent = (styles) => {
+        const pointerEvents = this.props.rightElement ? 'auto' : 'box-only';
+        return (
+            <View style={styles.contentViewContainer} pointerEvents={pointerEvents}>
+                {this.renderLeftElement(styles)}
+                {this.renderCenterElement(styles)}
+                {this.renderRightElement(styles)}
+            </View>
+        );
+    }
     render() {
         const { onPress, onLongPress } = this.props;
 
