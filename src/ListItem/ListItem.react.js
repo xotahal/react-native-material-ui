@@ -54,6 +54,11 @@ const propTypes = {
     rightElement: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string,
+        PropTypes.shape({
+            menu: PropTypes.shape({
+                labels: PropTypes.array.isRequired,
+            }),
+        }),
     ]),
     onRightElementPress: PropTypes.func,
     /**
