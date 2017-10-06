@@ -446,7 +446,11 @@ class ListItem extends PureComponent {
 
         if (onPress || onLongPress) {
             content = (
-                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed} onLongPress={this.onListItemLongPressed} >
+                <RippleFeedback
+                    delayPressIn={50}
+                    onPress={this.onListItemPressed}
+                    onLongPress={this.onListItemLongPressed}
+                >
                     {content}
                 </RippleFeedback>
             );
