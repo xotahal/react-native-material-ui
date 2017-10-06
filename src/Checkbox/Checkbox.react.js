@@ -90,7 +90,7 @@ class Checkbox extends PureComponent {
         const iconColor = StyleSheet.flatten(styles.icon).color;
 
         const content = (
-            <View style={styles.container}>
+            <View style={styles.container} pointerEvents="box-only">
                 <IconToggle
                     key={`${value}-${checked}`}
                     name={checked ? checkedIcon : uncheckedIcon}

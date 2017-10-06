@@ -771,6 +771,7 @@ exports[`Right element right element - custom element 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      pointerEvents="box-only"
       style={
         Array [
           Object {

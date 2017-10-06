@@ -57,6 +57,10 @@ const propTypes = {
     */
     transition: PropTypes.oneOf(['toolbar', 'speedDial']),
     /**
+    * Set ripple color
+    */
+    rippleColor: PropTypes.string,
+    /**
     * You can overide any style for this button
     */
     style: PropTypes.shape({
@@ -72,6 +76,7 @@ const defaultProps = {
     icon: 'add',
     style: {},
     hidden: false,
+    rippleColor: '#AAF',
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -298,7 +303,7 @@ class ActionButton extends PureComponent {
         return (
             <View key="main-button" style={styles.container}>
                 <RippleFeedback
-                    color="#AAF"
+                    color={this.props.rippleColor}
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
                     onPressIn={() => this.setState({ elevation: 4 })}
@@ -317,7 +322,7 @@ class ActionButton extends PureComponent {
         if (React.isValidElement(icon)) {
             content = (
                 <RippleFeedback
-                    color="#AAF"
+                    color={this.props.rippleColor}
                     onPress={() => this.onPress(key)}
                     delayPressIn={20}
                 >
@@ -363,7 +368,7 @@ class ActionButton extends PureComponent {
             <View key={key} style={styles.speedDialActionIconContainer}>
                 <View style={styles.speedDialActionIcon}>
                     <RippleFeedback
-                        color="#AAF"
+                        color={this.props.rippleColor}
                         onPress={() => this.onPress(key)}
                         delayPressIn={20}
                     >
@@ -400,7 +405,7 @@ class ActionButton extends PureComponent {
             result = <Icon name={icon} style={styles.icon} />;
         }
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} pointerEvents="box-only">
                 {result}
             </View>
         );

@@ -12,7 +12,7 @@ const UIManager = NativeModules.UIManager;
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
     searchValue: PropTypes.string.isRequired,
-    searchable: PropTypes.object.isRequired,
+    searchable: PropTypes.object,
     style: PropTypes.object,
     size: PropTypes.number,
     rightElement: PropTypes.any,
@@ -25,6 +25,7 @@ const defaultProps = {
     onRightElementPress: null,
     size: null,
     style: {},
+    searchable: null,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
