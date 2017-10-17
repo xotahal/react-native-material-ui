@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
@@ -24,7 +25,11 @@ const propTypes = {
     divider: PropTypes.bool,
     onPress: PropTypes.func,
     onPressValue: PropTypes.any,
-    numberOfLines: React.PropTypes.oneOf([1, 2, 3, 'dynamic']),
+    /**
+    * Called when list item is long pressed.
+    */
+    onLongPress: PropTypes.func,
+    numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
     style: PropTypes.object,
 
     // left side
@@ -51,9 +56,24 @@ const propTypes = {
         PropTypes.string,
     ]),
     onRightElementPress: PropTypes.func,
+    /**
+     * Children passed into the `ListItem`.
+     */
+    children: PropTypes.node,
 };
 const defaultProps = {
+    dense: false,
+    onPress: null,
+    onPressValue: null,
+    onLongPress: null,
+    divider: false,
+    leftElement: null,
+    onLeftElementPress: null,
+    centerElement: null,
+    rightElement: null,
+    onRightElementPress: null,
     numberOfLines: 1,
+    children: null,
     style: {},
 };
 const contextTypes = {
@@ -226,6 +246,13 @@ class ListItem extends PureComponent {
             onPress(onPressValue);
         }
     };
+    onListItemLongPressed = () => {
+        const { onLongPress, onPressValue } = this.props;
+
+        if (onLongPress) {
+            onLongPress(onPressValue);
+        }
+    };
     onLeftElementPressed = () => {
         const { onLeftElementPress, onPress, onPressValue } = this.props;
 
@@ -345,14 +372,15 @@ class ListItem extends PureComponent {
         const flattenRightElement = StyleSheet.flatten(styles.rightElement);
 
         if (elements) {
-            content = elements.map((action, i) => (
+            content = elements.map(action => (
                 <IconToggle
-                    key={`${action}${i}`}
+                    key={action}
                     color={flattenRightElement.color}
+                    name={action}
+                    size={24}
+                    style={styles.rightElement}
                     onPress={() => this.onRightElementPressed({ action })}
-                >
-                    <Icon name={action} size={24} style={styles.rightElement} />
-                </IconToggle>
+                />
             ));
         }
 
@@ -363,7 +391,7 @@ class ListItem extends PureComponent {
         if (rightElement && rightElement.menu) {
             // We need this view as an anchor for drop down menu. findNodeHandle can
             // find just view with width and height, even it needs backgroundColor :/
-            content.push(
+            content.push((
                 <View key="menuIcon">
                     <View
                         ref={(c) => { this.menu = c; }}
@@ -380,7 +408,7 @@ class ListItem extends PureComponent {
                         style={flattenRightElement}
                     />
                 </View>
-            );
+            ));
         }
 
         return (
@@ -399,23 +427,23 @@ class ListItem extends PureComponent {
         return <Divider />;
     }
     renderContent = styles => (
-        <View style={styles.contentViewContainer}>
+        <View style={styles.contentViewContainer} pointerEvents="box-only">
             {this.renderLeftElement(styles)}
             {this.renderCenterElement(styles)}
             {this.renderRightElement(styles)}
         </View>
     )
     render() {
-        const { onPress } = this.props;
+        const { onPress, onLongPress } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 
         // renders left element, center element and right element
         let content = this.renderContent(styles);
 
-        if (onPress) {
+        if (onPress || onLongPress) {
             content = (
-                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed}>
+                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed} onLongPress={this.onListItemLongPressed} >
                     {content}
                 </RippleFeedback>
             );

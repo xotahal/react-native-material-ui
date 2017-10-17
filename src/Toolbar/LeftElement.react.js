@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Animated, Easing, Platform, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -15,7 +16,12 @@ const propTypes = {
     onSearchClose: PropTypes.func,
 };
 const defaultProps = {
+    leftElement: null,
+    onLeftElementPress: null,
+    onSearchClose: null,
+    searchable: null,
     style: {},
+    size: 24,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,

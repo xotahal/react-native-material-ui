@@ -1,10 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import { View, Animated, StyleSheet, Platform, Easing, TouchableWithoutFeedback } from 'react-native';
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import Color from 'color';
-import { ELEVATION_ZINDEX } from '../styles/getPlatformElevation';
+import { ELEVATION_ZINDEX } from '../styles/constants';
 import Icon from '../Icon';
 
 const propTypes = {
@@ -32,8 +33,7 @@ const propTypes = {
     /**
     * Name of icon to show
     */
-    name: PropTypes.string,
-
+    name: PropTypes.string.isRequired,
     /**
     * It'll be used instead of icon (see props name) if exists
     */
@@ -44,6 +44,11 @@ const propTypes = {
     onPress: PropTypes.func,
 };
 const defaultProps = {
+    children: null,
+    onPress: null,
+    color: null,
+    underlayColor: null,
+    size: 24,
     disabled: false,
     percent: 90,
     maxOpacity: 0.16,

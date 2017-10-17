@@ -7,11 +7,13 @@ import merge from 'lodash.merge';
 
 import { fontWeight } from './typography';
 import {
-  black, grey100, grey500, white, transparent, snackbarColor,
+    black, grey100, grey500, white, transparent, snackbarColor,
 } from './colors';
 
 import lightTheme from './themes/light';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from './getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 function darkenOrLighten(color, ratio = 0.15) {
     const c = Color(color);

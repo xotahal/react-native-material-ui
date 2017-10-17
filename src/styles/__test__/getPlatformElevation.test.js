@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 
-import getPlatformElevation from '../getPlatformElevation';
+import getPlatformElevationIos from '../getPlatformElevation.ios';
+import getPlatformElevationAndroid from '../getPlatformElevation.android';
 import { black } from '../colors';
 
 const elevation = 4;
@@ -18,7 +19,7 @@ describe('getPlatformElevation', () => {
         // ////////////
         // ACT
         // ////////////
-        const result = getPlatformElevation(0);
+        const result = getPlatformElevationIos(0);
         // ////////////
         // ASSERTS
         // ////////////
@@ -28,18 +29,17 @@ describe('getPlatformElevation', () => {
         // ////////////
         // ACT
         // ////////////
-        const result = getPlatformElevation(elevation);
+        const result = getPlatformElevationIos(elevation);
         // ////////////
         // ASSERTS
         // ////////////
         expect(result).toEqual(iOSResult);
     });
     it('android', () => {
-        Platform.OS = 'android';
         // ////////////
         // ACT
         // ////////////
-        const result = getPlatformElevation(elevation);
+        const result = getPlatformElevationAndroid(elevation);
         // ////////////
         // ASSERTS
         // ////////////

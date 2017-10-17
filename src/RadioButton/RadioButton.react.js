@@ -1,18 +1,20 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Checkbox from '../Checkbox';
 
 const propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    onSelect: PropTypes.func,
+    onSelect: PropTypes.func.isRequired,
 };
 const defaultProps = {
     theme: 'light',
     disabled: false,
+    checked: false,
 };
 
 class RadioButton extends PureComponent {
@@ -31,6 +33,7 @@ class RadioButton extends PureComponent {
             <Checkbox
                 checkedIcon="radio-button-checked"
                 uncheckedIcon="radio-button-unchecked"
+                onCheck={this.onPress}
                 {...this.props}
             />
         );

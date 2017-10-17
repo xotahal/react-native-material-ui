@@ -1,6 +1,12 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
-import { Platform, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import {
+    Platform,
+    TouchableNativeFeedback,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
+} from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
@@ -12,6 +18,7 @@ const propTypes = {
     children: PropTypes.node.isRequired,
 };
 const defaultProps = {
+    color: null,
     borderless: true,
 };
 
@@ -27,6 +34,13 @@ class RippleFeedback extends PureComponent {
     render() {
         const { children, color, borderless, ...otherProps } = this.props;
 
+        if (Platform.OS === 'web') {
+            return (
+                <TouchableOpacity {...otherProps}>
+                    {children}
+                </TouchableOpacity>
+            );
+        }
 
         if (!isCompatible()) {
             return (
@@ -50,7 +64,6 @@ class RippleFeedback extends PureComponent {
             </TouchableNativeFeedback>
         );
     }
-
 }
 
 RippleFeedback.propTypes = propTypes;

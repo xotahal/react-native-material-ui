@@ -1,6 +1,8 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
+import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import RippleFeedback from '../RippleFeedback';
@@ -32,12 +34,14 @@ const propTypes = {
     * Inline style of bottom navigation
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
 };
 const defaultProps = {
+    label: null,
+    onPress: null,
     active: false,
     disabled: false,
     style: {},
@@ -103,7 +107,7 @@ class BottomNavigationAction extends PureComponent {
 
         return (
             <RippleFeedback onPress={onPress}>
-                <View style={styles.container}>
+                <View style={styles.container} pointerEvents="box-only">
                     {iconElement}
                     <Text style={styles.label}>{label}</Text>
                 </View>

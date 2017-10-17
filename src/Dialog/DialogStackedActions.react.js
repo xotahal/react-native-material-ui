@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Button from '../Button';
@@ -34,7 +35,7 @@ class DialogStackedActions extends PureComponent {
 
         return (
             <View style={styles.stackedActionsContainer}>
-                {actions.map(action =>
+                {actions.map(action => (
                     <Button
                         key={action}
                         primary
@@ -46,7 +47,7 @@ class DialogStackedActions extends PureComponent {
                             },
                         }}
                     />
-                )}
+                ))}
             </View>
         );
     }

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Subheader from '../Subheader';
@@ -20,6 +21,9 @@ const propTypes = {
     divider: PropTypes.bool,
 };
 const defaultProps = {
+    title: null,
+    items: [],
+    divider: false,
     style: {},
 };
 const contextTypes = {
@@ -77,7 +81,7 @@ class Section extends PureComponent {
             <View>
                 <View style={styles.container}>
                     {this.renderTitle(styles)}
-                    {items && items.map((item, i) => {
+                    {items && items.map((item) => {
                         let style = { primaryText: typography.buttons };
 
                         if (item.active) {
@@ -87,7 +91,7 @@ class Section extends PureComponent {
                         return (
                             <ListItem
                                 dense
-                                key={`${i}-${item.icon}`}
+                                key={item.icon}
                                 leftElement={item.icon}
                                 centerElement={item.value}
                                 onPress={item.onPress}

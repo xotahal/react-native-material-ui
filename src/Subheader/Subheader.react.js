@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import { View, Text } from 'react-native';
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {

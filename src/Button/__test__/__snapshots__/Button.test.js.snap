@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Button accent, text, icon 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -12,6 +14,7 @@ exports[`Button accent, text, icon 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -25,11 +28,13 @@ exports[`Button accent, text, icon 1`] = `
       undefined,
       false,
       false,
+      false,
       Object {},
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -56,7 +61,8 @@ exports[`Button accent, text, icon 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <Text
@@ -73,12 +79,14 @@ exports[`Button accent, text, icon 1`] = `
         undefined,
         false,
         false,
+        false,
         Object {
           "color": "#f44336",
         },
         undefined,
       ]
-    }>
+    }
+  >
     DISMISS
   </Text>
 </View>
@@ -98,6 +106,7 @@ exports[`Button default color 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -111,11 +120,13 @@ exports[`Button default color 1`] = `
       undefined,
       false,
       false,
+      false,
       Object {},
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -130,10 +141,12 @@ exports[`Button default color 1`] = `
         undefined,
         false,
         false,
+        false,
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     DEFAULT
   </Text>
 </View>
@@ -141,6 +154,7 @@ exports[`Button default color 1`] = `
 
 exports[`Button disabled 1`] = `
 <View
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -152,12 +166,14 @@ exports[`Button disabled 1`] = `
         "paddingHorizontal": 16,
       },
       undefined,
+      false,
       undefined,
       false,
       Object {},
       undefined,
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -170,6 +186,7 @@ exports[`Button disabled 1`] = `
           "fontWeight": "500",
         },
         undefined,
+        false,
         Object {
           "color": "rgba(0, 0, 0, 0.26)",
         },
@@ -177,7 +194,8 @@ exports[`Button disabled 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     DISABLED
   </Text>
 </View>
@@ -197,6 +215,7 @@ exports[`Button onPress 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -210,11 +229,13 @@ exports[`Button onPress 1`] = `
       undefined,
       false,
       false,
+      false,
       Object {},
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -229,10 +250,12 @@ exports[`Button onPress 1`] = `
         undefined,
         false,
         false,
+        false,
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     CLEAR
   </Text>
 </View>
@@ -252,6 +275,7 @@ exports[`Button primary, text 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -265,11 +289,13 @@ exports[`Button primary, text 1`] = `
       undefined,
       false,
       false,
+      false,
       Object {},
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -284,12 +310,14 @@ exports[`Button primary, text 1`] = `
         undefined,
         false,
         false,
+        false,
         Object {
           "color": "#2196f3",
         },
         undefined,
       ]
-    }>
+    }
+  >
     PRIMARY
   </Text>
 </View>
@@ -309,6 +337,7 @@ exports[`Button primary, text, icon 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -322,11 +351,13 @@ exports[`Button primary, text, icon 1`] = `
       undefined,
       false,
       false,
+      false,
       Object {},
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -353,7 +384,8 @@ exports[`Button primary, text, icon 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <Text
@@ -370,12 +402,14 @@ exports[`Button primary, text, icon 1`] = `
         undefined,
         false,
         false,
+        false,
         Object {
           "color": "#2196f3",
         },
         undefined,
       ]
-    }>
+    }
+  >
     ACCEPT
   </Text>
 </View>
@@ -395,6 +429,7 @@ exports[`Button raised default 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -406,11 +441,12 @@ exports[`Button raised default 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      false,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
+      false,
       Object {
         "shadowColor": "#000000",
         "shadowOffset": Object {
@@ -424,7 +460,8 @@ exports[`Button raised default 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -437,12 +474,14 @@ exports[`Button raised default 1`] = `
           "fontWeight": "500",
         },
         false,
+        undefined,
+        false,
         false,
         undefined,
         undefined,
-        undefined,
       ]
-    }>
+    }
+  >
     DEFAULT
   </Text>
 </View>
@@ -462,6 +501,7 @@ exports[`Button raised, accent, text 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -473,11 +513,12 @@ exports[`Button raised, accent, text 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      false,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
+      false,
       Object {
         "backgroundColor": "#f44336",
         "shadowColor": "#000000",
@@ -492,7 +533,8 @@ exports[`Button raised, accent, text 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -505,14 +547,16 @@ exports[`Button raised, accent, text 1`] = `
           "fontWeight": "500",
         },
         false,
-        false,
         undefined,
+        false,
+        false,
         Object {
           "color": "#ffffff",
         },
         undefined,
       ]
-    }>
+    }
+  >
     ACCENT
   </Text>
 </View>
@@ -532,6 +576,7 @@ exports[`Button raised, accent, text, icon 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -543,11 +588,12 @@ exports[`Button raised, accent, text, icon 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      false,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
+      false,
       Object {
         "backgroundColor": "#f44336",
         "shadowColor": "#000000",
@@ -562,7 +608,8 @@ exports[`Button raised, accent, text, icon 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -589,7 +636,8 @@ exports[`Button raised, accent, text, icon 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <Text
@@ -604,14 +652,16 @@ exports[`Button raised, accent, text, icon 1`] = `
           "fontWeight": "500",
         },
         false,
-        false,
         undefined,
+        false,
+        false,
         Object {
           "color": "#ffffff",
         },
         undefined,
       ]
-    }>
+    }
+  >
     CLEAR
   </Text>
 </View>
@@ -619,6 +669,7 @@ exports[`Button raised, accent, text, icon 1`] = `
 
 exports[`Button raised, disabled, default 1`] = `
 <View
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -630,24 +681,19 @@ exports[`Button raised, disabled, default 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      undefined,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
       Object {
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-        "zIndex": 1,
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
       },
+      Object {},
       undefined,
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -660,14 +706,16 @@ exports[`Button raised, disabled, default 1`] = `
           "fontWeight": "500",
         },
         false,
+        undefined,
+        false,
         Object {
           "color": "rgba(0, 0, 0, 0.26)",
         },
         undefined,
         undefined,
-        undefined,
       ]
-    }>
+    }
+  >
     DISABLED
   </Text>
 </View>
@@ -687,6 +735,7 @@ exports[`Button raised, primary, text 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -698,11 +747,12 @@ exports[`Button raised, primary, text 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      false,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
+      false,
       Object {
         "backgroundColor": "#2196f3",
         "shadowColor": "#000000",
@@ -717,7 +767,8 @@ exports[`Button raised, primary, text 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -730,14 +781,16 @@ exports[`Button raised, primary, text 1`] = `
           "fontWeight": "500",
         },
         false,
-        false,
         undefined,
+        false,
+        false,
         Object {
           "color": "#ffffff",
         },
         undefined,
       ]
-    }>
+    }
+  >
     PRIMARY
   </Text>
 </View>
@@ -757,6 +810,7 @@ exports[`Button raised, primary, text, icon 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
   style={
     Array [
       Object {
@@ -768,11 +822,12 @@ exports[`Button raised, primary, text, icon 1`] = `
         "paddingHorizontal": 16,
       },
       false,
-      false,
       Object {
         "backgroundColor": "#fff",
         "borderColor": "rgba(0,0,0,.12)",
       },
+      false,
+      false,
       Object {
         "backgroundColor": "#2196f3",
         "shadowColor": "#000000",
@@ -787,7 +842,8 @@ exports[`Button raised, primary, text, icon 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -814,7 +870,8 @@ exports[`Button raised, primary, text, icon 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <Text
@@ -829,14 +886,16 @@ exports[`Button raised, primary, text, icon 1`] = `
           "fontWeight": "500",
         },
         false,
-        false,
         undefined,
+        false,
+        false,
         Object {
           "color": "#ffffff",
         },
         undefined,
       ]
-    }>
+    }
+  >
     DONE
   </Text>
 </View>
