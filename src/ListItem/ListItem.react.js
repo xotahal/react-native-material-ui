@@ -402,7 +402,7 @@ class ListItem extends PureComponent {
                         }}
                     />
                     <IconToggle
-                        name={rightElement.menu.icon || "more-vert"}
+                        name={rightElement.menu.icon || 'more-vert'}
                         color={flattenRightElement.color}
                         onPress={() => this.onMenuPressed(rightElement.menu.labels)}
                         style={flattenRightElement}
@@ -443,7 +443,11 @@ class ListItem extends PureComponent {
 
         if (onPress || onLongPress) {
             content = (
-                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed} onLongPress={this.onListItemLongPressed} >
+                <RippleFeedback 
+                    delayPressIn={50}
+                    onPress={this.onListItemPressed}
+                    onLongPress={this.onListItemLongPressed}
+                >
                     {content}
                 </RippleFeedback>
             );

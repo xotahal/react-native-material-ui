@@ -180,7 +180,7 @@ class RightElement extends PureComponent {
                         }}
                     />
                     <IconToggle
-                        name={rightElement.menu.icon || "more-vert"}
+                        name={rightElement.menu.icon || 'more-vert'}
                         color={flattenRightElement.color}
                         size={size}
                         onPress={() => this.onMenuPressed(rightElement.menu.labels)}
