@@ -131,6 +131,30 @@ class RightElement extends PureComponent {
             result.push(React.cloneElement(rightElement, { key: 'customRightElement' }));
         }
 
+        if (rightElement && rightElement.menu && !isSearchActive) {
+            result.push(
+                <View key="menuIcon">
+                    {/* We need this view as an anchor for drop down menu. findNodeHandle can
+                        find just view with width and height, even it needs backgroundColor :/
+                    */}
+                    <View
+                        ref={(c) => { this.menu = c; }}
+                        style={{
+                            backgroundColor: 'transparent',
+                            width: 1,
+                            height: StyleSheet.hairlineWidth,
+                        }}
+                    />
+                    <IconToggle
+                        name={rightElement.menu.icon || "more-vert"}
+                        color={flattenRightElement.color}
+                        size={size}
+                        onPress={() => this.onMenuPressed(rightElement.menu.labels)}
+                        style={flattenRightElement}
+                    />
+                </View>,
+            );
+        }
 
         // if searchable feature is on and search is active with some text, then we show clear
         // button, to be able to clear text
@@ -163,31 +187,6 @@ class RightElement extends PureComponent {
                     />,
                 );
             }
-        }
-
-        if (rightElement && rightElement.menu && !isSearchActive) {
-            result.push(
-                <View key="menuIcon">
-                    {/* We need this view as an anchor for drop down menu. findNodeHandle can
-                        find just view with width and height, even it needs backgroundColor :/
-                    */}
-                    <View
-                        ref={(c) => { this.menu = c; }}
-                        style={{
-                            backgroundColor: 'transparent',
-                            width: 1,
-                            height: StyleSheet.hairlineWidth,
-                        }}
-                    />
-                    <IconToggle
-                        name={rightElement.menu.icon || "more-vert"}
-                        color={flattenRightElement.color}
-                        size={size}
-                        onPress={() => this.onMenuPressed(rightElement.menu.labels)}
-                        style={flattenRightElement}
-                    />
-                </View>,
-            );
         }
 
         return (
