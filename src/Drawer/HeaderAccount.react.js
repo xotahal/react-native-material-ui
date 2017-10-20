@@ -24,7 +24,9 @@ const contextTypes = {
 };
 
 let countAvatars = 1;
-const defineKey = () => (countAvatars += 1);
+function defineKey() {
+    countAvatars += 1;
+}
   
 function getStyles(props, context) {
     const { drawerHeaderAccount } = context.uiTheme;
