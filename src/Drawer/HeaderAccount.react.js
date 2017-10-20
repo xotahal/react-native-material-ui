@@ -23,7 +23,7 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-let countAvatars = 1;
+let countAvatars = 1; // eslint-disable-line no-unused-vars
 function defineKey() {
     countAvatars += 1;
 }
