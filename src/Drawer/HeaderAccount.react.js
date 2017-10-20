@@ -27,7 +27,7 @@ let countAvatars = 1;
 function defineKey() {
     countAvatars += 1;
 }
-  
+
 function getStyles(props, context) {
     const { drawerHeaderAccount } = context.uiTheme;
 
@@ -94,7 +94,7 @@ class HeaderAcount extends PureComponent {
                                 // TODO: slice of accounts
                                 // add more soficticated slice when there will be lots of accounts
                                 accounts &&
-                                accounts.slice(0, 3).map((account) => (
+                                accounts.slice(0, 3).map(account => (
                                     <TouchableWithoutFeedback
                                         onPress={account.onPress}
                                         key={defineKey()}
