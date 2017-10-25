@@ -5,7 +5,6 @@ import {
     Platform,
     TouchableNativeFeedback,
     TouchableWithoutFeedback,
-    TouchableOpacity,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -23,7 +22,7 @@ const defaultProps = {
 };
 
 function isCompatible() {
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === 'ios' || Platform.OS === 'web') {
         return false;
     }
 
@@ -33,14 +32,6 @@ function isCompatible() {
 class RippleFeedback extends PureComponent {
     render() {
         const { children, color, borderless, ...otherProps } = this.props;
-
-        if (Platform.OS === 'web') {
-            return (
-                <TouchableOpacity {...otherProps}>
-                    {children}
-                </TouchableOpacity>
-            );
-        }
 
         if (!isCompatible()) {
             return (
