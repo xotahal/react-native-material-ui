@@ -40,8 +40,8 @@ class Dialog extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <RippleFeedback onPress={onPress} >
-                <View style={styles.container} pointerEvents="box-only">
+            <RippleFeedback onPress={onPress}>
+                <View style={styles.container}>
                     {children}
                 </View>
             </RippleFeedback>
