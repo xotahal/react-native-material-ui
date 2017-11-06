@@ -27,7 +27,6 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-const SEARCH_BACK_ICON = 'arrow-back';
 const SEARCH_FORWARD_ICON = 'arrow-forward';
 
 function shouldUpdateStyles(props, nextProps) {
@@ -90,12 +89,7 @@ class LeftElement extends PureComponent {
             easing: Easing.linear,
             useNativeDriver: Platform.OS === 'android',
         }).start(() => {
-            let leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
-
-            if (!this.state.leftElement) {
-                // because there won't be animation in this case
-                leftElement = SEARCH_BACK_ICON;
-            }
+            const leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
 
             this.setState({ leftElement });
 
