@@ -411,7 +411,7 @@ class ListItem extends PureComponent {
                         }}
                     />
                     <IconToggle
-                        name="more-vert"
+                        name={rightElement.menu.icon || 'more-vert'}
                         color={flattenRightElement.color}
                         onPress={() => this.onMenuPressed(rightElement.menu.labels)}
                         style={flattenRightElement}
