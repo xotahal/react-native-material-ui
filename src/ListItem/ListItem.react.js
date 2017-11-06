@@ -269,6 +269,15 @@ class ListItem extends PureComponent {
             onRightElementPress(onPressValue);
         }
     };
+    getPointerEvents = () => {
+        // 'box-only' fixes misplaced ripple effect, but ruins click events for subviews.
+        // It's suitable only for simple cases with no touchable views, except the main one.
+        const { onLeftElementPress, leftElement, centerElement, rightElement } = this.props;
+        return onLeftElementPress ||
+            React.isValidElement(leftElement) ||
+            React.isValidElement(centerElement) ||
+            rightElement ? 'auto' : 'box-only';
+    }
     renderLeftElement = (styles) => {
         const { leftElement } = this.props;
 
@@ -427,7 +436,7 @@ class ListItem extends PureComponent {
         return <Divider />;
     }
     renderContent = styles => (
-        <View style={styles.contentViewContainer} pointerEvents="box-only">
+        <View style={styles.contentViewContainer} pointerEvents={this.getPointerEvents()}>
             {this.renderLeftElement(styles)}
             {this.renderCenterElement(styles)}
             {this.renderRightElement(styles)}
@@ -443,7 +452,11 @@ class ListItem extends PureComponent {
 
         if (onPress || onLongPress) {
             content = (
-                <RippleFeedback delayPressIn={50} onPress={this.onListItemPressed} onLongPress={this.onListItemLongPressed} >
+                <RippleFeedback
+                    delayPressIn={50}
+                    onPress={this.onListItemPressed}
+                    onLongPress={this.onListItemLongPressed}
+                >
                     {content}
                 </RippleFeedback>
             );
