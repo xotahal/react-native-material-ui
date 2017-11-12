@@ -9,7 +9,7 @@ import ListItem from '../ListItem';
 const propTypes = {
     title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.string,
+        icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
         label: PropTypes.string,
         onPress: PropTypes.func,

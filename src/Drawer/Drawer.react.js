@@ -36,8 +36,9 @@ class Drawer extends PureComponent {
 
         return (
             <Container>
+                { children.slice(0, 1) }
                 <ScrollView style={styles.container}>
-                    {children}
+                    { children.slice(1) }
                 </ScrollView>
             </Container>
         );
