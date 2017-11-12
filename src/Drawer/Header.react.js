@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { View, Image, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import HeaderAccount from './HeaderAccount.react';
@@ -10,6 +11,9 @@ const propTypes = {
     children: PropTypes.node,
 };
 const defaultProps = {
+    image: null,
+    backgroundColor: null,
+    children: null,
     style: {},
 };
 const contextTypes = {

@@ -1,10 +1,14 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import { View, Text, StyleSheet } from 'react-native';
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import RippleFeedback from '../RippleFeedback';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**
@@ -42,11 +46,14 @@ const propTypes = {
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         text: Text.propTypes.style,
     }),
 };
 const defaultProps = {
+    icon: null,
+    onPress: null,
+    onLongPress: null,
     primary: false,
     accent: false,
     disabled: false,
@@ -182,7 +189,7 @@ class Button extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         const content = (
-            <View style={styles.container}>
+            <View style={styles.container} pointerEvents="box-only">
                 {this.renderIcon(styles)}
                 <Text style={styles.text}>
                     {upperCase ? text.toUpperCase() : text}

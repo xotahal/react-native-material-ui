@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import { Text, View } from 'react-native';
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 
@@ -37,6 +38,11 @@ const propTypes = {
     stroke: PropTypes.number,
 };
 const defaultProps = {
+    children: null,
+    text: null,
+    icon: null,
+    size: 4,
+    stroke: null,
     style: {
         container: {
             top: -8,

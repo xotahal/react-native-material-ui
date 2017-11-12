@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Animated, Easing, Platform, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -15,13 +16,17 @@ const propTypes = {
     onSearchClose: PropTypes.func,
 };
 const defaultProps = {
+    leftElement: null,
+    onLeftElementPress: null,
+    onSearchClose: null,
+    searchable: null,
     style: {},
+    size: 24,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
-const SEARCH_BACK_ICON = 'arrow-back';
 const SEARCH_FORWARD_ICON = 'arrow-forward';
 
 function shouldUpdateStyles(props, nextProps) {
@@ -84,12 +89,7 @@ class LeftElement extends PureComponent {
             easing: Easing.linear,
             useNativeDriver: Platform.OS === 'android',
         }).start(() => {
-            let leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
-
-            if (!this.state.leftElement) {
-                // because there won't be animation in this case
-                leftElement = SEARCH_BACK_ICON;
-            }
+            const leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
 
             this.setState({ leftElement });
 

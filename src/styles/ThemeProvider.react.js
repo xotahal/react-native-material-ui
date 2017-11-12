@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import getTheme from './getTheme';
 
 const propTypes = {
-    children: PropTypes.element,
-    uiTheme: PropTypes.object,
+    children: PropTypes.element.isRequired,
+    uiTheme: PropTypes.object.isRequired,
 };
 const childContextTypes = {
     uiTheme: PropTypes.object.isRequired,

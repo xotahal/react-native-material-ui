@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import {
     View,
     Text,
@@ -8,11 +8,15 @@ import {
     TouchableWithoutFeedback,
     Animated,
 } from 'react-native';
+import PropTypes from 'prop-types';
+import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
+/* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
     /**
@@ -53,17 +57,26 @@ const propTypes = {
     */
     transition: PropTypes.oneOf(['toolbar', 'speedDial']),
     /**
+    * Set ripple color
+    */
+    rippleColor: PropTypes.string,
+    /**
     * You can overide any style for this button
     */
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         icon: Text.propTypes.style,
     }),
 };
 const defaultProps = {
+    actions: null,
+    onPress: null,
+    onLongPress: null,
+    transition: null,
     icon: 'add',
     style: {},
     hidden: false,
+    rippleColor: '#AAF',
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -290,7 +303,7 @@ class ActionButton extends PureComponent {
         return (
             <View key="main-button" style={styles.container}>
                 <RippleFeedback
-                    color="#AAF"
+                    color={this.props.rippleColor}
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
                     onPressIn={() => this.setState({ elevation: 4 })}
@@ -309,7 +322,7 @@ class ActionButton extends PureComponent {
         if (React.isValidElement(icon)) {
             content = (
                 <RippleFeedback
-                    color="#AAF"
+                    color={this.props.rippleColor}
                     onPress={() => this.onPress(key)}
                     delayPressIn={20}
                 >
@@ -355,7 +368,7 @@ class ActionButton extends PureComponent {
             <View key={key} style={styles.speedDialActionIconContainer}>
                 <View style={styles.speedDialActionIcon}>
                     <RippleFeedback
-                        color="#AAF"
+                        color={this.props.rippleColor}
                         onPress={() => this.onPress(key)}
                         delayPressIn={20}
                     >
@@ -392,7 +405,7 @@ class ActionButton extends PureComponent {
             result = <Icon name={icon} style={styles.icon} />;
         }
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} pointerEvents="box-only">
                 {result}
             </View>
         );
