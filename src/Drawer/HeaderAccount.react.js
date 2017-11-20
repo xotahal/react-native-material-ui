@@ -90,7 +90,7 @@ class HeaderAcount extends PureComponent {
                                 // add more soficticated slice when there will be lots of accounts
                                 accounts &&
                                 accounts.slice(0, 3).map(account => (
-                                    <TouchableWithoutFeedback onPress={account.onPress}>
+                                    <TouchableWithoutFeedback key={account.key} onPress={account.onPress}>
                                         <View style={[styles.inactiveAvatarContainer]}>
                                             {account.avatar}
                                         </View>
