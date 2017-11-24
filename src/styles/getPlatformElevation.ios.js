@@ -7,7 +7,7 @@ const getPlatformElevation = (elevation) => {
         return {
             shadowColor: transparent,
             zIndex: 0,
-        }
+        };
     }
 
     return {
