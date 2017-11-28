@@ -10,6 +10,7 @@ import {
     findNodeHandle,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 import Divider from '../Divider';
 import Icon from '../Icon';
@@ -31,19 +32,19 @@ const propTypes = {
     onLongPress: PropTypes.func,
     numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        contentViewContainer: View.propTypes.style,
-        leftElementContainer: View.propTypes.style,
-        centerElementContainer: View.propTypes.style,
-        textViewContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        contentViewContainer: ViewPropTypes.style,
+        leftElementContainer: ViewPropTypes.style,
+        centerElementContainer: ViewPropTypes.style,
+        textViewContainer: ViewPropTypes.style,
         primaryText: Text.propTypes.style,
-        firstLine: View.propTypes.style,
+        firstLine: ViewPropTypes.style,
         primaryTextContainer: Text.propTypes.style,
         secondaryText: Text.propTypes.style,
         tertiaryText: Text.propTypes.style,
-        rightElementContainer: View.propTypes.style,
-        leftElement: View.propTypes.style,
-        rightElement: View.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
+        leftElement: ViewPropTypes.style,
+        rightElement: ViewPropTypes.style,
     }),
 
     // left side

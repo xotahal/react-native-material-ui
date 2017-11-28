@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Animated, TouchableWithoutFeedback, Text, TextInput, Easing, Platform } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
@@ -16,7 +17,7 @@ const propTypes = {
         placeholder: PropTypes.string,
     }),
     style: PropTypes.shape({
-        centerElementContainer: Animated.View.propTypes.style,
+        centerElementContainer: ViewPropTypes.style,
         titleText: Text.propTypes.style,
     }),
     centerElement: PropTypes.node,

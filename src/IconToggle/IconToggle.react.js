@@ -3,8 +3,9 @@ import { View, Text, Animated, StyleSheet, Platform, Easing, TouchableWithoutFee
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
-
 import Color from 'color';
+
+import { ViewPropTypes } from '../utils';
 import { ELEVATION_ZINDEX } from '../styles/constants';
 import Icon from '../Icon';
 
@@ -43,7 +44,7 @@ const propTypes = {
     */
     onPress: PropTypes.func,
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         icon: Text.propTypes.style,
     }),
 };

@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
@@ -16,8 +17,8 @@ const propTypes = {
     // TODO: pass bool to this component
     searchable: PropTypes.object, // eslint-disable-line
     style: PropTypes.shape({
-        rightElementContainer: View.propTypes.style,
-        rightEle: View.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
+        rightEle: ViewPropTypes.style,
     }),
     size: PropTypes.number,
     // TODO: add shape control

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     /**
@@ -36,7 +37,7 @@ const propTypes = {
     */
     onCheck: PropTypes.func.isRequired,
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
         icon: IconToggle.propTypes.style,
         label: Text.propTypes.style,
     }),

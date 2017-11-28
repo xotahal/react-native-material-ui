@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { View, TouchableWithoutFeedback } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import ListItem from '../ListItem';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     avatar: PropTypes.element,
@@ -13,12 +14,12 @@ const propTypes = {
     })),
     footer: ListItem.propTypes,
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        accountContainer: View.propTypes.style,
-        topContainer: View.propTypes.style,
-        avatarsContainer: View.propTypes.style,
-        activeAvatarContainer: View.propTypes.style,
-        inactiveAvatarContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        accountContainer: ViewPropTypes.style,
+        topContainer: ViewPropTypes.style,
+        avatarsContainer: ViewPropTypes.style,
+        activeAvatarContainer: ViewPropTypes.style,
+        inactiveAvatarContainer: ViewPropTypes.style,
     }),
 };
 const defaultProps = {

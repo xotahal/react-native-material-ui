@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
+import { ViewPropTypes } from '../utils';
 
 import Title from './Title.react';
 import Content from './Content.react';
@@ -13,7 +14,7 @@ const propTypes = {
     onPress: PropTypes.func,
     children: PropTypes.node.isRequired,
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
     }),
 };
 const defaultProps = {
