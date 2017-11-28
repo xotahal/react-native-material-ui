@@ -3,8 +3,15 @@ import { black, transparent } from './colors';
 import { ELEVATION_ZINDEX } from './constants';
 
 const getPlatformElevation = (elevation) => {
+    if (elevation === 0) {
+        return {
+            shadowColor: transparent,
+            zIndex: 0,
+        };
+    }
+
     return {
-        shadowColor: elevation > 0 ? black : transparent,
+        shadowColor: black,
         shadowOpacity: 0.3,
         shadowRadius: elevation / 2,
         shadowOffset: {
