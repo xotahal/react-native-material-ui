@@ -391,11 +391,10 @@ export default function getTheme(theme, ...more) {
                 alignItems: 'center',
             },
             leftElementContainer: {
-                width: 40,
+                width: 56,
                 marginLeft: 16,
             },
             centerElementContainer: {
-                paddingLeft: 16,
                 flex: 1,
             },
             textViewContainer: { },

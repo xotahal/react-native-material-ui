@@ -145,7 +145,7 @@ function getListItemHeight(props, state) {
     return null;
 }
 function getStyles(props, context, state) {
-    const { rightElement } = props;
+    const { leftElement, rightElement } = props;
     const { listItem } = context.uiTheme;
     const { numberOfLines } = state;
 
@@ -155,6 +155,7 @@ function getStyles(props, context, state) {
     };
     const contentViewContainer = {};
     const leftElementContainer = {};
+    const centerElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
         contentViewContainer.paddingVertical = 16;
@@ -163,6 +164,9 @@ function getStyles(props, context, state) {
 
     if (!rightElement) {
         contentViewContainer.paddingRight = 16;
+    }
+    if (!leftElement) {
+        centerElementContainer.paddingLeft = 16;
     }
 
     return {
@@ -187,6 +191,7 @@ function getStyles(props, context, state) {
         ],
         centerElementContainer: [
             listItem.centerElementContainer,
+            centerElementContainer,
             props.style.centerElementContainer,
         ],
         textViewContainer: [
