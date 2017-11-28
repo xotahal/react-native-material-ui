@@ -31,7 +31,9 @@ function isCompatible() {
 
 class RippleFeedback extends PureComponent {
     render() {
-        const { children, color, borderless, ...otherProps } = this.props;
+        const {
+            children, color, borderless, ...otherProps
+        } = this.props;
 
         if (!isCompatible()) {
             return (

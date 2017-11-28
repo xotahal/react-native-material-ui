@@ -12,7 +12,9 @@ import Actions from './Actions.react';
 const propTypes = {
     onPress: PropTypes.func,
     children: PropTypes.node.isRequired,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     onPress: null,

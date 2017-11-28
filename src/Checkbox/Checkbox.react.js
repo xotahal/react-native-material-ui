@@ -35,6 +35,11 @@ const propTypes = {
     * Event that is called when state is changed
     */
     onCheck: PropTypes.func.isRequired,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        icon: IconToggle.propTypes.style,
+        label: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     checked: false,
@@ -75,14 +80,18 @@ function getStyles(props, context) {
 
 class Checkbox extends PureComponent {
     onPress = () => {
-        const { checked, disabled, onCheck, value } = this.props;
+        const {
+            checked, disabled, onCheck, value,
+        } = this.props;
 
         if (!disabled && onCheck) {
             onCheck(!checked, value);
         }
     }
     render() {
-        const { checked, checkedIcon, uncheckedIcon, disabled, value } = this.props;
+        const {
+            checked, checkedIcon, uncheckedIcon, disabled, value,
+        } = this.props;
 
         const styles = getStyles(this.props, this.context);
 

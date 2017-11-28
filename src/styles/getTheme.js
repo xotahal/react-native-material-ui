@@ -23,8 +23,12 @@ function darkenOrLighten(color, ratio = 0.15) {
 export default function getTheme(theme, ...more) {
     theme = merge(lightTheme, theme, ...more);
 
-    const { spacing, fontFamily, typography, palette } = theme;
-    const baseTheme = { spacing, fontFamily, typography, palette };
+    const {
+        spacing, fontFamily, typography, palette,
+    } = theme;
+    const baseTheme = {
+        spacing, fontFamily, typography, palette,
+    };
 
     theme = merge({
         actionButton: StyleSheet.create(merge({

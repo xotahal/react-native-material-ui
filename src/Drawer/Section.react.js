@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Subheader from '../Subheader';
 import Divider from '../Divider';
@@ -19,6 +19,14 @@ const propTypes = {
         disabled: PropTypes.bool,
     })),
     divider: PropTypes.bool,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        item: View.propTypes.style,
+        subheader: View.propTypes.style,
+        icon: Text.propTypes.style,
+        value: Text.propTypes.style,
+        label: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     title: null,

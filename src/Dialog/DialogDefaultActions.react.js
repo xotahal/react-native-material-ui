@@ -6,8 +6,11 @@ import { View } from 'react-native';
 import Button from '../Button';
 
 const propTypes = {
-    actions: PropTypes.array.isRequired,
+    actions: PropTypes.arrayOf(PropTypes.string).isRequired,
     onActionPress: PropTypes.func.isRequired,
+    style: PropTypes.shape({
+        defaultActionsContainer: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     style: {},

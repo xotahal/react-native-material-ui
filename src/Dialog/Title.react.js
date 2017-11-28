@@ -7,6 +7,10 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     children: PropTypes.node.isRequired,
+    style: PropTypes.shape({
+        titleContainer: View.propTypes.style,
+        titleText: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     style: {},

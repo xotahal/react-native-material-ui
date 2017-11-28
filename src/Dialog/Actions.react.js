@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     children: PropTypes.node.isRequired,
+    style: PropTypes.shape({
+        actionsContainer: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     style: {},

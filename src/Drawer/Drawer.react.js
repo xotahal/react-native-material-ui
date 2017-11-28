@@ -10,6 +10,9 @@ import Section from './Section.react';
 
 const propTypes = {
     children: PropTypes.node.isRequired,
+    style: PropTypes.shape({
+        container: ScrollView.propTypes.style,
+    }),
 };
 const defaultProps = {
     style: {},

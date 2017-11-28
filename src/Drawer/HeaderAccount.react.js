@@ -11,7 +11,15 @@ const propTypes = {
         avatar: PropTypes.element,
         onPress: PropTypes.func,
     })),
-    footer: PropTypes.object,
+    footer: ListItem.propTypes,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        accountContainer: View.propTypes.style,
+        topContainer: View.propTypes.style,
+        avatarsContainer: View.propTypes.style,
+        activeAvatarContainer: View.propTypes.style,
+        inactiveAvatarContainer: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     avatar: null,
@@ -94,8 +102,7 @@ class HeaderAcount extends PureComponent {
                                         <View style={[styles.inactiveAvatarContainer]}>
                                             {account.avatar}
                                         </View>
-                                    </TouchableWithoutFeedback>),
-                                )
+                                    </TouchableWithoutFeedback>))
                             }
                         </View>
                     </View>

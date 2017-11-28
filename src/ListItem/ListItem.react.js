@@ -16,7 +16,7 @@ import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 
-const UIManager = NativeModules.UIManager;
+const { UIManager } = NativeModules;
 
 const propTypes = {
     // generally
@@ -24,13 +24,27 @@ const propTypes = {
     // should render divider after list item?
     divider: PropTypes.bool,
     onPress: PropTypes.func,
-    onPressValue: PropTypes.any,
+    onPressValue: PropTypes.any, // eslint-disable-line
     /**
     * Called when list item is long pressed.
     */
     onLongPress: PropTypes.func,
     numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        contentViewContainer: View.propTypes.style,
+        leftElementContainer: View.propTypes.style,
+        centerElementContainer: View.propTypes.style,
+        textViewContainer: View.propTypes.style,
+        primaryText: Text.propTypes.style,
+        firstLine: View.propTypes.style,
+        primaryTextContainer: Text.propTypes.style,
+        secondaryText: Text.propTypes.style,
+        tertiaryText: Text.propTypes.style,
+        rightElementContainer: View.propTypes.style,
+        leftElement: View.propTypes.style,
+        rightElement: View.propTypes.style,
+    }),
 
     // left side
     leftElement: PropTypes.oneOfType([
@@ -277,7 +291,9 @@ class ListItem extends PureComponent {
     getPointerEvents = () => {
         // 'box-only' fixes misplaced ripple effect, but ruins click events for subviews.
         // It's suitable only for simple cases with no touchable views, except the main one.
-        const { onLeftElementPress, leftElement, centerElement, rightElement } = this.props;
+        const {
+            onLeftElementPress, leftElement, centerElement, rightElement,
+        } = this.props;
         return onLeftElementPress ||
             React.isValidElement(leftElement) ||
             React.isValidElement(centerElement) ||
@@ -330,9 +346,11 @@ class ListItem extends PureComponent {
             if (typeof centerElement === 'string') {
                 primaryText = centerElement;
             } else {
+                /* eslint-disable prefer-destructuring */
                 primaryText = centerElement.primaryText;
                 secondaryText = centerElement.secondaryText;
                 tertiaryText = centerElement.tertiaryText;
+                /* eslint-enable prefer-destructuring */
             }
             const secondLineNumber = !tertiaryText ? numberOfLines : 1;
             const thirdLineNumber = tertiaryText ? numberOfLines : 1;

@@ -8,7 +8,9 @@ import RippleFeedback from '../RippleFeedback';
 const propTypes = {
     children: PropTypes.node,
     onPress: PropTypes.func,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     children: null,

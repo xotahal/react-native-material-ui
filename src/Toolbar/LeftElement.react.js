@@ -1,15 +1,17 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Easing, Platform, StyleSheet } from 'react-native';
+import { Animated, Easing, Platform, StyleSheet, View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import IconToggle from '../IconToggle';
 
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
-    searchable: PropTypes.object,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        leftElementContainer: View.propTypes.style,
+        leftElement: View.propTypes.style,
+    }),
     size: PropTypes.number,
     leftElement: PropTypes.node,
     onLeftElementPress: PropTypes.func,
@@ -19,7 +21,6 @@ const defaultProps = {
     leftElement: null,
     onLeftElementPress: null,
     onSearchClose: null,
-    searchable: null,
     style: {},
     size: 24,
 };

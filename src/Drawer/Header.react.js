@@ -9,6 +9,10 @@ const propTypes = {
     image: PropTypes.shape({ type: PropTypes.oneOf([Image]) }),
     backgroundColor: PropTypes.string,
     children: PropTypes.node,
+    style: PropTypes.shape({
+        contentContainer: View.propTypes.style,
+        container: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     image: null,

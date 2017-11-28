@@ -7,8 +7,18 @@ import { Animated, TouchableWithoutFeedback, Text, TextInput, Easing, Platform }
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
     searchValue: PropTypes.string.isRequired,
-    searchable: PropTypes.object,
-    style: PropTypes.object,
+    searchable: PropTypes.shape({
+        autoFocus: PropTypes.bool,
+        autoCapitalize: PropTypes.bool,
+        autoCorrect: PropTypes.bool,
+        onChangeText: PropTypes.func,
+        onSubmitEditing: PropTypes.func,
+        placeholder: PropTypes.string,
+    }),
+    style: PropTypes.shape({
+        centerElementContainer: Animated.View.propTypes.style,
+        titleText: Text.propTypes.style,
+    }),
     centerElement: PropTypes.node,
     onPress: PropTypes.func,
     onSearchTextChange: PropTypes.func.isRequired,
@@ -91,7 +101,9 @@ class CenterElement extends PureComponent {
         });
     }
     render() {
-        const { searchable, centerElement, onPress, onSearchTextChange, searchValue } = this.props;
+        const {
+            searchable, centerElement, onPress, onSearchTextChange, searchValue,
+        } = this.props;
         const { opacityValue, isSearchActive } = this.state;
         const styles = getStyles(this.props, this.context, this.state);
 

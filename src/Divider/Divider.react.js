@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     inset: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+    }),
 };
 const defaultProps = {
     inset: false,

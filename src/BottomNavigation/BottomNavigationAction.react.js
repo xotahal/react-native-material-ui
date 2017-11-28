@@ -25,7 +25,7 @@ const propTypes = {
     /**
     * True if the action is active (for now it'll be highlight by primary color)
     */
-    active: PropTypes.bool.isRequired,
+    active: PropTypes.bool,
     /**
     * Callback for on press event.
     */
@@ -38,6 +38,7 @@ const propTypes = {
         active: Text.propTypes.style,
         disabled: Text.propTypes.style,
     }),
+    disabled: PropTypes.bool,
 };
 const defaultProps = {
     label: null,
@@ -101,7 +102,7 @@ class BottomNavigationAction extends PureComponent {
         const { icon, label, onPress } = this.props;
 
         const styles = getStyles(this.props, this.context);
-        const color = StyleSheet.flatten(styles.icon).color;
+        const { color } = StyleSheet.flatten(styles.icon);
 
         const iconElement = this.renderIcon(icon, styles, color);
 

@@ -82,7 +82,9 @@ function getStyles(props, context) {
 
 class Avatar extends PureComponent {
     render() {
-        const { image, icon, iconSize, iconColor, text } = this.props;
+        const {
+            image, icon, iconSize, iconColor, text,
+        } = this.props;
 
         let content = null;
         const { avatar, spacing } = this.context.uiTheme;

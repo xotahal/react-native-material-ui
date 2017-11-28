@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View, Animated, StyleSheet, Platform, Easing, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Animated, StyleSheet, Platform, Easing, TouchableWithoutFeedback } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
@@ -42,6 +42,10 @@ const propTypes = {
     * Call when icon was pressed
     */
     onPress: PropTypes.func,
+    style: PropTypes.shape({
+        container: View.propTypes.style,
+        icon: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     children: null,
@@ -175,7 +179,9 @@ class IconToggle extends PureComponent {
         }
     }
     renderRippleView = (styles) => {
-        const { scaleValue, opacityValue, containerSize, rippleSize } = this.state;
+        const {
+            scaleValue, opacityValue, containerSize, rippleSize,
+        } = this.state;
 
         const color = Color(StyleSheet.flatten(styles.icon).color);
         // https://material.google.com/components/buttons.html#buttons-toggle-buttons
@@ -184,6 +190,9 @@ class IconToggle extends PureComponent {
         const top = (containerSize - rippleSize) / 2;
 
         return (
+            // we need set zindex for iOS, because the components with elevation have the
+            // zindex set as well, thus, there could be displayed backgroundColor of
+            // component with bigger zindex - and that's not good
             <Animated.View
                 style={[{
                     position: 'absolute',
@@ -195,9 +204,6 @@ class IconToggle extends PureComponent {
                     transform: [{ scale: scaleValue }],
                     opacity: opacityValue,
                     backgroundColor: color.toString(),
-                    // we need set zindex for iOS, because the components with elevation have the
-                    // zindex set as well, thus, there could be displayed backgroundColor of
-                    // component with bigger zindex - and that's not good
                     zIndex: Platform.OS === 'ios' ? ELEVATION_ZINDEX : null,
                 }]}
             />
@@ -211,7 +217,7 @@ class IconToggle extends PureComponent {
             return children;
         }
 
-        const color = StyleSheet.flatten(styles.icon).color;
+        const { color } = StyleSheet.flatten(styles.icon);
 
         return <Icon name={name} color={color} size={iconSize} />;
     }

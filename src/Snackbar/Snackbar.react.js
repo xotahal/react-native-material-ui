@@ -14,11 +14,11 @@ const propTypes = {
     /**
     * Whether or not the snackbar is visible.
     */
-    visible: PropTypes.bool.isRequired,
+    visible: PropTypes.bool,
     /**
     * The amount of time in milliseconds to show the snackbar.
     */
-    timeout: PropTypes.number.isRequired,
+    timeout: PropTypes.number,
     /**
     * Callback for when the timeout finishes.
     */
@@ -26,7 +26,7 @@ const propTypes = {
     /**
     * Whether or not there is a bottom navigation on the screen.
     */
-    bottomNavigation: PropTypes.bool.isRequired,
+    bottomNavigation: PropTypes.bool,
     /**
     * The function to execute when the action is clicked.
     */

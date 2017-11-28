@@ -6,7 +6,8 @@ import getTheme from './getTheme';
 
 const propTypes = {
     children: PropTypes.element.isRequired,
-    uiTheme: PropTypes.object.isRequired,
+    // TODO: flowtype
+    uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 const childContextTypes = {
     uiTheme: PropTypes.object.isRequired,

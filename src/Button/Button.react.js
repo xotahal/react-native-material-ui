@@ -49,6 +49,8 @@ const propTypes = {
         container: ViewPropTypes.style,
         text: Text.propTypes.style,
     }),
+    primary: PropTypes.bool,
+    accent: PropTypes.bool,
 };
 const defaultProps = {
     icon: null,
@@ -74,7 +76,9 @@ function getStyles(props, context, state) {
         buttonRaisedDisabled,
     } = context.uiTheme;
 
-    const { primary, accent, disabled, raised } = props;
+    const {
+        primary, accent, disabled, raised,
+    } = props;
     const { palette } = context.uiTheme;
 
     const local = {
@@ -138,7 +142,7 @@ class Button extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            elevation: 2,
+            elevation: 2, // eslint-disable-line
         };
     }
     onPress = () => {
@@ -150,13 +154,13 @@ class Button extends PureComponent {
     }
     setElevation = () => {
         this.setState({
-            elevation: 4,
+            elevation: 4, // eslint-disable-line
         });
     };
 
     removeElevation = () => {
         this.setState({
-            elevation: 2,
+            elevation: 2, // eslint-disable-line
         });
     };
     renderIcon = (styles) => {
@@ -184,7 +188,9 @@ class Button extends PureComponent {
         return result;
     }
     render() {
-        const { text, disabled, raised, upperCase, onLongPress } = this.props;
+        const {
+            text, disabled, raised, upperCase, onLongPress,
+        } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 

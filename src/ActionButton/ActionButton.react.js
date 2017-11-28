@@ -176,13 +176,7 @@ class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
 
-        const scaleValue = props.hidden ? 0.01 : 1;
-
-        this.state = {
-            render: 'button',
-            elevation: 2,
-            scaleValue: new Animated.Value(scaleValue),
-        };
+        this.state = { render: 'button' };
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.hidden !== this.props.hidden) {
@@ -212,7 +206,7 @@ class ActionButton extends PureComponent {
         if (name) {
             key = name;
         } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
+            key = icon.key; // eslint-disable-line
         }
         return key;
     }
@@ -258,8 +252,10 @@ class ActionButton extends PureComponent {
                         if (React.isValidElement(action)) {
                             return this.renderToolbarElementAction(styles, action);
                         }
-                        return this.renderToolbarLabelAction(
-                            styles, action.icon, action.label, action.name);
+
+                        const { icon, label, name } = action;
+                        // TODO: pass action
+                        return this.renderToolbarLabelAction(styles, icon, label, name);
                     })}
                 </View>
             </View>
@@ -283,8 +279,9 @@ class ActionButton extends PureComponent {
                                         return this.renderElementAction(styles, action);
                                     }
 
-                                    return this.renderLabelAction(
-                                        styles, action.icon, action.label, action.name);
+                                    const { icon, label, name } = action;
+                                    // TODO: pass action
+                                    return this.renderLabelAction(styles, icon, label, name);
                                 })}
                             </View>
                             {this.renderMainButton(styles)}
@@ -306,8 +303,6 @@ class ActionButton extends PureComponent {
                     color={this.props.rippleColor}
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
-                    onPressIn={() => this.setState({ elevation: 4 })}
-                    onPressOut={() => this.setState({ elevation: 2 })}
                     delayPressIn={20}
                 >
                     {this.renderIconButton(styles, mainIcon)}

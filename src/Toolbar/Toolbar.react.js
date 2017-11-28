@@ -122,12 +122,10 @@ const propTypes = {
         * For actions and menu. The menu will be shown as last one icon.
         */
         PropTypes.shape({
-            actions: PropTypes.arrayOf(
-                PropTypes.oneOfType([
-                    PropTypes.element,
-                    PropTypes.string,
-                ]),
-            ),
+            actions: PropTypes.arrayOf(PropTypes.oneOfType([
+                PropTypes.element,
+                PropTypes.string,
+            ])),
             menu: PropTypes.shape({
                 icon: PropTypes.string,
                 labels: PropTypes.arrayOf(PropTypes.string),
@@ -140,7 +138,6 @@ const propTypes = {
     onRightElementPress: PropTypes.func,
 };
 const defaultProps = {
-    elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
     style: {},
     hidden: false,
     isSearchActive: false,
