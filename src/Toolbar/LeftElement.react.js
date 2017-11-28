@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Easing, Platform, StyleSheet, View } from 'react-native';
+import { Animated, Easing, Platform, StyleSheet, View, Text } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import IconToggle from '../IconToggle';
@@ -10,7 +10,7 @@ const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
     style: PropTypes.shape({
         leftElementContainer: View.propTypes.style,
-        leftElement: View.propTypes.style,
+        leftElement: Text.propTypes.style,
     }),
     size: PropTypes.number,
     leftElement: PropTypes.node,
