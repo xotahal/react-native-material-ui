@@ -43,26 +43,35 @@ function getStyles(props, context) {
 }
 
 class Card extends PureComponent {
-    render() {
-        const { onPress, children } = this.props;
+    constructor(props, context) {
+        super(props, context);
 
-        const styles = getStyles(this.props, this.context);
+        this.state = {
+            styles: getStyles(props, context),
+        };
+    }
+    renderContent = () => {
+        const { children } = this.props;
+        const { styles } = this.state;
 
-        const content = (
-            <View style={styles.container}>
+        return (
+            <View style={styles.container} pointerEvents="box-only">
                 {children}
             </View>
         );
+    }
+    render() {
+        const { onPress } = this.props;
 
         if (onPress) {
             return (
-                <RippleFeedback onPress={onPress} pointerEvents="box-only">
-                    {content}
+                <RippleFeedback onPress={onPress}>
+                    {this.renderContent()}
                 </RippleFeedback>
             );
         }
 
-        return content;
+        return this.renderContent();
     }
 }
 
