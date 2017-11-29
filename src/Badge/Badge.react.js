@@ -45,7 +45,7 @@ const defaultProps = {
     children: null,
     text: null,
     icon: null,
-    size: 4,
+    size: 16,
     stroke: null,
     style: {
         container: {
