@@ -477,7 +477,11 @@ class ListItem extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         // renders left element, center element and right element
-        let content = this.renderContent(styles);
+        let content = (
+            <View style={styles.container}>
+                {this.renderContent(styles)}
+            </View>
+        );
 
         if (onPress || onLongPress) {
             content = (
@@ -494,9 +498,7 @@ class ListItem extends PureComponent {
 
         return (
             <View>
-                <View style={styles.container}>
-                    {content}
-                </View>
+                {content}
                 {this.renderDivider()}
             </View>
         );
