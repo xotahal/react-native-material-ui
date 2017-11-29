@@ -158,7 +158,7 @@ class RippleFeedbackIOS extends PureComponent {
             onPressIn();
         }
     }
-    onPressOut() {
+    onPressOut = () => {
         const { diameter } = this.state;
         const { onPressOut } = this.props;
 
