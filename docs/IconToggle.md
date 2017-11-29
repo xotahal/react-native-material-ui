@@ -5,7 +5,6 @@
 ```js
 ...
 import { IconToggle } from '../react-native-material-ui';
-import { View } from 'react-native'
 ...
 render() {
     <View>

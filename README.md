@@ -165,15 +165,16 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Avatar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Avatar.md)
 - [Badge](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Badge.md)
 - [Bottom Navigation](https://github.com/xotahal/react-native-material-ui/blob/master/docs/BottomNavigation.md)
+- [Bottom Navigation Action](https://github.com/xotahal/react-native-material-ui/blob/master/docs/BottomNavigationAction.md)
 - [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - [Card](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Card.md)
-- Checkbox
+- [Checkbox](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Checkbox.md)
 - [Dialog](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Dialog.md)
-- [Divider](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
-- Drawer
-- Icon
+- [Divider](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Drawer.md)
+- [Drawer](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
+- [Icon](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Icon.md)
 - [Icon toggles](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
 - [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
-- Radio button
-- Subheader
+- [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
+- [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)

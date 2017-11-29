@@ -5,7 +5,6 @@
 ```js
 ...
 import { Divider } from '../react-native-material-ui';
-import { View, Text } from 'react-native'
 ...
 render() {
     <View>
