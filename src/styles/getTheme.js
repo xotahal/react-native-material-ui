@@ -223,6 +223,7 @@ export default function getTheme(theme, ...more) {
                 borderRadius: 2,
                 marginVertical: 4,
                 marginHorizontal: 8,
+                overflow: 'hidden',
                 ...getPlatformElevation(2),
             },
         }, theme.card)),
