@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders dotted grey line 1`] = `
+<View
+  pointerEvents="none"
+  style={
+    Array [
+      Object {
+        "borderWidth": 1,
+        "bottom": 0,
+        "left": -1.5,
+        "position": "absolute",
+        "right": -1.5,
+        "top": -2,
+      },
+      Object {
+        "borderColor": "grey",
+        "borderStyle": "dotted",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders solid black line 1`] = `
+<View
+  pointerEvents="none"
+  style={
+    Array [
+      Object {
+        "borderWidth": 1,
+        "bottom": 0,
+        "left": -1.5,
+        "position": "absolute",
+        "right": -1.5,
+        "top": -2,
+      },
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+      },
+    ]
+  }
+/>
+`;

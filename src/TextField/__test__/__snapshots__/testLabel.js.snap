@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders active label 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "position": "absolute",
+      "top": 16,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 1)",
+        "fontSize": 12,
+      }
+    }
+  >
+    test
+  </Text>
+</View>
+`;
+
+exports[`renders errored label 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "position": "absolute",
+      "top": 36,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "rgba(255, 0, 0, 1)",
+        "fontSize": 16,
+      }
+    }
+  >
+    test
+  </Text>
+</View>
+`;
+
+exports[`renders focused label 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "position": "absolute",
+      "top": 16,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "rgba(0, 0, 255, 1)",
+        "fontSize": 12,
+      }
+    }
+  >
+    test
+  </Text>
+</View>
+`;
+
+exports[`renders label 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "position": "absolute",
+      "top": 36,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 1)",
+        "fontSize": 16,
+      }
+    }
+  >
+    test
+  </Text>
+</View>
+`;
+
+exports[`renders restricted label 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "position": "absolute",
+      "top": 36,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 16,
+      }
+    }
+  >
+    test
+  </Text>
+</View>
+`;

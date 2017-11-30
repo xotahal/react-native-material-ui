@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import Color from 'color';
@@ -523,6 +523,66 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
         }, theme.toolbarSearchActive)),
+        textfield: StyleSheet.create(merge({
+            inputContainer: {
+                backgroundColor: 'transparent',
+            },
+            input: {
+                top: 2,
+                padding: 0,
+                margin: 0,
+                flex: 1,
+            },
+
+            row: {
+                flexDirection: 'row',
+            },
+
+            flex: {
+                flex: 1,
+            },
+            accessory: {
+                top: 2,
+                justifyContent: 'center',
+                alignSelf: 'flex-start',
+            },
+            affix: {
+                top: 2,
+                alignSelf: 'flex-start',
+                justifyContent: 'center',
+            },
+            counter: {
+                container: {
+                    paddingVertical: 4,
+                    paddingLeft: 4,
+                },
+                text: {
+                    textAlign: 'right',
+                    backgroundColor: 'transparent',
+                },
+            },
+            helper: {
+                container: {
+                    ...StyleSheet.absoluteFillObject,
+                    paddingVertical: 4,
+                },
+                text: {
+                    backgroundColor: 'transparent',
+                },
+            },
+            line: {
+                position: 'absolute',
+                top: -2,
+                left: -1.5,
+                right: -1.5,
+                bottom: 0,
+                borderWidth: 1,
+
+                ...Platform.select({
+                    android: { borderRadius: Number.EPSILON },
+                }),
+            },
+        }, theme.textfield)),
     }, baseTheme);
 
     return theme;

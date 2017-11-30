@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders prefix 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "alignSelf": "flex-start",
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 0,
+      "paddingRight": 8,
+      "top": 2,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "blue",
+        "fontSize": 16,
+        "textAlign": "left",
+      }
+    }
+  >
+    a
+  </Text>
+</View>
+`;
+
+exports[`renders suffix 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "alignSelf": "flex-start",
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 0,
+      "paddingLeft": 8,
+      "top": 2,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "blue",
+        "fontSize": 16,
+        "textAlign": "right",
+      }
+    }
+  >
+    z
+  </Text>
+</View>
+`;
