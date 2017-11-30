@@ -60,7 +60,7 @@ class RippleFeedbackIOS extends PureComponent {
         const maxOpacity = Color(props.color).dark() ? 0.12 : 0.30;
 
         this.state = {
-            scaleValue: new Animated.Value(0.01),
+            scaleValue: new Animated.Value(0),
             opacityRippleValue: new Animated.Value(maxOpacity),
             opacityBackgroundValue: new Animated.Value(0),
             diameter: MAX_DIAMETER,
@@ -68,7 +68,6 @@ class RippleFeedbackIOS extends PureComponent {
             rippleColor: Color(props.color),
         };
     }
-
     onLayoutChanged = (event) => {
         try {
             // get width and height of wrapper
@@ -197,7 +196,7 @@ class RippleFeedbackIOS extends PureComponent {
     setDefaultAnimatedValues = () => {
         const { maxOpacity } = this.state;
         // We can set up scale to 0 and opacity back to maxOpacity
-        this.state.scaleValue.setValue(0.01);
+        this.state.scaleValue.setValue(0);
         this.state.opacityRippleValue.setValue(maxOpacity);
     }
     renderRippleView = () => {
