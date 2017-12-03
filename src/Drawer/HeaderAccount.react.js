@@ -32,6 +32,11 @@ const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
 };
 
+let countAvatars = 1; // eslint-disable-line no-unused-vars
+function defineKey() {
+    countAvatars += 1;
+}
+
 function getStyles(props, context) {
     const { drawerHeaderAccount } = context.uiTheme;
 
@@ -99,7 +104,10 @@ class HeaderAcount extends PureComponent {
                                 // add more soficticated slice when there will be lots of accounts
                                 accounts &&
                                 accounts.slice(0, 3).map(account => (
-                                    <TouchableWithoutFeedback onPress={account.onPress}>
+                                    <TouchableWithoutFeedback
+                                        onPress={account.onPress}
+                                        key={defineKey()}
+                                    >
                                         <View style={[styles.inactiveAvatarContainer]}>
                                             {account.avatar}
                                         </View>
