@@ -12,7 +12,7 @@ const propTypes = {
         avatar: PropTypes.element,
         onPress: PropTypes.func,
     })),
-    footer: ListItem.propTypes,
+    footer: PropTypes.shape(ListItem.propTypes),
     style: PropTypes.shape({
         container: ViewPropTypes.style,
         accountContainer: ViewPropTypes.style,
