@@ -35,7 +35,7 @@ const defaultProps = {
     onLongPress: null,
     onPressIn: null,
     onPressOut: null,
-    color: Color(black).alpha(.87),
+    color: Color(black).alpha(.87).toString(),
     disabled: false,
     maxOpacity: 0.16,
 };
