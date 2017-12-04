@@ -21,21 +21,9 @@ function getStyles(props, context) {
     const { textfield } = context.uiTheme;
 
     return {
-        baseColor: [
-            textfield.baseColor,
-            props.style.baseColor,
-        ],
-        errorColor: [
-            textfield.errorColor,
-            props.style.errorColor,
-        ],
         tintColor: [
             textfield.tintColor,
             props.style.tintColor,
-        ],
-        textColor: [
-            textfield.textColor,
-            props.style.textColor,
         ],
         inputContainer: [
             textfield.inputContainer,
@@ -73,7 +61,13 @@ const defaultProps = {
     labelPadding: 4,
     inputContainerPadding: 8,
 
+    tintColor: 'rgb(0, 145, 234)',
+    textColor: 'rgba(0, 0, 0, .87)',
+    baseColor: 'rgba(0, 0, 0, .38)',
+
     error: false,
+    errorColor: 'rgb(213, 0, 0)',
+
     disabled: false,
     disabledLineType: 'dotted',
 
@@ -107,12 +101,17 @@ const propTypes = {
     // titleTextStyle: Text.propTypes.style,
     // affixTextStyle: Text.propTypes.style,
 
+    tintColor: PropTypes.string,
+    textColor: PropTypes.string,
+    baseColor: PropTypes.string,
+
     label: PropTypes.string.isRequired,
     title: PropTypes.string,
 
     characterRestriction: PropTypes.number,
 
     error: PropTypes.string,
+    errorColor: PropTypes.string,
 
     disabled: PropTypes.bool,
     disabledLineType: Line.propTypes.type,
@@ -350,12 +349,6 @@ class TextField extends PureComponent {
 
     render() {
         const styles = getStyles(this.props, this.context, this.state);
-        const {
-            errorColor,
-            tintColor,
-            baseColor,
-            textColor,
-        } = styles;
 
         const {
             receivedFocus,
@@ -383,13 +376,19 @@ class TextField extends PureComponent {
             inputContainerPadding,
             labelTextStyle,
             titleTextStyle,
+            baseColor,
+            textColor,
+            errorColor,
             containerStyle,
             inputContainerStyle: inputContainerStyleOverrides,
             ...props
         } = this.props;
 
-        let { value } = this.props;
+
+        let { value, tintColor } = this.props;
         let { height } = this.state;
+
+        tintColor = tintColor || styles.tintColor.color;
 
         if (props.multiline && props.height) {
             /* Disable autogrow if height is passed as prop */
