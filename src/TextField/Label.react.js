@@ -2,138 +2,150 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Animated } from 'react-native';
 
-export default class Label extends PureComponent {
-  static defaultProps = {
-      numberOfLines: 1,
 
-      active: false,
-      focused: false,
-      errored: false,
-      restricted: false,
-      style: null,
-  };
+const defaultProps = {
+    numberOfLines: 1,
 
-  static propTypes = {
-      numberOfLines: PropTypes.number,
+    active: false,
+    focused: false,
+    errored: false,
+    restricted: false,
+    style: null,
+};
 
-      active: PropTypes.bool,
-      focused: PropTypes.bool,
-      errored: PropTypes.bool,
-      restricted: PropTypes.bool,
+const propTypes = {
+    numberOfLines: PropTypes.number,
 
-      baseSize: PropTypes.number.isRequired,
-      fontSize: PropTypes.number.isRequired,
-      activeFontSize: PropTypes.number.isRequired,
-      basePadding: PropTypes.number.isRequired,
+    active: PropTypes.bool,
+    focused: PropTypes.bool,
+    errored: PropTypes.bool,
+    restricted: PropTypes.bool,
 
-      tintColor: PropTypes.string.isRequired,
-      baseColor: PropTypes.string.isRequired,
-      errorColor: PropTypes.string.isRequired,
+    baseSize: PropTypes.number.isRequired,
+    fontSize: PropTypes.number.isRequired,
+    activeFontSize: PropTypes.number.isRequired,
+    basePadding: PropTypes.number.isRequired,
 
-      animationDuration: PropTypes.number.isRequired,
+    tintColor: PropTypes.string.isRequired,
+    baseColor: PropTypes.string.isRequired,
+    errorColor: PropTypes.string.isRequired,
 
-      style: Animated.Text.propTypes.style,
+    animationDuration: PropTypes.number.isRequired,
 
-      children: PropTypes.oneOfType([
-          PropTypes.arrayOf(PropTypes.node),
-          PropTypes.node,
-      ]).isRequired,
-  };
+    style: Animated.Text.propTypes.style,
 
-  constructor(props) {
-      super(props);
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]).isRequired,
+};
 
-      const { active, focused, errored } = this.props;
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
+};
 
-      this.state = {
-          input: new Animated.Value((active || focused) ? 1 : 0),
-          focus: new Animated.Value(errored ? -1 : (focused ? 1 : 0)),
-      };
-  }
 
-  componentWillReceiveProps(props) {
-      const { focus, input } = this.state;
-      const {
-          active,
-          focused,
-          errored,
-          animationDuration,
-      } = this.props;
+class Label extends PureComponent {
+    constructor(props) {
+        super(props);
 
-      if ((focused !== props.focused) || (active !== props.active)) {
-          Animated
-              .timing(input, {
-                  toValue: (props.active || props.focused) ? 1 : 0,
-                  duration: animationDuration,
-              })
-              .start();
-      }
+        const { active, focused, errored } = this.props;
 
-      if ((focused !== props.focused) || (errored !== props.errored)) {
-          Animated
-              .timing(focus, {
-                  toValue: props.errored ? -1 : (props.focused ? 1 : 0),
-                  duration: animationDuration,
-              })
-              .start();
-      }
-  }
+        this.state = {
+            input: new Animated.Value((active || focused) ? 1 : 0),
+            focus: new Animated.Value(errored ? -1 : (focused ? 1 : 0)),
+        };
+    }
 
-  render() {
-      const { focus, input } = this.state;
-      const {
-          children,
-          restricted,
-          fontSize,
-          activeFontSize,
-          errorColor,
-          baseColor,
-          tintColor,
-          baseSize,
-          basePadding,
-          style,
-          errored,
-          active,
-          focused,
-          animationDuration,
-          ...props
-      } = this.props;
+    componentWillReceiveProps(props) {
+        const { focus, input } = this.state;
+        const {
+            active,
+            focused,
+            errored,
+            animationDuration,
+        } = this.props;
 
-      const color = restricted ?
-          errorColor :
-          focus.interpolate({
-              inputRange: [-1, 0, 1],
-              outputRange: [errorColor, baseColor, tintColor],
-          });
+        if ((focused !== props.focused) || (active !== props.active)) {
+            Animated
+                .timing(input, {
+                    toValue: (props.active || props.focused) ? 1 : 0,
+                    duration: animationDuration,
+                })
+                .start();
+        }
 
-      const top = input.interpolate({
-          inputRange: [0, 1],
-          outputRange: [
-              baseSize + (fontSize * 0.25),
-              baseSize - basePadding - activeFontSize,
-          ],
-      });
+        if ((focused !== props.focused) || (errored !== props.errored)) {
+            Animated
+                .timing(focus, {
+                    toValue: props.errored ? -1 : (props.focused ? 1 : 0),
+                    duration: animationDuration,
+                })
+                .start();
+        }
+    }
 
-      const textStyle = {
-          fontSize: input.interpolate({
-              inputRange: [0, 1],
-              outputRange: [fontSize, activeFontSize],
-          }),
+    render() {
+        const { focus, input } = this.state;
+        const {
+            children,
+            restricted,
+            fontSize,
+            activeFontSize,
+            errorColor,
+            baseColor,
+            tintColor,
+            baseSize,
+            basePadding,
+            style,
+            errored,
+            active,
+            focused,
+            animationDuration,
+            ...props
+        } = this.props;
 
-          color,
-      };
+        const color = restricted ?
+            errorColor :
+            focus.interpolate({
+                inputRange: [-1, 0, 1],
+                outputRange: [errorColor, baseColor, tintColor],
+            });
 
-      const containerStyle = {
-          position: 'absolute',
-          top,
-      };
+        const top = input.interpolate({
+            inputRange: [0, 1],
+            outputRange: [
+                baseSize + (fontSize * 0.25),
+                baseSize - basePadding - activeFontSize,
+            ],
+        });
 
-      return (
-          <Animated.View style={containerStyle}>
-              <Animated.Text style={[style, textStyle]} {...props}>
-                  {children}
-              </Animated.Text>
-          </Animated.View>
-      );
-  }
+        const textStyle = {
+            fontSize: input.interpolate({
+                inputRange: [0, 1],
+                outputRange: [fontSize, activeFontSize],
+            }),
+
+            color,
+        };
+
+        const containerStyle = {
+            position: 'absolute',
+            top,
+        };
+
+        return (
+            <Animated.View style={containerStyle}>
+                <Animated.Text style={[style, textStyle]} {...props}>
+                    {children}
+                </Animated.Text>
+            </Animated.View>
+        );
+    }
 }
+
+Label.propTypes = propTypes;
+Label.contextTypes = contextTypes;
+Label.defaultProps = defaultProps;
+
+export default Label;
