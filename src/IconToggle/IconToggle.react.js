@@ -158,7 +158,7 @@ class IconToggle extends PureComponent {
                 toValue: 1,
                 duration: 225,
                 easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-                useNativeDriver: Platform.OS === 'android',
+                useNativeDriver: true,
             }).start();
         }
     }
@@ -168,7 +168,7 @@ class IconToggle extends PureComponent {
         if (!disabled) {
             Animated.timing(this.state.opacityValue, {
                 toValue: 0,
-                useNativeDriver: Platform.OS === 'android',
+                useNativeDriver: true,
             }).start(() => {
                 this.state.scaleValue.setValue(0.01);
                 this.state.opacityValue.setValue(maxOpacity);
