@@ -7,9 +7,8 @@ function getStyles(props, context) {
     const { textfield } = context.uiTheme;
 
     return {
-        helper: [
-            textfield.helper,
-        ],
+        helperText: textfield.helperText,
+        helperContainer: textfield.helperContainer,
     };
 }
 
@@ -37,8 +36,8 @@ class Helper extends PureComponent {
         const { children, style, ...props } = this.props;
 
         return (
-            <View style={styles.container}>
-                <Animated.Text style={[styles.text, style]} {...props}>
+            <View style={styles.helperContainer}>
+                <Animated.Text style={[styles.helperText, style]} {...props}>
                     {children}
                 </Animated.Text>
             </View>

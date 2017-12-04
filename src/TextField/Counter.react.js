@@ -7,9 +7,8 @@ function getStyles(props, context) {
     const { textfield } = context.uiTheme;
 
     return {
-        counter: [
-            textfield.counter,
-        ],
+        counterText: textfield.counterText,
+        counterContainer: textfield.counterContainer,
     };
 }
 
@@ -56,8 +55,8 @@ class Counter extends PureComponent {
         }
 
         return (
-            <View style={styles.container}>
-                <Text style={[styles.text, style, textStyle]}>
+            <View style={styles.counterContainer}>
+                <Text style={[styles.counterText, style, textStyle]}>
                     {count} / {limit}
                 </Text>
             </View>

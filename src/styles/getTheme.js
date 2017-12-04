@@ -551,24 +551,20 @@ export default function getTheme(theme, ...more) {
                 alignSelf: 'flex-start',
                 justifyContent: 'center',
             },
-            counter: {
-                container: {
-                    paddingVertical: 4,
-                    paddingLeft: 4,
-                },
-                text: {
-                    textAlign: 'right',
-                    backgroundColor: 'transparent',
-                },
+            counterContainer: {
+                paddingVertical: 4,
+                paddingLeft: 4,
             },
-            helper: {
-                container: {
-                    ...StyleSheet.absoluteFillObject,
-                    paddingVertical: 4,
-                },
-                text: {
-                    backgroundColor: 'transparent',
-                },
+            counterText: {
+                textAlign: 'right',
+                backgroundColor: 'transparent',
+            },
+            helperContainer: {
+                ...StyleSheet.absoluteFillObject,
+                paddingVertical: 4,
+            },
+            helpertText: {
+                backgroundColor: 'transparent',
             },
             line: {
                 position: 'absolute',
