@@ -21,6 +21,22 @@ function getStyles(props, context) {
     const { textfield } = context.uiTheme;
 
     return {
+        baseColor: [
+            textfield.baseColor,
+            props.style.baseColor,
+        ],
+        errorColor: [
+            textfield.errorColor,
+            props.style.errorColor,
+        ],
+        tintColor: [
+            textfield.tintColor,
+            props.style.tintColor,
+        ],
+        textColor: [
+            textfield.textColor,
+            props.style.textColor,
+        ],
         inputContainer: [
             textfield.inputContainer,
             props.style.inputContainer,
@@ -57,13 +73,7 @@ const defaultProps = {
     labelPadding: 4,
     inputContainerPadding: 8,
 
-    tintColor: 'rgb(0, 145, 234)',
-    textColor: 'rgba(0, 0, 0, .87)',
-    baseColor: 'rgba(0, 0, 0, .38)',
-
-    error: null,
-    errorColor: 'rgb(213, 0, 0)',
-
+    error: false,
     disabled: false,
     disabledLineType: 'dotted',
 
@@ -97,17 +107,12 @@ const propTypes = {
     // titleTextStyle: Text.propTypes.style,
     // affixTextStyle: Text.propTypes.style,
 
-    tintColor: PropTypes.string,
-    textColor: PropTypes.string,
-    baseColor: PropTypes.string,
-
     label: PropTypes.string.isRequired,
     title: PropTypes.string,
 
     characterRestriction: PropTypes.number,
 
     error: PropTypes.string,
-    errorColor: PropTypes.string,
 
     disabled: PropTypes.bool,
     disabledLineType: Line.propTypes.type,
@@ -266,7 +271,7 @@ class TextField extends PureComponent {
         const { characterRestriction } = this.props;
         const { text = '' } = this.state;
 
-        return characterRestriction < text.length;
+        return characterRestriction ? (characterRestriction < text.length) : false;
     }
 
     updateRef(name, ref) {
@@ -345,6 +350,12 @@ class TextField extends PureComponent {
 
     render() {
         const styles = getStyles(this.props, this.context, this.state);
+        const {
+            errorColor,
+            tintColor,
+            baseColor,
+            textColor,
+        } = styles;
 
         const {
             receivedFocus,
@@ -372,10 +383,6 @@ class TextField extends PureComponent {
             inputContainerPadding,
             labelTextStyle,
             titleTextStyle,
-            tintColor,
-            baseColor,
-            textColor,
-            errorColor,
             containerStyle,
             inputContainerStyle: inputContainerStyleOverrides,
             ...props
@@ -397,7 +404,7 @@ class TextField extends PureComponent {
 
         const active = !!(value || props.placeholder);
         const count = value.length;
-        const restricted = limit < count;
+        const restricted = limit ? (limit < count) : false;
 
         const borderBottomColor = restricted ?
             errorColor :

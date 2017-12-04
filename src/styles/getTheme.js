@@ -527,6 +527,10 @@ export default function getTheme(theme, ...more) {
             inputContainer: {
                 backgroundColor: 'transparent',
             },
+            tintColor: palette.primaryColor,
+            errorColor: 'rgb(213, 0, 0)',
+            baseColor: 'rgba(0, 0, 0, .38)',
+            textColor: 'rgba(0, 0, 0, .87)',
             input: {
                 top: 2,
                 padding: 0,
