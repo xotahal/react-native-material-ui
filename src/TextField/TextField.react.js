@@ -17,20 +17,49 @@ import Helper from './Helper.react';
 import Counter from './Counter.react';
 
 
-function getStyles(props, context) {
-    const { textfield } = context.uiTheme;
+function getStyles(props, context, state) {
+    const {
+        textfield,
+        erroredTextfield,
+        focusedTextfield,
+        palette,
+    } = context.uiTheme;
+    const {
+        restricted,
+        value,
+        defaultValue,
+        disabled,
+    } = props;
+    const { focus, receivedFocus } = state;
+
+    const textfieldState = {
+        borderBottomColor: restricted ?
+            StyleSheet.flatten(erroredTextfield.inputContainer).borderBottomColor :
+            focus.interpolate({
+                inputRange: [-1, 0, 1],
+                outputRange: [
+                    StyleSheet.flatten(erroredTextfield.inputContainer).borderBottomColor,
+                    StyleSheet.flatten(textfield.inputContainer).borderBottomColor,
+                    StyleSheet.flatten(focusedTextfield.inputContainer).borderBottomColor,
+                ],
+            }),
+    };
+
+    const defaultVisible = !(receivedFocus || value != null || defaultValue == null);
+    const styleTextInput = (disabled || defaultVisible) ?
+        textfield.input :
+        focusedTextfield.input;
+
+    const inputContainerStyle = [textfield.inputContainer, textfieldState];
 
     return {
-        tintColor: [
-            textfield.tintColor,
-            props.style.tintColor,
-        ],
         inputContainer: [
-            textfield.inputContainer,
+            inputContainerStyle,
             props.style.inputContainer,
         ],
         input: [
             textfield.input,
+            styleTextInput,
             props.style.input,
         ],
         row: [
@@ -42,6 +71,7 @@ function getStyles(props, context) {
         accessory: [
             textfield.accessory,
         ],
+        primaryColor: palette.primaryColor,
     };
 }
 
@@ -61,12 +91,7 @@ const defaultProps = {
     labelPadding: 4,
     inputContainerPadding: 8,
 
-    tintColor: 'rgb(0, 145, 234)',
-    textColor: 'rgba(0, 0, 0, .87)',
-    baseColor: 'rgba(0, 0, 0, .38)',
-
-    error: false,
-    errorColor: 'rgb(213, 0, 0)',
+    error: null,
 
     disabled: false,
     disabledLineType: 'dotted',
@@ -101,17 +126,12 @@ const propTypes = {
     // titleTextStyle: Text.propTypes.style,
     // affixTextStyle: Text.propTypes.style,
 
-    tintColor: PropTypes.string,
-    textColor: PropTypes.string,
-    baseColor: PropTypes.string,
-
     label: PropTypes.string.isRequired,
     title: PropTypes.string,
 
     characterRestriction: PropTypes.number,
 
     error: PropTypes.string,
-    errorColor: PropTypes.string,
 
     disabled: PropTypes.bool,
     disabledLineType: Line.propTypes.type,
@@ -324,7 +344,6 @@ class TextField extends PureComponent {
         const {
             [type]: affix,
             fontSize,
-            baseColor,
             animationDuration,
             affixTextStyle,
         } = this.props;
@@ -338,13 +357,20 @@ class TextField extends PureComponent {
             active,
             focused,
             fontSize,
-            baseColor,
             animationDuration,
         };
 
         return (
             <Affix style={affixTextStyle} {...props}>{affix}</Affix>
         );
+    }
+
+    renderHelper(children, style, errorType = false) {
+        const emptyComponent = <View />;
+        if (children) {
+            return <Helper errorType={errorType} style={style}>{children}</Helper>;
+        }
+        return emptyComponent;
     }
 
     render() {
@@ -376,19 +402,16 @@ class TextField extends PureComponent {
             inputContainerPadding,
             labelTextStyle,
             titleTextStyle,
-            baseColor,
-            textColor,
-            errorColor,
             containerStyle,
             inputContainerStyle: inputContainerStyleOverrides,
+            renderAccessory,
             ...props
         } = this.props;
 
 
-        let { value, tintColor } = this.props;
+        let { value } = this.props;
         let { height } = this.state;
 
-        tintColor = tintColor || styles.tintColor.color;
 
         if (props.multiline && props.height) {
             /* Disable autogrow if height is passed as prop */
@@ -405,12 +428,6 @@ class TextField extends PureComponent {
         const count = value.length;
         const restricted = limit ? (limit < count) : false;
 
-        const borderBottomColor = restricted ?
-            errorColor :
-            focus.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [errorColor, baseColor, tintColor],
-            });
 
         const borderBottomWidth = restricted ?
             2 :
@@ -425,7 +442,7 @@ class TextField extends PureComponent {
 
             ...(disabled ?
                 { overflow: 'hidden' } :
-                { borderBottomColor, borderBottomWidth }),
+                { borderBottomWidth }),
 
             ...(props.multiline ?
                 { height: labelHeight + inputContainerPadding + height } :
@@ -434,10 +451,6 @@ class TextField extends PureComponent {
 
         const inputStyle = {
             fontSize,
-
-            color: (disabled || defaultVisible) ?
-                baseColor :
-                textColor,
 
             ...(props.multiline ?
                 {
@@ -452,8 +465,6 @@ class TextField extends PureComponent {
         };
 
         const errorStyle = {
-            color: errorColor,
-
             opacity: focus.interpolate({
                 inputRange: [-1, 0, 1],
                 outputRange: [1, 0, 0],
@@ -468,8 +479,6 @@ class TextField extends PureComponent {
         };
 
         const titleStyle = {
-            color: baseColor,
-
             opacity: focus.interpolate({
                 inputRange: [-1, 0, 1],
                 outputRange: [0, 1, 1],
@@ -510,9 +519,6 @@ class TextField extends PureComponent {
             basePadding: labelPadding,
             fontSize,
             activeFontSize: labelFontSize,
-            tintColor,
-            baseColor,
-            errorColor,
             animationDuration,
             active,
             focused,
@@ -522,8 +528,6 @@ class TextField extends PureComponent {
         };
 
         const counterProps = {
-            baseColor,
-            errorColor,
             count,
             limit,
             fontSize: titleFontSize,
@@ -533,7 +537,7 @@ class TextField extends PureComponent {
         return (
             <View {...containerProps}>
                 <Animated.View {...inputContainerProps}>
-                    {disabled && <Line type={disabledLineType} color={baseColor} />}
+                    {disabled && <Line type={disabledLineType} />}
 
                     <Label {...labelProps}>{label}</Label>
 
@@ -542,7 +546,7 @@ class TextField extends PureComponent {
 
                         <TextInput
                             style={[styles.input, inputStyle, inputStyleOverrides]}
-                            selectionColor={tintColor}
+                            selectionColor={styles.primaryColor}
 
                             {...props}
 
@@ -563,8 +567,8 @@ class TextField extends PureComponent {
 
                 <Animated.View style={helperContainerStyle}>
                     <View style={styles.flex}>
-                        <Helper style={[errorStyle, titleTextStyle]}>{error}</Helper>
-                        <Helper style={[titleStyle, titleTextStyle]}>{title}</Helper>
+                        { this.renderHelper(error, [errorStyle, titleTextStyle], true) }
+                        { this.renderHelper(title, [titleStyle, titleTextStyle]) }
                     </View>
 
                     <Counter {...counterProps} />

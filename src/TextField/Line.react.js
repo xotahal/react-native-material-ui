@@ -15,7 +15,6 @@ function getStyles(props, context) {
 
 const propTypes = {
     type: PropTypes.oneOf(['solid', 'dotted', 'dashed', 'none']).isRequired,
-    color: PropTypes.string.isRequired,
 };
 
 const contextTypes = {
@@ -25,14 +24,13 @@ const contextTypes = {
 class Line extends PureComponent {
     render() {
         const styles = getStyles(this.props, this.context, this.state);
-        const { color: borderColor, type: borderStyle } = this.props;
+        const { type: borderStyle } = this.props;
 
         if (borderStyle === 'none') {
             return null;
         }
 
         const lineStyle = {
-            borderColor,
             borderStyle,
         };
 

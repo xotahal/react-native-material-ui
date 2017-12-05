@@ -7,9 +7,7 @@ function getStyles(props, context) {
     const { textfield } = context.uiTheme;
 
     return {
-        affix: [
-            textfield.affix,
-        ],
+        affix: textfield.affix,
     };
 }
 
@@ -79,7 +77,6 @@ class Affix extends PureComponent {
             children,
             type,
             fontSize,
-            baseColor: color,
         } = this.props;
 
         const containerStyle = {
@@ -88,7 +85,6 @@ class Affix extends PureComponent {
         };
 
         const textStyle = {
-            color,
             fontSize,
         };
 
@@ -105,7 +101,7 @@ class Affix extends PureComponent {
         }
 
         return (
-            <Animated.View style={[styles.container, containerStyle]}>
+            <Animated.View style={[styles.affix, containerStyle]}>
                 <Animated.Text style={[style, textStyle]}>{children}</Animated.Text>
             </Animated.View>
         );

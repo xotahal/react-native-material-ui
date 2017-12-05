@@ -1,7 +1,30 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 
+
+function getStyles(props, context, state) {
+    const { textfield, erroredTextfield, focusedTextfield } = context.uiTheme;
+    const { restricted } = props;
+    const { focus } = state;
+
+    const colorState = {
+        color: restricted ?
+            StyleSheet.flatten(erroredTextfield.label).color :
+            focus.interpolate({
+                inputRange: [-1, 0, 1],
+                outputRange: [
+                    StyleSheet.flatten(erroredTextfield.label).color,
+                    StyleSheet.flatten(textfield.label).color,
+                    StyleSheet.flatten(focusedTextfield.label).color,
+                ],
+            }),
+    };
+
+    return {
+        label: colorState,
+    };
+}
 
 const defaultProps = {
     numberOfLines: 1,
@@ -17,18 +40,14 @@ const propTypes = {
     numberOfLines: PropTypes.number,
 
     active: PropTypes.bool,
-    focused: PropTypes.bool,
     errored: PropTypes.bool,
+    focused: PropTypes.bool,
     restricted: PropTypes.bool,
 
     baseSize: PropTypes.number.isRequired,
     fontSize: PropTypes.number.isRequired,
     activeFontSize: PropTypes.number.isRequired,
     basePadding: PropTypes.number.isRequired,
-
-    tintColor: PropTypes.string.isRequired,
-    baseColor: PropTypes.string.isRequired,
-    errorColor: PropTypes.string.isRequired,
 
     animationDuration: PropTypes.number.isRequired,
 
@@ -86,15 +105,12 @@ class Label extends PureComponent {
     }
 
     render() {
-        const { focus, input } = this.state;
+        const { input } = this.state;
         const {
             children,
             restricted,
             fontSize,
             activeFontSize,
-            errorColor,
-            baseColor,
-            tintColor,
             baseSize,
             basePadding,
             style,
@@ -105,12 +121,7 @@ class Label extends PureComponent {
             ...props
         } = this.props;
 
-        const color = restricted ?
-            errorColor :
-            focus.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [errorColor, baseColor, tintColor],
-            });
+        const styles = getStyles(this.props, this.context, this.state);
 
         const top = input.interpolate({
             inputRange: [0, 1],
@@ -125,8 +136,6 @@ class Label extends PureComponent {
                 inputRange: [0, 1],
                 outputRange: [fontSize, activeFontSize],
             }),
-
-            color,
         };
 
         const containerStyle = {
@@ -136,7 +145,7 @@ class Label extends PureComponent {
 
         return (
             <Animated.View style={containerStyle}>
-                <Animated.Text style={[style, textStyle]} {...props}>
+                <Animated.Text style={[style, textStyle, styles.label]} {...props}>
                     {children}
                 </Animated.Text>
             </Animated.View>

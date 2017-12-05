@@ -1,13 +1,23 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { View, Animated } from 'react-native';
+import { View, Animated, StyleSheet } from 'react-native';
 
 
 function getStyles(props, context) {
-    const { textfield } = context.uiTheme;
+    const { textfield, erroredTextfield } = context.uiTheme;
+    const { errorType } = props;
+
+    let helperTextStyle = textfield.helperText;
+
+    if (errorType) {
+        helperTextStyle = [
+            StyleSheet.flatten(textfield.helperText),
+            StyleSheet.flatten(erroredTextfield.helperText),
+        ];
+    }
 
     return {
-        helperText: textfield.helperText,
+        helperText: helperTextStyle,
         helperContainer: textfield.helperContainer,
     };
 }
@@ -15,6 +25,7 @@ function getStyles(props, context) {
 const defaultProps = {
     numberOfLines: 1,
     style: null,
+    errorType: false,
 };
 
 const propTypes = {
@@ -24,6 +35,7 @@ const propTypes = {
         PropTypes.node,
     ]).isRequired,
     numberOfLines: PropTypes.number,
+    errorType: PropTypes.bool,
 };
 
 const contextTypes = {
@@ -32,12 +44,17 @@ const contextTypes = {
 
 class Helper extends PureComponent {
     render() {
-        const styles = getStyles(this.props, this.context, this.state);
-        const { children, style, ...props } = this.props;
+        const styles = getStyles(this.props, this.context);
+        const {
+            children,
+            style,
+            errorType,
+            ...props
+        } = this.props;
 
         return (
             <View style={styles.helperContainer}>
-                <Animated.Text style={[styles.helperText, style]} {...props}>
+                <Animated.Text style={[style, styles.helperText]} {...props}>
                     {children}
                 </Animated.Text>
             </View>

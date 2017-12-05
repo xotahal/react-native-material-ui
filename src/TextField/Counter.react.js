@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 
 function getStyles(props, context) {
-    const { textfield } = context.uiTheme;
+    const { textfield, erroredTextfield } = context.uiTheme;
+    const { count, limit } = props;
+
+    const styleState = count > limit ?
+        StyleSheet.flatten(erroredTextfield.counterText).color :
+        StyleSheet.flatten(textfield.counterText).color;
 
     return {
-        counterText: textfield.counterText,
+        counterText: [StyleSheet.flatten(textfield.counterText), StyleSheet.flatten(styleState)],
         counterContainer: textfield.counterContainer,
     };
 }
@@ -17,10 +22,6 @@ const propTypes = {
     limit: PropTypes.number,
 
     fontSize: PropTypes.number.isRequired,
-
-    baseColor: PropTypes.string.isRequired,
-    errorColor: PropTypes.string.isRequired,
-
     style: Text.propTypes.style,
 };
 
@@ -35,18 +36,15 @@ const contextTypes = {
 
 class Counter extends PureComponent {
     render() {
-        const styles = getStyles(this.props, this.context, this.state);
+        const styles = getStyles(this.props, this.context);
         const {
             count,
             limit,
-            baseColor,
-            errorColor,
             fontSize,
             style,
         } = this.props;
 
         const textStyle = {
-            color: count > limit ? errorColor : baseColor,
             fontSize,
         };
 

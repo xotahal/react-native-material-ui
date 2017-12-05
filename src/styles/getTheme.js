@@ -526,21 +526,19 @@ export default function getTheme(theme, ...more) {
         textfield: StyleSheet.create(merge({
             inputContainer: {
                 backgroundColor: 'transparent',
-            },
-            tintColor: {
-                color: palette.primaryColor,
+                borderBottomColor: 'rgba(0, 0, 0, .38)',
             },
             input: {
                 top: 2,
                 padding: 0,
                 margin: 0,
                 flex: 1,
+                color: 'rgba(0, 0, 0, .87)',
             },
 
             row: {
                 flexDirection: 'row',
             },
-
             flex: {
                 flex: 1,
             },
@@ -553,6 +551,7 @@ export default function getTheme(theme, ...more) {
                 top: 2,
                 alignSelf: 'flex-start',
                 justifyContent: 'center',
+                color: 'rgba(0, 0, 0, .38)',
             },
             counterContainer: {
                 paddingVertical: 4,
@@ -561,13 +560,15 @@ export default function getTheme(theme, ...more) {
             counterText: {
                 textAlign: 'right',
                 backgroundColor: 'transparent',
+                color: 'rgba(0, 0, 0, .38)',
             },
             helperContainer: {
                 ...StyleSheet.absoluteFillObject,
                 paddingVertical: 4,
             },
-            helpertText: {
+            helperText: {
                 backgroundColor: 'transparent',
+                color: 'rgba(0, 0, 0, .38)',
             },
             line: {
                 position: 'absolute',
@@ -576,12 +577,48 @@ export default function getTheme(theme, ...more) {
                 right: -1.5,
                 bottom: 0,
                 borderWidth: 1,
+                borderColor: 'rgba(0, 0, 0, .38)',
 
                 ...Platform.select({
                     android: { borderRadius: Number.EPSILON },
                 }),
             },
+            label: {
+                color: 'rgba(0, 0, 0, .38)',
+            },
         }, theme.textfield)),
+        erroredTextfield: StyleSheet.create(merge({
+            affix: {
+                color: 'rgb(213, 0, 0)',
+            },
+
+            counterText: {
+                color: 'rgb(213, 0, 0)',
+            },
+            helperText: {
+                color: 'rgb(213, 0, 0)',
+            },
+            inputContainer: {
+                borderBottomColor: 'rgb(213, 0, 0)',
+            },
+            label: {
+                color: 'rgb(213, 0, 0)',
+            },
+        }, theme.erroredTextfield)),
+        focusedTextfield: StyleSheet.create(merge({
+            affix: {
+                color: palette.primaryColor,
+            },
+            inputContainer: {
+                borderBottomColor: palette.primaryColor,
+            },
+            label: {
+                color: palette.primaryColor,
+            },
+            input: {
+                color: 'rgba(0, 0, 0, .87)',
+            },
+        }, theme.focusedTextfield)),
     }, baseTheme);
 
     return theme;
