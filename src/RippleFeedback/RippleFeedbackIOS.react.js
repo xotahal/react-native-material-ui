@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Animated, Easing, View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Color from 'color';
+import { ViewPropTypes } from '../utils';
 import { black } from '../styles/colors';
 import { ELEVATION_ZINDEX } from '../styles/constants';
 
@@ -28,6 +29,9 @@ const propTypes = {
     onLongPress: PropTypes.func,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
+    style: PropTypes.shape({
+        container: ViewPropTypes.style,
+    }),
 };
 const defaultProps = {
     children: null,
@@ -38,6 +42,7 @@ const defaultProps = {
     color: Color(black).alpha(.87).toString(),
     disabled: false,
     maxOpacity: 0.16,
+    style: {},
 };
 
 const styles = StyleSheet.create({
@@ -249,7 +254,7 @@ class RippleFeedbackIOS extends PureComponent {
         );
     }
     render() {
-        const { children, disabled } = this.props;
+        const { children, disabled, style } = this.props;
 
         return (
             <TouchableWithoutFeedback
@@ -260,7 +265,7 @@ class RippleFeedbackIOS extends PureComponent {
                 onPressOut={this.onPressOut}
                 onPress={this.onPress}
             >
-                <View style={styles.container} pointerEvents="box-none">
+                <View style={[styles.container, style.container]} pointerEvents="box-none">
                     {children}
                     {this.renderOpacityBackground()}
                     {this.renderRippleView()}
