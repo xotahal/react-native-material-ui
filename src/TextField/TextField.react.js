@@ -366,11 +366,10 @@ class TextField extends PureComponent {
     }
 
     renderHelper(children, style, errorType = false) {
-        const emptyComponent = <View />;
         if (children) {
             return <Helper errorType={errorType} style={style}>{children}</Helper>;
         }
-        return emptyComponent;
+        return null;
     }
 
     render() {
