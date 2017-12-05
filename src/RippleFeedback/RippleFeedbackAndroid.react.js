@@ -27,7 +27,7 @@ class RippleFeedback extends PureComponent {
         // TouchableNativeFeedback.Ripple function on iOS devices
         const mapProps = { ...otherProps };
 
-        if (color) {
+        if (color && Platform.Version >= 21) {
             mapProps.background = TouchableNativeFeedback.Ripple(color, borderless);
         }
 
