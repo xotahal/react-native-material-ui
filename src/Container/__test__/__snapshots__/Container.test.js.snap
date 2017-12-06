@@ -7,5 +7,7 @@ exports[`default props 1`] = `
       "flex": 1,
     }
   }
-/>
+>
+  <View />
+</View>
 `;
