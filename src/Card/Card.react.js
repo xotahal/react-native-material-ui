@@ -60,6 +60,11 @@ class Card extends PureComponent {
             </View>
         );
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({styles: getStyles(nextProps, this.context)});
+    }
+
     render() {
         const { onPress } = this.props;
 
