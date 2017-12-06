@@ -260,7 +260,11 @@ class RippleFeedbackIOS extends PureComponent {
         const parrent = React.Children.only(children);
 
         const ripple = (
-            <View style={[styles.container, style.container]} pointerEvents="none">
+            <View
+                key="ripple-feedback-layer"
+                style={[styles.container, style.container]}
+                pointerEvents="none"
+            >
                 {this.renderOpacityBackground()}
                 {this.renderRippleView()}
             </View>
