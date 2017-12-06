@@ -29,9 +29,6 @@ const propTypes = {
     onLongPress: PropTypes.func,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-    }),
 };
 const defaultProps = {
     children: null,
@@ -42,11 +39,11 @@ const defaultProps = {
     color: Color(black).alpha(.87).toString(),
     disabled: false,
     maxOpacity: 0.16,
-    style: {},
 };
 
 const styles = StyleSheet.create({
     container: {
+        ...StyleSheet.absoluteFillObject,
         overflow: 'hidden',
     },
 });
@@ -254,7 +251,16 @@ class RippleFeedbackIOS extends PureComponent {
         );
     }
     render() {
-        const { children, disabled, style } = this.props;
+        const { children, disabled } = this.props;
+
+        const parrent = React.Children.only(children);
+
+        const ripple = (
+            <View style={styles.container} pointerEvents="none">
+                {this.renderOpacityBackground()}
+                {this.renderRippleView()}
+            </View>
+        );
 
         return (
             <TouchableWithoutFeedback
@@ -265,11 +271,10 @@ class RippleFeedbackIOS extends PureComponent {
                 onPressOut={this.onPressOut}
                 onPress={this.onPress}
             >
-                <View style={[styles.container, style.container]} pointerEvents="box-none">
-                    {children}
-                    {this.renderOpacityBackground()}
-                    {this.renderRippleView()}
-                </View>
+                {React.cloneElement(parrent, [], [
+                    parrent.props.children,
+                    ripple,
+                ])}
             </TouchableWithoutFeedback>
         );
     }

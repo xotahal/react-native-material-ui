@@ -181,7 +181,6 @@ export default function getTheme(theme, ...more) {
         }, theme.buttonRaisedDisabled)),
         bottomNavigation: StyleSheet.create(merge({
             container: {
-                flexDirection: 'row',
                 height: 56,
                 backgroundColor: palette.canvasColor,
                 borderTopColor: palette.borderColor,
@@ -189,11 +188,16 @@ export default function getTheme(theme, ...more) {
                 ...getPlatformElevation(8),
                 zIndex: 8,
             },
+            actionsContainer: {
+                flexDirection: 'row',
+                justifyContent: 'center',
+            },
         }, theme.bottomNavigation)),
         bottomNavigationAction: StyleSheet.create(merge({
             container: {
                 flex: 1,
                 alignItems: 'center',
+                justifyContent: 'center',
                 maxWidth: 168,
                 minWidth: 80,
                 paddingBottom: 12,
