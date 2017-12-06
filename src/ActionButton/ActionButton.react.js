@@ -172,6 +172,14 @@ function getStyles(props, context, state) {
     };
 }
 
+const getRippleContainerStyle = (containerStyle) => {
+    const flattenContainer = StyleSheet.flatten(containerStyle);
+    const { height, width, borderRadius } = flattenContainer;
+
+    return { container: { height, width, borderRadius } };
+};
+
+
 class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
@@ -300,6 +308,7 @@ class ActionButton extends PureComponent {
         return (
             <View key="main-button" style={styles.container}>
                 <RippleFeedback
+                    style={getRippleContainerStyle(styles.container)}
                     color={this.props.rippleColor}
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
@@ -363,6 +372,7 @@ class ActionButton extends PureComponent {
             <View key={key} style={styles.speedDialActionIconContainer}>
                 <View style={styles.speedDialActionIcon}>
                     <RippleFeedback
+                        style={getRippleContainerStyle(styles.speedDialActionIcon)}
                         color={this.props.rippleColor}
                         onPress={() => this.onPress(key)}
                         delayPressIn={20}
