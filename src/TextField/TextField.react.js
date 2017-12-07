@@ -16,6 +16,112 @@ import Affix from './Affix.react';
 import Helper from './Helper.react';
 import Counter from './Counter.react';
 
+const propTypes = {
+
+    /**
+    * Accepts all textinput propTypes
+    */
+    ...TextInput.propTypes,
+
+    /**
+    * Android specific propTypes for textInput
+    */
+    underlineColorAndroid: PropTypes.string,
+    disableFullscreenUI: PropTypes.bool,
+    autoCapitalize: PropTypes.string,
+    editable: PropTypes.bool,
+
+    /**
+    * Animation duration in ms
+    */
+    animationDuration: PropTypes.number,
+
+    /**
+    * Style propTypes : TODO, include as overwritable styles in theme
+    */
+    fontSize: PropTypes.number,
+    titleFontSize: PropTypes.number,
+    labelFontSize: PropTypes.number,
+    labelHeight: PropTypes.number,
+    labelPadding: PropTypes.number,
+    inputContainerPadding: PropTypes.number,
+
+    /**
+    * Textfield label text
+    */
+    label: PropTypes.string.isRequired,
+    /**
+    * Textfield helper text, TODO: Change prop name
+    */
+    title: PropTypes.string,
+
+    /**
+    * Text field soft limit for character counter
+    */
+    characterRestriction: PropTypes.number,
+
+    /**
+    * Text field error text
+    */
+    error: PropTypes.string,
+
+    /**
+    * Boolean for disabling the textfield
+    */
+    disabled: PropTypes.bool,
+    /**
+    * Type of line if disabled, posible values: 'solid', 'dotted', 'dashed', 'none'
+    */
+    disabledLineType: Line.propTypes.type,
+
+    /**
+    * Render function in order to render an accessory view inside the textfield
+    */
+    renderAccessory: PropTypes.func,
+
+    /**
+    * Props for adding prefix and/or suffix in the textfield
+    */
+    prefix: PropTypes.string,
+    suffix: PropTypes.string,
+
+    /**
+    * Boolean for enabling multiline
+    */
+    multiline: PropTypes.bool,
+
+};
+
+const defaultProps = {
+
+    underlineColorAndroid: 'transparent',
+    disableFullscreenUI: true,
+    autoCapitalize: 'sentences',
+    editable: true,
+
+    animationDuration: 225,
+
+    fontSize: 16,
+    titleFontSize: 12,
+    labelFontSize: 12,
+    labelHeight: 32,
+    labelPadding: 4,
+    inputContainerPadding: 8,
+
+    error: null,
+
+    disabled: false,
+    disabledLineType: 'dotted',
+
+    title: null,
+    characterRestriction: null,
+    renderAccessory: null,
+
+    prefix: null,
+    suffix: null,
+
+    multiline: false,
+};
 
 function getStyles(props, context, state) {
     const {
@@ -74,76 +180,6 @@ function getStyles(props, context, state) {
         primaryColor: palette.primaryColor,
     };
 }
-
-const defaultProps = {
-
-    underlineColorAndroid: 'transparent',
-    disableFullscreenUI: true,
-    autoCapitalize: 'sentences',
-    editable: true,
-
-    animationDuration: 225,
-
-    fontSize: 16,
-    titleFontSize: 12,
-    labelFontSize: 12,
-    labelHeight: 32,
-    labelPadding: 4,
-    inputContainerPadding: 8,
-
-    error: null,
-
-    disabled: false,
-    disabledLineType: 'dotted',
-
-    title: null,
-    characterRestriction: null,
-    renderAccessory: null,
-
-    prefix: null,
-    suffix: null,
-};
-
-const propTypes = {
-
-    ...TextInput.propTypes,
-
-    underlineColorAndroid: PropTypes.string,
-    disableFullscreenUI: PropTypes.bool,
-    autoCapitalize: PropTypes.string,
-    editable: PropTypes.bool,
-
-    animationDuration: PropTypes.number,
-
-    fontSize: PropTypes.number,
-    titleFontSize: PropTypes.number,
-    labelFontSize: PropTypes.number,
-    labelHeight: PropTypes.number,
-    labelPadding: PropTypes.number,
-    inputContainerPadding: PropTypes.number,
-
-    // labelTextStyle: Text.propTypes.style,
-    // titleTextStyle: Text.propTypes.style,
-    // affixTextStyle: Text.propTypes.style,
-
-    label: PropTypes.string.isRequired,
-    title: PropTypes.string,
-
-    characterRestriction: PropTypes.number,
-
-    error: PropTypes.string,
-
-    disabled: PropTypes.bool,
-    disabledLineType: Line.propTypes.type,
-
-    renderAccessory: PropTypes.func,
-
-    prefix: PropTypes.string,
-    suffix: PropTypes.string,
-
-    // containerStyle: (ViewPropTypes || View.propTypes).style,
-    // inputContainerStyle: (ViewPropTypes || View.propTypes).style,
-};
 
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
