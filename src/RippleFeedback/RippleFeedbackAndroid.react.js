@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableNativeFeedback } from 'react-native';
+import { TouchableNativeFeedback, Platform } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
@@ -27,7 +27,7 @@ class RippleFeedback extends PureComponent {
         // TouchableNativeFeedback.Ripple function on iOS devices
         const mapProps = { ...otherProps };
 
-        if (color) {
+        if (color && Platform.Version >= 21) {
             mapProps.background = TouchableNativeFeedback.Ripple(color, borderless);
         }
 

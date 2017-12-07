@@ -50,16 +50,18 @@ class Card extends PureComponent {
             styles: getStyles(props, context),
         };
     }
+
     renderContent = () => {
         const { children } = this.props;
         const { styles } = this.state;
 
         return (
-            <View style={styles.container} pointerEvents="box-only">
+            <View style={styles.container} pointerEvents="auto">
                 {children}
             </View>
         );
     }
+
     render() {
         const { onPress } = this.props;
 
