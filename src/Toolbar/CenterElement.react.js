@@ -10,7 +10,7 @@ const propTypes = {
     searchValue: PropTypes.string.isRequired,
     searchable: PropTypes.shape({
         autoFocus: PropTypes.bool,
-        autoCapitalize: PropTypes.string,
+        autoCapitalize: TextInput.propTypes.autoCapitalize,
         autoCorrect: PropTypes.bool,
         onChangeText: PropTypes.func,
         onSubmitEditing: PropTypes.func,
