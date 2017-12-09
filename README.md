@@ -129,7 +129,7 @@ Of course, sometimes we need to change style of only one component. It means, al
 
 Note: You have to allow the animations for Android ([see React Native's documentation](http://facebook.github.io/react-native/releases/0.33/docs/animations.html#layoutanimation))
 ```js
-UIManager.setLayoutAnimationEnabledExperimental && 
+UIManager.setLayoutAnimationEnabledExperimental &&
 UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 # Themes are supported
@@ -170,11 +170,11 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Card](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Card.md)
 - [Checkbox](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Checkbox.md)
 - [Dialog](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Dialog.md)
-- [Divider](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Drawer.md)
-- [Drawer](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
+- [Divider](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
+- [Drawer](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Drawer.md)
 - [Icon](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Icon.md)
-- [Icon toggles](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
-- [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
-- [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
+- [Icon Toggle](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
+- [List Item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
+- [Radio Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
 - [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
