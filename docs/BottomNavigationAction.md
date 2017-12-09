@@ -1,4 +1,4 @@
-# [BottomNavigationAction](https://material.google.com/components/bottom-navigation.html)
+# [Bottom Navigation Action](https://material.google.com/components/bottom-navigation.html)
 
 ### Usage
 

@@ -1,4 +1,4 @@
-# [RadioButton](https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button)
+# [Radio Button](https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button)
 
 ### Usage
 
