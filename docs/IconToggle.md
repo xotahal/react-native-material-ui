@@ -1,4 +1,4 @@
-# IconToggle
+# Icon Toggle
 
 ### Usage
 

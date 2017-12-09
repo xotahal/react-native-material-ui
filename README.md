@@ -16,10 +16,18 @@ $ npm i react-native-material-ui --save
 ```
 
 ## Setting of vector icons
+First of all, install `react-native-vector-icons`:
+
+```bash
+npm i react-native-vector-icons --save
+```
+
+After that, use one of the methods listed below to apply the material icons font.
+
 You can see [this repo](https://github.com/oblador/react-native-vector-icons) for much more information.
 
 ### React Native Link (recommended)
-> Make sure you have atleast v0.31.0 react-native version.
+> Make sure you have at least v0.31.0 react-native version.
 
 ```bash
 $ react-native link react-native-vector-icons
