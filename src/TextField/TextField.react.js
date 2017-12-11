@@ -6,6 +6,7 @@ import {
     Animated,
     StyleSheet,
     Platform,
+    Text,
 } from 'react-native';
 
 import RN from 'react-native/package.json';
@@ -35,16 +36,6 @@ const propTypes = {
     * Animation duration in ms
     */
     animationDuration: PropTypes.number,
-
-    /**
-    * Style propTypes : TODO, include as overwritable styles in theme
-    */
-    fontSize: PropTypes.number,
-    titleFontSize: PropTypes.number,
-    labelFontSize: PropTypes.number,
-    labelHeight: PropTypes.number,
-    labelPadding: PropTypes.number,
-    inputContainerPadding: PropTypes.number,
 
     /**
     * Textfield label text
@@ -90,6 +81,18 @@ const propTypes = {
     */
     multiline: PropTypes.bool,
 
+    /**
+    * Override Styles
+    */
+    style: PropTypes.shape({
+        inputContainer: View.propTypes.style,
+        container: View.propTypes.style,
+        labelText: Text.propTypes.style,
+        titleText: Text.propTypes.style,
+        affixText: Text.propTypes.style,
+        input: TextInput.propTypes.style,
+    }),
+
 };
 
 const defaultProps = {
@@ -100,13 +103,6 @@ const defaultProps = {
     editable: true,
 
     animationDuration: 225,
-
-    fontSize: 16,
-    titleFontSize: 12,
-    labelFontSize: 12,
-    labelHeight: 32,
-    labelPadding: 4,
-    inputContainerPadding: 8,
 
     error: null,
 
@@ -121,6 +117,14 @@ const defaultProps = {
     suffix: null,
 
     multiline: false,
+    style: {
+        inputContainer: null,
+        container: null,
+        labelText: null,
+        titleText: null,
+        affixText: null,
+        input: null,
+    },
 };
 
 function getStyles(props, context, state) {
@@ -135,8 +139,26 @@ function getStyles(props, context, state) {
         value,
         defaultValue,
         disabled,
+        multiline,
+        title,
+        characterRestriction: limit,
     } = props;
     const { focus, receivedFocus } = state;
+    let { height } = state;
+    const { paddingBottom, fontSize } = StyleSheet.flatten(textfield.inputContainer);
+    const labelHeight = StyleSheet.flatten(textfield.label).height;
+
+    if (props.multiline && props.height) {
+        /* Disable autogrow if height is passed as prop */
+        [height] = props;
+    }
+
+    const borderBottomWidth = restricted ?
+        2 :
+        focus.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [2, StyleSheet.hairlineWidth, 2],
+        });
 
     const textfieldState = {
         borderBottomColor: restricted ?
@@ -149,24 +171,66 @@ function getStyles(props, context, state) {
                     StyleSheet.flatten(focusedTextfield.inputContainer).borderBottomColor,
                 ],
             }),
+        paddingTop: labelHeight,
+        paddingBottom,
+        ...(disabled ?
+            { overflow: 'hidden' } :
+            { borderBottomWidth }),
+        ...(multiline ?
+            { height: labelHeight + paddingBottom + height } :
+            { height: labelHeight + paddingBottom + (fontSize * 1.5) }),
     };
+
 
     const defaultVisible = !(receivedFocus || value != null || defaultValue == null);
     const styleTextInput = (disabled || defaultVisible) ?
         textfield.input :
         focusedTextfield.input;
 
+
     const inputContainerStyle = [textfield.inputContainer, textfieldState];
+
+    const helperFontSize = StyleSheet.flatten(textfield.helperText).fontSize;
+    const helperOuterContainer = {
+        flexDirection: StyleSheet.flatten(textfield.helperOuterContainer).flexDirection,
+        height: (title || limit) ?
+            helperFontSize * 2 :
+            focus.interpolate({
+                inputRange: [-1, 0, 1],
+                outputRange: [helperFontSize * 2, 8, 8],
+            }),
+    };
+
+    const errorStyle = {
+        opacity: focus.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [1, 0, 0],
+        }),
+
+        fontSize: title ?
+            helperFontSize :
+            focus.interpolate({
+                inputRange: [-1, 0, 1],
+                outputRange: [helperFontSize, 0, 0],
+            }),
+    };
+
+    const titleStyle = {
+        opacity: focus.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [0, 1, 1],
+        }),
+
+        fontSize: helperFontSize,
+    };
 
     return {
         inputContainer: [
             inputContainerStyle,
-            props.style.inputContainer,
         ],
         input: [
             textfield.input,
             styleTextInput,
-            props.style.input,
         ],
         row: [
             textfield.row,
@@ -177,6 +241,9 @@ function getStyles(props, context, state) {
         accessory: [
             textfield.accessory,
         ],
+        errorStyle,
+        titleStyle,
+        helperOuterContainer,
         primaryColor: palette.primaryColor,
     };
 }
@@ -258,8 +325,10 @@ class TextField extends PureComponent {
     }
 
     onContentSizeChange(event) {
-        const { onContentSizeChange, fontSize } = this.props;
+        const { onContentSizeChange } = this.props;
         const { height } = event.nativeEvent.contentSize;
+
+        const styles = getStyles(this.props, this.context, this.state);
 
         if (typeof onContentSizeChange === 'function') {
             onContentSizeChange(event);
@@ -267,7 +336,7 @@ class TextField extends PureComponent {
 
         this.setState({
             height: Math.max(
-                fontSize * 1.5,
+                styles.input.fontSize * 1.5,
                 Math.ceil(height) + Platform.select({ ios: 5, android: 1 }),
             ),
         });
@@ -379,7 +448,6 @@ class TextField extends PureComponent {
     renderAffix(type, active, focused) {
         const {
             [type]: affix,
-            fontSize,
             animationDuration,
             affixTextStyle,
         } = this.props;
@@ -392,7 +460,6 @@ class TextField extends PureComponent {
             type,
             active,
             focused,
-            fontSize,
             animationDuration,
         };
 
@@ -413,14 +480,13 @@ class TextField extends PureComponent {
 
         const {
             receivedFocus,
-            focus,
             focused,
             error,
             errored,
             text = '',
         } = this.state;
         const {
-            style: inputStyleOverrides,
+            style,
             label,
             title,
             defaultValue,
@@ -429,29 +495,12 @@ class TextField extends PureComponent {
             disabled,
             disabledLineType,
             animationDuration,
-            fontSize,
-            titleFontSize,
-            labelFontSize,
-            labelHeight,
-            labelPadding,
-            inputContainerPadding,
-            labelTextStyle,
-            titleTextStyle,
-            containerStyle,
-            inputContainerStyle: inputContainerStyleOverrides,
             renderAccessory,
             ...props
         } = this.props;
 
-
         let { value } = this.props;
         let { height } = this.state;
-
-
-        if (props.multiline && props.height) {
-            /* Disable autogrow if height is passed as prop */
-            [height] = props;
-        }
 
         const defaultVisible = !(receivedFocus || value != null || defaultValue == null);
 
@@ -462,78 +511,26 @@ class TextField extends PureComponent {
         const active = !!(value || props.placeholder);
         const count = value.length;
         const restricted = limit ? (limit < count) : false;
+        if (props.multiline && props.height) {
+            /* Disable autogrow if height is passed as prop */
+            [height] = props;
+        }
 
-
-        const borderBottomWidth = restricted ?
-            2 :
-            focus.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [2, StyleSheet.hairlineWidth, 2],
-            });
-
-        const inputContainerStyle = {
-            paddingTop: labelHeight,
-            paddingBottom: inputContainerPadding,
-
-            ...(disabled ?
-                { overflow: 'hidden' } :
-                { borderBottomWidth }),
-
-            ...(props.multiline ?
-                { height: labelHeight + inputContainerPadding + height } :
-                { height: labelHeight + inputContainerPadding + (fontSize * 1.5) }),
-        };
-
-        const inputStyle = {
-            fontSize,
-
+        const inputHeight = {
             ...(props.multiline ?
                 {
-                    height: (fontSize * 1.5) + height,
+                    height: (styles.input.fontSize * 1.5) + height,
 
                     ...Platform.select({
                         ios: { top: -1 },
                         android: { textAlignVertical: 'top' },
                     }),
                 } :
-                { height: fontSize * 1.5 }),
-        };
-
-        const errorStyle = {
-            opacity: focus.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [1, 0, 0],
-            }),
-
-            fontSize: title ?
-                titleFontSize :
-                focus.interpolate({
-                    inputRange: [-1, 0, 1],
-                    outputRange: [titleFontSize, 0, 0],
-                }),
-        };
-
-        const titleStyle = {
-            opacity: focus.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [0, 1, 1],
-            }),
-
-            fontSize: titleFontSize,
-        };
-
-        const helperContainerStyle = {
-            flexDirection: 'row',
-            height: (title || limit) ?
-                titleFontSize * 2 :
-                focus.interpolate({
-                    inputRange: [-1, 0, 1],
-                    outputRange: [titleFontSize * 2, 8, 8],
-                }),
+                { height: styles.input.fontSize * 1.5 }),
         };
 
         const containerProps = {
-            style: containerStyle,
+            style: style.container,
             onStartShouldSetResponder: () => true,
             onResponderRelease: this.onPress,
             pointerEvents: !disabled && editable ?
@@ -544,29 +541,23 @@ class TextField extends PureComponent {
         const inputContainerProps = {
             style: [
                 styles.inputContainer,
-                inputContainerStyle,
-                inputContainerStyleOverrides,
+                StyleSheet.flatten(style.inputContainer),
             ],
         };
 
         const labelProps = {
-            baseSize: labelHeight,
-            basePadding: labelPadding,
-            fontSize,
-            activeFontSize: labelFontSize,
             animationDuration,
             active,
             focused,
             errored,
             restricted,
-            style: labelTextStyle,
+            style: StyleSheet.flatten(style.labelText),
         };
 
         const counterProps = {
             count,
             limit,
-            fontSize: titleFontSize,
-            style: titleTextStyle,
+            style: StyleSheet.flatten(style.titleText),
         };
 
         return (
@@ -580,7 +571,7 @@ class TextField extends PureComponent {
                         {this.renderAffix('prefix', active, focused)}
 
                         <TextInput
-                            style={[styles.input, inputStyle, inputStyleOverrides]}
+                            style={[styles.input, StyleSheet.flatten(style.input), inputHeight]}
                             selectionColor={styles.primaryColor}
 
                             {...props}
@@ -600,10 +591,10 @@ class TextField extends PureComponent {
                     </View>
                 </Animated.View>
 
-                <Animated.View style={helperContainerStyle}>
+                <Animated.View style={styles.helperOuterContainer}>
                     <View style={styles.flex}>
-                        { this.renderHelper(error, [errorStyle, titleTextStyle], true) }
-                        { this.renderHelper(title, [titleStyle, titleTextStyle]) }
+                        { this.renderHelper(error, [styles.errorStyle, StyleSheet.flatten(style.titleText)], true) }
+                        { this.renderHelper(title, [styles.titleStyle, StyleSheet.flatten(style.titleText)]) }
                     </View>
 
                     <Counter {...counterProps} />

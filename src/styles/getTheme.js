@@ -527,6 +527,7 @@ export default function getTheme(theme, ...more) {
             inputContainer: {
                 backgroundColor: 'transparent',
                 borderBottomColor: 'rgba(0, 0, 0, .38)',
+                paddingBottom: 8,
             },
             input: {
                 top: 2,
@@ -534,6 +535,7 @@ export default function getTheme(theme, ...more) {
                 margin: 0,
                 flex: 1,
                 color: 'rgba(0, 0, 0, .87)',
+                fontSize: 16,
             },
 
             row: {
@@ -553,6 +555,9 @@ export default function getTheme(theme, ...more) {
                 justifyContent: 'center',
                 color: 'rgba(0, 0, 0, .38)',
             },
+            affixText: {
+                fontSize: 16,
+            },
             counterContainer: {
                 paddingVertical: 4,
                 paddingLeft: 4,
@@ -561,14 +566,19 @@ export default function getTheme(theme, ...more) {
                 textAlign: 'right',
                 backgroundColor: 'transparent',
                 color: 'rgba(0, 0, 0, .38)',
+                fontSize: 12,
             },
             helperContainer: {
                 ...StyleSheet.absoluteFillObject,
                 paddingVertical: 4,
             },
+            helperOuterContainer: {
+                flexDirection: 'row',
+            },
             helperText: {
                 backgroundColor: 'transparent',
                 color: 'rgba(0, 0, 0, .38)',
+                fontSize: 12,
             },
             line: {
                 position: 'absolute',
@@ -585,6 +595,10 @@ export default function getTheme(theme, ...more) {
             },
             label: {
                 color: 'rgba(0, 0, 0, .38)',
+                height: 32,
+                padding: 4,
+                fontSize: 12,
+                position: 'absolute',
             },
         }, theme.textfield)),
         erroredTextfield: StyleSheet.create(merge({

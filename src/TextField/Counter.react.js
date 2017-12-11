@@ -21,7 +21,6 @@ const propTypes = {
     count: PropTypes.number.isRequired,
     limit: PropTypes.number,
 
-    fontSize: PropTypes.number.isRequired,
     style: Text.propTypes.style,
 };
 
@@ -40,13 +39,8 @@ class Counter extends PureComponent {
         const {
             count,
             limit,
-            fontSize,
             style,
         } = this.props;
-
-        const textStyle = {
-            fontSize,
-        };
 
         if (!limit) {
             return null;
@@ -54,7 +48,7 @@ class Counter extends PureComponent {
 
         return (
             <View style={styles.counterContainer}>
-                <Text style={[styles.counterText, style, textStyle]}>
+                <Text style={[styles.counterText, style]}>
                     {count} / {limit}
                 </Text>
             </View>

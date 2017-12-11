@@ -1,13 +1,32 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 
 // import styles from './styles';
-function getStyles(props, context) {
+function getStyles(props, context, state) {
     const { textfield } = context.uiTheme;
+    const { type } = props;
+
+    switch (type) {
+        case 'prefix':
+            textfield.affix.paddingRight = 8;
+            textfield.affixText.textAlign = 'left';
+            break;
+
+        case 'suffix':
+            textfield.affix.paddingLeft = 8;
+            textfield.affixText.textAlign = 'right';
+            break;
+    }
+
+    const containerStyle = {
+        height: StyleSheet.flatten(textfield.affixText).fontSize * 1.5,
+        opacity: state.opacity,
+    };
 
     return {
-        affix: textfield.affix,
+        affix: [textfield.affix, containerStyle],
+        affixText: textfield.affixText,
     };
 }
 
@@ -28,8 +47,6 @@ const propTypes = {
 
     type: PropTypes.oneOf(['prefix', 'suffix']).isRequired,
 
-    fontSize: PropTypes.number.isRequired,
-    baseColor: PropTypes.string.isRequired,
     animationDuration: PropTypes.number.isRequired,
 
     style: Animated.Text.propTypes.style,
@@ -71,38 +88,14 @@ class Affix extends PureComponent {
 
     render() {
         const styles = getStyles(this.props, this.context, this.state);
-        const { opacity } = this.state;
         const {
             style,
             children,
-            type,
-            fontSize,
         } = this.props;
 
-        const containerStyle = {
-            height: fontSize * 1.5,
-            opacity,
-        };
-
-        const textStyle = {
-            fontSize,
-        };
-
-        switch (type) {
-            case 'prefix':
-                containerStyle.paddingRight = 8;
-                textStyle.textAlign = 'left';
-                break;
-
-            case 'suffix':
-                containerStyle.paddingLeft = 8;
-                textStyle.textAlign = 'right';
-                break;
-        }
-
         return (
-            <Animated.View style={[styles.affix, containerStyle]}>
-                <Animated.Text style={[style, textStyle]}>{children}</Animated.Text>
+            <Animated.View style={styles.affix}>
+                <Animated.Text style={[style, style.affixText]}>{children}</Animated.Text>
             </Animated.View>
         );
     }

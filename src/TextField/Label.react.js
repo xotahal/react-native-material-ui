@@ -6,9 +6,14 @@ import { Animated, StyleSheet } from 'react-native';
 function getStyles(props, context, state) {
     const { textfield, erroredTextfield, focusedTextfield } = context.uiTheme;
     const { restricted } = props;
-    const { focus } = state;
+    const { focus, input } = state;
 
-    const colorState = {
+    const baseSize = StyleSheet.flatten(textfield.label).height;
+    const activeFontSize = StyleSheet.flatten(textfield.label).fontSize;
+    const basePadding = StyleSheet.flatten(textfield.label).padding;
+    const { fontSize } = StyleSheet.flatten(textfield.input);
+
+    const textStyle = {
         color: restricted ?
             StyleSheet.flatten(erroredTextfield.label).color :
             focus.interpolate({
@@ -19,10 +24,24 @@ function getStyles(props, context, state) {
                     StyleSheet.flatten(focusedTextfield.label).color,
                 ],
             }),
+        fontSize: input.interpolate({
+            inputRange: [0, 1],
+            outputRange: [fontSize, activeFontSize],
+        }),
     };
-
+    const container = {
+        top: input.interpolate({
+            inputRange: [0, 1],
+            outputRange: [
+                baseSize + (fontSize * 0.25),
+                baseSize - basePadding - activeFontSize,
+            ],
+        }),
+        position: StyleSheet.flatten(textfield.label).position,
+    };
     return {
-        label: colorState,
+        label: textStyle,
+        container,
     };
 }
 
@@ -43,11 +62,6 @@ const propTypes = {
     errored: PropTypes.bool,
     focused: PropTypes.bool,
     restricted: PropTypes.bool,
-
-    baseSize: PropTypes.number.isRequired,
-    fontSize: PropTypes.number.isRequired,
-    activeFontSize: PropTypes.number.isRequired,
-    basePadding: PropTypes.number.isRequired,
 
     animationDuration: PropTypes.number.isRequired,
 
@@ -105,14 +119,9 @@ class Label extends PureComponent {
     }
 
     render() {
-        const { input } = this.state;
         const {
             children,
             restricted,
-            fontSize,
-            activeFontSize,
-            baseSize,
-            basePadding,
             style,
             errored,
             active,
@@ -123,29 +132,9 @@ class Label extends PureComponent {
 
         const styles = getStyles(this.props, this.context, this.state);
 
-        const top = input.interpolate({
-            inputRange: [0, 1],
-            outputRange: [
-                baseSize + (fontSize * 0.25),
-                baseSize - basePadding - activeFontSize,
-            ],
-        });
-
-        const textStyle = {
-            fontSize: input.interpolate({
-                inputRange: [0, 1],
-                outputRange: [fontSize, activeFontSize],
-            }),
-        };
-
-        const containerStyle = {
-            position: 'absolute',
-            top,
-        };
-
         return (
-            <Animated.View style={containerStyle}>
-                <Animated.Text style={[style, textStyle, styles.label]} {...props}>
+            <Animated.View style={styles.container}>
+                <Animated.Text style={[styles.label, style]} {...props}>
                     {children}
                 </Animated.Text>
             </Animated.View>
