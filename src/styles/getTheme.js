@@ -557,10 +557,10 @@ export default function getTheme(theme, ...more) {
                 top: 2,
                 alignSelf: 'flex-start',
                 justifyContent: 'center',
-                color: 'rgba(0, 0, 0, .38)',
             },
             affixText: {
                 fontSize: 16,
+                color: 'rgba(0, 0, 0, .38)',
             },
             counterContainer: {
                 paddingVertical: 4,

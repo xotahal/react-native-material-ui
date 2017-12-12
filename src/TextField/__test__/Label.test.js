@@ -1,8 +1,9 @@
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 
-import Label from '.';
+import Label from '../Label.react';
 
 /* eslint-env jest */
 
@@ -20,7 +21,10 @@ const props = {
 
 it('renders label', () => {
     const label = renderer
-        .create(<Label {...props}>{text}</Label>);
+        .create(
+            <ThemeProvider>
+                <Label {...props}>{text}</Label>
+            </ThemeProvider>);
 
     expect(label.toJSON())
         .toMatchSnapshot();
@@ -28,7 +32,10 @@ it('renders label', () => {
 
 it('renders active label', () => {
     const label = renderer
-        .create(<Label active {...props}>{text}</Label>);
+        .create(
+            <ThemeProvider>
+                <Label active {...props}>{text}</Label>
+            </ThemeProvider>);
 
     expect(label.toJSON())
         .toMatchSnapshot();
@@ -36,7 +43,10 @@ it('renders active label', () => {
 
 it('renders focused label', () => {
     const label = renderer
-        .create(<Label focused {...props}>{text}</Label>);
+        .create(
+            <ThemeProvider>
+                <Label focused {...props}>{text}</Label>
+            </ThemeProvider>);
 
     expect(label.toJSON())
         .toMatchSnapshot();
@@ -44,7 +54,10 @@ it('renders focused label', () => {
 
 it('renders errored label', () => {
     const label = renderer
-        .create(<Label errored {...props}>{text}</Label>);
+        .create(
+            <ThemeProvider>
+                <Label errored {...props}>{text}</Label>
+            </ThemeProvider>);
 
     expect(label.toJSON())
         .toMatchSnapshot();
@@ -52,7 +65,10 @@ it('renders errored label', () => {
 
 it('renders restricted label', () => {
     const label = renderer
-        .create(<Label restricted {...props}>{text}</Label>);
+        .create(
+            <ThemeProvider>
+                <Label restricted {...props}>{text}</Label>
+            </ThemeProvider>);
 
     expect(label.toJSON())
         .toMatchSnapshot();

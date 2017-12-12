@@ -15,15 +15,18 @@ exports[`renders when limit is exceeded 1`] = `
     ellipsizeMode="tail"
     style={
       Array [
-        Object {
-          "backgroundColor": "transparent",
-          "textAlign": "right",
-        },
-        undefined,
-        Object {
-          "color": "red",
-          "fontSize": 12,
-        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "rgba(0, 0, 0, .38)",
+            "fontSize": 12,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "rgb(213, 0, 0)",
+          },
+        ],
+        null,
       ]
     }
   >
@@ -49,15 +52,18 @@ exports[`renders when limit is set 1`] = `
     ellipsizeMode="tail"
     style={
       Array [
-        Object {
-          "backgroundColor": "transparent",
-          "textAlign": "right",
-        },
-        undefined,
-        Object {
-          "color": "blue",
-          "fontSize": 12,
-        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "rgba(0, 0, 0, .38)",
+            "fontSize": 12,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "rgba(0, 0, 0, .38)",
+          },
+        ],
+        null,
       ]
     }
   >

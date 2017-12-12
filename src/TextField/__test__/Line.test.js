@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 
 import Line from '../Line.react';
 
@@ -10,7 +11,10 @@ import Line from '../Line.react';
     .forEach(({ type, color }) => {
         it(`renders ${type} ${color} line`, () => {
             const line = renderer
-                .create(<Line type={type} color={color} />)
+                .create(
+                    <ThemeProvider>
+                        <Line type={type} color={color} />
+                    </ThemeProvider>)
                 .toJSON();
 
             expect(line)

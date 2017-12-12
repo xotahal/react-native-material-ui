@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 
 import Affix from '../Affix.react';
 
@@ -17,7 +18,10 @@ const suffix = 'z';
 
 it('renders prefix', () => {
     const affix = renderer
-        .create(<Affix type="prefix" {...props}>{prefix}</Affix>)
+        .create(
+            <ThemeProvider>
+                <Affix type="prefix" {...props}>{prefix}</Affix>
+            </ThemeProvider>)
         .toJSON();
 
     expect(affix)
@@ -26,7 +30,10 @@ it('renders prefix', () => {
 
 it('renders suffix', () => {
     const affix = renderer
-        .create(<Affix type="suffix" {...props}>{suffix}</Affix>)
+        .create(
+            <ThemeProvider>
+                <Affix type="suffix" {...props}>{suffix}</Affix>
+            </ThemeProvider>)
         .toJSON();
 
     expect(affix)

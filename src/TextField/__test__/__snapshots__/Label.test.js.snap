@@ -12,16 +12,23 @@ exports[`renders active label 1`] = `
 >
   <Text
     accessible={true}
+    activeFontSize={12}
     allowFontScaling={true}
+    baseColor="black"
+    basePadding={4}
+    baseSize={32}
     collapsable={undefined}
     ellipsizeMode="tail"
+    errorColor="red"
+    fontSize={16}
     numberOfLines={1}
     style={
       Object {
-        "color": "rgba(0, 0, 0, 1)",
+        "color": "rgba(0, 0, 0, 0.38)",
         "fontSize": 12,
       }
     }
+    tintColor="blue"
   >
     test
   </Text>
@@ -40,16 +47,23 @@ exports[`renders errored label 1`] = `
 >
   <Text
     accessible={true}
+    activeFontSize={12}
     allowFontScaling={true}
+    baseColor="black"
+    basePadding={4}
+    baseSize={32}
     collapsable={undefined}
     ellipsizeMode="tail"
+    errorColor="red"
+    fontSize={16}
     numberOfLines={1}
     style={
       Object {
-        "color": "rgba(255, 0, 0, 1)",
+        "color": "rgba(213, 0, 0, 1)",
         "fontSize": 16,
       }
     }
+    tintColor="blue"
   >
     test
   </Text>
@@ -68,16 +82,23 @@ exports[`renders focused label 1`] = `
 >
   <Text
     accessible={true}
+    activeFontSize={12}
     allowFontScaling={true}
+    baseColor="black"
+    basePadding={4}
+    baseSize={32}
     collapsable={undefined}
     ellipsizeMode="tail"
+    errorColor="red"
+    fontSize={16}
     numberOfLines={1}
     style={
       Object {
-        "color": "rgba(0, 0, 255, 1)",
+        "color": "rgba(33, 150, 243, 1)",
         "fontSize": 12,
       }
     }
+    tintColor="blue"
   >
     test
   </Text>
@@ -96,16 +117,23 @@ exports[`renders label 1`] = `
 >
   <Text
     accessible={true}
+    activeFontSize={12}
     allowFontScaling={true}
+    baseColor="black"
+    basePadding={4}
+    baseSize={32}
     collapsable={undefined}
     ellipsizeMode="tail"
+    errorColor="red"
+    fontSize={16}
     numberOfLines={1}
     style={
       Object {
-        "color": "rgba(0, 0, 0, 1)",
+        "color": "rgba(0, 0, 0, 0.38)",
         "fontSize": 16,
       }
     }
+    tintColor="blue"
   >
     test
   </Text>
@@ -124,16 +152,23 @@ exports[`renders restricted label 1`] = `
 >
   <Text
     accessible={true}
+    activeFontSize={12}
     allowFontScaling={true}
+    baseColor="black"
+    basePadding={4}
+    baseSize={32}
     collapsable={undefined}
     ellipsizeMode="tail"
+    errorColor="red"
+    fontSize={16}
     numberOfLines={1}
     style={
       Object {
-        "color": "red",
+        "color": "rgb(213, 0, 0)",
         "fontSize": 16,
       }
     }
+    tintColor="blue"
   >
     test
   </Text>

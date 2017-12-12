@@ -5,7 +5,7 @@ exports[`renders 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -14,7 +14,7 @@ exports[`renders 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -47,9 +47,11 @@ exports[`renders 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -57,28 +59,37 @@ exports[`renders 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value=""
       />
@@ -95,68 +106,13 @@ exports[`renders 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -166,7 +122,7 @@ exports[`renders accessory 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -175,7 +131,7 @@ exports[`renders accessory 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -208,9 +164,11 @@ exports[`renders accessory 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -218,39 +176,49 @@ exports[`renders accessory 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        renderAccessory={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value=""
       />
       <View
         style={
-          Object {
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-            "top": 2,
-          }
+          Array [
+            Object {
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+              "top": 2,
+            },
+          ]
         }
       >
         <Image />
@@ -268,68 +236,13 @@ exports[`renders accessory 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -339,7 +252,7 @@ exports[`renders counter 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -348,7 +261,7 @@ exports[`renders counter 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -381,9 +294,11 @@ exports[`renders counter 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -391,28 +306,37 @@ exports[`renders counter 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -429,68 +353,13 @@ exports[`renders counter 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
     <View
       style={
         Object {
@@ -505,15 +374,18 @@ exports[`renders counter 1`] = `
         ellipsizeMode="tail"
         style={
           Array [
-            Object {
-              "backgroundColor": "transparent",
-              "textAlign": "right",
-            },
-            undefined,
-            Object {
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0, 0, 0, .38)",
+                "fontSize": 12,
+                "textAlign": "right",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .38)",
+              },
+            ],
+            null,
           ]
         }
       >
@@ -531,7 +403,7 @@ exports[`renders default value 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -540,7 +412,7 @@ exports[`renders default value 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -573,9 +445,11 @@ exports[`renders default value 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -583,28 +457,42 @@ exports[`renders default value 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -621,68 +509,13 @@ exports[`renders default value 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -692,14 +525,15 @@ exports[`renders disabled value 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="none"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
-        "height": 64,
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "height": NaN,
         "overflow": "hidden",
         "paddingBottom": 8,
         "paddingTop": 32,
@@ -710,16 +544,18 @@ exports[`renders disabled value 1`] = `
       pointerEvents="none"
       style={
         Array [
+          Array [
+            Object {
+              "borderColor": "rgba(0, 0, 0, .38)",
+              "borderWidth": 1,
+              "bottom": 0,
+              "left": -1.5,
+              "position": "absolute",
+              "right": -1.5,
+              "top": -2,
+            },
+          ],
           Object {
-            "borderWidth": 1,
-            "bottom": 0,
-            "left": -1.5,
-            "position": "absolute",
-            "right": -1.5,
-            "top": -2,
-          },
-          Object {
-            "borderColor": "rgba(0, 0, 0, .38)",
             "borderStyle": "dotted",
           },
         ]
@@ -752,9 +588,11 @@ exports[`renders disabled value 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -762,28 +600,42 @@ exports[`renders disabled value 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={false}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -800,68 +652,13 @@ exports[`renders disabled value 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -871,7 +668,7 @@ exports[`renders error 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -880,7 +677,7 @@ exports[`renders error 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(213, 0, 0, 1)",
         "borderBottomWidth": 2,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -913,9 +710,11 @@ exports[`renders error 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -924,28 +723,36 @@ exports[`renders error 1`] = `
         disableFullscreenUI={true}
         editable={true}
         error="message"
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value=""
       />
@@ -962,9 +769,11 @@ exports[`renders error 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
     >
       <View
@@ -997,34 +806,6 @@ exports[`renders error 1`] = `
           message
         </Text>
       </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
     </View>
   </View>
 </View>
@@ -1035,7 +816,7 @@ exports[`renders multiline value 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -1044,7 +825,7 @@ exports[`renders multiline value 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1077,9 +858,11 @@ exports[`renders multiline value 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -1087,30 +870,38 @@ exports[`renders multiline value 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
         multiline={true}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
             Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 48,
+              "height": NaN,
               "top": -1,
             },
-            undefined,
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -1127,68 +918,13 @@ exports[`renders multiline value 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -1198,7 +934,7 @@ exports[`renders prefix 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -1207,7 +943,7 @@ exports[`renders prefix 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1240,9 +976,11 @@ exports[`renders prefix 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View
@@ -1279,29 +1017,37 @@ exports[`renders prefix 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
         prefix="$"
-        selectionColor="rgb(0, 145, 234)"
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -1318,68 +1064,13 @@ exports[`renders prefix 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -1389,16 +1080,16 @@ exports[`renders restriction 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
-        "borderBottomColor": "rgb(213, 0, 0)",
-        "borderBottomWidth": 2,
-        "height": 64,
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1431,9 +1122,11 @@ exports[`renders restriction 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -1441,28 +1134,37 @@ exports[`renders restriction 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -1479,68 +1181,13 @@ exports[`renders restriction 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
     <View
       style={
         Object {
@@ -1555,15 +1202,18 @@ exports[`renders restriction 1`] = `
         ellipsizeMode="tail"
         style={
           Array [
-            Object {
-              "backgroundColor": "transparent",
-              "textAlign": "right",
-            },
-            undefined,
-            Object {
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 12,
-            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0, 0, 0, .38)",
+                "fontSize": 12,
+                "textAlign": "right",
+              },
+              Object {
+                "color": "rgb(213, 0, 0)",
+              },
+            ],
+            null,
           ]
         }
       >
@@ -1581,7 +1231,7 @@ exports[`renders suffix 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -1590,7 +1240,7 @@ exports[`renders suffix 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1623,9 +1273,11 @@ exports[`renders suffix 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -1633,26 +1285,34 @@ exports[`renders suffix 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
         suffix=".com"
@@ -1701,68 +1361,13 @@ exports[`renders suffix 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;
@@ -1772,7 +1377,7 @@ exports[`renders title 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -1781,7 +1386,7 @@ exports[`renders title 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1814,9 +1419,11 @@ exports[`renders title 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -1824,28 +1431,37 @@ exports[`renders title 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value=""
       />
@@ -1862,39 +1478,13 @@ exports[`renders title 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
     >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 12,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
       <View
         style={
           Object {
@@ -1935,7 +1525,7 @@ exports[`renders value 1`] = `
   onResponderRelease={[Function]}
   onStartShouldSetResponder={[Function]}
   pointerEvents="auto"
-  style={undefined}
+  style={null}
 >
   <View
     collapsable={undefined}
@@ -1944,7 +1534,7 @@ exports[`renders value 1`] = `
         "backgroundColor": "transparent",
         "borderBottomColor": "rgba(0, 0, 0, 0.38)",
         "borderBottomWidth": 0.5,
-        "height": 64,
+        "height": NaN,
         "paddingBottom": 8,
         "paddingTop": 32,
       }
@@ -1977,9 +1567,11 @@ exports[`renders value 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <TextInput
@@ -1987,28 +1579,37 @@ exports[`renders value 1`] = `
         autoCapitalize="sentences"
         disableFullscreenUI={true}
         editable={true}
+        error={null}
+        multiline={false}
         onBlur={[Function]}
         onChange={[Function]}
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         onFocus={[Function]}
-        selectionColor="rgb(0, 145, 234)"
+        prefix={null}
+        selectionColor="#2196f3"
         style={
           Array [
-            Object {
-              "flex": 1,
-              "margin": 0,
-              "padding": 0,
-              "top": 2,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, .87)",
-              "fontSize": 16,
-              "height": 24,
-            },
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
             undefined,
+            Object {
+              "height": NaN,
+            },
           ]
         }
+        suffix={null}
         underlineColorAndroid="transparent"
         value="text"
       />
@@ -2025,68 +1626,13 @@ exports[`renders value 1`] = `
   >
     <View
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
       }
-    >
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgb(213, 0, 0)",
-              "fontSize": 0,
-              "opacity": 0,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "paddingVertical": 4,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          collapsable={undefined}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, .38)",
-              "fontSize": 12,
-              "opacity": 1,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;

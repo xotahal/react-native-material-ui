@@ -95,7 +95,7 @@ class Affix extends PureComponent {
 
         return (
             <Animated.View style={styles.affix}>
-                <Animated.Text style={[style, style.affixText]}>{children}</Animated.Text>
+                <Animated.Text style={[styles.affixText, style]}>{children}</Animated.Text>
             </Animated.View>
         );
     }

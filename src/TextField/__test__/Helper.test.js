@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 
 import Helper from '../Helper.react';
 
@@ -10,7 +11,10 @@ const text = 'helper';
 
 it('renders helper', () => {
     const helper = renderer
-        .create(<Helper>{text}</Helper>)
+        .create(
+            <ThemeProvider>
+                <Helper>{text}</Helper>
+            </ThemeProvider>)
         .toJSON();
 
     expect(helper)

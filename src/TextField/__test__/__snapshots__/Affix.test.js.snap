@@ -21,7 +21,7 @@ exports[`renders prefix 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "blue",
+        "color": "rgba(0, 0, 0, .38)",
         "fontSize": 16,
         "textAlign": "left",
       }
@@ -53,7 +53,7 @@ exports[`renders suffix 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "blue",
+        "color": "rgba(0, 0, 0, .38)",
         "fontSize": 16,
         "textAlign": "right",
       }

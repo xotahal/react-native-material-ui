@@ -7,12 +7,14 @@ function getStyles(props, context) {
     const { textfield, erroredTextfield } = context.uiTheme;
     const { count, limit } = props;
 
-    const styleState = count > limit ?
-        StyleSheet.flatten(erroredTextfield.counterText).color :
-        StyleSheet.flatten(textfield.counterText).color;
+    const styleState = count > limit ? {
+        color: StyleSheet.flatten(erroredTextfield.counterText).color,
+    } : {
+        color: StyleSheet.flatten(textfield.counterText).color,
+    };
 
     return {
-        counterText: [StyleSheet.flatten(textfield.counterText), StyleSheet.flatten(styleState)],
+        counterText: [StyleSheet.flatten(textfield.counterText), styleState],
         counterContainer: textfield.counterContainer,
     };
 }

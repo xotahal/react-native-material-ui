@@ -593,8 +593,10 @@ class TextField extends PureComponent {
 
                 <Animated.View style={styles.helperOuterContainer}>
                     <View style={styles.flex}>
-                        { this.renderHelper(error, [styles.errorStyle, StyleSheet.flatten(style.titleText)], true) }
-                        { this.renderHelper(title, [styles.titleStyle, StyleSheet.flatten(style.titleText)]) }
+                        { this.renderHelper(error, [styles.errorStyle,
+                            StyleSheet.flatten(style.titleText)], true) }
+                        { this.renderHelper(title, [styles.titleStyle,
+                            StyleSheet.flatten(style.titleText)]) }
                     </View>
 
                     <Counter {...counterProps} />

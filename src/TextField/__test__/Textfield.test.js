@@ -1,6 +1,7 @@
 import { Image } from 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 
 import TextField from '../TextField.react';
 
@@ -12,7 +13,10 @@ const props = {
 
 it('renders', () => {
     const field = renderer
-        .create(<TextField {...props} />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -21,7 +25,10 @@ it('renders', () => {
 
 it('renders value', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -30,7 +37,10 @@ it('renders value', () => {
 
 it('renders disabled value', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" disabled />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" disabled />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -39,7 +49,10 @@ it('renders disabled value', () => {
 
 it('renders default value', () => {
     const field = renderer
-        .create(<TextField {...props} defaultValue="text" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} defaultValue="text" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -48,7 +61,10 @@ it('renders default value', () => {
 
 it('renders multiline value', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" multiline />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" multiline />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -57,7 +73,10 @@ it('renders multiline value', () => {
 
 it('renders title', () => {
     const field = renderer
-        .create(<TextField {...props} title="field" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} title="field" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -66,7 +85,10 @@ it('renders title', () => {
 
 it('renders error', () => {
     const field = renderer
-        .create(<TextField {...props} error="message" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} error="message" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -75,7 +97,10 @@ it('renders error', () => {
 
 it('renders counter', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" characterRestriction={10} />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" characterRestriction={10} />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -84,7 +109,10 @@ it('renders counter', () => {
 
 it('renders restriction', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" characterRestriction={2} />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" characterRestriction={2} />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -93,7 +121,10 @@ it('renders restriction', () => {
 
 it('renders prefix', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" prefix="$" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" prefix="$" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -102,7 +133,10 @@ it('renders prefix', () => {
 
 it('renders suffix', () => {
     const field = renderer
-        .create(<TextField {...props} value="text" suffix=".com" />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} value="text" suffix=".com" />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
@@ -113,7 +147,10 @@ it('renders accessory', () => {
     const render = () => <Image />;
 
     const field = renderer
-        .create(<TextField {...props} renderAccessory={render} />)
+        .create(
+            <ThemeProvider>
+                <TextField {...props} renderAccessory={render} />
+            </ThemeProvider>)
         .toJSON();
 
     expect(field)
