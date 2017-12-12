@@ -6,6 +6,7 @@ import { View, Text } from 'react-native';
 import Subheader from '../Subheader';
 import Divider from '../Divider';
 import ListItem from '../ListItem';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     title: PropTypes.string,
@@ -20,9 +21,9 @@ const propTypes = {
     })),
     divider: PropTypes.bool,
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        item: View.propTypes.style,
-        subheader: View.propTypes.style,
+        container: ViewPropTypes.style,
+        item: ViewPropTypes.style,
+        subheader: ViewPropTypes.style,
         icon: Text.propTypes.style,
         value: Text.propTypes.style,
         label: Text.propTypes.style,

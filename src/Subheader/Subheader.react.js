@@ -3,13 +3,14 @@ import { View, Text } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     text: PropTypes.string.isRequired,
     inset: PropTypes.bool,
     lines: PropTypes.number,
     style: PropTypes.shape({
-        contaienr: View.propTypes.style,
+        contaienr: ViewPropTypes.style,
         text: Text.propTypes.style,
     }),
 };

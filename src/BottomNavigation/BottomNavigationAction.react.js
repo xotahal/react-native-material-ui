@@ -86,7 +86,10 @@ function getStyles(props, context) {
 }
 
 class BottomNavigationAction extends PureComponent {
-    renderIcon(icon, styles, color) {
+    renderIcon(styles) {
+        const { icon } = this.props;
+        const { color } = StyleSheet.flatten(styles.icon);
+
         let element;
         if (React.isValidElement(icon)) {
             // we need icon to change color after it's selected, so we send the color and style to
@@ -97,20 +100,25 @@ class BottomNavigationAction extends PureComponent {
         }
         return element;
     }
+    renderLabel(styles) {
+        const { label } = this.props;
 
+        if (!label) {
+            return null;
+        }
+
+        return <Text style={styles.label}>{label}</Text>;
+    }
     render() {
-        const { icon, label, onPress } = this.props;
+        const { onPress } = this.props;
 
         const styles = getStyles(this.props, this.context);
-        const { color } = StyleSheet.flatten(styles.icon);
-
-        const iconElement = this.renderIcon(icon, styles, color);
 
         return (
             <RippleFeedback onPress={onPress}>
                 <View style={styles.container} pointerEvents="box-only">
-                    {iconElement}
-                    <Text style={styles.label}>{label}</Text>
+                    {this.renderIcon(styles)}
+                    {this.renderLabel(styles)}
                 </View>
             </RippleFeedback>
         );

@@ -10,6 +10,7 @@ import {
     findNodeHandle,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 import Divider from '../Divider';
 import Icon from '../Icon';
@@ -31,19 +32,19 @@ const propTypes = {
     onLongPress: PropTypes.func,
     numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        contentViewContainer: View.propTypes.style,
-        leftElementContainer: View.propTypes.style,
-        centerElementContainer: View.propTypes.style,
-        textViewContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        contentViewContainer: ViewPropTypes.style,
+        leftElementContainer: ViewPropTypes.style,
+        centerElementContainer: ViewPropTypes.style,
+        textViewContainer: ViewPropTypes.style,
         primaryText: Text.propTypes.style,
-        firstLine: View.propTypes.style,
+        firstLine: ViewPropTypes.style,
         primaryTextContainer: Text.propTypes.style,
         secondaryText: Text.propTypes.style,
         tertiaryText: Text.propTypes.style,
-        rightElementContainer: View.propTypes.style,
-        leftElement: View.propTypes.style,
-        rightElement: View.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
+        leftElement: ViewPropTypes.style,
+        rightElement: ViewPropTypes.style,
     }),
 
     // left side
@@ -145,7 +146,7 @@ function getListItemHeight(props, state) {
     return null;
 }
 function getStyles(props, context, state) {
-    const { rightElement } = props;
+    const { leftElement, rightElement } = props;
     const { listItem } = context.uiTheme;
     const { numberOfLines } = state;
 
@@ -155,6 +156,7 @@ function getStyles(props, context, state) {
     };
     const contentViewContainer = {};
     const leftElementContainer = {};
+    const centerElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
         contentViewContainer.paddingVertical = 16;
@@ -163,6 +165,9 @@ function getStyles(props, context, state) {
 
     if (!rightElement) {
         contentViewContainer.paddingRight = 16;
+    }
+    if (!leftElement) {
+        centerElementContainer.paddingLeft = 16;
     }
 
     return {
@@ -187,6 +192,7 @@ function getStyles(props, context, state) {
         ],
         centerElementContainer: [
             listItem.centerElementContainer,
+            centerElementContainer,
             props.style.centerElementContainer,
         ],
         textViewContainer: [
@@ -471,7 +477,11 @@ class ListItem extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         // renders left element, center element and right element
-        let content = this.renderContent(styles);
+        let content = (
+            <View style={styles.container}>
+                {this.renderContent(styles)}
+            </View>
+        );
 
         if (onPress || onLongPress) {
             content = (
@@ -488,9 +498,7 @@ class ListItem extends PureComponent {
 
         return (
             <View>
-                <View style={styles.container}>
-                    {content}
-                </View>
+                {content}
                 {this.renderDivider()}
             </View>
         );

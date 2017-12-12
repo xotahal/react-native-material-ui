@@ -2,6 +2,7 @@
 
 exports[`Center element center element only 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -13,11 +14,11 @@ exports[`Center element center element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -39,6 +40,7 @@ exports[`Center element center element only 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -57,6 +59,7 @@ exports[`Center element center element only 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -80,7 +83,9 @@ exports[`Center element center element only 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -123,6 +128,7 @@ exports[`Center element center element only 1`] = `
 
 exports[`Left element left element only 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -134,11 +140,11 @@ exports[`Left element left element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -160,6 +166,7 @@ exports[`Left element left element only 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -178,6 +185,7 @@ exports[`Left element left element only 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -197,6 +205,7 @@ exports[`Left element left element only 1`] = `
     />
   </View>
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -214,6 +223,7 @@ exports[`Left element left element only 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -225,6 +235,7 @@ exports[`Left element left element only 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -290,7 +301,9 @@ exports[`Left element left element only 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -333,6 +346,7 @@ exports[`Left element left element only 1`] = `
 
 exports[`Right element right element - actions, menu 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -344,11 +358,11 @@ exports[`Right element right element - actions, menu 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -370,6 +384,7 @@ exports[`Right element right element - actions, menu 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -388,6 +403,7 @@ exports[`Right element right element - actions, menu 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -411,7 +427,9 @@ exports[`Right element right element - actions, menu 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -467,6 +485,7 @@ exports[`Right element right element - actions, menu 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -478,6 +497,7 @@ exports[`Right element right element - actions, menu 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -553,6 +573,7 @@ exports[`Right element right element - actions, menu 1`] = `
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -564,6 +585,7 @@ exports[`Right element right element - actions, menu 1`] = `
         testID={undefined}
       >
         <View
+          collapsable={undefined}
           style={
             Object {
               "backgroundColor": "rgb(255, 255, 255)",
@@ -630,6 +652,7 @@ exports[`Right element right element - actions, menu 1`] = `
 
 exports[`Right element right element - custom element 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -641,11 +664,11 @@ exports[`Right element right element - custom element 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -667,6 +690,7 @@ exports[`Right element right element - custom element 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -685,6 +709,7 @@ exports[`Right element right element - custom element 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -708,7 +733,9 @@ exports[`Right element right element - custom element 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -764,7 +791,8 @@ exports[`Right element right element - custom element 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
-      onLayout={undefined}
+      nativeID={undefined}
+      onLayout={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -816,6 +844,61 @@ exports[`Right element right element - custom element 1`] = `
       >
         SAVE
       </Text>
+      <View
+        pointerEvents="none"
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "overflow": "hidden",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          collapsable={undefined}
+          pointerEvents="none"
+          style={
+            Object {
+              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+              "bottom": 0,
+              "left": 0,
+              "opacity": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "zIndex": 1,
+            }
+          }
+        />
+        <View
+          collapsable={undefined}
+          pointerEvents="none"
+          style={
+            Object {
+              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+              "borderRadius": 100,
+              "height": 200,
+              "left": -100,
+              "opacity": 0.12,
+              "position": "absolute",
+              "top": -100,
+              "transform": Array [
+                Object {
+                  "scale": 0,
+                },
+              ],
+              "width": 200,
+              "zIndex": 1,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -823,6 +906,7 @@ exports[`Right element right element - custom element 1`] = `
 
 exports[`Right element right element only 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -834,11 +918,11 @@ exports[`Right element right element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -860,6 +944,7 @@ exports[`Right element right element only 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -878,6 +963,7 @@ exports[`Right element right element only 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -901,7 +987,9 @@ exports[`Right element right element only 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -957,6 +1045,7 @@ exports[`Right element right element only 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -968,6 +1057,7 @@ exports[`Right element right element only 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -1033,6 +1123,7 @@ exports[`Right element right element only 1`] = `
 
 exports[`Searchable searchable active 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -1044,11 +1135,11 @@ exports[`Searchable searchable active 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -1070,6 +1161,7 @@ exports[`Searchable searchable active 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -1088,6 +1180,7 @@ exports[`Searchable searchable active 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -1107,6 +1200,7 @@ exports[`Searchable searchable active 1`] = `
     />
   </View>
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1124,6 +1218,7 @@ exports[`Searchable searchable active 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1135,6 +1230,7 @@ exports[`Searchable searchable active 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgba(0, 0, 0, 0.54)",
@@ -1200,7 +1296,9 @@ exports[`Searchable searchable active 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -1218,6 +1316,7 @@ exports[`Searchable searchable active 1`] = `
     testID={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       autoCapitalize={undefined}
       autoCorrect={undefined}
       autoFocus={true}
@@ -1268,6 +1367,7 @@ exports[`Searchable searchable active 1`] = `
 
 exports[`Searchable searchable object 1`] = `
 <View
+  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -1279,11 +1379,11 @@ exports[`Searchable searchable object 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 2,
+        "height": 1,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 4,
+      "shadowRadius": 2,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -1305,6 +1405,7 @@ exports[`Searchable searchable object 1`] = `
     }
   >
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -1323,6 +1424,7 @@ exports[`Searchable searchable object 1`] = `
       }
     />
     <View
+      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -1342,6 +1444,7 @@ exports[`Searchable searchable object 1`] = `
     />
   </View>
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1359,6 +1462,7 @@ exports[`Searchable searchable object 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1370,6 +1474,7 @@ exports[`Searchable searchable object 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -1435,7 +1540,9 @@ exports[`Searchable searchable object 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -1491,6 +1598,7 @@ exports[`Searchable searchable object 1`] = `
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1502,6 +1610,7 @@ exports[`Searchable searchable object 1`] = `
       testID={undefined}
     >
       <View
+        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",

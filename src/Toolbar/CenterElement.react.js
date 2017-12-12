@@ -3,20 +3,21 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Animated, TouchableWithoutFeedback, Text, TextInput, Easing, Platform } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     isSearchActive: PropTypes.bool.isRequired,
     searchValue: PropTypes.string.isRequired,
     searchable: PropTypes.shape({
         autoFocus: PropTypes.bool,
-        autoCapitalize: PropTypes.bool,
+        autoCapitalize: TextInput.propTypes.autoCapitalize,
         autoCorrect: PropTypes.bool,
         onChangeText: PropTypes.func,
         onSubmitEditing: PropTypes.func,
         placeholder: PropTypes.string,
     }),
     style: PropTypes.shape({
-        centerElementContainer: Animated.View.propTypes.style,
+        centerElementContainer: ViewPropTypes.style,
         titleText: Text.propTypes.style,
     }),
     centerElement: PropTypes.node,

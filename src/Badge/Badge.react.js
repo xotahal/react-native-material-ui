@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     /**
@@ -37,14 +38,14 @@ const propTypes = {
     */
     stroke: PropTypes.number,
     style: PropTypes.shape({
-        container: View.propTypes.style,
+        container: ViewPropTypes.style,
     }),
 };
 const defaultProps = {
     children: null,
     text: null,
     icon: null,
-    size: 4,
+    size: 16,
     stroke: null,
     style: {
         container: {

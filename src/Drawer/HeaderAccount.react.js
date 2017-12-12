@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { View, TouchableWithoutFeedback } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import ListItem from '../ListItem';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     avatar: PropTypes.element,
@@ -11,14 +12,14 @@ const propTypes = {
         avatar: PropTypes.element,
         onPress: PropTypes.func,
     })),
-    footer: ListItem.propTypes,
+    footer: PropTypes.shape(ListItem.propTypes),
     style: PropTypes.shape({
-        container: View.propTypes.style,
-        accountContainer: View.propTypes.style,
-        topContainer: View.propTypes.style,
-        avatarsContainer: View.propTypes.style,
-        activeAvatarContainer: View.propTypes.style,
-        inactiveAvatarContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        accountContainer: ViewPropTypes.style,
+        topContainer: ViewPropTypes.style,
+        avatarsContainer: ViewPropTypes.style,
+        activeAvatarContainer: ViewPropTypes.style,
+        inactiveAvatarContainer: ViewPropTypes.style,
     }),
 };
 const defaultProps = {
@@ -63,6 +64,12 @@ function getStyles(props, context) {
 }
 
 class HeaderAcount extends PureComponent {
+    componentWillMount = () => {
+        // We need to change state if relevant props are changed
+        this.setState({
+            styles: getStyles(this.props, this.context),
+        });
+    }
     renderFooter = () => {
         const { footer } = this.props;
 
@@ -77,13 +84,36 @@ class HeaderAcount extends PureComponent {
 
         return <ListItem {...props} />;
     }
-    render() {
-        const {
-            accounts,
-            avatar,
-        } = this.props;
+    renderAccount = (account) => {
+        const { styles } = this.state;
 
-        const styles = getStyles(this.props, this.context);
+        // invariant(account.key, 'Please provide key prop to account object in accounts array.');
+
+        return (
+            <TouchableWithoutFeedback
+                key={account.key}
+                onPress={account.onPress}
+            >
+                <View style={[styles.inactiveAvatarContainer]}>
+                    {account.avatar}
+                </View>
+            </TouchableWithoutFeedback>
+        );
+    }
+    renderAccounts = () => {
+        const { accounts } = this.props;
+
+        if (!accounts) {
+            return null;
+        }
+
+        // TODO: slice of accounts
+        // add more soficticated slice when there will be lots of accounts
+        return accounts.slice(0, 3).map(this.renderAccount);
+    }
+    render() {
+        const { avatar } = this.props;
+        const { styles } = this.state;
 
         return (
             <View style={styles.container}>
@@ -93,17 +123,7 @@ class HeaderAcount extends PureComponent {
                             <View style={[styles.activeAvatarContainer]}>
                                 {React.cloneElement(avatar, { size: 56 })}
                             </View>
-                            {
-                                // TODO: slice of accounts
-                                // add more soficticated slice when there will be lots of accounts
-                                accounts &&
-                                accounts.slice(0, 3).map(account => (
-                                    <TouchableWithoutFeedback onPress={account.onPress}>
-                                        <View style={[styles.inactiveAvatarContainer]}>
-                                            {account.avatar}
-                                        </View>
-                                    </TouchableWithoutFeedback>))
-                            }
+                            {this.renderAccounts()}
                         </View>
                     </View>
                 </View>

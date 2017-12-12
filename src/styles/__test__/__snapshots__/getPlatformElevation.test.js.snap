@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPlatformElevation android 1`] = `
+Object {
+  "elevation": 4,
+}
+`;
+
+exports[`getPlatformElevation iOS 1`] = `
+Object {
+  "shadowColor": "#000000",
+  "shadowOffset": Object {
+    "height": 1,
+    "width": 0,
+  },
+  "shadowOpacity": 0.3,
+  "shadowRadius": 2,
+  "zIndex": 1,
+}
+`;
+
+exports[`getPlatformElevation returns empty object if elevation is not legal 1`] = `
+Object {
+  "shadowColor": "transparent",
+  "zIndex": 0,
+}
+`;

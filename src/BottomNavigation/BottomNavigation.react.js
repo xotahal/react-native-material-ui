@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Platform, Animated, Easing, StyleSheet } from 'react-native';
+import { View, Platform, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -45,6 +45,11 @@ function getStyles(props, context) {
             bottomNavigation.container,
             local.container,
             props.style.container,
+        ],
+        actionsContainer: [
+            bottomNavigation.actionsContainer,
+            local.actionsContainer,
+            props.style.actionsContainer,
         ],
     };
 }
@@ -104,13 +109,15 @@ class BottomNavigation extends PureComponent {
                     }],
                 }]}
             >
-                {React.Children.map(
-                    children,
-                    child => React.cloneElement(child, {
-                        ...child.props,
-                        active: child.key === active,
-                    }),
-                )}
+                <View style={styles.actionsContainer}>
+                    {React.Children.map(
+                        children,
+                        child => React.cloneElement(child, {
+                            ...child.props,
+                            active: child.key === active,
+                        }),
+                    )}
+                </View>
             </Animated.View>
         );
     }
