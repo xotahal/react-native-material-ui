@@ -43,10 +43,13 @@ const propTypes = {
     * Call when icon was pressed
     */
     onPress: PropTypes.func,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-        icon: Text.propTypes.style,
-    }),
+    style: PropTypes.oneOfType([
+        PropTypes.shape({
+            container: ViewPropTypes.style,
+            icon: Text.propTypes.style,
+        }),
+        PropTypes.array,
+    ]),
 };
 const defaultProps = {
     children: null,
