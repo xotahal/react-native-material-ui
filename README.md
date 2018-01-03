@@ -174,7 +174,7 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Drawer](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
 - [Icon](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Icon.md)
 - [Icon toggles](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
-- [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
+- [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItems.md)
 - [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
 - [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
