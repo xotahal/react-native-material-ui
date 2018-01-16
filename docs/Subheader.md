@@ -19,7 +19,7 @@ const propTypes = {
     inset: PropTypes.bool,
     lines: PropTypes.number,
     style: PropTypes.shape({
-        contaienr: View.propTypes.style,
+        container: View.propTypes.style,
         text: Text.propTypes.style,
     }),
 };
