@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
+import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Container from '../Container';
 
@@ -11,7 +12,7 @@ import Section from './Section.react';
 const propTypes = {
     children: PropTypes.node.isRequired,
     style: PropTypes.shape({
-        container: ScrollView.propTypes.style,
+        container: ViewPropTypes.style,
     }),
 };
 const defaultProps = {
