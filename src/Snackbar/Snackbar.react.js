@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
+import { Text, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 
 import Button from '../Button';
