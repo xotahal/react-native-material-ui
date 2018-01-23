@@ -41,6 +41,7 @@ const propTypes = {
         icon: IconToggle.propTypes.style,
         label: Text.propTypes.style,
     }),
+    size: PropTypes.number
 };
 const defaultProps = {
     checked: false,
@@ -48,6 +49,7 @@ const defaultProps = {
     uncheckedIcon: 'check-box-outline-blank',
     disabled: false,
     style: {},
+    size: 20
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -91,7 +93,7 @@ class Checkbox extends PureComponent {
     }
     render() {
         const {
-            checked, checkedIcon, uncheckedIcon, disabled, value,
+            checked, checkedIcon, uncheckedIcon, disabled, value, size
         } = this.props;
 
         const styles = getStyles(this.props, this.context);
@@ -107,6 +109,7 @@ class Checkbox extends PureComponent {
                     disabled={disabled}
                     color={checked ? iconColor : labelColor}
                     onPress={this.onPress}
+                    size={size}
                 />
                 <Text style={styles.label}>
                     {this.props.label}
