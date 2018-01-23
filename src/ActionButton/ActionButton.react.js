@@ -234,7 +234,7 @@ class ActionButton extends PureComponent {
         //     toValue: 1,
         //     duration: 225,
         //     easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-        //     useNativeDriver: Platform.OS === 'android',
+        //     useNativeDriver: true,
         // }).start();
     }
     hide = () => {
@@ -244,7 +244,7 @@ class ActionButton extends PureComponent {
         //     toValue: 0.01,
         //     duration: 195,
         //     easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-        //     useNativeDriver: Platform.OS === 'android',
+        //     useNativeDriver: true,
         // }).start();
     }
     renderToolbarTransition = (styles) => {
