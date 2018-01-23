@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
     Animated,
     Easing,
-    Platform,
     StyleSheet,
     Text,
     View,
