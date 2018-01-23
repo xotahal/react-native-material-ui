@@ -318,7 +318,7 @@ class Toolbar extends PureComponent {
             toValue: 1,
             duration: 325,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(onComplete);
     }
     animateDefaultBackground = (onComplete) => {
@@ -326,7 +326,7 @@ class Toolbar extends PureComponent {
             toValue: 1,
             duration: 325,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(onComplete);
     }
     focusSearchField() {
@@ -338,7 +338,7 @@ class Toolbar extends PureComponent {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     hide = () => {
@@ -348,7 +348,7 @@ class Toolbar extends PureComponent {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     renderAnimatedBackgrounds = (styles) => {

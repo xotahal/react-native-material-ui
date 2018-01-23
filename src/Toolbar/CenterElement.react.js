@@ -87,7 +87,7 @@ class CenterElement extends PureComponent {
             toValue: 0,
             duration: 112,
             easing: Easing.linear,
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(() => {
             this.setState({
                 isSearchActive: nextIsSearchActive,
@@ -97,7 +97,7 @@ class CenterElement extends PureComponent {
                 toValue: 1,
                 duration: 112,
                 easing: Easing.linear,
-                useNativeDriver: Platform.OS === 'android',
+                useNativeDriver: true,
             }).start();
         });
     }

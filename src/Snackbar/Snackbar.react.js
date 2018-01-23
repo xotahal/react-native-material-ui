@@ -141,7 +141,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -151,7 +151,7 @@ class Snackbar extends PureComponent {
             toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 1, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -166,7 +166,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration,
             easing,
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 

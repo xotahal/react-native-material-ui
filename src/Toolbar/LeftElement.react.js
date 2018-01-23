@@ -89,7 +89,7 @@ class LeftElement extends PureComponent {
             toValue: 0.5,
             duration: 112,
             easing: Easing.linear,
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(() => {
             const leftElement = activate ? SEARCH_FORWARD_ICON : this.props.leftElement;
 
@@ -99,7 +99,7 @@ class LeftElement extends PureComponent {
                 toValue,
                 duration: 112,
                 easing: Easing.linear,
-                useNativeDriver: Platform.OS === 'android',
+                useNativeDriver: true,
             }).start();
         });
     }
