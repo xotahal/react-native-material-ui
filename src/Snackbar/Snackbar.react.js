@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
+import { Text, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 
 import Button from '../Button';
@@ -11,10 +11,6 @@ const propTypes = {
     * The text message to display.
     */
     message: PropTypes.string.isRequired,
-    /**
-    * Whether or not the snackbar is visible.
-    */
-    visible: PropTypes.bool,
     /**
     * The amount of time in milliseconds to show the snackbar.
     */
@@ -53,7 +49,6 @@ const propTypes = {
 const defaultProps = {
     onActionPress: null,
     actionText: null,
-    visible: false,
     timeout: 2750,
     bottomNavigation: false,
     style: {},
@@ -91,26 +86,23 @@ class Snackbar extends PureComponent {
         const styles = getStyles(props, context);
         this.state = {
             styles,
-            moveAnimated: new Animated.Value(StyleSheet.flatten(styles.container).height),
+            moveAnimated: new Animated.Value(0),
         };
     }
 
+    componentWillMount() {
+        this.show(this.props.bottomNavigation);
+        this.setHideTimer();
+    }
+
     componentWillReceiveProps(nextProps) {
-        const { style, visible, bottomNavigation } = this.props;
+        const { style, bottomNavigation } = this.props;
 
         if (nextProps.style !== style) {
             this.setState({ styles: getStyles(this.props, this.context) });
         }
 
-        if (nextProps.visible !== visible) {
-            if (nextProps.visible === true) {
-                this.show(nextProps.bottomNavigation);
-                this.setHideTimer();
-            } else {
-                this.hide();
-            }
-        } else if ((nextProps.bottomNavigation !== bottomNavigation)
-        && nextProps.visible) {
+        if (nextProps.bottomNavigation !== bottomNavigation) {
             this.move(nextProps.bottomNavigation);
         }
     }
@@ -126,6 +118,7 @@ class Snackbar extends PureComponent {
             clearTimeout(this.hideTimer);
             this.hideTimer = setTimeout(() => {
                 onRequestClose();
+                this.hide();
             }, timeout);
         }
     }
@@ -141,7 +134,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -151,7 +144,7 @@ class Snackbar extends PureComponent {
             toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 1, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -166,7 +159,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration,
             easing,
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
