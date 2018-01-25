@@ -10,12 +10,14 @@ import Content from './Content.react';
 import Actions from './Actions.react';
 
 const propTypes = {
+    onPress: PropTypes.func,
     children: PropTypes.node.isRequired,
     style: PropTypes.shape({
         container: ViewPropTypes.style,
     }),
 };
 const defaultProps = {
+    onPress: null,
     style: {},
 };
 const contextTypes = {
@@ -35,12 +37,12 @@ function getStyles(props, context) {
 
 class Dialog extends PureComponent {
     render() {
-        const { children } = this.props;
+        const { onPress, children } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
-            <View style={styles.container}>
+            <View style={styles.container} onPress={onPress}>
                 {children}
             </View>
         );
