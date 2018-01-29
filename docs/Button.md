@@ -28,6 +28,14 @@ const propTypes = {
     */
     raised: PropTypes.bool,
     /**
+    * If the button should have primary color
+    */
+    primary: PropTypes.bool,
+    /**
+    * If the button should have accent color
+    */
+    accent: PropTypes.bool,
+    /**
     * Called when button is pressed. Text is passed as param
     */
     onPress: PropTypes.func,
