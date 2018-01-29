@@ -12,7 +12,7 @@ const propTypes = {
     */
     message: PropTypes.string.isRequired,
     /**
-    * Bottom margin of the snackbar, because of a bottom navigation.
+    * Whether or not the snackbar is visible.
     */
     visible: PropTypes.bool,
     /**
@@ -53,6 +53,7 @@ const propTypes = {
 const defaultProps = {
     onActionPress: null,
     actionText: null,
+    visible: false,
     timeout: 2750,
     bottomMargin: 0,
     style: {},
