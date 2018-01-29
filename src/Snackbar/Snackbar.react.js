@@ -12,6 +12,10 @@ const propTypes = {
     */
     message: PropTypes.string.isRequired,
     /**
+    * Bottom margin of the snackbar, because of a bottom navigation.
+    */
+    visible: PropTypes.bool,
+    /**
     * The amount of time in milliseconds to show the snackbar.
     */
     timeout: PropTypes.number,
@@ -20,9 +24,9 @@ const propTypes = {
     */
     onRequestClose: PropTypes.func.isRequired,
     /**
-    * Whether or not there is a bottom navigation on the screen.
+    * Bottom margin of the snackbar (e.g. because of a bottom navigation).
     */
-    bottomNavigation: PropTypes.bool,
+    bottomMargin: PropTypes.number,
     /**
     * The function to execute when the action is clicked.
     */
@@ -50,7 +54,7 @@ const defaultProps = {
     onActionPress: null,
     actionText: null,
     timeout: 2750,
-    bottomNavigation: false,
+    bottomMargin: 0,
     style: {},
     button: {},
 };
@@ -86,24 +90,27 @@ class Snackbar extends PureComponent {
         const styles = getStyles(props, context);
         this.state = {
             styles,
-            moveAnimated: new Animated.Value(0),
+            moveAnimated: new Animated.Value(48),
         };
     }
 
-    componentWillMount() {
-        this.show(this.props.bottomNavigation);
-        this.setHideTimer();
-    }
-
     componentWillReceiveProps(nextProps) {
-        const { style, bottomNavigation } = this.props;
+        const { style, visible, bottomMargin } = this.props;
 
         if (nextProps.style !== style) {
             this.setState({ styles: getStyles(this.props, this.context) });
         }
 
-        if (nextProps.bottomNavigation !== bottomNavigation) {
-            this.move(nextProps.bottomNavigation);
+        if (nextProps.visible !== visible) {
+            if (nextProps.visible === true) {
+                this.show(nextProps.bottomMargin);
+                this.setHideTimer();
+            } else {
+                this.hide();
+            }
+        } else if ((nextProps.bottomMargin !== bottomMargin)
+        && nextProps.visible) {
+            this.move(nextProps.bottomMargin);
         }
     }
 
@@ -123,15 +130,9 @@ class Snackbar extends PureComponent {
         }
     }
 
-    show = (bottomNavigation) => {
-        let toValue = 0;
-        if (bottomNavigation) {
-            // TODO: Get bottom navigation height from context.
-            toValue = -56;
-        }
-
+    show = (bottomMargin) => {
         Animated.timing(this.state.moveAnimated, {
-            toValue,
+            toValue: bottomMargin,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: true,
@@ -139,24 +140,22 @@ class Snackbar extends PureComponent {
     }
 
     hide = () => {
-        const { moveAnimated, styles } = this.state;
-        Animated.timing(moveAnimated, {
-            toValue: (StyleSheet.flatten(styles.container).height),
+        Animated.timing(this.state.moveAnimated, {
+            toValue: 48,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 1, 1),
             useNativeDriver: true,
         }).start();
     }
 
-    move = (bottomNavigation) => {
+    move = (bottomMargin) => {
         const { moveAnimated } = this.state;
-        const toValue = bottomNavigation ? -56 : 0;
-        const duration = bottomNavigation ? 225 : 195;
-        const easing = bottomNavigation ?
+        const duration = bottomMargin > 0 ? 225 : 195;
+        const easing = bottomMargin > 0 ?
             Easing.bezier(0.0, 0.0, 0.2, 1) : Easing.bezier(0.4, 0.0, 0.6, 1);
 
         Animated.timing(moveAnimated, {
-            toValue,
+            toValue: bottomMargin,
             duration,
             easing,
             useNativeDriver: true,
