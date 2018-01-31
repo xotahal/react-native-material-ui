@@ -136,6 +136,35 @@ const propTypes = {
     * Called when rightElement was pressed.
     */
     onRightElementPress: PropTypes.func,
+    /**
+    * Accessibility
+    */
+    centerElementAccessibilityLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    centerElementAccessibilityTraits: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    leftElementAccessibilityLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    leftElementAccessibilityTraits: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    rightElementAccessibilityLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    ]),
+    rightElementAccessibilityTraits: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    ]),
 };
 const defaultProps = {
     style: {},
@@ -149,6 +178,12 @@ const defaultProps = {
     leftElement: null,
     onLeftElementPress: null,
     size: 24,
+    leftElementAccessibilityLabel: null,
+    leftElementAccessibilityTraits: null,
+    centerElementAccessibilityLabel: null,
+    centerElementAccessibilityTraits: null,
+    rightElementAccessibilityLabel: null,
+    rightElementAccessibilityTraits: null,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -414,6 +449,10 @@ class Toolbar extends PureComponent {
             onLeftElementPress,
             onPress,
             onRightElementPress,
+            leftElementAccessibilityLabel,
+            leftElementAccessibilityTraits,
+            centerElementAccessibilityLabel,
+            centerElementAccessibilityTraits,
         } = this.props;
 
         const { isSearchActive, searchValue } = this.state;
@@ -434,6 +473,8 @@ class Toolbar extends PureComponent {
                     onLeftElementPress={onLeftElementPress}
                     isSearchActive={isSearchActive}
                     onSearchClose={this.onSearchCloseRequested}
+                    accessibilityLabel={leftElementAccessibilityLabel}
+                    accessibilityTraits={leftElementAccessibilityTraits}
                 />
                 <CenterElement
                     {...this.props}
@@ -441,6 +482,8 @@ class Toolbar extends PureComponent {
                     searchValue={searchValue}
                     isSearchActive={isSearchActive}
                     onSearchTextChange={this.onSearchTextChanged}
+                    accessibilityLabel={centerElementAccessibilityLabel}
+                    accessibilityTraits={centerElementAccessibilityTraits}
                 />
                 <RightElement
                     {...this.props}

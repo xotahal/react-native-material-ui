@@ -229,7 +229,11 @@ class IconToggle extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         return (
-            <TouchableWithoutFeedback onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
+            <TouchableWithoutFeedback
+                onPressIn={this.onPressIn}
+                onPressOut={this.onPressOut}
+                accessibilityTraits="button"
+            >
                 <View>
                     {this.renderRippleView(styles)}
                     <View style={styles.container}>

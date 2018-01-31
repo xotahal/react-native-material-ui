@@ -26,6 +26,19 @@ const propTypes = {
     onRightElementPress: PropTypes.func,
     onSearchClearRequest: PropTypes.func.isRequired,
     onSearchPress: PropTypes.func.isRequired,
+    /**
+    * Accessibility
+    */
+    rightElementAccessibilityLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    ]),
+    rightElementAccessibilityTraits: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    ]),
 };
 const defaultProps = {
     rightElement: null,
@@ -33,6 +46,8 @@ const defaultProps = {
     size: null,
     style: {},
     searchable: null,
+    rightElementAccessibilityLabel: null,
+    rightElementAccessibilityTraits: null,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -88,6 +103,8 @@ class RightElement extends PureComponent {
             size,
             searchValue,
             onSearchClearRequest,
+            rightElementAccessibilityLabel,
+            rightElementAccessibilityTraits,
         } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
@@ -99,15 +116,23 @@ class RightElement extends PureComponent {
         }
 
         let actionsMap = [];
+        let accessibilityLabels = [];
+        let accessibilityTraits = [];
         let result = [];
 
         if (rightElement) {
             if (typeof rightElement === 'string') {
                 actionsMap.push(rightElement);
+                accessibilityLabels.push(rightElementAccessibilityLabel);
+                accessibilityTraits.push(rightElementAccessibilityTraits);
             } else if (Array.isArray(rightElement)) {
                 actionsMap = rightElement;
+                accessibilityLabels = rightElementAccessibilityLabel;
+                accessibilityTraits = rightElementAccessibilityTraits;
             } else if (rightElement.actions) {
                 actionsMap = rightElement.actions;
+                accessibilityLabels = rightElementAccessibilityLabel;
+                accessibilityTraits = rightElementAccessibilityTraits;
             }
         }
 
@@ -129,6 +154,8 @@ class RightElement extends PureComponent {
                         onPress={() =>
                             onRightElementPress && onRightElementPress({ action, index })
                         }
+                        accessibilityLabel={accessibilityLabels[index]}
+                        accessibilityTraits={accessibilityTraits[index]}
                     />
                 );
             });
