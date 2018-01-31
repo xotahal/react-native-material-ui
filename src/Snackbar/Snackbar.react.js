@@ -91,7 +91,7 @@ class Snackbar extends PureComponent {
         const styles = getStyles(props, context);
         this.state = {
             styles,
-            moveAnimated: new Animated.Value(48),
+            moveAnimated: new Animated.Value((StyleSheet.flatten(styles.container).height)),
         };
     }
 
@@ -141,8 +141,10 @@ class Snackbar extends PureComponent {
     }
 
     hide = () => {
-        Animated.timing(this.state.moveAnimated, {
-            toValue: 48,
+        const { moveAnimated, styles } = this.state;
+
+        Animated.timing(moveAnimated, {
+            toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 1, 1),
             useNativeDriver: true,
