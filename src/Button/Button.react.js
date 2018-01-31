@@ -194,8 +194,17 @@ class Button extends PureComponent {
 
         const styles = getStyles(this.props, this.context, this.state);
 
+        const accessibilityTraits = ['button'];
+        if (disabled) {
+            accessibilityTraits.push('disabled');
+        }
+
         const content = (
-            <View style={styles.container} pointerEvents="box-only">
+            <View
+                style={styles.container}
+                pointerEvents="box-only"
+                accessibilityTraits={accessibilityTraits}
+            >
                 {this.renderIcon(styles)}
                 <Text style={styles.text}>
                     {upperCase ? text.toUpperCase() : text}
@@ -214,6 +223,7 @@ class Button extends PureComponent {
                 onPressIn={raised ? this.setElevation : null}
                 onPressOut={raised ? this.removeElevation : null}
                 delayPressIn={50}
+                accessibilityTraits={accessibilityTraits}
             >
                 {content}
             </RippleFeedback>
