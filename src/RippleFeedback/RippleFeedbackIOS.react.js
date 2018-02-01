@@ -220,6 +220,7 @@ class RippleFeedbackIOS extends PureComponent {
             // zindex set as well, thus, there could be displayed backgroundColor of
             // component with bigger zindex - and that's not good
             <Animated.View
+                key="ripple-view"
                 pointerEvents="none"
                 style={[{
                     position: 'absolute',
@@ -244,6 +245,7 @@ class RippleFeedbackIOS extends PureComponent {
             // zindex set as well, thus, there could be displayed backgroundColor of
             // component with bigger zindex - and that's not good
             <Animated.View
+                key="ripple-opacity"
                 pointerEvents="none"
                 style={[{
                     ...StyleSheet.absoluteFillObject,
@@ -257,7 +259,7 @@ class RippleFeedbackIOS extends PureComponent {
     render() {
         const { children, disabled, style } = this.props;
 
-        const parrent = React.Children.only(children);
+        const parent = React.Children.only(children);
 
         const ripple = (
             <View
@@ -279,8 +281,8 @@ class RippleFeedbackIOS extends PureComponent {
                 onPressOut={this.onPressOut}
                 onPress={this.onPress}
             >
-                {React.cloneElement(parrent, [], [
-                    parrent.props.children,
+                {React.cloneElement(parent, [], [
+                    parent.props.children,
                     ripple,
                 ])}
             </TouchableWithoutFeedback>
