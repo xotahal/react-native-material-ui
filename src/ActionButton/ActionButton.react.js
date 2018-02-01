@@ -50,7 +50,10 @@ const propTypes = {
     /**
     * If specified it'll be shown before text
     */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]),
     /**
     * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
     * to another view - depends on transition value.
