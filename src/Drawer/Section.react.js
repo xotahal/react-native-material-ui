@@ -35,6 +35,7 @@ const defaultProps = {
     items: [],
     divider: false,
     style: {},
+    key: '',
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
