@@ -100,7 +100,7 @@ class Section extends PureComponent {
                         return (
                             <ListItem
                                 dense
-                                key={item.icon}
+                                key={item.key ? item.key : item.icon}
                                 leftElement={item.icon}
                                 centerElement={item.value}
                                 onPress={item.onPress}
