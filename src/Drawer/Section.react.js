@@ -28,6 +28,7 @@ const propTypes = {
         value: Text.propTypes.style,
         label: Text.propTypes.style,
     }),
+    key: PropTypes.string,
 };
 const defaultProps = {
     title: null,
