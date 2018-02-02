@@ -28,12 +28,14 @@ const propTypes = {
         value: Text.propTypes.style,
         label: Text.propTypes.style,
     }),
+    key: PropTypes.string,
 };
 const defaultProps = {
     title: null,
     items: [],
     divider: false,
     style: {},
+    key: '',
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -87,7 +89,7 @@ class Section extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <View>
+            <View key={this.props.key}>
                 <View style={styles.container}>
                     {this.renderTitle(styles)}
                     {items && items.map((item) => {
@@ -100,7 +102,7 @@ class Section extends PureComponent {
                         return (
                             <ListItem
                                 dense
-                                key={item.icon}
+                                key={item.key ? item.key : item.icon}
                                 leftElement={item.icon}
                                 centerElement={item.value}
                                 onPress={item.onPress}
