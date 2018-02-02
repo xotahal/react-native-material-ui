@@ -87,7 +87,7 @@ class Section extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <View>
+            <View key={this.props.key}>
                 <View style={styles.container}>
                     {this.renderTitle(styles)}
                     {items && items.map((item) => {
