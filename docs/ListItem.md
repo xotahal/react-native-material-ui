@@ -1,6 +1,6 @@
 # [ListItem](https://material.io/guidelines/components/lists-controls.html#lists-controls-types-of-list-controls)
 
-It can be embbeded in a `FlatList` or a `SectionList` (or a `ListView`, but it is deprecated)
+It can be embedded in a `FlatList` or a `SectionList` (or a `ListView`, but it is deprecated)
 
 ### Usage
 

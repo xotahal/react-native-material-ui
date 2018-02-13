@@ -5,7 +5,7 @@
 
 ```js
 ...
-import { Button } from 'react-native-material-ui';
+import { Button } from '../react-native-material-ui';
 ...
 render() {
     <View>
@@ -56,7 +56,7 @@ const propTypes = {
     */
     icon: PropTypes.string,
     /**
-    * You can overide any style for this button
+    * You can override any style for this button
     */
     style: PropTypes.shape({
         container: View.propTypes.style,

@@ -25,7 +25,7 @@ render() {
 ```js
 const propTypes = {
     /**
-    * The badge will be added relativelty to this node
+    * The badge will be added relatively to this node
     */
     children: PropTypes.node,
     /**
