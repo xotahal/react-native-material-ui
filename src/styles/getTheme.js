@@ -389,6 +389,7 @@ export default function getTheme(theme, ...more) {
             container: {
                 backgroundColor: palette.canvasColor,
                 height: 56,
+                minHeight: 40,
             },
             contentViewContainer: {
                 flex: 1,
