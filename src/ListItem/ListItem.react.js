@@ -43,8 +43,8 @@ const propTypes = {
         secondaryText: Text.propTypes.style,
         tertiaryText: Text.propTypes.style,
         rightElementContainer: ViewPropTypes.style,
-        leftElement: ViewPropTypes.style,
-        rightElement: ViewPropTypes.style,
+        leftElement: PropTypes.style,
+        rightElement: PropTypes.style,
     }),
 
     // left side
