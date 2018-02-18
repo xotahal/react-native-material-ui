@@ -7,7 +7,7 @@
 
 ```js
 ...
-import { BottomNavigation } from '../react-native-material-ui';
+import { BottomNavigation } from 'react-native-material-ui';
 ...
 render() {
     <BottomNavigation active={this.state.active} hidden={false} >
@@ -51,7 +51,7 @@ const propTypes = {
     */
     children: PropTypes.node.isRequired,
     /**
-    * Wether or not the BottomNavigation should show
+    * Whether or not the BottomNavigation should show
     */
     hidden: PropTypes.bool, /* DEFAULT: false */
     /*

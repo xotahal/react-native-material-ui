@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { RadioButton } from '../react-native-material-ui';
+import { RadioButton } from 'react-native-material-ui';
 ...
 render() {
     <View>

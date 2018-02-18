@@ -6,7 +6,7 @@ It can be embedded in a `FlatList` or a `SectionList` (or a `ListView`, but it i
 
 ```js
 ...
-import { ListItem } from '../react-native-material-ui';
+import { ListItem } from 'react-native-material-ui';
 ...
 render() {
     <View>

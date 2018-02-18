@@ -4,7 +4,7 @@
 ### Usage
 ```js
 ...
-import { Checkbox } from '../react-native-material-ui'
+import { Checkbox } from 'react-native-material-ui'
 ...
 
 render() {

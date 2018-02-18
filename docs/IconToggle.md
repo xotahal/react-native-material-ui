@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { IconToggle } from '../react-native-material-ui';
+import { IconToggle } from 'react-native-material-ui';
 ...
 render() {
     <View>

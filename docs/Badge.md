@@ -5,7 +5,7 @@
 
 ```js
 ...
-import { Badge, Icon, Avatar } from '../react-native-material-ui';
+import { Badge, Icon, Avatar } from 'react-native-material-ui';
 ...
 render() {
   <Badge text="3" >

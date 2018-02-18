@@ -6,7 +6,7 @@
 
 ```js
 ...
-import { Toolbar } from '../react-native-material-ui';
+import { Toolbar } from 'react-native-material-ui';
 ...
 render() {
       <Toolbar

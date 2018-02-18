@@ -8,7 +8,7 @@
 
 ```js
 ...
-import { ActionButton } from '../react-native-material-ui';
+import { ActionButton } from 'react-native-material-ui';
 ...
 render() {
     <View>
