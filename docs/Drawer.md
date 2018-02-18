@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Drawer } from '../react-native-material-ui';
+import { Drawer } from 'react-native-material-ui';
 ...
 render() {
     <View>

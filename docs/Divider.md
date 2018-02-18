@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Divider } from '../react-native-material-ui';
+import { Divider } from 'react-native-material-ui';
 ...
 render() {
     <View>

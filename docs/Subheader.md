@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Subheader } from '../react-native-material-ui';
+import { Subheader } from 'react-native-material-ui';
 ...
 render() {
     <View>

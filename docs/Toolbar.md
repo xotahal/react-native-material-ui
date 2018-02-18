@@ -6,7 +6,7 @@
 
 ```js
 ...
-import { Toolbar } from '../react-native-material-ui';
+import { Toolbar } from 'react-native-material-ui';
 ...
 render() {
       <Toolbar
@@ -56,7 +56,7 @@ const propTypes = {
         autoFocus: PropTypes.bool,
     }),
     /**
-    * You can overide any style for the component via this prop
+    * You can override any style for the component via this prop
     */
     style: PropTypes.shape({
         container: Animated.View.propTypes.style,

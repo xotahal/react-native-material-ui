@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Icon } from '../react-native-material-ui';
+import { Icon } from 'react-native-material-ui';
 ...
 render() {
     <View>
