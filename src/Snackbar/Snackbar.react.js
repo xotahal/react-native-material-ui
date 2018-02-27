@@ -99,7 +99,7 @@ class Snackbar extends PureComponent {
         const { style, visible, bottomNavigation } = this.props;
 
         if (nextProps.style !== style) {
-            this.setState({ styles: getStyles(this.props, this.context) });
+            this.setState({ styles: getStyles(nextProps, this.context) });
         }
 
         if (nextProps.visible !== visible) {
