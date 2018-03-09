@@ -75,7 +75,7 @@ exports[`Button accent, text, icon 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -193,7 +193,7 @@ exports[`Button default color 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -295,7 +295,7 @@ exports[`Button disabled 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -358,7 +358,7 @@ exports[`Button onPress 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -474,7 +474,7 @@ exports[`Button primary, text 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -622,7 +622,7 @@ exports[`Button primary, text, icon 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         undefined,
         false,
@@ -752,7 +752,7 @@ exports[`Button raised default 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
@@ -881,7 +881,7 @@ exports[`Button raised, accent, text 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
@@ -1042,7 +1042,7 @@ exports[`Button raised, accent, text, icon 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
@@ -1151,7 +1151,7 @@ exports[`Button raised, disabled, default 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
@@ -1227,7 +1227,7 @@ exports[`Button raised, primary, text 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
@@ -1388,7 +1388,7 @@ exports[`Button raised, primary, text, icon 1`] = `
         Object {
           "color": "#000000",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "800",
         },
         false,
         undefined,
