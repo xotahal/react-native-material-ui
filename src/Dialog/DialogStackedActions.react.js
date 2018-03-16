@@ -6,11 +6,13 @@ import { View } from 'react-native';
 import Button from '../Button';
 
 const propTypes = {
-    actions: PropTypes.array.isRequired,
+    actions: PropTypes.arrayOf(PropTypes.string).isRequired,
     onActionPress: PropTypes.func.isRequired,
+    options: PropTypes.shape,
 };
 const defaultProps = {
     style: {},
+    options: {},
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -28,25 +30,34 @@ function getStyles(props, context) {
 }
 
 class DialogStackedActions extends PureComponent {
+    renderAction(action) {
+        const { options, onActionPress } = this.props;
+        const isButtonDisabled = options[`${action}`] && options[`${action}`].disabled;
+
+        return (
+            <Button
+                key={action}
+                primary
+                disabled={isButtonDisabled}
+                text={action}
+                onPress={onActionPress}
+                style={{
+                    container: {
+                        justifyContent: 'flex-end',
+                    },
+                }}
+            />
+        );
+    }
     render() {
-        const { actions, onActionPress } = this.props;
+        const { actions } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
             <View style={styles.stackedActionsContainer}>
                 {actions.map(action => (
-                    <Button
-                        key={action}
-                        primary
-                        text={action}
-                        onPress={onActionPress}
-                        style={{
-                            container: {
-                                justifyContent: 'flex-end',
-                            },
-                        }}
-                    />
+                    this.renderAction(action)
                 ))}
             </View>
         );
