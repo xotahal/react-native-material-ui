@@ -21,7 +21,9 @@ const contextTypes = {
 
 class Icon extends PureComponent {
     render() {
-        const { name, style, size, color } = this.props;
+        const {
+            name, style, size, color,
+        } = this.props;
         const { palette, spacing } = this.context.uiTheme;
 
         const iconColor = color || palette.secondaryTextColor;

@@ -4,11 +4,16 @@ import PropTypes from 'prop-types';
 import { View, Image, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import HeaderAccount from './HeaderAccount.react';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     image: PropTypes.shape({ type: PropTypes.oneOf([Image]) }),
     backgroundColor: PropTypes.string,
     children: PropTypes.node,
+    style: PropTypes.shape({
+        contentContainer: ViewPropTypes.style,
+        container: ViewPropTypes.style,
+    }),
 };
 const defaultProps = {
     image: null,

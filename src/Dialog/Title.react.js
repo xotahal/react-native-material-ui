@@ -3,10 +3,15 @@ import { View, Text } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 
 const propTypes = {
     children: PropTypes.node.isRequired,
+    style: PropTypes.shape({
+        titleContainer: ViewPropTypes.style,
+        titleText: Text.propTypes.style,
+    }),
 };
 const defaultProps = {
     style: {},

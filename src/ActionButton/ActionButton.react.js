@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved, import/extensions */
+import Color from 'color';
 import React, { PureComponent } from 'react';
 import {
     View,
@@ -17,6 +18,11 @@ import RippleFeedback from '../RippleFeedback';
 /* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
 /* eslint-enable import/no-unresolved, import/extensions */
+
+function darkenOrLighten(color, ratio = 0.5) {
+    const c = Color(color);
+    return c.luminosity() > 0.5 ? c.darken(ratio) : c.lighten(ratio);
+}
 
 const propTypes = {
     /**
@@ -50,7 +56,10 @@ const propTypes = {
     /**
     * If specified it'll be shown before text
     */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]),
     /**
     * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
     * to another view - depends on transition value.
@@ -76,7 +85,7 @@ const defaultProps = {
     icon: 'add',
     style: {},
     hidden: false,
-    rippleColor: '#AAF',
+    rippleColor: null,
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -172,17 +181,19 @@ function getStyles(props, context, state) {
     };
 }
 
+const getRippleContainerStyle = (containerStyle) => {
+    const flattenContainer = StyleSheet.flatten(containerStyle);
+    const { height, width, borderRadius } = flattenContainer;
+
+    return { container: { height, width, borderRadius } };
+};
+
+
 class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
 
-        const scaleValue = props.hidden ? 0.01 : 1;
-
-        this.state = {
-            render: 'button',
-            elevation: 2,
-            scaleValue: new Animated.Value(scaleValue),
-        };
+        this.state = { render: 'button' };
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.hidden !== this.props.hidden) {
@@ -212,9 +223,22 @@ class ActionButton extends PureComponent {
         if (name) {
             key = name;
         } else if (React.isValidElement(icon) && icon.key) {
-            key = icon.key;
+            key = icon.key; // eslint-disable-line
         }
         return key;
+    }
+    getRippleColor() {
+        const { rippleColor } = this.props;
+
+        if (rippleColor) {
+            return rippleColor;
+        }
+
+        const styles = getStyles(this.props, this.context, this.state);
+
+        const { backgroundColor } = StyleSheet.flatten(styles.container);
+
+        return darkenOrLighten(backgroundColor).toString();
     }
     toggleState = () => {
         const { transition } = this.props;
@@ -232,7 +256,7 @@ class ActionButton extends PureComponent {
         //     toValue: 1,
         //     duration: 225,
         //     easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-        //     useNativeDriver: Platform.OS === 'android',
+        //     useNativeDriver: true,
         // }).start();
     }
     hide = () => {
@@ -242,7 +266,7 @@ class ActionButton extends PureComponent {
         //     toValue: 0.01,
         //     duration: 195,
         //     easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-        //     useNativeDriver: Platform.OS === 'android',
+        //     useNativeDriver: true,
         // }).start();
     }
     renderToolbarTransition = (styles) => {
@@ -258,8 +282,10 @@ class ActionButton extends PureComponent {
                         if (React.isValidElement(action)) {
                             return this.renderToolbarElementAction(styles, action);
                         }
-                        return this.renderToolbarLabelAction(
-                            styles, action.icon, action.label, action.name);
+
+                        const { icon, label, name } = action;
+                        // TODO: pass action
+                        return this.renderToolbarLabelAction(styles, icon, label, name);
                     })}
                 </View>
             </View>
@@ -283,8 +309,9 @@ class ActionButton extends PureComponent {
                                         return this.renderElementAction(styles, action);
                                     }
 
-                                    return this.renderLabelAction(
-                                        styles, action.icon, action.label, action.name);
+                                    const { icon, label, name } = action;
+                                    // TODO: pass action
+                                    return this.renderLabelAction(styles, icon, label, name);
                                 })}
                             </View>
                             {this.renderMainButton(styles)}
@@ -303,11 +330,10 @@ class ActionButton extends PureComponent {
         return (
             <View key="main-button" style={styles.container}>
                 <RippleFeedback
-                    color={this.props.rippleColor}
+                    style={getRippleContainerStyle(styles.container)}
+                    color={this.getRippleColor()}
                     onPress={() => this.onPress('main-button')}
                     onLongPress={onLongPress}
-                    onPressIn={() => this.setState({ elevation: 4 })}
-                    onPressOut={() => this.setState({ elevation: 2 })}
                     delayPressIn={20}
                 >
                     {this.renderIconButton(styles, mainIcon)}
@@ -322,7 +348,7 @@ class ActionButton extends PureComponent {
         if (React.isValidElement(icon)) {
             content = (
                 <RippleFeedback
-                    color={this.props.rippleColor}
+                    color={this.getRippleColor()}
                     onPress={() => this.onPress(key)}
                     delayPressIn={20}
                 >
@@ -368,7 +394,8 @@ class ActionButton extends PureComponent {
             <View key={key} style={styles.speedDialActionIconContainer}>
                 <View style={styles.speedDialActionIcon}>
                     <RippleFeedback
-                        color={this.props.rippleColor}
+                        style={getRippleContainerStyle(styles.speedDialActionIcon)}
+                        color={this.getRippleColor()}
                         onPress={() => this.onPress(key)}
                         delayPressIn={20}
                     >

@@ -23,8 +23,12 @@ function darkenOrLighten(color, ratio = 0.15) {
 export default function getTheme(theme, ...more) {
     theme = merge(lightTheme, theme, ...more);
 
-    const { spacing, fontFamily, typography, palette } = theme;
-    const baseTheme = { spacing, fontFamily, typography, palette };
+    const {
+        spacing, fontFamily, typography, palette,
+    } = theme;
+    const baseTheme = {
+        spacing, fontFamily, typography, palette,
+    };
 
     theme = merge({
         actionButton: StyleSheet.create(merge({
@@ -177,7 +181,6 @@ export default function getTheme(theme, ...more) {
         }, theme.buttonRaisedDisabled)),
         bottomNavigation: StyleSheet.create(merge({
             container: {
-                flexDirection: 'row',
                 height: 56,
                 backgroundColor: palette.canvasColor,
                 borderTopColor: palette.borderColor,
@@ -185,11 +188,16 @@ export default function getTheme(theme, ...more) {
                 ...getPlatformElevation(8),
                 zIndex: 8,
             },
+            actionsContainer: {
+                flexDirection: 'row',
+                justifyContent: 'center',
+            },
         }, theme.bottomNavigation)),
         bottomNavigationAction: StyleSheet.create(merge({
             container: {
                 flex: 1,
                 alignItems: 'center',
+                justifyContent: 'center',
                 maxWidth: 168,
                 minWidth: 80,
                 paddingBottom: 12,
@@ -219,6 +227,7 @@ export default function getTheme(theme, ...more) {
                 borderRadius: 2,
                 marginVertical: 4,
                 marginHorizontal: 8,
+                overflow: 'hidden',
                 ...getPlatformElevation(2),
             },
         }, theme.card)),
@@ -387,11 +396,10 @@ export default function getTheme(theme, ...more) {
                 alignItems: 'center',
             },
             leftElementContainer: {
-                width: 40,
+                width: 56,
                 marginLeft: 16,
             },
             centerElementContainer: {
-                paddingLeft: 16,
                 flex: 1,
             },
             textViewContainer: { },

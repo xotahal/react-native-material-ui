@@ -5,7 +5,7 @@
 
 ```js
 ...
-import { Dialog, DialogDefaultActions } from '../react-native-material-ui';
+import { Dialog, DialogDefaultActions } from 'react-native-material-ui';
 ...
 render() {
     <View>

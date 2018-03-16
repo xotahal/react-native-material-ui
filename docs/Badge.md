@@ -5,7 +5,7 @@
 
 ```js
 ...
-import { Badge, Icon, Avatar } from '../react-native-material-ui';
+import { Badge, Icon, Avatar } from 'react-native-material-ui';
 ...
 render() {
   <Badge text="3" >
@@ -25,7 +25,7 @@ render() {
 ```js
 const propTypes = {
     /**
-    * The badge will be added relativelty to this node
+    * The badge will be added relatively to this node
     */
     children: PropTypes.node,
     /**
