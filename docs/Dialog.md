@@ -32,7 +32,7 @@ render() {
 ```
 ### API
 
-## DialogDefaultActions/DialogStackedActions props
+### DialogDefaultActions/DialogStackedActions props
 ```js
 const propTypes = {
     actions: PropTypes.arrayOf(PropTypes.string).isRequired,
