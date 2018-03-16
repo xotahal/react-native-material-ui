@@ -31,6 +31,8 @@ render() {
 }
 ```
 ### API
+
+## DialogDefaultActions/DialogStackedActions props
 ```js
 const propTypes = {
     actions: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -45,4 +47,4 @@ const propTypes = {
 ```
 
 ##### TODO
-- [ ] Add API to doc
+- [X] Add API to doc
