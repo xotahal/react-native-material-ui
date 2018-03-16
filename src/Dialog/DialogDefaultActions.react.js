@@ -8,7 +8,7 @@ import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     actions: PropTypes.arrayOf(PropTypes.string).isRequired,
-    options: PropTypes.shape,
+    options: PropTypes.objectOf(PropTypes.object),
     onActionPress: PropTypes.func.isRequired,
     style: PropTypes.shape({
         defaultActionsContainer: ViewPropTypes.style,
