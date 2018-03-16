@@ -73,7 +73,7 @@ class DialogDefaultActions extends PureComponent {
         return (
             <View style={styles.defaultActionsContainer}>
                 {actions.map(action => (
-                  this.renderAction(action)
+                    this.renderAction(action)
                 ))}
             </View>
         );
