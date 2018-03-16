@@ -9,7 +9,7 @@ import { ViewPropTypes } from '../utils';
 const propTypes = {
     actions: PropTypes.arrayOf(PropTypes.string).isRequired,
     onActionPress: PropTypes.func.isRequired,
-    options: PropTypes.shape,
+    options: PropTypes.objectOf(PropTypes.object),
     style: PropTypes.shape({
         stackedActionsContainer: ViewPropTypes.style,
     }),
