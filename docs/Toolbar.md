@@ -39,6 +39,10 @@ const propTypes = {
         */
         onSearchClosed: PropTypes.func,
         /**
+        * Called when action to close search was requested.
+        */
+        onSearchCloseRequested: PropTypes.func,
+        /**
         * Called when search was opened.
         */
         onSearchPressed: PropTypes.func,

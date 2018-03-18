@@ -34,6 +34,10 @@ const propTypes = {
         */
         onSearchClosed: PropTypes.func,
         /**
+        * Called when action to close search was requested.
+        */
+        onSearchCloseRequested: PropTypes.func,
+        /**
         * Called when search was opened.
         */
         onSearchPressed: PropTypes.func,
@@ -265,6 +269,10 @@ class Toolbar extends PureComponent {
     * Android's HW/SW back button
     */
     onSearchCloseRequested = () => {
+        if (this.props.searchable.onSearchCloseRequested) {
+            this.props.searchable.onSearchCloseRequested();
+        }
+
         this.setState({
             isSearchActive: false,
             searchValue: '',
