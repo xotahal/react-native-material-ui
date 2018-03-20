@@ -37,9 +37,14 @@ const propTypes = {
     * will be wrapper of whole badge component.
     */
     stroke: PropTypes.number,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-    }),
+    style: PropTypes.oneOfType([
+        PropTypes.shape({
+            container: ViewPropTypes.style,
+            strokeContainer: ViewPropTypes.style,
+            content: Text.propTypes.style,
+        }),
+        PropTypes.array,
+    ]),
 };
 const defaultProps = {
     children: null,
