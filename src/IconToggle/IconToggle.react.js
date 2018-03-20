@@ -34,7 +34,7 @@ const propTypes = {
     /**
     * Name of icon to show
     */
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     /**
     * It'll be used instead of icon (see props name) if exists
     */
@@ -57,6 +57,7 @@ const defaultProps = {
     color: null,
     underlayColor: null,
     size: 24,
+    name: null,
     disabled: false,
     percent: 90,
     maxOpacity: 0.16,
