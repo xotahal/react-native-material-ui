@@ -38,10 +38,12 @@ class Drawer extends PureComponent {
         const { children } = this.props;
 
         const styles = getStyles(this.props, this.context);
+        const keyboardShouldPersistTaps = this.props.keyboardShouldPersistTaps || "never";
+        const keyboardDismissMode = this.props.keyboardDismissMode || "none";
 
         return (
             <Container>
-                <ScrollView style={styles.container}>
+                <ScrollView style={styles.container} keyboardDismissMode={keyboardDismissMode} keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
                     {children}
                 </ScrollView>
             </Container>
