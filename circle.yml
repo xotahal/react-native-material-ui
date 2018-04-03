@@ -58,7 +58,7 @@ jobs:
           at: *workspace
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > *workspace/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/mui/.npmrc
       - run:
           name: Publish
           command: npm publish
