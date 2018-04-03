@@ -1,25 +1,84 @@
-machine:
-  node:
-    version: stable
-  environment:
-    YARN_VERSION: 0.17.10
-    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+version: 2
 
-dependencies:
-  pre:
-    - |
-      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-      fi
-  cache_directories:
-    - ~/.yarn
-    - ~/.cache/yarn
-  override:
-    - yarn
+# Used Workspace
+workspace: &workspace
+  ~/mui
 
-test:
-  override:
-    - yarn lint
-    - yarn test
-  post:
-    - bash <(curl -s https://codecov.io/bash)
+# Config for node
+node_config: &node_config
+    working_directory: *workspace
+    docker:
+      - image: circleci/node:8
+
+# Key to cache gradle dependecies
+yarn_key: &yarn_key
+  yarn-cache-{{ checksum "yarn.lock" }}
+
+jobs:
+  install-dependencies:
+    <<: *node_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace
+      - restore_cache:
+          key: *yarn_key
+      - run:
+          name: Intal yarn dependencies
+          command: yarn
+      - save_cache:
+          key: *yarn_key
+          paths: node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  lint:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Lint
+          command: yarn lint
+
+  test:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Jest
+          command: yarn test
+
+  publish:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/mui/.npmrc
+      - run:
+          name: Publish
+          command: npm publish
+
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - install-dependencies
+      - lint:
+          requires:
+              - install-dependencies
+      - test:
+          requires:
+              - install-dependencies
+      - publish:
+          requires:
+              - lint
+              - test
+          filters:
+              branches:
+                only: 'publish'
