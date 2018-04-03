@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-ui",
-  "version": "1.22.0",
+  "version": "1.22.1",
   "description": "React Native Material Design Components",
   "main": "./index.js",
   "scripts": {
