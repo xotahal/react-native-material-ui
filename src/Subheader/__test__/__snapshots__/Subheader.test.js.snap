@@ -25,7 +25,7 @@ exports[`default props 1`] = `
         Object {
           "color": "rgba(0, 0, 0, 0.54)",
           "fontSize": 14,
-          "fontWeight": "800",
+          "fontWeight": "500",
           "lineHeight": 24,
         },
         undefined,
@@ -62,7 +62,7 @@ exports[`with inset 1`] = `
         Object {
           "color": "rgba(0, 0, 0, 0.54)",
           "fontSize": 14,
-          "fontWeight": "800",
+          "fontWeight": "500",
           "lineHeight": 24,
         },
         undefined,
