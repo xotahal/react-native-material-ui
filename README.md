@@ -67,7 +67,7 @@ The uiTheme object contains the following keys:
 import React, { Component } from 'react';
 import { Navigator, NativeModules } from 'react-native';
 
-import { COLOR, ThemeProvider } from '../react-native-material-ui';
+import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
 // you can set your style right here, it'll be propagated to application
 const uiTheme = {
