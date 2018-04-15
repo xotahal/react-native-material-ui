@@ -216,6 +216,7 @@ exports[`Left element left element only 1`] = `
         ],
       }
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -232,7 +233,7 @@ exports[`Left element left element only 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
@@ -478,6 +479,7 @@ exports[`Right element right element - actions, menu 1`] = `
         undefined,
       ]
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -494,7 +496,7 @@ exports[`Right element right element - actions, menu 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
@@ -582,7 +584,7 @@ exports[`Right element right element - actions, menu 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={undefined}
-        testID={undefined}
+        testID={null}
       >
         <View
           collapsable={undefined}
@@ -784,6 +786,7 @@ exports[`Right element right element - custom element 1`] = `
         undefined,
       ]
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -818,7 +821,7 @@ exports[`Right element right element - custom element 1`] = `
           undefined,
         ]
       }
-      testID={undefined}
+      testID={null}
     >
       <Text
         accessible={true}
@@ -1038,6 +1041,7 @@ exports[`Right element right element only 1`] = `
         undefined,
       ]
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -1054,7 +1058,7 @@ exports[`Right element right element only 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
@@ -1211,6 +1215,7 @@ exports[`Searchable searchable active 1`] = `
         ],
       }
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -1227,7 +1232,7 @@ exports[`Searchable searchable active 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
@@ -1361,6 +1366,7 @@ exports[`Searchable searchable active 1`] = `
         undefined,
       ]
     }
+    testID={null}
   />
 </View>
 `;
@@ -1455,6 +1461,7 @@ exports[`Searchable searchable object 1`] = `
         ],
       }
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -1471,7 +1478,7 @@ exports[`Searchable searchable object 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
@@ -1591,6 +1598,7 @@ exports[`Searchable searchable object 1`] = `
         undefined,
       ]
     }
+    testID={null}
   >
     <View
       accessibilityComponentType={undefined}
@@ -1607,7 +1615,7 @@ exports[`Searchable searchable object 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={undefined}
-      testID={undefined}
+      testID={null}
     >
       <View
         collapsable={undefined}
