@@ -11,6 +11,7 @@ import getPlatformElevation from '../styles/getPlatformElevation';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
+    testID: PropTypes.string,
     /**
     * If true button will be disabled
     */
@@ -53,6 +54,7 @@ const propTypes = {
     accent: PropTypes.bool,
 };
 const defaultProps = {
+    testID: null,
     icon: null,
     onPress: null,
     onLongPress: null,
@@ -189,7 +191,7 @@ class Button extends PureComponent {
     }
     render() {
         const {
-            text, disabled, raised, upperCase, onLongPress,
+            text, disabled, raised, upperCase, onLongPress, testID,
         } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
@@ -209,6 +211,7 @@ class Button extends PureComponent {
 
         return (
             <RippleFeedback
+                testID={testID}
                 onPress={!disabled ? this.onPress : null}
                 onLongPress={!disabled ? onLongPress : null}
                 onPressIn={raised ? this.setElevation : null}

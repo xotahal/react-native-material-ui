@@ -8,6 +8,7 @@ import { ViewPropTypes } from '../utils';
 import IconToggle from '../IconToggle';
 
 const propTypes = {
+    leftElementTestID: PropTypes.string,
     isSearchActive: PropTypes.bool.isRequired,
     style: PropTypes.shape({
         leftElementContainer: ViewPropTypes.style,
@@ -19,6 +20,7 @@ const propTypes = {
     onSearchClose: PropTypes.func,
 };
 const defaultProps = {
+    leftElementTestID: null,
     leftElement: null,
     onLeftElementPress: null,
     onSearchClose: null,
@@ -106,6 +108,7 @@ class LeftElement extends PureComponent {
     render() {
         const { styles, leftElement, spinValue } = this.state;
         const {
+            leftElementTestID,
             isSearchActive,
             onLeftElementPress,
             onSearchClose,
@@ -139,6 +142,7 @@ class LeftElement extends PureComponent {
 
         return (
             <Animated.View
+                testID={leftElementTestID}
                 style={[
                     styles.leftElementContainer,
                     { transform: [{ rotate: spin }] },

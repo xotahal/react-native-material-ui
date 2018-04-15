@@ -20,6 +20,7 @@ import RippleFeedback from '../RippleFeedback';
 const { UIManager } = NativeModules;
 
 const propTypes = {
+    testID: PropTypes.string,
     // generally
     dense: PropTypes.bool,
     // should render divider after list item?
@@ -82,6 +83,7 @@ const propTypes = {
     children: PropTypes.node,
 };
 const defaultProps = {
+    testID: null,
     dense: false,
     onPress: null,
     onPressValue: null,
@@ -472,7 +474,7 @@ class ListItem extends PureComponent {
         </View>
     )
     render() {
-        const { onPress, onLongPress } = this.props;
+        const { onPress, onLongPress, testID } = this.props;
 
         const styles = getStyles(this.props, this.context, this.state);
 
@@ -497,7 +499,7 @@ class ListItem extends PureComponent {
 
 
         return (
-            <View>
+            <View testID={testID}>
                 {content}
                 {this.renderDivider()}
             </View>

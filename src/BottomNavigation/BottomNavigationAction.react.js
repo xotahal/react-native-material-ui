@@ -9,6 +9,7 @@ import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
 
 const propTypes = {
+    testID: PropTypes.string,
     /**
     * Will be rendered above the label as a content of the action.
     * If string, result will be <Icon name={icon} ...rest />
@@ -41,6 +42,7 @@ const propTypes = {
     disabled: PropTypes.bool,
 };
 const defaultProps = {
+    testID: null,
     label: null,
     onPress: null,
     active: false,
@@ -110,12 +112,12 @@ class BottomNavigationAction extends PureComponent {
         return <Text style={styles.label}>{label}</Text>;
     }
     render() {
-        const { onPress } = this.props;
+        const { onPress, testID } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
-            <RippleFeedback onPress={onPress}>
+            <RippleFeedback testID={testID} onPress={onPress}>
                 <View style={styles.container} pointerEvents="box-only">
                     {this.renderIcon(styles)}
                     {this.renderLabel(styles)}

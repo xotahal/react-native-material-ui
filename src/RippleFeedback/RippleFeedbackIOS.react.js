@@ -9,6 +9,7 @@ import { black } from '../styles/colors';
 import { ELEVATION_ZINDEX } from '../styles/constants';
 
 const propTypes = {
+    testID: PropTypes.string,
     color: PropTypes.string,
     /**
     * Max opacity of ripple effect
@@ -34,6 +35,7 @@ const propTypes = {
     }),
 };
 const defaultProps = {
+    testID: null,
     children: null,
     onPress: null,
     onLongPress: null,
@@ -257,7 +259,12 @@ class RippleFeedbackIOS extends PureComponent {
         );
     }
     render() {
-        const { children, disabled, style } = this.props;
+        const {
+            children,
+            disabled,
+            style,
+            testID,
+        } = this.props;
 
         const parent = React.Children.only(children);
 
@@ -274,6 +281,7 @@ class RippleFeedbackIOS extends PureComponent {
 
         return (
             <TouchableWithoutFeedback
+                testID={testID}
                 disabled={disabled}
                 onLayout={this.onLayoutChanged}
                 onPressIn={this.onPressIn}

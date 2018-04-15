@@ -10,6 +10,7 @@ import { ELEVATION_ZINDEX } from '../styles/constants';
 import Icon from '../Icon';
 
 const propTypes = {
+    testID: PropTypes.string,
     color: PropTypes.string,
     /**
     * The color of the underlay that will show when the touch is active.
@@ -52,6 +53,7 @@ const propTypes = {
     ]),
 };
 const defaultProps = {
+    testID: null,
     children: null,
     onPress: null,
     color: null,
@@ -227,10 +229,16 @@ class IconToggle extends PureComponent {
         return <Icon name={name} color={color} size={iconSize} />;
     }
     render() {
+        const { testID } = this.props;
+
         const styles = getStyles(this.props, this.context, this.state);
 
         return (
-            <TouchableWithoutFeedback onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
+            <TouchableWithoutFeedback
+                testID={testID}
+                onPressIn={this.onPressIn}
+                onPressOut={this.onPressOut}
+            >
                 <View>
                     {this.renderRippleView(styles)}
                     <View style={styles.container}>

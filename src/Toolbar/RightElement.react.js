@@ -11,6 +11,7 @@ import isFunction from '../utils/isFunction';
 const { UIManager } = NativeModules;
 
 const propTypes = {
+    rightElementTestID: PropTypes.string,
     isSearchActive: PropTypes.bool.isRequired,
     searchValue: PropTypes.string.isRequired,
     // We need just check if searchable exists
@@ -28,6 +29,7 @@ const propTypes = {
     onSearchPress: PropTypes.func.isRequired,
 };
 const defaultProps = {
+    rightElementTestID: null,
     rightElement: null,
     onRightElementPress: null,
     size: null,
@@ -81,6 +83,7 @@ class RightElement extends PureComponent {
     };
     render() {
         const {
+            rightElementTestID,
             isSearchActive,
             rightElement,
             onRightElementPress,
@@ -196,7 +199,10 @@ class RightElement extends PureComponent {
         }
 
         return (
-            <View style={styles.rightElementContainer}>
+            <View
+                testID={rightElementTestID}
+                style={styles.rightElementContainer}
+            >
                 {result}
             </View>
         );
