@@ -14,6 +14,10 @@
 ```bash
 $ npm i react-native-material-ui --save
 ```
+or
+```bash
+$ yarn add react-native-material-ui
+```
 
 ## Setting of vector icons
 You can see [this repo](https://github.com/oblador/react-native-vector-icons) for much more information.
@@ -123,21 +127,17 @@ Of course, sometimes we need to change style of only one component. It means, al
 ```
 # Animations are included
 
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/action-button-labels.gif" width="285"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
 
 Note: You have to allow the animations for Android ([see React Native's documentation](https://facebook.github.io/react-native/docs/layoutanimation.html))
 ```js
-UIManager.setLayoutAnimationEnabledExperimental && 
+UIManager.setLayoutAnimationEnabledExperimental &&
 UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 # Themes are supported
 
 
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-2.png" width="285">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-3.png" width="285">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-4.png" width="285">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-2.png" width="285"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-3.png" width="285"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/buttons-4.png" width="285">
 
 # Toolbar with search feature
 
@@ -147,8 +147,7 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 
 You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-demo-app)!
 
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-1.png" width="280">
-<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-anim-1.gif" width="280">
+<img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-1.png" width="280"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-anim-1.gif" width="280">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-1.gif" width="285">
 
 ![Example 1](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-1.jpg "Example 1")
