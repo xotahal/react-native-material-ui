@@ -292,7 +292,7 @@ class Toolbar extends PureComponent {
             this.onSearchClosed();
         });
 
-        return true; // because we need to stop propagation
+        return false; // because we need to stop propagation
     }
     onSearchClosed = () => {
         const { searchable } = this.props;
