@@ -440,12 +440,6 @@ class Toolbar extends PureComponent {
                 ]}
             >
                 {this.renderAnimatedBackgrounds(styles)}
-                <LeftElement
-                    {...this.props}
-                    onLeftElementPress={onLeftElementPress}
-                    isSearchActive={isSearchActive}
-                    onSearchClose={this.onSearchCloseRequested}
-                />
                 <CenterElement
                     {...this.props}
                     onPress={onPress}
