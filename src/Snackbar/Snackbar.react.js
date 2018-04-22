@@ -131,10 +131,11 @@ class Snackbar extends PureComponent {
     }
 
     show = (bottomNavigation) => {
+        const { container } = this.context.uiTheme.bottomNavigation;
+
         let toValue = 0;
         if (bottomNavigation) {
-            // TODO: Get bottom navigation height from context.
-            toValue = -56;
+            toValue = -StyleSheet.flatten(container).height;
         }
 
         Animated.timing(this.state.moveAnimated, {
@@ -156,8 +157,10 @@ class Snackbar extends PureComponent {
     }
 
     move = (bottomNavigation) => {
+        const { container } = this.context.uiTheme.bottomNavigation;
+
         const { moveAnimated } = this.state;
-        const toValue = bottomNavigation ? -56 : 0;
+        const toValue = bottomNavigation ? -StyleSheet.flatten(container).height : 0;
         const duration = bottomNavigation ? 225 : 195;
         const easing = bottomNavigation ?
             Easing.bezier(0.0, 0.0, 0.2, 1) : Easing.bezier(0.4, 0.0, 0.6, 1);
