@@ -26,10 +26,7 @@ function getStyles(props, context) {
     const { drawer } = context.uiTheme;
 
     return {
-        container: [
-            drawer.container,
-            props.style.container,
-        ],
+        container: [drawer.container, props.style.container],
     };
 }
 
@@ -41,7 +38,7 @@ class Drawer extends PureComponent {
 
         return (
             <Container>
-                <ScrollView style={styles.container}>
+                <ScrollView contentContainerStyle={styles.container}>
                     {children}
                 </ScrollView>
             </Container>
