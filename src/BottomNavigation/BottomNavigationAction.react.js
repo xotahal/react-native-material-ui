@@ -127,7 +127,9 @@ class BottomNavigationAction extends PureComponent {
 
         if(!this.props.disabled){
             return (
-                <RippleFeedback testID={testID} onPress={onPress}>{this.renderButton()}</RippleFeedback>
+                <RippleFeedback testID={testID} onPress={onPress}>
+                    {this.renderButton()}
+                </RippleFeedback>
             );
         }
 
