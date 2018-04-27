@@ -111,7 +111,6 @@ class BottomNavigationAction extends PureComponent {
 
         return <Text style={styles.label}>{label}</Text>;
     }
-    
     renderButton() {
         const styles = getStyles(this.props, this.context);
         return (
