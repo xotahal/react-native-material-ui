@@ -112,12 +112,12 @@ class BottomNavigationAction extends PureComponent {
         return <Text style={styles.label}>{label}</Text>;
     }
     render() {
-        const { onPress, testID } = this.props;
+        const { onPress, testID, disabled } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
-            <RippleFeedback testID={testID} onPress={onPress}>
+            <RippleFeedback disabled={disabled} testID={testID} onPress={onPress}>
                 <View style={styles.container} pointerEvents="box-only">
                     {this.renderIcon(styles)}
                     {this.renderLabel(styles)}
