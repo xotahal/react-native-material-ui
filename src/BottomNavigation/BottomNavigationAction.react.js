@@ -111,19 +111,28 @@ class BottomNavigationAction extends PureComponent {
 
         return <Text style={styles.label}>{label}</Text>;
     }
+    renderButton() {
+        const styles = getStyles(this.props, this.context);
+        return (
+            <View style={styles.container} pointerEvents="box-only">
+                {this.renderIcon(styles)}
+                {this.renderLabel(styles)}
+            </View>
+        );
+    }
+
     render() {
         const { onPress, testID } = this.props;
 
-        const styles = getStyles(this.props, this.context);
+        if (!this.props.disabled) {
+            return (
+                <RippleFeedback testID={testID} onPress={onPress}>
+                    {this.renderButton()}
+                </RippleFeedback>
+            );
+        }
 
-        return (
-            <RippleFeedback testID={testID} onPress={onPress}>
-                <View style={styles.container} pointerEvents="box-only">
-                    {this.renderIcon(styles)}
-                    {this.renderLabel(styles)}
-                </View>
-            </RippleFeedback>
-        );
+        return this.renderButton();
     }
 }
 
