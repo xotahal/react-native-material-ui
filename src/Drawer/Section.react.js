@@ -12,7 +12,7 @@ const propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-        label: PropTypes.string,
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         onPress: PropTypes.func,
         onLongPress: PropTypes.func,
         active: PropTypes.bool,
@@ -94,6 +94,7 @@ class Section extends PureComponent {
                                 key={item.value}
                                 leftElement={item.icon}
                                 centerElement={item.value}
+                                rightElement={item.label}
                                 onPress={item.onPress}
                                 style={style}
                             />
