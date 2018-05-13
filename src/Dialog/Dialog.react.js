@@ -1,9 +1,8 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
-import RippleFeedback from '../RippleFeedback';
 import { ViewPropTypes } from '../utils';
 
 import Title from './Title.react';
@@ -43,11 +42,11 @@ class Dialog extends PureComponent {
         const styles = getStyles(this.props, this.context);
 
         return (
-            <RippleFeedback onPress={onPress}>
+            <TouchableWithoutFeedback onPress={onPress}>
                 <View style={styles.container}>
                     {children}
                 </View>
-            </RippleFeedback>
+            </TouchableWithoutFeedback>
         );
     }
 }
