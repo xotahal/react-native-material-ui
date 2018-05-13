@@ -3,7 +3,6 @@ import { View, TouchableWithoutFeedback } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
-import RippleFeedback from '../RippleFeedback';
 import { ViewPropTypes } from '../utils';
 
 import Title from './Title.react';
