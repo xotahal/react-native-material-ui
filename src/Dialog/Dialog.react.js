@@ -42,12 +42,20 @@ class Dialog extends PureComponent {
 
         const styles = getStyles(this.props, this.context);
 
+        if (onPress) {
+            return (
+                <RippleFeedback onPress={onPress}>
+                    <View style={styles.container}>
+                        {children}
+                    </View>
+                </RippleFeedback>
+            );
+        }
+
         return (
-            <RippleFeedback onPress={onPress}>
-                <View style={styles.container}>
-                    {children}
-                </View>
-            </RippleFeedback>
+            <View style={styles.container}>
+                {children}
+            </View>
         );
     }
 }
