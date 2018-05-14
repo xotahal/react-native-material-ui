@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
@@ -11,7 +11,7 @@ const propTypes = {
   /**
    * If passed in, this component will render image.
    */
-  image: PropTypes.shape({ type: PropTypes.oneOf([Image]) }),
+  image: PropTypes.element,
   /**
    * If passed in, this component will render icon element inside avatar.
    */
