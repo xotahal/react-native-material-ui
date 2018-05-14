@@ -58,7 +58,7 @@ class Card extends PureComponent {
         const { styles } = this.state;
 
         return (
-            <View style={styles.container} pointerEvents="auto">
+            <View style={styles.container} pointerEvents="box-only">
                 {children}
             </View>
         );
