@@ -37,26 +37,28 @@ function getStyles(props, context) {
 }
 
 class Dialog extends PureComponent {
-    render() {
-        const { onPress, children } = this.props;
-
+    renderContent = () => {
+        const { children } = this.props;
         const styles = getStyles(this.props, this.context);
+
+        return (
+            <View style={styles.container} pointerEvents="auto">
+                {children}
+            </View>
+        );
+    }
+    render() {
+        const { onPress } = this.props;
 
         if (onPress) {
             return (
                 <RippleFeedback onPress={onPress}>
-                    <View style={styles.container}>
-                        {children}
-                    </View>
+                    {this.renderContent()}
                 </RippleFeedback>
             );
         }
 
-        return (
-            <View style={styles.container}>
-                {children}
-            </View>
-        );
+        return this.renderContent();
     }
 }
 
