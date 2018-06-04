@@ -137,22 +137,32 @@ function getNumberOfLines(props) {
 /**
 * Please see this: https://material.google.com/components/lists.html#lists-specs
 */
-function getListItemHeight(props, state) {
+function getListItemHeight(props, context, state) {
     const { leftElement, dense } = props;
     const { numberOfLines } = state;
+    const { listItem } = context.uiTheme;
 
     if (numberOfLines === 'dynamic') {
         return null;
     }
 
     if (numberOfLines && typeof numberOfLines === 'object') {
-        const totalNumberOfLines =
-            (numberOfLines.primaryText || 0) +
-            (numberOfLines.secondaryText || 0) +
-            (numberOfLines.tertiaryText || 0);
+        const { primaryText, secondaryText, tertiaryText } = numberOfLines;
         const baseHeight = dense ? 48 : 56;
 
-        return baseHeight + (totalNumberOfLines * 16);
+        return baseHeight +
+            ((primaryText || 0) * StyleSheet.flatten([
+                listItem.primaryText,
+                props.style.primaryText,
+            ]).fontSize) +
+            ((secondaryText || 0) * StyleSheet.flatten([
+                listItem.secondaryText,
+                props.style.secondaryText,
+            ]).fontSize) +
+            ((tertiaryText || 0) * StyleSheet.flatten([
+                listItem.tertiaryText,
+                props.style.tertiaryText,
+            ]).fontSize);
     }
 
     if (!leftElement && numberOfLines === 1) {
@@ -175,7 +185,7 @@ function getStyles(props, context, state) {
     const { numberOfLines } = state;
 
     const container = {
-        height: getListItemHeight(props, state),
+        height: getListItemHeight(props, context, state),
     };
 
     const contentViewContainer = {};
