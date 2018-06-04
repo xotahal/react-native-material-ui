@@ -31,7 +31,15 @@ const propTypes = {
     * Called when list item is long pressed.
     */
     onLongPress: PropTypes.func,
-    numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
+    numberOfLines: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.shape({
+            primaryText: PropTypes.number,
+            secondaryText: PropTypes.number,
+            tertiaryText: PropTypes.number,
+        }),
+    ]),
     style: PropTypes.shape({
         container: ViewPropTypes.style,
         contentViewContainer: ViewPropTypes.style,
@@ -112,6 +120,10 @@ function getNumberOfSecondaryTextLines(numberOfLines) {
 function getNumberOfLines(props) {
     const { numberOfLines, centerElement } = props;
 
+    if (numberOfLines && typeof numberOfLines === 'object') {
+        return numberOfLines;
+    }
+
     if (centerElement && centerElement.secondaryText && centerElement.tertiaryText
         && (!numberOfLines || numberOfLines < 3)) {
         return 3;
@@ -125,12 +137,32 @@ function getNumberOfLines(props) {
 /**
 * Please see this: https://material.google.com/components/lists.html#lists-specs
 */
-function getListItemHeight(props, state) {
+function getListItemHeight(props, context, state) {
     const { leftElement, dense } = props;
     const { numberOfLines } = state;
+    const { listItem } = context.uiTheme;
 
     if (numberOfLines === 'dynamic') {
         return null;
+    }
+
+    if (numberOfLines && typeof numberOfLines === 'object') {
+        const { primaryText, secondaryText, tertiaryText } = numberOfLines;
+        const baseHeight = dense ? 48 : 56;
+
+        return baseHeight +
+            ((primaryText || 0) * StyleSheet.flatten([
+                listItem.primaryText,
+                props.style.primaryText,
+            ]).fontSize) +
+            ((secondaryText || 0) * StyleSheet.flatten([
+                listItem.secondaryText,
+                props.style.secondaryText,
+            ]).fontSize) +
+            ((tertiaryText || 0) * StyleSheet.flatten([
+                listItem.tertiaryText,
+                props.style.tertiaryText,
+            ]).fontSize);
     }
 
     if (!leftElement && numberOfLines === 1) {
@@ -152,10 +184,10 @@ function getStyles(props, context, state) {
     const { listItem } = context.uiTheme;
     const { numberOfLines } = state;
 
-
     const container = {
-        height: getListItemHeight(props, state),
+        height: getListItemHeight(props, context, state),
     };
+
     const contentViewContainer = {};
     const leftElementContainer = {};
     const centerElementContainer = {};
@@ -340,8 +372,8 @@ class ListItem extends PureComponent {
         );
     }
     renderCenterElement = (styles) => {
-        const { centerElement } = this.props;
-        const numberOfLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
+        const { centerElement, numberOfLines } = this.props;
+        const numberOfSecondaryTextLines = getNumberOfSecondaryTextLines(this.state.numberOfLines);
         let content = null;
 
         if (React.isValidElement(centerElement)) {
@@ -360,13 +392,22 @@ class ListItem extends PureComponent {
                 tertiaryText = centerElement.tertiaryText;
                 /* eslint-enable prefer-destructuring */
             }
-            const secondLineNumber = !tertiaryText ? numberOfLines : 1;
-            const thirdLineNumber = tertiaryText ? numberOfLines : 1;
+
+            let firstLineNumber = 1;
+            let secondLineNumber = !tertiaryText ? numberOfSecondaryTextLines : 1;
+            let thirdLineNumber = tertiaryText ? numberOfSecondaryTextLines : 1;
+
+            if (numberOfLines && typeof numberOfLines === 'object') {
+                firstLineNumber = numberOfLines.primaryText;
+                secondLineNumber = numberOfLines.secondaryText;
+                thirdLineNumber = numberOfLines.tertiaryText;
+            }
+
             content = (
                 <View style={styles.textViewContainer}>
                     <View style={styles.firstLine}>
                         <View style={styles.primaryTextContainer}>
-                            <Text numberOfLines={1} style={styles.primaryText}>
+                            <Text numberOfLines={firstLineNumber} style={styles.primaryText}>
                                 {primaryText}
                             </Text>
                         </View>
