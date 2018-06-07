@@ -162,7 +162,7 @@ class RightElement extends PureComponent {
             } else {
                 result.push(<IconToggle
                     key="searchIcon"
-                    name="search"
+                    name={this.props.searchable.icon ? this.props.searchable.icon : 'search'}  
                     color={flattenRightElement.color}
                     size={size}
                     style={flattenRightElement}

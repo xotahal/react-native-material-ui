@@ -61,6 +61,10 @@ const propTypes = {
         * Enable auto-correct for search input
         */
         autoCorrect: PropTypes.bool,
+        /**
+        * Override default search icon
+        */
+        icon: PropTypes.string,
     }),
     /**
     * You can overide any style for the component via this prop
