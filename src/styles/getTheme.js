@@ -437,23 +437,32 @@ export default function getTheme(theme, ...more) {
                 color: palette.secondaryTextColor,
             },
         }, theme.listItem)),
-        // https://material.io/guidelines/components/snackbars-toasts.html
+        // https://material.io/design/components/snackbars.html
         snackbar: StyleSheet.create(merge({
             container: {
+                flex: 1,
                 flexDirection: 'row',
-                height: spacing.snackbarHeight,
                 alignItems: 'center',
                 backgroundColor: snackbarColor,
-                paddingHorizontal: 24,
+                paddingHorizontal: 16,
                 ...getPlatformElevation(4),
                 zIndex: 4,
+                borderRadius: 6,
+                margin: 6,
+                position: 'absolute',
+                bottom: 0,
+            },
+            content: {
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
             },
             message: {
                 flex: 1,
                 marginVertical: 14,
                 color: white,
                 ...typography.body2,
-                lineHeight: 14,
+                lineHeight: 16,
             },
             actionContainer: {
                 height: 14,
