@@ -192,7 +192,7 @@ class IconToggle extends PureComponent {
 
         const color = Color(StyleSheet.flatten(styles.icon).color);
         // https://material.google.com/components/buttons.html#buttons-toggle-buttons
-        this.maxOpacity = color.dark() ? 0.12 : 0.30;
+        this.maxOpacity = color.isDark() ? 0.12 : 0.30;
 
         const top = (containerSize - rippleSize) / 2;
 

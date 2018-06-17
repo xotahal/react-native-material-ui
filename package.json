@@ -34,7 +34,7 @@
     "react-native-vector-icons": "^4.0.0"
   },
   "dependencies": {
-    "color": "2.0.1",
+    "color": "3.0.0",
     "lodash.merge": "^4.0.0",
     "prop-types": "^15.5.10",
     "react-native-material-design-styles": "^0.2.6"
