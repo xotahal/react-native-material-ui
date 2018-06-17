@@ -2,6 +2,7 @@ import * as COLOR from './styles/colors';
 
 export { COLOR };
 export { default as ThemeProvider } from './styles/ThemeProvider.react';
+export { default as getPlatformElevation } from './styles/getPlatformElevation';
 export { default as RippleFeedback } from './RippleFeedback';
 // components
 export { default as ActionButton } from './ActionButton';
