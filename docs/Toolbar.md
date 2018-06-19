@@ -16,6 +16,13 @@ render() {
           autoFocus: true,
           placeholder: 'Search',
         }}
+        rightElement={{
+            menu: {
+                icon: "more-vert",
+                labels: ["item 1", "item 2"]
+            }
+        }}
+        onRightElementPress={ (label) => { console.log(label) }}
       />
 }
 ```
