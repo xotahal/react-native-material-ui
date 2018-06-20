@@ -17,12 +17,19 @@ const defaultProps = {
     borderless: true,
 };
 
+const isRippleVisible = props => {
+    return props.onPress || props.onLongPress || props.onPressIn || props.onPressOut
+}
+
 class RippleFeedback extends PureComponent {
     render() {
         const {
             children, color, borderless, ...otherProps
         } = this.props;
 
+        if (!isRippleVisible(this.props)) {
+            return children;
+        }
         // we need to get underlayColor as props to this RippleFeedback component, because we can't
         // TouchableNativeFeedback.Ripple function on iOS devices
         const mapProps = { ...otherProps };

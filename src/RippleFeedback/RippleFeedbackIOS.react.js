@@ -60,6 +60,10 @@ const styles = StyleSheet.create({
 */
 const MAX_DIAMETER = 200;
 
+const isRippleVisible = props => {
+    return props.onPress || props.onLongPress || props.onPressIn || props.onPressOut
+}
+
 class RippleFeedbackIOS extends PureComponent {
     constructor(props, context) {
         super(props, context);
@@ -265,6 +269,10 @@ class RippleFeedbackIOS extends PureComponent {
             style,
             testID,
         } = this.props;
+
+        if (!isRippleVisible(this.props)) {
+            return children;
+        }
 
         const parent = React.Children.only(children);
 
