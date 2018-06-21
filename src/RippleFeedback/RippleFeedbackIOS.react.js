@@ -60,9 +60,8 @@ const styles = StyleSheet.create({
 */
 const MAX_DIAMETER = 200;
 
-const isRippleVisible = props => {
-    return props.onPress || props.onLongPress || props.onPressIn || props.onPressOut
-}
+const isRippleVisible = props =>
+    props.onPress || props.onLongPress || props.onPressIn || props.onPressOut;
 
 class RippleFeedbackIOS extends PureComponent {
     constructor(props, context) {

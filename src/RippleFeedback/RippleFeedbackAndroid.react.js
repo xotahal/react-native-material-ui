@@ -17,9 +17,8 @@ const defaultProps = {
     borderless: true,
 };
 
-const isRippleVisible = props => {
-    return props.onPress || props.onLongPress || props.onPressIn || props.onPressOut
-}
+const isRippleVisible = props =>
+    props.onPress || props.onLongPress || props.onPressIn || props.onPressOut;
 
 class RippleFeedback extends PureComponent {
     render() {
