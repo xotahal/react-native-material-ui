@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   /**
@@ -38,7 +39,8 @@ const propTypes = {
   onCheck: PropTypes.func.isRequired,
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    icon: IconToggle.propTypes.style, // eslint-disable-line
+    // FIXME:
+    icon: PropTypes.any, // eslint-disable-line
     label: Text.propTypes.style, // eslint-disable-line
   }),
   /**
@@ -54,13 +56,10 @@ const defaultProps = {
   style: {},
   size: 24,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { checkbox, palette } = context.uiTheme;
-  const { disabled } = props;
+function getStyles(props) {
+  const { disabled, theme } = props;
+  const { checkbox, palette } = theme;
 
   const local = {};
 
@@ -97,7 +96,7 @@ class Checkbox extends PureComponent {
       label,
     } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     const labelColor = StyleSheet.flatten(styles.label).color;
     const iconColor = StyleSheet.flatten(styles.icon).color;
@@ -126,6 +125,5 @@ class Checkbox extends PureComponent {
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
-Checkbox.contextTypes = contextTypes;
 
-export default Checkbox;
+export default withTheme(Checkbox);

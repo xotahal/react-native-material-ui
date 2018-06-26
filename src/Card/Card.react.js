@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   children: PropTypes.node,
@@ -18,12 +19,9 @@ const defaultProps = {
   onPress: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { card } = context.uiTheme;
+function getStyles(props) {
+  const { card } = props.theme;
 
   const local = {};
 
@@ -43,12 +41,12 @@ class Card extends PureComponent {
     super(props, context);
 
     this.state = {
-      styles: getStyles(props, context),
+      styles: getStyles(props),
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ styles: getStyles(nextProps, this.context) });
+    this.setState({ styles: getStyles(nextProps) });
   }
 
   renderContent = () => {
@@ -79,6 +77,5 @@ class Card extends PureComponent {
 
 Card.propTypes = propTypes;
 Card.defaultProps = defaultProps;
-Card.contextTypes = contextTypes;
 
-export default Card;
+export default withTheme(Card);

@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 import Button from '../Button';
 
@@ -63,6 +64,10 @@ const propTypes = {
    * Callback for when the snackbar is pressed.
    */
   onPress: PropTypes.func,
+  /**
+   * Theme
+   */
+  theme: PropTypes.any, // eslint-disable-line
 };
 const defaultProps = {
   onActionPress: null,
@@ -75,12 +80,9 @@ const defaultProps = {
   onHeightChange: null,
   onPress: null,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { snackbar } = context.uiTheme;
+function getStyles(props) {
+  const { snackbar } = props.theme;
   const local = {};
 
   return {
@@ -172,8 +174,8 @@ class Snackbar extends PureComponent {
   }
 
   move = bottomNavigation => {
-    const { uiTheme } = this.context;
-    const { container } = uiTheme.bottomNavigation;
+    const { theme } = this.props;
+    const { container } = theme.bottomNavigation;
 
     const toValue = bottomNavigation ? StyleSheet.flatten(container).height : 0;
 
@@ -181,9 +183,8 @@ class Snackbar extends PureComponent {
   };
 
   renderAction = () => {
-    const { uiTheme } = this.context;
-    const { snackbar } = uiTheme;
-    const { button, actionText, onActionPress } = this.props;
+    const { button, actionText, onActionPress, theme } = this.props;
+    const { snackbar } = theme;
     const styles = {};
 
     if (actionText && typeof onActionPress === 'function') {
@@ -251,6 +252,5 @@ class Snackbar extends PureComponent {
 
 Snackbar.propTypes = propTypes;
 Snackbar.defaultProps = defaultProps;
-Snackbar.contextTypes = contextTypes;
 
-export default Snackbar;
+export default withTheme(Snackbar);

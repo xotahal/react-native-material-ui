@@ -9,6 +9,7 @@ import RippleFeedback from '../RippleFeedback';
 /* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
 /* eslint-enable import/no-unresolved, import/extensions */
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   testID: PropTypes.string,
@@ -62,21 +63,17 @@ const defaultProps = {
   upperCase: true,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context, state) {
+function getStyles(props, state) {
+  const { primary, accent, disabled, raised, theme } = props;
   const {
     button,
     buttonFlat,
     buttonRaised,
     buttonDisabled,
     buttonRaisedDisabled,
-  } = context.uiTheme;
-
-  const { primary, accent, disabled, raised } = props;
-  const { palette } = context.uiTheme;
+    palette,
+  } = theme;
 
   const local = {
     container: {},
@@ -139,7 +136,7 @@ class Button extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-            elevation: 2, // eslint-disable-line
+      elevation: 2, // eslint-disable-line
     };
   }
 
@@ -153,13 +150,13 @@ class Button extends PureComponent {
 
   setElevation = () => {
     this.setState({
-            elevation: 4, // eslint-disable-line
+      elevation: 4, // eslint-disable-line
     });
   };
 
   removeElevation = () => {
     this.setState({
-            elevation: 2, // eslint-disable-line
+      elevation: 2, // eslint-disable-line
     });
   };
 
@@ -199,7 +196,7 @@ class Button extends PureComponent {
       testID,
     } = this.props;
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     const content = (
       <View style={styles.container} pointerEvents="box-only">
@@ -229,6 +226,5 @@ class Button extends PureComponent {
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
-Button.contextTypes = contextTypes;
 
-export default Button;
+export default withTheme(Button);

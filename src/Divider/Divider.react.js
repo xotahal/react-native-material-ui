@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   inset: PropTypes.bool,
@@ -15,12 +16,9 @@ const defaultProps = {
   inset: false,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { divider } = context.uiTheme;
+function getStyles(props) {
+  const { divider } = props.theme;
 
   const local = {
     container: props.inset ? { marginLeft: 72 } : null,
@@ -41,6 +39,5 @@ class Divider extends PureComponent {
 
 Divider.propTypes = propTypes;
 Divider.defaultProps = defaultProps;
-Divider.contextTypes = contextTypes;
 
-export default Divider;
+export default withTheme(Divider);

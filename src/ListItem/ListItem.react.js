@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 import Divider from '../Divider';
 import Icon from '../Icon';
@@ -95,9 +96,6 @@ const defaultProps = {
   children: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
 function getNumberOfSecondaryTextLines(numberOfLines) {
   if (numberOfLines === 'dynamic') {
@@ -154,9 +152,9 @@ function getListItemHeight(props, state) {
 
   return null;
 }
-function getStyles(props, context, state) {
-  const { leftElement, rightElement } = props;
-  const { listItem } = context.uiTheme;
+function getStyles(props, state) {
+  const { leftElement, rightElement, theme } = props;
+  const { listItem } = theme;
   const { numberOfLines } = state;
 
   const container = {
@@ -475,7 +473,7 @@ class ListItem extends PureComponent {
   render() {
     const { onPress, onLongPress, testID } = this.props;
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     // renders left element, center element and right element
     let content = (
@@ -505,6 +503,5 @@ class ListItem extends PureComponent {
 
 ListItem.propTypes = propTypes;
 ListItem.defaultProps = defaultProps;
-ListItem.contextTypes = contextTypes;
 
-export default ListItem;
+export default withTheme(ListItem);

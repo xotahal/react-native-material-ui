@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   isSearchActive: PropTypes.bool.isRequired,
@@ -36,13 +37,10 @@ const defaultProps = {
   searchable: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context, state = {}) {
-  const { leftElement } = props;
-  const { toolbar, toolbarSearchActive } = context.uiTheme;
+function getStyles(props, state = {}) {
+  const { leftElement, theme } = props;
+  const { toolbar, toolbarSearchActive } = theme;
   const { isSearchActive } = state;
 
   const local = {};
@@ -123,7 +121,7 @@ class CenterElement extends PureComponent {
       searchValue,
     } = this.props;
     const { opacityValue, isSearchActive } = this.state;
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     // there can be situastion like this:
     // 1. Given toolbar with title and searchable feature
@@ -177,6 +175,5 @@ class CenterElement extends PureComponent {
 
 CenterElement.propTypes = propTypes;
 CenterElement.defaultProps = defaultProps;
-CenterElement.contextTypes = contextTypes;
 
-export default CenterElement;
+export default withTheme(CenterElement);

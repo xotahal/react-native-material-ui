@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   text: PropTypes.string.isRequired,
@@ -19,12 +20,9 @@ const defaultProps = {
   inset: false,
   lines: 1,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { subheader } = context.uiTheme;
+function getStyles(props) {
+  const { subheader } = props.theme;
 
   return {
     container: [
@@ -40,7 +38,7 @@ class Subheader extends PureComponent {
   render() {
     const { text, lines } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View style={styles.container}>
@@ -54,6 +52,5 @@ class Subheader extends PureComponent {
 
 Subheader.propTypes = propTypes;
 Subheader.defaultProps = defaultProps;
-Subheader.contextTypes = contextTypes;
 
-export default Subheader;
+export default withTheme(Subheader);

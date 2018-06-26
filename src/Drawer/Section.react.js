@@ -7,6 +7,7 @@ import Subheader from '../Subheader';
 import Divider from '../Divider';
 import ListItem from '../ListItem';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   title: PropTypes.string,
@@ -32,6 +33,10 @@ const propTypes = {
     label: Text.propTypes.style, // eslint-disable-line
   }),
   key: PropTypes.string,
+  /**
+   * Theme
+   */
+  theme: PropTypes.any, // eslint-disable-line
 };
 const defaultProps = {
   title: null,
@@ -40,12 +45,9 @@ const defaultProps = {
   style: {},
   key: '',
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { drawerSection } = context.uiTheme;
+function getStyles(props) {
+  const { drawerSection } = props.theme;
 
   return {
     container: [drawerSection.container, props.style.container],
@@ -69,11 +71,10 @@ class Section extends PureComponent {
   };
 
   render() {
-    const { items, divider, key } = this.props;
-    const { uiTheme } = this.context;
-    const { typography } = uiTheme;
+    const { items, divider, key, theme } = this.props;
+    const { typography } = theme;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View key={key}>
@@ -83,7 +84,7 @@ class Section extends PureComponent {
             let style = { primaryText: typography.buttons };
 
             if (item.active) {
-              style = uiTheme.drawerSectionActiveItem;
+              style = theme.drawerSectionActiveItem;
             }
 
             return (
@@ -106,6 +107,5 @@ class Section extends PureComponent {
 
 Section.propTypes = propTypes;
 Section.defaultProps = defaultProps;
-Section.contextTypes = contextTypes;
 
-export default Section;
+export default withTheme(Section);

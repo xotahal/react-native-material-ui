@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
+import withTheme from '../styles/withTheme';
 
 import RippleFeedback from '../RippleFeedback';
 import Icon from '../Icon';
@@ -46,12 +47,9 @@ const defaultProps = {
   disabled: false,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { bottomNavigationAction } = context.uiTheme;
+function getStyles(props) {
+  const { bottomNavigationAction } = props.theme;
 
   const local = {};
 
@@ -120,6 +118,5 @@ class BottomNavigationAction extends PureComponent {
 
 BottomNavigationAction.propTypes = propTypes;
 BottomNavigationAction.defaultProps = defaultProps;
-BottomNavigationAction.contextTypes = contextTypes;
 
-export default BottomNavigationAction;
+export default withTheme(BottomNavigationAction);

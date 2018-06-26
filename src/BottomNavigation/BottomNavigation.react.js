@@ -5,6 +5,8 @@ import { View, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+import withTheme from '../styles/withTheme';
+
 import BottomNavigationAction from './BottomNavigationAction.react';
 
 const propTypes = {
@@ -32,12 +34,9 @@ const defaultProps = {
   hidden: false,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { bottomNavigation } = context.uiTheme;
+function getStyles(props) {
+  const { bottomNavigation } = props.theme;
   const local = {};
 
   return {
@@ -131,8 +130,9 @@ class BottomNavigation extends PureComponent {
 
 BottomNavigation.propTypes = propTypes;
 BottomNavigation.defaultProps = defaultProps;
-BottomNavigation.contextTypes = contextTypes;
 
 BottomNavigation.Action = BottomNavigationAction;
 
-export default BottomNavigation;
+const ThemedBottomNavigation = withTheme(BottomNavigation);
+
+export default ThemedBottomNavigation;

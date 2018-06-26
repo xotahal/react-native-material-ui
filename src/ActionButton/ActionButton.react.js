@@ -18,6 +18,7 @@ import RippleFeedback from '../RippleFeedback';
 /* eslint-disable import/no-unresolved, import/extensions */
 import getPlatformElevation from '../styles/getPlatformElevation';
 /* eslint-enable import/no-unresolved, import/extensions */
+import withTheme from '../styles/withTheme';
 
 function darkenOrLighten(color, ratio = 0.5) {
   const c = Color(color);
@@ -83,13 +84,10 @@ const defaultProps = {
   hidden: false,
   rippleColor: null,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context, state) {
-  const { actionButton } = context.uiTheme;
-  const { size } = props;
+function getStyles(props, state) {
+  const { size, theme } = props;
+  const { actionButton } = theme;
 
   const local = {
     container: {},
@@ -230,7 +228,7 @@ class ActionButton extends PureComponent {
       return rippleColor;
     }
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     const { backgroundColor } = StyleSheet.flatten(styles.container);
 
@@ -471,7 +469,7 @@ class ActionButton extends PureComponent {
   render() {
     const { render } = this.state;
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     if (render === 'toolbar') {
       return this.renderToolbarTransition(styles);
@@ -486,6 +484,5 @@ class ActionButton extends PureComponent {
 
 ActionButton.propTypes = propTypes;
 ActionButton.defaultProps = defaultProps;
-ActionButton.contextTypes = contextTypes;
 
-export default ActionButton;
+export default withTheme(ActionButton);

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 import Title from './Title.react';
 import Content from './Content.react';
@@ -21,12 +22,9 @@ const defaultProps = {
   onPress: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { dialog } = context.uiTheme;
+function getStyles(props) {
+  const { dialog } = props.theme;
 
   return {
     container: [dialog.container, props.style.container],
@@ -36,7 +34,7 @@ function getStyles(props, context) {
 class Dialog extends PureComponent {
   renderContent = () => {
     const { children } = this.props;
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View style={styles.container} pointerEvents="auto">
@@ -62,10 +60,9 @@ class Dialog extends PureComponent {
 
 Dialog.propTypes = propTypes;
 Dialog.defaultProps = defaultProps;
-Dialog.contextTypes = contextTypes;
 
 Dialog.Title = Title;
 Dialog.Content = Content;
 Dialog.Actions = Actions;
 
-export default Dialog;
+export default withTheme(Dialog);

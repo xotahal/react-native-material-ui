@@ -5,6 +5,7 @@ import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
 
+import withTheme from '../styles/withTheme';
 import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
 
@@ -36,13 +37,10 @@ const defaultProps = {
   style: {},
   searchable: null,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { isSearchActive } = props;
-  const { toolbar, toolbarSearchActive } = context.uiTheme;
+function getStyles(props) {
+  const { isSearchActive, theme } = props;
+  const { toolbar, toolbarSearchActive } = theme;
 
   return {
     rightElementContainer: [
@@ -214,6 +212,5 @@ class RightElement extends PureComponent {
 
 RightElement.propTypes = propTypes;
 RightElement.defaultProps = defaultProps;
-RightElement.contextTypes = contextTypes;
 
-export default RightElement;
+export default withTheme(RightElement);

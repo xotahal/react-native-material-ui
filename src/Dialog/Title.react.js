@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -15,12 +16,9 @@ const propTypes = {
 const defaultProps = {
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { dialog } = context.uiTheme;
+function getStyles(props) {
+  const { dialog } = props.theme;
 
   return {
     titleContainer: [dialog.titleContainer, props.style.titleContainer],
@@ -32,7 +30,7 @@ class DialogHeader extends PureComponent {
   render() {
     const { children } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View style={styles.titleContainer}>
@@ -44,6 +42,5 @@ class DialogHeader extends PureComponent {
 
 DialogHeader.propTypes = propTypes;
 DialogHeader.defaultProps = defaultProps;
-DialogHeader.contextTypes = contextTypes;
 
-export default DialogHeader;
+export default withTheme(DialogHeader);

@@ -5,6 +5,7 @@ import { View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Button from '../Button';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   actions: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -18,12 +19,9 @@ const defaultProps = {
   style: {},
   options: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { dialog } = context.uiTheme;
+function getStyles(props) {
+  const { dialog } = props.theme;
 
   return {
     stackedActionsContainer: [
@@ -58,7 +56,7 @@ class DialogStackedActions extends PureComponent {
   render() {
     const { actions } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View style={styles.stackedActionsContainer}>
@@ -70,6 +68,5 @@ class DialogStackedActions extends PureComponent {
 
 DialogStackedActions.propTypes = propTypes;
 DialogStackedActions.defaultProps = defaultProps;
-DialogStackedActions.contextTypes = contextTypes;
 
-export default DialogStackedActions;
+export default withTheme(DialogStackedActions);

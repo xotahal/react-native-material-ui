@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Color from 'color';
 
+import withTheme from '../styles/withTheme';
 import { ViewPropTypes } from '../utils';
 import { ELEVATION_ZINDEX } from '../styles/constants';
 import Icon from '../Icon';
@@ -73,12 +74,9 @@ const defaultProps = {
   maxOpacity: 0.16,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context, state) {
-  const { iconToggle, palette } = context.uiTheme;
+function getStyles(props, state) {
+  const { iconToggle, palette } = props.theme;
 
   const local = {};
 
@@ -110,8 +108,8 @@ function getStyles(props, context, state) {
 /**
  * Returns size of icon. Priority order: style prop, size prop, spacing.iconSize.
  */
-function getIconSize(props, context) {
-  const { spacing } = context.uiTheme;
+function getIconSize(props) {
+  const { spacing } = props.theme;
   const { icon } = props.style;
 
   if (icon && icon.width) {
@@ -134,7 +132,7 @@ class IconToggle extends PureComponent {
   constructor(props, context) {
     super(props, context);
 
-    const iconSize = getIconSize(props, context);
+    const iconSize = getIconSize(props);
     const containerSize = getContainerSize(iconSize);
 
     this.state = {
@@ -153,7 +151,7 @@ class IconToggle extends PureComponent {
     const { iconSize } = this.state;
     const { percent } = this.props;
 
-    const nextIconSize = getIconSize(nextProps, this.context);
+    const nextIconSize = getIconSize(nextProps);
 
     if (iconSize !== nextIconSize || nextProps.percent !== percent) {
       const containerSize = getContainerSize(iconSize);
@@ -247,7 +245,7 @@ class IconToggle extends PureComponent {
   render() {
     const { testID } = this.props;
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.state);
 
     return (
       <TouchableWithoutFeedback
@@ -266,6 +264,5 @@ class IconToggle extends PureComponent {
 
 IconToggle.propTypes = propTypes;
 IconToggle.defaultProps = defaultProps;
-IconToggle.contextTypes = contextTypes;
 
-export default IconToggle;
+export default withTheme(IconToggle);

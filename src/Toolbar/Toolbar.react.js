@@ -7,8 +7,8 @@ import { ViewPropTypes, BackAndroid } from '../utils';
 import LeftElement from './LeftElement.react';
 import CenterElement from './CenterElement.react';
 import RightElement from './RightElement.react';
-import IconToggle from '../IconToggle';
 import isFunction from '../utils/isFunction';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   /**
@@ -66,11 +66,12 @@ const propTypes = {
   style: PropTypes.shape({
     container: ViewPropTypes.style,
     leftElementContainer: ViewPropTypes.style,
-    leftElement: IconToggle.propTypes.style, // eslint-disable-line
+    // FIXME
+    leftElement: PropTypes.any, // eslint-disable-line
     centerElementContainer: ViewPropTypes.style,
     titleText: Text.propTypes.style, // eslint-disable-line
     rightElementContainer: ViewPropTypes.style,
-    rightElement: IconToggle.propTypes.style, // eslint-disable-line
+    rightElement: PropTypes.any, // eslint-disable-line
   }),
   /**
    * This size is used for each icon on the toolbar
@@ -130,6 +131,10 @@ const propTypes = {
    * Called when rightElement was pressed.
    */
   onRightElementPress: PropTypes.func,
+  /**
+   * Theme
+   */
+  theme: PropTypes.any, // eslint-disable-line
 };
 const defaultProps = {
   style: {},
@@ -144,9 +149,6 @@ const defaultProps = {
   onLeftElementPress: null,
   size: 24,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
 const getBackButtonListener = callback =>
   BackAndroid.addEventListener('hardwareBackPress', callback);
@@ -154,8 +156,8 @@ const getBackButtonListener = callback =>
 // const isSearchable = props => (props.searchable && props.isSearchActive) || false;
 // const getIsSearchActive = (props, state) => (props.searchable && state.isSearchActive) || false;
 
-function getStyles(props, context) {
-  const { toolbar } = context.uiTheme;
+function getStyles(props) {
+  const { toolbar } = props.theme;
 
   return {
     container: [toolbar.container, props.style.container],
@@ -225,7 +227,7 @@ class Toolbar extends PureComponent {
 
   onSearchOpenRequested = () => {
     this.setState({
-      isSearchActive: true,
+      isSearchActiveInternal: true,
       searchValue: '',
       // zIndex: 'toDefaultNext',
     });
@@ -279,7 +281,7 @@ class Toolbar extends PureComponent {
     }
 
     this.setState({
-      isSearchActive: false,
+      isSearchActiveInternal: false,
       searchValue: '',
     });
 
@@ -362,7 +364,7 @@ class Toolbar extends PureComponent {
 
   hide = () => {
     const { moveAnimated } = this.state;
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props);
     Animated.timing(moveAnimated, {
       toValue: -1 * StyleSheet.flatten(styles.container).height,
       duration: 195,
@@ -385,8 +387,6 @@ class Toolbar extends PureComponent {
       order,
     } = this.state;
 
-    const { uiTheme } = this.context;
-
     const bgStyle = {
       position: 'absolute',
       top: -radius,
@@ -395,7 +395,7 @@ class Toolbar extends PureComponent {
       borderRadius: radius,
     };
 
-    const { toolbarSearchActive } = uiTheme;
+    const { toolbarSearchActive } = this.props.theme;
     const container = StyleSheet.flatten(styles.container);
     const searchActive = StyleSheet.flatten(toolbarSearchActive.container);
 
@@ -443,7 +443,7 @@ class Toolbar extends PureComponent {
 
     const { isSearchActiveInternal, searchValue, positionValue } = this.state;
     // TODO: move out from render method
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props);
 
     return (
       <Animated.View
@@ -482,6 +482,5 @@ class Toolbar extends PureComponent {
 
 Toolbar.propTypes = propTypes;
 Toolbar.defaultProps = defaultProps;
-Toolbar.contextTypes = contextTypes;
 
-export default Toolbar;
+export default withTheme(Toolbar);

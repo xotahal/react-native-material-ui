@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Container from '../Container';
+import withTheme from '../styles/withTheme';
 
 import Header from './Header.react';
 import Section from './Section.react';
@@ -18,12 +19,9 @@ const propTypes = {
 const defaultProps = {
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { drawer } = context.uiTheme;
+function getStyles(props) {
+  const { drawer } = props.theme;
 
   return {
     container: [drawer.container, props.style.container],
@@ -34,7 +32,7 @@ class Drawer extends PureComponent {
   render() {
     const { children } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <Container>
@@ -46,9 +44,8 @@ class Drawer extends PureComponent {
 
 Drawer.propTypes = propTypes;
 Drawer.defaultProps = defaultProps;
-Drawer.contextTypes = contextTypes;
 
 Drawer.Header = Header;
 Drawer.Section = Section;
 
-export default Drawer;
+export default withTheme(Drawer);

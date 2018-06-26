@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Animated, Easing, StyleSheet, Text } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 import IconToggle from '../IconToggle';
 
@@ -27,9 +28,6 @@ const defaultProps = {
   style: {},
   size: 24,
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
 const SEARCH_FORWARD_ICON = 'arrow-forward';
 
@@ -43,9 +41,9 @@ function shouldUpdateStyles(props, nextProps) {
 
   return false;
 }
-function getStyles(props, context) {
-  const { isSearchActive } = props;
-  const { toolbar, toolbarSearchActive } = context.uiTheme;
+function getStyles(props) {
+  const { isSearchActive, theme } = props;
+  const { toolbar, toolbarSearchActive } = theme;
 
   return {
     leftElementContainer: [
@@ -66,7 +64,7 @@ class LeftElement extends PureComponent {
     super(props, context);
 
     this.state = {
-      styles: getStyles(this.props, this.context),
+      styles: getStyles(this.props),
       leftElement: props.isSearchActive
         ? SEARCH_FORWARD_ICON
         : props.leftElement,
@@ -171,6 +169,5 @@ class LeftElement extends PureComponent {
 
 LeftElement.propTypes = propTypes;
 LeftElement.defaultProps = defaultProps;
-LeftElement.contextTypes = contextTypes;
 
-export default LeftElement;
+export default withTheme(LeftElement);

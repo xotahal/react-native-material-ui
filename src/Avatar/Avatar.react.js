@@ -5,6 +5,7 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   /**
@@ -38,6 +39,10 @@ const propTypes = {
     container: ViewPropTypes.style,
     content: Text.propTypes.style, // eslint-disable-line
   }),
+  /**
+   * Theme
+   */
+  theme: PropTypes.any, // eslint-disable-line
 };
 const defaultProps = {
   image: null,
@@ -48,13 +53,10 @@ const defaultProps = {
   size: 48,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { avatar } = context.uiTheme;
-  const { size } = props;
+function getStyles(props) {
+  const { size, theme } = props;
+  const { avatar } = theme;
 
   const local = {};
 
@@ -74,13 +76,12 @@ function getStyles(props, context) {
 
 class Avatar extends PureComponent {
   render() {
-    const { image, icon, iconSize, iconColor, text } = this.props;
-    const { uiTheme } = this.context;
-    const { avatar, spacing } = uiTheme;
+    const { image, icon, iconSize, iconColor, text, theme } = this.props;
+    const { avatar, spacing } = theme;
 
     let content = null;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     if (icon) {
       const color = iconColor || StyleSheet.flatten(avatar.content).color;
@@ -102,6 +103,5 @@ class Avatar extends PureComponent {
 
 Avatar.propTypes = propTypes;
 Avatar.defaultProps = defaultProps;
-Avatar.contextTypes = contextTypes;
 
-export default Avatar;
+export default withTheme(Avatar);

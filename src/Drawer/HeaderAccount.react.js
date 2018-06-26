@@ -5,6 +5,7 @@ import { View, TouchableWithoutFeedback } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import ListItem from '../ListItem';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   avatar: PropTypes.element,
@@ -23,6 +24,10 @@ const propTypes = {
     activeAvatarContainer: ViewPropTypes.style,
     inactiveAvatarContainer: ViewPropTypes.style,
   }),
+  /**
+   * Theme
+   */
+  theme: PropTypes.any, // eslint-disable-line
 };
 const defaultProps = {
   avatar: null,
@@ -30,12 +35,9 @@ const defaultProps = {
   footer: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { drawerHeaderAccount } = context.uiTheme;
+function getStyles(props) {
+  const { drawerHeaderAccount } = props.theme;
 
   return {
     container: [drawerHeaderAccount.container, props.style.container],
@@ -63,13 +65,12 @@ class HeaderAcount extends PureComponent {
   componentWillMount = () => {
     // We need to change state if relevant props are changed
     this.setState({
-      styles: getStyles(this.props, this.context),
+      styles: getStyles(this.props),
     });
   };
 
   renderFooter = () => {
-    const { footer } = this.props;
-    const { uiTheme } = this.context;
+    const { footer, theme } = this.props;
 
     if (!footer) {
       return null;
@@ -77,7 +78,7 @@ class HeaderAcount extends PureComponent {
 
     const props = {
       ...footer,
-      style: uiTheme.drawerHeaderListItem,
+      style: theme.drawerHeaderListItem,
     };
 
     return <ListItem {...props} />;
@@ -131,6 +132,5 @@ class HeaderAcount extends PureComponent {
 
 HeaderAcount.propTypes = propTypes;
 HeaderAcount.defaultProps = defaultProps;
-HeaderAcount.contextTypes = contextTypes;
 
-export default HeaderAcount;
+export default withTheme(HeaderAcount);

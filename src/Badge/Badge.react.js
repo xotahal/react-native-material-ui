@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Icon from '../Icon';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   /**
@@ -59,13 +60,10 @@ const defaultProps = {
     },
   },
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { badge, palette } = context.uiTheme;
-  const { accent, size, stroke } = props;
+function getStyles(props) {
+  const { accent, size, stroke, theme } = props;
+  const { badge, palette } = theme;
 
   const local = {
     container: {},
@@ -160,7 +158,7 @@ class Badge extends PureComponent {
   }
 
   render() {
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
 
     return (
       <View style={{ flexDirection: 'row' }}>
@@ -173,6 +171,5 @@ class Badge extends PureComponent {
 
 Badge.propTypes = propTypes;
 Badge.defaultProps = defaultProps;
-Badge.contextTypes = contextTypes;
 
-export default Badge;
+export default withTheme(Badge);

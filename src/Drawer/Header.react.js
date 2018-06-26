@@ -5,6 +5,7 @@ import { View, Image, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import HeaderAccount from './HeaderAccount.react';
 import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
   image: PropTypes.shape({ type: PropTypes.oneOf([Image]) }),
@@ -21,13 +22,10 @@ const defaultProps = {
   children: null,
   style: {},
 };
-const contextTypes = {
-  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
-};
 
-function getStyles(props, context) {
-  const { drawerHeader } = context.uiTheme;
-  const { image } = props;
+function getStyles(props) {
+  const { image, theme } = props;
+  const { drawerHeader } = theme;
 
   const local = {};
 
@@ -51,7 +49,7 @@ class Header extends PureComponent {
   render() {
     const { image, children } = this.props;
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props);
     const flatten = StyleSheet.flatten(styles.contentContainer);
 
     const content = <View style={styles.contentContainer}>{children}</View>;
@@ -73,8 +71,7 @@ class Header extends PureComponent {
 
 Header.propTypes = propTypes;
 Header.defaultProps = defaultProps;
-Header.contextTypes = contextTypes;
 
 Header.Account = HeaderAccount;
 
-export default Header;
+export default withTheme(Header);
