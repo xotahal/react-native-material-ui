@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders when limit is exceeded 1`] = `
+<View
+  style={
+    Object {
+      "paddingLeft": 4,
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "rgba(0, 0, 0, .38)",
+            "fontSize": 12,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "rgb(213, 0, 0)",
+          },
+        ],
+        null,
+      ]
+    }
+  >
+    2
+     / 
+    1
+  </Text>
+</View>
+`;
+
+exports[`renders when limit is set 1`] = `
+<View
+  style={
+    Object {
+      "paddingLeft": 4,
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "rgba(0, 0, 0, .38)",
+            "fontSize": 12,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "rgba(0, 0, 0, .38)",
+          },
+        ],
+        null,
+      ]
+    }
+  >
+    1
+     / 
+    1
+  </Text>
+</View>
+`;

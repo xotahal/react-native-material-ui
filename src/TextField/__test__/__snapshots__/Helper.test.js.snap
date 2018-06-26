@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders helper 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "paddingVertical": 4,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "rgba(0, 0, 0, .38)",
+        "fontSize": 12,
+      }
+    }
+  >
+    helper
+  </Text>
+</View>
+`;

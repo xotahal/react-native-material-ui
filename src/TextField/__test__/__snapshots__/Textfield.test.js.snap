@@ -1,0 +1,1638 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 36,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 16,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders accessory 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 36,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 16,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+              "top": 2,
+            },
+          ]
+        }
+      >
+        <Image />
+      </View>
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders counter 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "paddingLeft": 4,
+          "paddingVertical": 4,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0, 0, 0, .38)",
+                "fontSize": 12,
+                "textAlign": "right",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .38)",
+              },
+            ],
+            null,
+          ]
+        }
+      >
+        4
+         / 
+        10
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders default value 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders disabled value 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="none"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "height": NaN,
+        "overflow": "hidden",
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+      style={
+        Array [
+          Array [
+            Object {
+              "borderColor": "rgba(0, 0, 0, .38)",
+              "borderWidth": 1,
+              "bottom": 0,
+              "left": -1.5,
+              "position": "absolute",
+              "right": -1.5,
+              "top": -2,
+            },
+          ],
+          Object {
+            "borderStyle": "dotted",
+          },
+        ]
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={false}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders error 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(213, 0, 0, 1)",
+        "borderBottomWidth": 2,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 36,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(213, 0, 0, 1)",
+            "fontSize": 16,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error="message"
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "paddingVertical": 4,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "rgb(213, 0, 0)",
+              "fontSize": 12,
+              "opacity": 1,
+            }
+          }
+        >
+          message
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders multiline value 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={true}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+              "top": -1,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders prefix 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "height": 24,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingRight": 8,
+            "top": 2,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, .38)",
+              "fontSize": 16,
+              "textAlign": "left",
+            }
+          }
+        >
+          $
+        </Text>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix="$"
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders restriction 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgb(213, 0, 0)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "paddingLeft": 4,
+          "paddingVertical": 4,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0, 0, 0, .38)",
+                "fontSize": 12,
+                "textAlign": "right",
+              },
+              Object {
+                "color": "rgb(213, 0, 0)",
+              },
+            ],
+            null,
+          ]
+        }
+      >
+        4
+         / 
+        2
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders suffix 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix=".com"
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "height": 24,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingLeft": 8,
+            "top": 2,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, .38)",
+              "fontSize": 16,
+              "textAlign": "right",
+            }
+          }
+        >
+          .com
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders title 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 36,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 16,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "paddingVertical": 4,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "rgba(0, 0, 0, .38)",
+              "fontSize": 12,
+              "opacity": 1,
+            }
+          }
+        >
+          field
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders value 1`] = `
+<View
+  onResponderRelease={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="auto"
+  style={null}
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+        "borderBottomWidth": 0.5,
+        "height": NaN,
+        "paddingBottom": 8,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "position": "absolute",
+          "top": 16,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        collapsable={undefined}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.38)",
+            "fontSize": 12,
+          }
+        }
+      >
+        test
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="sentences"
+        disableFullscreenUI={true}
+        editable={true}
+        error={null}
+        multiline={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        onFocus={[Function]}
+        prefix={null}
+        selectionColor="#2196f3"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "flex": 1,
+                "fontSize": 16,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+              },
+            ],
+            undefined,
+            Object {
+              "height": NaN,
+            },
+          ]
+        }
+        suffix={null}
+        underlineColorAndroid="transparent"
+        value="text"
+      />
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
