@@ -6,41 +6,34 @@ import PropTypes from 'prop-types';
 import { ViewPropTypes } from '../utils';
 
 const propTypes = {
-    children: PropTypes.node.isRequired,
-    style: PropTypes.shape({
-        contentContainer: ViewPropTypes.style,
-    }),
+  children: PropTypes.node.isRequired,
+  style: PropTypes.shape({
+    contentContainer: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    style: {},
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { dialog } = context.uiTheme;
+  const { dialog } = context.uiTheme;
 
-    return {
-        contentContainer: [
-            dialog.contentContainer,
-            props.style.contentContainer,
-        ],
-    };
+  return {
+    contentContainer: [dialog.contentContainer, props.style.contentContainer],
+  };
 }
 
 class DialogContent extends PureComponent {
-    render() {
-        const { children } = this.props;
+  render() {
+    const { children } = this.props;
 
-        const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <View style={styles.contentContainer}>
-                {children}
-            </View>
-        );
-    }
+    return <View style={styles.contentContainer}>{children}</View>;
+  }
 }
 
 DialogContent.propTypes = propTypes;

@@ -5,42 +5,40 @@ import PropTypes from 'prop-types';
 import Checkbox from '../Checkbox';
 
 const propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onSelect: PropTypes.func.isRequired,
-    theme: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onSelect: PropTypes.func.isRequired,
+  theme: PropTypes.string,
 };
 const defaultProps = {
-    theme: 'light',
-    disabled: false,
-    checked: false,
+  theme: 'light',
+  disabled: false,
+  checked: false,
 };
 
 class RadioButton extends PureComponent {
-    onPress = () => {
-        const {
-            value, checked, disabled, onSelect,
-        } = this.props;
+  onPress = () => {
+    const { value, checked, disabled, onSelect } = this.props;
 
-        if (disabled && !checked) {
-            return;
-        }
-
-        onSelect(value);
+    if (disabled && !checked) {
+      return;
     }
 
-    render() {
-        return (
-            <Checkbox
-                checkedIcon="radio-button-checked"
-                uncheckedIcon="radio-button-unchecked"
-                onCheck={this.onPress}
-                {...this.props}
-            />
-        );
-    }
+    onSelect(value);
+  };
+
+  render() {
+    return (
+      <Checkbox
+        checkedIcon="radio-button-checked"
+        uncheckedIcon="radio-button-unchecked"
+        onCheck={this.onPress}
+        {...this.props}
+      />
+    );
+  }
 }
 
 RadioButton.propTypes = propTypes;

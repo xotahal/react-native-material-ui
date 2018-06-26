@@ -6,53 +6,50 @@ import PropTypes from 'prop-types';
 import { ViewPropTypes } from '../utils';
 
 const propTypes = {
-    text: PropTypes.string.isRequired,
-    inset: PropTypes.bool,
-    lines: PropTypes.number,
-    style: PropTypes.shape({
-        contaienr: ViewPropTypes.style,
-        text: Text.propTypes.style,
-    }),
+  text: PropTypes.string.isRequired,
+  inset: PropTypes.bool,
+  lines: PropTypes.number,
+  style: PropTypes.shape({
+    contaienr: ViewPropTypes.style,
+    text: Text.propTypes.style, // eslint-disable-line
+  }),
 };
 const defaultProps = {
-    style: {},
-    inset: false,
-    lines: 1,
+  style: {},
+  inset: false,
+  lines: 1,
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { subheader } = context.uiTheme;
+  const { subheader } = context.uiTheme;
 
-    return {
-        container: [
-            subheader.container,
-            { paddingLeft: props.inset ? 72 : 16 },
-            props.style.container,
-        ],
-        text: [
-            subheader.text,
-            props.style.text,
-        ],
-    };
+  return {
+    container: [
+      subheader.container,
+      { paddingLeft: props.inset ? 72 : 16 },
+      props.style.container,
+    ],
+    text: [subheader.text, props.style.text],
+  };
 }
 
 class Subheader extends PureComponent {
-    render() {
-        const { text, lines } = this.props;
+  render() {
+    const { text, lines } = this.props;
 
-        const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <View style={styles.container} >
-                <Text numberOfLines={lines} style={styles.text}>
-                    {text}
-                </Text>
-            </View>
-        );
-    }
+    return (
+      <View style={styles.container}>
+        <Text numberOfLines={lines} style={styles.text}>
+          {text}
+        </Text>
+      </View>
+    );
+  }
 }
 
 Subheader.propTypes = propTypes;

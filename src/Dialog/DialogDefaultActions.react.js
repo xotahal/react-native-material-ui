@@ -7,77 +7,79 @@ import Button from '../Button';
 import { ViewPropTypes } from '../utils';
 
 const propTypes = {
-    actions: PropTypes.arrayOf(PropTypes.string).isRequired,
-    options: PropTypes.objectOf(PropTypes.object),
-    onActionPress: PropTypes.func.isRequired,
-    style: PropTypes.shape({
-        defaultActionsContainer: ViewPropTypes.style,
-    }),
+  actions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.objectOf(PropTypes.object),
+  onActionPress: PropTypes.func.isRequired,
+  style: PropTypes.shape({
+    defaultActionsContainer: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    style: {},
-    options: {},
+  style: {},
+  options: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { dialog } = context.uiTheme;
+  const { dialog } = context.uiTheme;
 
-    return {
-        defaultActionsContainer: [
-            dialog.defaultActionsContainer,
-            props.style.defaultActionsContainer,
-        ],
-    };
+  return {
+    defaultActionsContainer: [
+      dialog.defaultActionsContainer,
+      props.style.defaultActionsContainer,
+    ],
+  };
 }
 
 class DialogDefaultActions extends PureComponent {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.onActionPressed = this.onActionPressed.bind(this);
-    }
-    onActionPressed(action) {
-        const { onActionPress } = this.props;
+    this.onActionPressed = this.onActionPressed.bind(this);
+  }
 
-        if (onActionPress) {
-            onActionPress(action);
-        }
-    }
-    renderAction(action) {
-        const { options } = this.props;
-        const isButtonDisabled = options[`${action}`] && options[`${action}`].disabled;
+  onActionPressed(action) {
+    const { onActionPress } = this.props;
 
-        return (
-            <Button
-                key={action}
-                primary
-                disabled={isButtonDisabled}
-                text={action}
-                onPress={this.onActionPressed}
-                style={{
-                    container: {
-                        marginLeft: 8,
-                        paddingHorizontal: 8,
-                    },
-                }}
-            />
-        );
+    if (onActionPress) {
+      onActionPress(action);
     }
-    render() {
-        const { actions } = this.props;
-        const styles = getStyles(this.props, this.context);
+  }
 
-        return (
-            <View style={styles.defaultActionsContainer}>
-                {actions.map(action => (
-                    this.renderAction(action)
-                ))}
-            </View>
-        );
-    }
+  renderAction(action) {
+    const { options } = this.props;
+    const isButtonDisabled =
+      options[`${action}`] && options[`${action}`].disabled;
+
+    return (
+      <Button
+        key={action}
+        primary
+        disabled={isButtonDisabled}
+        text={action}
+        onPress={this.onActionPressed}
+        style={{
+          container: {
+            marginLeft: 8,
+            paddingHorizontal: 8,
+          },
+        }}
+      />
+    );
+  }
+
+  render() {
+    const { actions } = this.props;
+    const styles = getStyles(this.props, this.context);
+
+    return (
+      <View style={styles.defaultActionsContainer}>
+        {actions.map(action => this.renderAction(action))}
+      </View>
+    );
+  }
 }
 
 DialogDefaultActions.propTypes = propTypes;

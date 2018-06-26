@@ -6,41 +6,34 @@ import PropTypes from 'prop-types';
 import { ViewPropTypes } from '../utils';
 
 const propTypes = {
-    children: PropTypes.node.isRequired,
-    style: PropTypes.shape({
-        actionsContainer: ViewPropTypes.style,
-    }),
+  children: PropTypes.node.isRequired,
+  style: PropTypes.shape({
+    actionsContainer: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    style: {},
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { dialog } = context.uiTheme;
+  const { dialog } = context.uiTheme;
 
-    return {
-        actionsContainer: [
-            dialog.actionsContainer,
-            props.style.actionsContainer,
-        ],
-    };
+  return {
+    actionsContainer: [dialog.actionsContainer, props.style.actionsContainer],
+  };
 }
 
 class DialogFooter extends PureComponent {
-    render() {
-        const { children } = this.props;
+  render() {
+    const { children } = this.props;
 
-        const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <View style={styles.actionsContainer}>
-                {children}
-            </View>
-        );
-    }
+    return <View style={styles.actionsContainer}>{children}</View>;
+  }
 }
 
 DialogFooter.propTypes = propTypes;

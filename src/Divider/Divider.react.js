@@ -5,45 +5,38 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
 
-
 const propTypes = {
-    inset: PropTypes.bool,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-    }),
+  inset: PropTypes.bool,
+  style: PropTypes.shape({
+    container: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    inset: false,
-    style: {},
+  inset: false,
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { divider } = context.uiTheme;
+  const { divider } = context.uiTheme;
 
-    const local = {
-        container: props.inset ? { marginLeft: 72 } : null,
-    };
+  const local = {
+    container: props.inset ? { marginLeft: 72 } : null,
+  };
 
-    return {
-        container: [
-            divider.container,
-            local.container,
-            props.style.container,
-        ],
-    };
+  return {
+    container: [divider.container, local.container, props.style.container],
+  };
 }
 
 class Divider extends PureComponent {
-    render() {
-        const styles = getStyles(this.props, this.context);
+  render() {
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <View style={styles.container} />
-        );
-    }
+    return <View style={styles.container} />;
+  }
 }
 
 Divider.propTypes = propTypes;

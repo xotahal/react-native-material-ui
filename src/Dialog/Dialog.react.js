@@ -11,55 +11,53 @@ import Content from './Content.react';
 import Actions from './Actions.react';
 
 const propTypes = {
-    onPress: PropTypes.func,
-    children: PropTypes.node.isRequired,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-    }),
+  onPress: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.shape({
+    container: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    onPress: null,
-    style: {},
+  onPress: null,
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { dialog } = context.uiTheme;
+  const { dialog } = context.uiTheme;
 
-    return {
-        container: [
-            dialog.container,
-            props.style.container,
-        ],
-    };
+  return {
+    container: [dialog.container, props.style.container],
+  };
 }
 
 class Dialog extends PureComponent {
-    renderContent = () => {
-        const { children } = this.props;
-        const styles = getStyles(this.props, this.context);
+  renderContent = () => {
+    const { children } = this.props;
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <View style={styles.container} pointerEvents="auto">
-                {children}
-            </View>
-        );
+    return (
+      <View style={styles.container} pointerEvents="auto">
+        {children}
+      </View>
+    );
+  };
+
+  render() {
+    const { onPress } = this.props;
+
+    if (onPress) {
+      return (
+        <RippleFeedback onPress={onPress}>
+          {this.renderContent()}
+        </RippleFeedback>
+      );
     }
-    render() {
-        const { onPress } = this.props;
 
-        if (onPress) {
-            return (
-                <RippleFeedback onPress={onPress}>
-                    {this.renderContent()}
-                </RippleFeedback>
-            );
-        }
-
-        return this.renderContent();
-    }
+    return this.renderContent();
+  }
 }
 
 Dialog.propTypes = propTypes;

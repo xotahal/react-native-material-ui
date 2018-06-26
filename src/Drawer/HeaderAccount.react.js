@@ -7,131 +7,126 @@ import ListItem from '../ListItem';
 import { ViewPropTypes } from '../utils';
 
 const propTypes = {
-    avatar: PropTypes.element,
-    accounts: PropTypes.arrayOf(PropTypes.shape({
-        avatar: PropTypes.element,
-        onPress: PropTypes.func,
-    })),
-    footer: PropTypes.shape(ListItem.propTypes),
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-        accountContainer: ViewPropTypes.style,
-        topContainer: ViewPropTypes.style,
-        avatarsContainer: ViewPropTypes.style,
-        activeAvatarContainer: ViewPropTypes.style,
-        inactiveAvatarContainer: ViewPropTypes.style,
+  avatar: PropTypes.element,
+  accounts: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.element,
+      onPress: PropTypes.func,
     }),
+  ),
+  footer: PropTypes.shape(ListItem.propTypes), // eslint-disable-line
+  style: PropTypes.shape({
+    container: ViewPropTypes.style,
+    accountContainer: ViewPropTypes.style,
+    topContainer: ViewPropTypes.style,
+    avatarsContainer: ViewPropTypes.style,
+    activeAvatarContainer: ViewPropTypes.style,
+    inactiveAvatarContainer: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    avatar: null,
-    accounts: null,
-    footer: null,
-    style: {},
+  avatar: null,
+  accounts: null,
+  footer: null,
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { drawerHeaderAccount } = context.uiTheme;
+  const { drawerHeaderAccount } = context.uiTheme;
 
-    return {
-        container: [
-            drawerHeaderAccount.container,
-            props.style.container,
-        ],
-        accountContainer: [
-            drawerHeaderAccount.accountContainer,
-            props.style.accountContainer,
-        ],
-        topContainer: [
-            drawerHeaderAccount.topContainer,
-            props.style.topContainer,
-        ],
-        avatarsContainer: [
-            drawerHeaderAccount.avatarsContainer,
-            props.style.avatarsContainer,
-        ],
-        activeAvatarContainer: [
-            drawerHeaderAccount.activeAvatarContainer,
-            props.style.activeAvatarContainer,
-        ],
-        inactiveAvatarContainer: [
-            drawerHeaderAccount.inactiveAvatarContainer,
-            props.style.inactiveAvatarContainer,
-        ],
-    };
+  return {
+    container: [drawerHeaderAccount.container, props.style.container],
+    accountContainer: [
+      drawerHeaderAccount.accountContainer,
+      props.style.accountContainer,
+    ],
+    topContainer: [drawerHeaderAccount.topContainer, props.style.topContainer],
+    avatarsContainer: [
+      drawerHeaderAccount.avatarsContainer,
+      props.style.avatarsContainer,
+    ],
+    activeAvatarContainer: [
+      drawerHeaderAccount.activeAvatarContainer,
+      props.style.activeAvatarContainer,
+    ],
+    inactiveAvatarContainer: [
+      drawerHeaderAccount.inactiveAvatarContainer,
+      props.style.inactiveAvatarContainer,
+    ],
+  };
 }
 
 class HeaderAcount extends PureComponent {
-    componentWillMount = () => {
-        // We need to change state if relevant props are changed
-        this.setState({
-            styles: getStyles(this.props, this.context),
-        });
+  componentWillMount = () => {
+    // We need to change state if relevant props are changed
+    this.setState({
+      styles: getStyles(this.props, this.context),
+    });
+  };
+
+  renderFooter = () => {
+    const { footer } = this.props;
+    const { uiTheme } = this.context;
+
+    if (!footer) {
+      return null;
     }
-    renderFooter = () => {
-        const { footer } = this.props;
 
-        if (!footer) {
-            return null;
-        }
+    const props = {
+      ...footer,
+      style: uiTheme.drawerHeaderListItem,
+    };
 
-        const props = {
-            ...footer,
-            style: this.context.uiTheme.drawerHeaderListItem,
-        };
+    return <ListItem {...props} />;
+  };
 
-        return <ListItem {...props} />;
+  renderAccount = account => {
+    const { styles } = this.state;
+
+    // invariant(account.key, 'Please provide key prop to account object in accounts array.');
+
+    return (
+      <TouchableWithoutFeedback key={account.key} onPress={account.onPress}>
+        <View style={[styles.inactiveAvatarContainer]}>{account.avatar}</View>
+      </TouchableWithoutFeedback>
+    );
+  };
+
+  renderAccounts = () => {
+    const { accounts } = this.props;
+
+    if (!accounts) {
+      return null;
     }
-    renderAccount = (account) => {
-        const { styles } = this.state;
 
-        // invariant(account.key, 'Please provide key prop to account object in accounts array.');
+    // TODO: slice of accounts
+    // add more soficticated slice when there will be lots of accounts
+    return accounts.slice(0, 3).map(this.renderAccount);
+  };
 
-        return (
-            <TouchableWithoutFeedback
-                key={account.key}
-                onPress={account.onPress}
-            >
-                <View style={[styles.inactiveAvatarContainer]}>
-                    {account.avatar}
-                </View>
-            </TouchableWithoutFeedback>
-        );
-    }
-    renderAccounts = () => {
-        const { accounts } = this.props;
+  render() {
+    const { avatar } = this.props;
+    const { styles } = this.state;
 
-        if (!accounts) {
-            return null;
-        }
-
-        // TODO: slice of accounts
-        // add more soficticated slice when there will be lots of accounts
-        return accounts.slice(0, 3).map(this.renderAccount);
-    }
-    render() {
-        const { avatar } = this.props;
-        const { styles } = this.state;
-
-        return (
-            <View style={styles.container}>
-                <View style={[styles.accountContainer]}>
-                    <View style={[styles.topContainer]}>
-                        <View style={[styles.avatarsContainer]}>
-                            <View style={[styles.activeAvatarContainer]}>
-                                {React.cloneElement(avatar, { size: 56 })}
-                            </View>
-                            {this.renderAccounts()}
-                        </View>
-                    </View>
-                </View>
-                {this.renderFooter()}
-
+    return (
+      <View style={styles.container}>
+        <View style={[styles.accountContainer]}>
+          <View style={[styles.topContainer]}>
+            <View style={[styles.avatarsContainer]}>
+              <View style={[styles.activeAvatarContainer]}>
+                {React.cloneElement(avatar, { size: 56 })}
+              </View>
+              {this.renderAccounts()}
             </View>
-        );
-    }
+          </View>
+        </View>
+        {this.renderFooter()}
+      </View>
+    );
+  }
 }
 
 HeaderAcount.propTypes = propTypes;

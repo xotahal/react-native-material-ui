@@ -41,20 +41,23 @@
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
-    "babel-eslint": "8.0.2",
-    "babel-jest": "21.2.0",
+    "babel-eslint": "8.2.5",
+    "babel-jest": "23.2.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-native": "4.0.0",
-    "eslint": "4.12.0",
-    "eslint-config-airbnb": "16.1.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-react": "^7.1.0",
-    "jest": "21.2.1",
-    "react": "16.0.0",
-    "react-native": "0.50.4",
+    "jest": "23.2.0",
+    "prettier": "^1.13.6",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
     "react-native-vector-icons": "^4.0.0",
-    "react-test-renderer": "16.1.1"
+    "react-test-renderer": "16.3.1"
   }
 }

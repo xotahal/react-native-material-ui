@@ -10,43 +10,38 @@ import Header from './Header.react';
 import Section from './Section.react';
 
 const propTypes = {
-    children: PropTypes.node.isRequired,
-    style: PropTypes.shape({
-        container: ViewPropTypes.style,
-    }),
+  children: PropTypes.node.isRequired,
+  style: PropTypes.shape({
+    container: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    style: {},
+  style: {},
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 function getStyles(props, context) {
-    const { drawer } = context.uiTheme;
+  const { drawer } = context.uiTheme;
 
-    return {
-        container: [
-            drawer.container,
-            props.style.container,
-        ],
-    };
+  return {
+    container: [drawer.container, props.style.container],
+  };
 }
 
 class Drawer extends PureComponent {
-    render() {
-        const { children } = this.props;
+  render() {
+    const { children } = this.props;
 
-        const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props, this.context);
 
-        return (
-            <Container>
-                <ScrollView style={styles.container}>
-                    {children}
-                </ScrollView>
-            </Container>
-        );
-    }
+    return (
+      <Container>
+        <ScrollView style={styles.container}>{children}</ScrollView>
+      </Container>
+    );
+  }
 }
 
 Drawer.propTypes = propTypes;

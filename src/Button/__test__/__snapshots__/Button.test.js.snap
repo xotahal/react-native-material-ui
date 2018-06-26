@@ -2,12 +2,7 @@
 
 exports[`Button accent, text, icon 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -107,7 +102,6 @@ exports[`Button accent, text, icon 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -123,7 +117,6 @@ exports[`Button accent, text, icon 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -150,12 +143,7 @@ exports[`Button accent, text, icon 1`] = `
 
 exports[`Button default color 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -223,7 +211,6 @@ exports[`Button default color 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -239,7 +226,6 @@ exports[`Button default color 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -315,12 +301,7 @@ exports[`Button disabled 1`] = `
 
 exports[`Button onPress 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -388,7 +369,6 @@ exports[`Button onPress 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -404,7 +384,6 @@ exports[`Button onPress 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -431,12 +410,7 @@ exports[`Button onPress 1`] = `
 
 exports[`Button primary, text 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -506,7 +480,6 @@ exports[`Button primary, text 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -522,7 +495,6 @@ exports[`Button primary, text 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -549,12 +521,7 @@ exports[`Button primary, text 1`] = `
 
 exports[`Button primary, text, icon 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -654,7 +621,6 @@ exports[`Button primary, text, icon 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -670,7 +636,6 @@ exports[`Button primary, text, icon 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -697,12 +662,7 @@ exports[`Button primary, text, icon 1`] = `
 
 exports[`Button raised default 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -782,7 +742,6 @@ exports[`Button raised default 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -798,7 +757,6 @@ exports[`Button raised default 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -825,12 +783,7 @@ exports[`Button raised default 1`] = `
 
 exports[`Button raised, accent, text 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -913,7 +866,6 @@ exports[`Button raised, accent, text 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -929,7 +881,6 @@ exports[`Button raised, accent, text 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -956,12 +907,7 @@ exports[`Button raised, accent, text 1`] = `
 
 exports[`Button raised, accent, text, icon 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -1074,7 +1020,6 @@ exports[`Button raised, accent, text, icon 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -1090,7 +1035,6 @@ exports[`Button raised, accent, text, icon 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -1171,12 +1115,7 @@ exports[`Button raised, disabled, default 1`] = `
 
 exports[`Button raised, primary, text 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -1259,7 +1198,6 @@ exports[`Button raised, primary, text 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -1275,7 +1213,6 @@ exports[`Button raised, primary, text 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -1302,12 +1239,7 @@ exports[`Button raised, primary, text 1`] = `
 
 exports[`Button raised, primary, text, icon 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  nativeID={undefined}
   onLayout={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -1420,7 +1352,6 @@ exports[`Button raised, primary, text, icon 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {
@@ -1436,7 +1367,6 @@ exports[`Button raised, primary, text, icon 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       pointerEvents="none"
       style={
         Object {

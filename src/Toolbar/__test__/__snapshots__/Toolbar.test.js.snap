@@ -2,7 +2,6 @@
 
 exports[`Center element center element only 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -40,7 +39,6 @@ exports[`Center element center element only 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -59,7 +57,6 @@ exports[`Center element center element only 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -79,14 +76,7 @@ exports[`Center element center element only 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -100,7 +90,6 @@ exports[`Center element center element only 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -128,7 +117,6 @@ exports[`Center element center element only 1`] = `
 
 exports[`Left element left element only 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -166,7 +154,6 @@ exports[`Left element left element only 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -185,7 +172,6 @@ exports[`Left element left element only 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -205,7 +191,6 @@ exports[`Left element left element only 1`] = `
     />
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -219,24 +204,16 @@ exports[`Left element left element only 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -298,14 +275,7 @@ exports[`Left element left element only 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -319,7 +289,6 @@ exports[`Left element left element only 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -347,7 +316,6 @@ exports[`Left element left element only 1`] = `
 
 exports[`Right element right element - actions, menu 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -385,7 +353,6 @@ exports[`Right element right element - actions, menu 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -404,7 +371,6 @@ exports[`Right element right element - actions, menu 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -424,14 +390,7 @@ exports[`Right element right element - actions, menu 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -445,7 +404,6 @@ exports[`Right element right element - actions, menu 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -482,24 +440,16 @@ exports[`Right element right element - actions, menu 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -570,24 +520,16 @@ exports[`Right element right element - actions, menu 1`] = `
         }
       />
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={undefined}
         testID={null}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "backgroundColor": "rgb(255, 255, 255)",
@@ -654,7 +596,6 @@ exports[`Right element right element - actions, menu 1`] = `
 
 exports[`Right element right element - custom element 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -692,7 +633,6 @@ exports[`Right element right element - custom element 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -711,7 +651,6 @@ exports[`Right element right element - custom element 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -731,14 +670,7 @@ exports[`Right element right element - custom element 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -752,7 +684,6 @@ exports[`Right element right element - custom element 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -789,12 +720,7 @@ exports[`Right element right element - custom element 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
       onLayout={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -864,7 +790,6 @@ exports[`Right element right element - custom element 1`] = `
         }
       >
         <View
-          collapsable={undefined}
           pointerEvents="none"
           style={
             Object {
@@ -880,7 +805,6 @@ exports[`Right element right element - custom element 1`] = `
           }
         />
         <View
-          collapsable={undefined}
           pointerEvents="none"
           style={
             Object {
@@ -909,7 +833,6 @@ exports[`Right element right element - custom element 1`] = `
 
 exports[`Right element right element only 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -947,7 +870,6 @@ exports[`Right element right element only 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -966,7 +888,6 @@ exports[`Right element right element only 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -986,14 +907,7 @@ exports[`Right element right element only 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1007,7 +921,6 @@ exports[`Right element right element only 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -1044,24 +957,16 @@ exports[`Right element right element only 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -1127,7 +1032,6 @@ exports[`Right element right element only 1`] = `
 
 exports[`Searchable searchable active 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -1165,7 +1069,6 @@ exports[`Searchable searchable active 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -1184,7 +1087,6 @@ exports[`Searchable searchable active 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -1204,7 +1106,6 @@ exports[`Searchable searchable active 1`] = `
     />
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1218,24 +1119,16 @@ exports[`Searchable searchable active 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgba(0, 0, 0, 0.54)",
@@ -1297,14 +1190,7 @@ exports[`Searchable searchable active 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1318,15 +1204,11 @@ exports[`Searchable searchable active 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <TextInput
       allowFontScaling={true}
-      autoCapitalize={undefined}
-      autoCorrect={undefined}
       autoFocus={true}
       onChangeText={[Function]}
-      onSubmitEditing={undefined}
       placeholder="Search"
       style={
         Array [
@@ -1373,7 +1255,6 @@ exports[`Searchable searchable active 1`] = `
 
 exports[`Searchable searchable object 1`] = `
 <View
-  collapsable={undefined}
   onLayout={[Function]}
   style={
     Object {
@@ -1411,7 +1292,6 @@ exports[`Searchable searchable object 1`] = `
     }
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#2196f3",
@@ -1430,7 +1310,6 @@ exports[`Searchable searchable object 1`] = `
       }
     />
     <View
-      collapsable={undefined}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -1450,7 +1329,6 @@ exports[`Searchable searchable object 1`] = `
     />
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1464,24 +1342,16 @@ exports[`Searchable searchable object 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",
@@ -1543,14 +1413,7 @@ exports[`Searchable searchable object 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1564,7 +1427,6 @@ exports[`Searchable searchable object 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
   >
     <Text
       accessible={true}
@@ -1601,24 +1463,16 @@ exports[`Searchable searchable object 1`] = `
     testID={null}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
       testID={null}
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "backgroundColor": "rgb(255, 255, 255)",

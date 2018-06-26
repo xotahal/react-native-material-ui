@@ -5,39 +5,33 @@ import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
-    name: PropTypes.string.isRequired,
-    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    size: PropTypes.number,
-    color: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  size: PropTypes.number,
+  color: PropTypes.string,
 };
 const defaultProps = {
-    size: null,
-    color: null,
-    style: null,
+  size: null,
+  color: null,
+  style: null,
 };
 const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 class Icon extends PureComponent {
-    render() {
-        const {
-            name, style, size, color,
-        } = this.props;
-        const { palette, spacing } = this.context.uiTheme;
+  render() {
+    const { name, style, size, color } = this.props;
+    const { uiTheme } = this.context;
+    const { palette, spacing } = uiTheme;
 
-        const iconColor = color || palette.secondaryTextColor;
-        const iconSize = size || spacing.iconSize;
+    const iconColor = color || palette.secondaryTextColor;
+    const iconSize = size || spacing.iconSize;
 
-        return (
-            <VectorIcon
-                name={name}
-                size={iconSize}
-                color={iconColor}
-                style={style}
-            />
-        );
-    }
+    return (
+      <VectorIcon name={name} size={iconSize} color={iconColor} style={style} />
+    );
+  }
 }
 
 Icon.propTypes = propTypes;

@@ -5,30 +5,28 @@ import { TouchableWithoutFeedback } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
-    /**
-    * The color of the underlay that will show when the touch is active.
-    */
-    color: PropTypes.string,
-    borderless: PropTypes.bool,
-    children: PropTypes.node.isRequired,
+  /**
+   * The color of the underlay that will show when the touch is active.
+   */
+  color: PropTypes.string,
+  borderless: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 };
 const defaultProps = {
-    color: null,
-    borderless: true,
+  color: null,
+  borderless: true,
 };
 
 class RippleFeedbackWeb extends PureComponent {
-    render() {
-        const {
-            children, color, borderless, ...otherProps
-        } = this.props;
+  render() {
+    const { children, color, borderless, ...otherProps } = this.props;
 
-        return (
-            <TouchableWithoutFeedback {...otherProps}>
-                {children}
-            </TouchableWithoutFeedback>
-        );
-    }
+    return (
+      <TouchableWithoutFeedback {...otherProps}>
+        {children}
+      </TouchableWithoutFeedback>
+    );
+  }
 }
 
 RippleFeedbackWeb.propTypes = propTypes;

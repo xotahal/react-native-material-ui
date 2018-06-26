@@ -1,18 +1,23 @@
 {
     "parser"  : "babel-eslint",
-    "plugins": [
-        "import"
-    ],
-    "extends" : ["airbnb"],
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "extends": ["airbnb", "prettier"],
+    "plugins": ["import", "react", "prettier", "react-native"],
     "rules": {
+        "prettier/prettier": "error",
         // Soft some rules.
-        "default-case": 0, // Required default case is nonsense.
-        "indent": [2, 4, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
         "new-cap": [2, {"capIsNew": false, "newIsCap": true}], // For Record() etc.
-        "no-floating-decimal": 0, // .5 is just fine.
-        "no-nested-ternary": 0, // It's nice for JSX.
-        "no-param-reassign": 0, // We love param reassignment. Naming is hard.
-        "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
         // eslint-plugin-import
         "import/no-unresolved": [2, {"commonjs": true}],
         "import/no-extraneous-dependencies": 0,
@@ -20,15 +25,12 @@
         "import/default": 2,
         "import/namespace": 2,
         "import/export": 2,
-        // Overide Stateless
-        "react/prefer-stateless-function": 0,
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/no-unused-prop-types": 0,
-        // this could be on, but I have to resolve couple of things
-        // see https://github.com/eslint/eslint/issues/5139
-        "class-methods-use-this": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": [
+          "error",
+          { "extensions": [".js", ".jsx"] }
+        ]
     },
     "globals": {
         "after": false,
@@ -67,8 +69,5 @@
                 ]
             }
         }
-    },
-    "env": {
-        "node": true
     }
 }

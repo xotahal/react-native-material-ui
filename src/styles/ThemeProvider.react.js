@@ -5,27 +5,31 @@ import PropTypes from 'prop-types';
 import getTheme from './getTheme';
 
 const propTypes = {
-    children: PropTypes.element.isRequired,
-    // TODO: flowtype
-    uiTheme: PropTypes.object, // eslint-disable-line
+  children: PropTypes.element.isRequired,
+  // TODO: flowtype
+  uiTheme: PropTypes.object, // eslint-disable-line
 };
 const defaultProps = {
-    uiTheme: {},
+  uiTheme: {},
 };
 const childContextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  uiTheme: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 class ThemeProvider extends Component {
-    getChildContext() {
-        return {
-            uiTheme: getTheme(this.props.uiTheme),
-        };
-    }
+  getChildContext() {
+    const { uiTheme } = this.props;
 
-    render() {
-        return this.props.children;
-    }
+    return {
+      uiTheme: getTheme(uiTheme),
+    };
+  }
+
+  render() {
+    const { children } = this.props;
+
+    return children;
+  }
 }
 
 ThemeProvider.propTypes = propTypes;
