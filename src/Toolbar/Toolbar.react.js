@@ -378,6 +378,7 @@ class Toolbar extends PureComponent {
   }
 
   renderAnimatedBackgrounds = styles => {
+    const { theme } = this.props;
     const {
       diameter,
       bgPosition,
@@ -395,7 +396,7 @@ class Toolbar extends PureComponent {
       borderRadius: radius,
     };
 
-    const { toolbarSearchActive } = this.props.theme;
+    const { toolbarSearchActive } = theme;
     const container = StyleSheet.flatten(styles.container);
     const searchActive = StyleSheet.flatten(toolbarSearchActive.container);
 
