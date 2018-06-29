@@ -54,6 +54,8 @@ Here is a great tutorial which shows [how to add custom fonts](https://medium.co
 
 # Usage
 
+**If you want to use default theme, you can skip this step**
+
 To achieve the level of customizability, React Native Material UI is using a single JS object called uiTheme that is passed in via context. By default, this uiTheme object is based on the lightTheme that you can find [here](https://github.com/xotahal/react-native-material-ui/blob/master/src/styles/themes/light.js). So, you can change almost everything very easily.
 
 The uiTheme object contains the following keys:
@@ -76,54 +78,50 @@ The uiTheme object contains the following keys:
 import React, { Component } from 'react';
 import { Navigator, NativeModules } from 'react-native';
 
-import { COLOR, ThemeProvider } from 'react-native-material-ui';
+import { COLOR, ThemeContext, getTheme } from 'external/react-native-material-ui';
 
 // you can set your style right here, it'll be propagated to application
 const uiTheme = {
-  palette: {
-    primaryColor: COLOR.green500,
-  },
-  toolbar: {
-    container: {
-      height: 50,
+    palette: {
+        primaryColor: COLOR.green500,
     },
-  },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
 };
 
 class Main extends Component {
-  render() {
-    return (
-      <ThemeProvider uiTheme={uiTheme}>
-        <App />
-      </ThemeProvider>
-    );
-  }
+    render() {
+        return (
+            <ThemeContext.Provider value={getTheme(uiTheme)}>
+                <App />
+            </ThemeContext.Provider>
+        );
+    }
 }
 ```
 
-**It means, if you want to change primary color of your application for example. You can just pass to ThemeProvider object with your own settings.** Your settings will be merged with default theme.
+**It means, if you want to change primary color of your application for example. You can just pass to ThemeContext.Provider object with your own settings.** Your settings will be merged with default theme.
 
 ## What else?
 
 Another great feature is, you can use the `uiTheme` everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
 
 ```js
-import ...
-
-const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
-};
+import { withTheme } from 'react-native-material-ui'
 
 class MyButton extends Component {
     render() {
 	    // it's really easy to get primary color everywhere in your app
-        const { primaryColor } = this.context.uiTheme.palette;
+        const { primaryColor } = this.props.theme.palette;
 
         return ...
     }
 }
 
-export ...
+export default withTheme(MyButton)
 ```
 
 ## Local changes
@@ -160,9 +158,6 @@ You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-d
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-1.png" width="280"> <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/toolbars-anim-1.gif" width="280">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-1.gif" width="285">
 
-![Example 1](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-1.jpg 'Example 1')
-![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg 'Example 2')
-![Example 3](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-3.jpg 'Example 3')
 
 # Components
 
