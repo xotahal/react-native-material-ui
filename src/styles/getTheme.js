@@ -563,12 +563,10 @@ export default function getTheme(theme, ...more) {
               alignItems: 'center',
               backgroundColor: snackbarColor,
               paddingHorizontal: 16,
-              ...getPlatformElevation(4),
               zIndex: 4,
               borderRadius: 4,
               margin: 8,
               position: 'absolute',
-              bottom: 0,
             },
             content: {
               flex: 1,
