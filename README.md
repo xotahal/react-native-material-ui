@@ -27,7 +27,7 @@ You can see [this repo](https://github.com/oblador/react-native-vector-icons) fo
 
 ### React Native Link (recommended)
 
-> Make sure you have atleast v0.31.0 react-native version.
+> Make sure you have at least v0.31.0 react-native version.
 
 ```bash
 $ react-native link react-native-vector-icons
@@ -54,76 +54,133 @@ Here is a great tutorial which shows [how to add custom fonts](https://medium.co
 
 # Usage
 
-To achieve the level of customizability, React Native Material UI is using a single JS object called uiTheme that is passed in via context. By default, this uiTheme object is based on the lightTheme that you can find [here](https://github.com/xotahal/react-native-material-ui/blob/master/src/styles/themes/light.js). So, you can change almost everything very easily.
+To achieve a high level of customizability, React Native Material UI uses the new react context functionality. By default, the theme context object is based on the lightTheme that you can find [here](https://github.com/xotahal/react-native-material-ui/blob/master/src/styles/themes/light.js). You can change almost anything very easily.
 
-The uiTheme object contains the following keys:
+The theme object contains the following keys *in addition to more component specific keys*:
 
-    spacing: {} // can be used to change the spacing of components.
-    fontFamily: {} // can be used to change the default font family.
-    palette: {  // can be used to change the color of components.
-        primaryColor: blue500,
-        accentColor: red500,
-        ...
-    }
-    typography: {} // can be used to change the typography of components
-    // you can change style of every each component
-    avatar: {}
-    button: {}
-    toolbar: {}
-    ...
-
-```js
-import React, { Component } from 'react';
-import { Navigator, NativeModules } from 'react-native';
-
-import { COLOR, ThemeProvider } from 'react-native-material-ui';
-
-// you can set your style right here, it'll be propagated to application
-const uiTheme = {
-  palette: {
-    primaryColor: COLOR.green500,
+```json
+{
+  "spacing": {
+    "actionButtonSize": 56,
+    "iconSize": 24,
+    "avatarSize": 40
   },
-  toolbar: {
-    container: {
-      height: 50,
+  "fontFamily": "Roboto",
+  "typography": {
+    "fontWeight": {
+      "light": "300",
+      "normal": "400",
+      "medium": "500"
     },
+    "appBar": {
+      "fontWeight": "500",
+      "fontSize": 20
+    },
+    "buttons": {
+      "fontWeight": "500",
+      "fontSize": 14
+    },
+    "subheading": {
+      "fontWeight": "400",
+      "fontSize": 16,
+      "lineHeight": 24
+    },
+    "body2": {
+      "fontWeight": "500",
+      "fontSize": 14,
+      "lineHeight": 24
+    },
+    "body1": {
+      "fontWeight": "400",
+      "fontSize": 14,
+      "lineHeight": 20
+    }
   },
-};
-
-class Main extends Component {
-  render() {
-    return (
-      <ThemeProvider uiTheme={uiTheme}>
-        <App />
-      </ThemeProvider>
-    );
-  }
+  "palette": {
+    "primaryColor": "#2196f3",
+    "accentColor": "#f44336",
+    "primaryTextColor": "rgba(0, 0, 0, 0.87)",
+    "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+    "alternateTextColor": "#ffffff",
+    "canvasColor": "#ffffff",
+    "borderColor": "rgba(0, 0, 0, 0.12)",
+    "disabledColor": "rgba(0, 0, 0, 0.38)",
+    "disabledTextColor": "rgba(0, 0, 0, 0.26)",
+    "activeIcon": "rgba(0, 0, 0, 0.54)",
+    "inactiveIcon": "rgba(0, 0, 0, 0.38)"
+  },
+  "avatar": {
+    "container": {},
+    "content": {}
+  },
+  "button": {
+    "container": {},
+    "text": {},
+    "icon": {}
+  },
+  "toolbar": {
+    "container": {},
+    "leftElementContainer": {},
+    "leftElement": {},
+    "centerElementContainer": {},
+    "titleText": {},
+    "rightElementContainer": {},
+    "rightElement": {}
+  },
 }
 ```
 
-**It means, if you want to change primary color of your application for example. You can just pass to ThemeProvider object with your own settings.** Your settings will be merged with default theme.
+You can customize most components by adding them into the theme object, *see `toolbar` below*.
+
+
+```js
+
+    import React, { Component } from 'react';
+
+    import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
+
+    // you can set your style right here, it'll be propagated to application
+    const theme = {
+      palette: {
+        primaryColor: COLOR.green500,
+      },
+      toolbar: {
+        container: {
+          height: 50,
+        },
+      },
+    };
+
+    export default class Main extends Component {
+      render() {
+        return (
+          <ThemeContext.Provider value={getTheme(theme)}>
+            <App />
+          </ThemeContext.Provider>
+        );
+      }
+    }
+```
+
+**If you want to change primary color of your application for example. You can just pass to ThemeContext.Provider object with your the key palette.primaryColor set to your chosen color.** Your settings will be merged with default theme.
 
 ## What else?
 
-Another great feature is, you can use the `uiTheme` everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
+Another great feature is, you can use the `theme` context everywhere. Even in your own components. So if you built your own implementation of `Button` for example, look how you can get the primary color.
 
 ```js
-import ...
-
-const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
-};
+import { withTheme } from 'react-native-material-ui';
 
 class MyButton extends Component {
     render() {
 	    // it's really easy to get primary color everywhere in your app
-        const { primaryColor } = this.context.uiTheme.palette;
+        const { primaryColor } = this.props.theme.palette;
 
         return ...
     }
 }
 
-export ...
+export default withTheme(MyButton);
 ```
 
 ## Local changes
