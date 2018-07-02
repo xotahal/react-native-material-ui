@@ -37,6 +37,10 @@ const propTypes = {
    * Event that is called when state is changed
    */
   onCheck: PropTypes.func.isRequired,
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
+  iconSet: PropTypes.string,
   style: PropTypes.shape({
     container: ViewPropTypes.style,
     // FIXME:
@@ -55,6 +59,7 @@ const defaultProps = {
   disabled: false,
   style: {},
   size: 24,
+  iconSet: null,
 };
 
 function getStyles(props) {
@@ -94,6 +99,7 @@ class Checkbox extends PureComponent {
       value,
       size,
       label,
+      iconSet,
     } = this.props;
 
     const styles = getStyles(this.props);
@@ -109,6 +115,7 @@ class Checkbox extends PureComponent {
           disabled={disabled}
           color={checked ? iconColor : labelColor}
           onPress={this.onPress}
+          iconSet={iconSet}
           size={size}
         />
         <Text style={styles.label}>{label}</Text>

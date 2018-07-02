@@ -39,6 +39,7 @@ const propTypes = {
     container: ViewPropTypes.style,
     content: Text.propTypes.style, // eslint-disable-line
   }),
+  iconSet: PropTypes.string,
   /**
    * Theme
    */
@@ -52,6 +53,7 @@ const defaultProps = {
   text: null,
   size: 48,
   style: {},
+  iconSet: null,
 };
 
 function getStyles(props) {
@@ -76,7 +78,15 @@ function getStyles(props) {
 
 class Avatar extends PureComponent {
   render() {
-    const { image, icon, iconSize, iconColor, text, theme } = this.props;
+    const {
+      image,
+      icon,
+      iconSet,
+      iconSize,
+      iconColor,
+      text,
+      theme,
+    } = this.props;
     const { avatar, spacing } = theme;
 
     let content = null;
@@ -86,7 +96,9 @@ class Avatar extends PureComponent {
     if (icon) {
       const color = iconColor || StyleSheet.flatten(avatar.content).color;
       const size = iconSize || spacing.iconSize;
-      content = <Icon name={icon} color={color} size={size} />;
+      content = (
+        <Icon iconSet={iconSet} name={icon} color={color} size={size} />
+      );
     } else if (text) {
       content = <Text style={styles.content}>{text}</Text>;
     } else if (image) {

@@ -28,6 +28,9 @@ const propTypes = {
   divider: PropTypes.bool,
   onPress: PropTypes.func,
   onPressValue: PropTypes.any, // eslint-disable-line
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
   iconSet: PropTypes.string,
   /**
    * Called when list item is long pressed.
