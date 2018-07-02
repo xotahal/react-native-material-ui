@@ -45,6 +45,7 @@ const propTypes = {
    * Name of icon to show
    */
   name: PropTypes.string,
+  iconSet: PropTypes.string,
   /**
    * It'll be used instead of icon (see props name) if exists
    */
@@ -230,7 +231,7 @@ class IconToggle extends PureComponent {
   };
 
   renderIcon = styles => {
-    const { name, children } = this.props;
+    const { name, children, iconSet } = this.props;
     const { iconSize } = this.state;
 
     if (children) {
@@ -239,7 +240,7 @@ class IconToggle extends PureComponent {
 
     const { color } = StyleSheet.flatten(styles.icon);
 
-    return <Icon name={name} color={color} size={iconSize} />;
+    return <Icon iconSet={iconSet} name={name} color={color} size={iconSize} />;
   };
 
   render() {

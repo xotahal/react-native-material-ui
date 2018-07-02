@@ -28,8 +28,9 @@ function darkenOrLighten(color, ratio = 0.15) {
 export default function getTheme(theme, ...more) {
   let mergedTheme = merge(lightTheme, theme, ...more);
 
-  const { spacing, fontFamily, typography, palette } = mergedTheme;
+  const { iconSet, spacing, fontFamily, typography, palette } = mergedTheme;
   const baseTheme = {
+    iconSet,
     spacing,
     fontFamily,
     typography,

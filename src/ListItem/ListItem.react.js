@@ -28,6 +28,7 @@ const propTypes = {
   divider: PropTypes.bool,
   onPress: PropTypes.func,
   onPressValue: PropTypes.any, // eslint-disable-line
+  iconSet: PropTypes.string,
   /**
    * Called when list item is long pressed.
    */
@@ -300,7 +301,7 @@ class ListItem extends PureComponent {
   };
 
   renderLeftElement = styles => {
-    const { leftElement } = this.props;
+    const { leftElement, iconSet } = this.props;
 
     if (!leftElement) {
       return null;
@@ -312,7 +313,11 @@ class ListItem extends PureComponent {
     if (typeof leftElement === 'string') {
       content = (
         <TouchableWithoutFeedback onPress={this.onLeftElementPressed}>
-          <Icon name={leftElement} color={flattenLeftElement.color} />
+          <Icon
+            iconSet={iconSet}
+            name={leftElement}
+            color={flattenLeftElement.color}
+          />
         </TouchableWithoutFeedback>
       );
     } else {
@@ -387,7 +392,7 @@ class ListItem extends PureComponent {
   };
 
   renderRightElement = styles => {
-    const { rightElement } = this.props;
+    const { rightElement, iconSet } = this.props;
 
     let content = [];
     let elements = null;
@@ -406,6 +411,7 @@ class ListItem extends PureComponent {
       content = elements.map(action => (
         <IconToggle
           key={action}
+          iconSet={iconSet}
           color={flattenRightElement.color}
           name={action}
           size={24}
@@ -437,6 +443,7 @@ class ListItem extends PureComponent {
             }}
           />
           <IconToggle
+            iconSet={iconSet}
             name={rightElement.menu.icon || 'more-vert'}
             color={flattenRightElement.color}
             onPress={() => this.onMenuPressed(rightElement.menu.labels)}

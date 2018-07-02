@@ -7,6 +7,7 @@ import typography from '../typography';
 export default {
   spacing,
   typography,
+  iconSet: 'MaterialIcons',
   fontFamily: 'Roboto',
   palette: {
     // main theme colors
