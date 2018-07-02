@@ -96,6 +96,7 @@ const defaultProps = {
   numberOfLines: 1,
   children: null,
   style: {},
+  iconSet: null,
 };
 
 function getNumberOfSecondaryTextLines(numberOfLines) {

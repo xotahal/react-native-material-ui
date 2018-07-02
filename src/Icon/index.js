@@ -21,6 +21,9 @@ const propTypes = {
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   size: PropTypes.number,
   color: PropTypes.string,
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
   iconSet: PropTypes.string,
   /**
    * Theme

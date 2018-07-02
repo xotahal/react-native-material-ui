@@ -45,6 +45,9 @@ const propTypes = {
    * Name of icon to show
    */
   name: PropTypes.string,
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
   iconSet: PropTypes.string,
   /**
    * It'll be used instead of icon (see props name) if exists
@@ -74,6 +77,7 @@ const defaultProps = {
   percent: 90,
   maxOpacity: 0.16,
   style: {},
+  iconSet: null,
 };
 
 function getStyles(props, state) {
