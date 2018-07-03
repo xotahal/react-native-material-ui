@@ -157,6 +157,7 @@ You can try our [Demo App](https://github.com/xotahal/react-native-material-ui-d
 ![Example 2](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-2.jpg "Example 2")
 ![Example 3](https://raw.githubusercontent.com/react-native-material-design/demo-app/master/resources/examples-3.jpg "Example 3")
 
+<<<<<<< HEAD
 
 
 # Components
@@ -180,3 +181,11 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
 - [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)
+=======
+## Contributing
+
+Full contributing guidelines are to be written, however please ensure you follow the points when sending in PRs:
+
+- Ensure no lint warns occur via `npm run lint`.
+- Follow the Material Design [guidelines](https://www.google.com/design/spec/layout/metrics-keylines.html#metrics-keylines-baseline-grids).
+>>>>>>> develop
