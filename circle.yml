@@ -1,0 +1,84 @@
+version: 2
+
+# Used Workspace
+workspace: &workspace
+  ~/mui
+
+# Config for node
+node_config: &node_config
+    working_directory: *workspace
+    docker:
+      - image: circleci/node:8
+
+# Key to cache gradle dependecies
+yarn_key: &yarn_key
+  yarn-cache-{{ checksum "yarn.lock" }}
+
+jobs:
+  install-dependencies:
+    <<: *node_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace
+      - restore_cache:
+          key: *yarn_key
+      - run:
+          name: Intal yarn dependencies
+          command: yarn
+      - save_cache:
+          key: *yarn_key
+          paths: node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  lint:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Lint
+          command: yarn lint
+
+  test:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Jest
+          command: yarn test
+
+  publish:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/mui/.npmrc
+      - run:
+          name: Publish
+          command: npm publish
+
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - install-dependencies
+      - lint:
+          requires:
+              - install-dependencies
+      - test:
+          requires:
+              - install-dependencies
+      - publish:
+          requires:
+              - lint
+              - test
+          filters:
+              branches:
+                only: 'publish'

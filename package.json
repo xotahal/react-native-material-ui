@@ -1,0 +1,60 @@
+{
+  "name": "react-native-material-ui",
+  "version": "1.22.3",
+  "description": "React Native Material Design Components",
+  "main": "./index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xotahal/react-native-material-ui"
+  },
+  "jest": {
+    "preset": "react-native",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
+  "keywords": [
+    "react-native",
+    "material",
+    "design",
+    "ui",
+    "components",
+    "react-component",
+    "android"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xotahal/react-native-material-ui/issues"
+  },
+  "homepage": "https://github.com/xotahal/react-native-material-ui",
+  "peerDependencies": {
+    "react-native-vector-icons": "^4.0.0"
+  },
+  "dependencies": {
+    "color": "2.0.1",
+    "lodash.merge": "^4.0.0",
+    "prop-types": "^15.5.10",
+    "react-native-material-design-styles": "^0.2.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "8.0.2",
+    "babel-jest": "21.2.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "4.12.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "^7.1.0",
+    "jest": "21.2.1",
+    "react": "16.0.0",
+    "react-native": "0.50.4",
+    "react-native-vector-icons": "^4.0.0",
+    "react-test-renderer": "16.1.1"
+  }
+}

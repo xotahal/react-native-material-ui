@@ -1,0 +1,53 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+fastlane/README*
+
+# Directories #
+###############
+.gradle
+coverage
+build
+node_modules
+xcuserdata
+android/app/src/main/res
+log.android
+.idea
+webpack-assets.json
+*report*
+
+yarn.lock

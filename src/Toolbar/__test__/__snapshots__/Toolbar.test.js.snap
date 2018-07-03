@@ -1,0 +1,1683 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Center element center element only 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 16,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Test
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Left element left element only 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "transform": Array [
+          Object {
+            "rotate": "0deg",
+          },
+        ],
+      }
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Test
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Right element right element - actions, menu 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 16,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Test
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+        },
+        false,
+        undefined,
+      ]
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 0.5,
+            "width": 1,
+          }
+        }
+      />
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={undefined}
+        testID={null}
+      >
+        <View
+          collapsable={undefined}
+          style={
+            Object {
+              "backgroundColor": "rgb(255, 255, 255)",
+              "borderRadius": 21.6,
+              "height": 43.2,
+              "left": 2.3999999999999986,
+              "opacity": 0.16,
+              "position": "absolute",
+              "top": 2.3999999999999986,
+              "transform": Array [
+                Object {
+                  "scale": 0.01,
+                },
+              ],
+              "width": 43.2,
+              "zIndex": 1,
+            }
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "justifyContent": "center",
+                "width": 48,
+              },
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 24,
+                },
+                null,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Right element right element - custom element 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 16,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Test
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+        },
+        false,
+        undefined,
+      ]
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      pointerEvents="box-only"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 2,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "center",
+            "paddingHorizontal": 16,
+          },
+          undefined,
+          false,
+          false,
+          false,
+          Object {},
+          undefined,
+        ]
+      }
+      testID={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 14,
+              "fontWeight": "500",
+            },
+            undefined,
+            false,
+            false,
+            false,
+            undefined,
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+      >
+        SAVE
+      </Text>
+      <View
+        pointerEvents="none"
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "overflow": "hidden",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          collapsable={undefined}
+          pointerEvents="none"
+          style={
+            Object {
+              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+              "bottom": 0,
+              "left": 0,
+              "opacity": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "zIndex": 1,
+            }
+          }
+        />
+        <View
+          collapsable={undefined}
+          pointerEvents="none"
+          style={
+            Object {
+              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+              "borderRadius": 100,
+              "height": 200,
+              "left": -100,
+              "opacity": 0.12,
+              "position": "absolute",
+              "top": -100,
+              "transform": Array [
+                Object {
+                  "scale": 0,
+                },
+              ],
+              "width": 200,
+              "zIndex": 1,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Right element right element only 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 16,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Test
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+        },
+        false,
+        undefined,
+      ]
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Searchable searchable active 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "transform": Array [
+          Object {
+            "rotate": "180deg",
+          },
+        ],
+      }
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.54)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "rgba(0, 0, 0, 0.54)",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize={undefined}
+      autoCorrect={undefined}
+      autoFocus={true}
+      onChangeText={[Function]}
+      onSubmitEditing={undefined}
+      placeholder="Search"
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "flex": 1,
+              "fontFamily": "Roboto",
+              "fontWeight": "400",
+              "marginLeft": 16,
+            },
+            undefined,
+          ],
+          Object {
+            "marginLeft": 0,
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+        },
+        undefined,
+        undefined,
+      ]
+    }
+    testID={null}
+  />
+</View>
+`;
+
+exports[`Searchable searchable object 1`] = `
+<View
+  collapsable={undefined}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2196f3",
+      "flexDirection": "row",
+      "height": 56,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#2196f3",
+          "borderRadius": 0,
+          "height": 0,
+          "position": "absolute",
+          "right": undefined,
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 0,
+          "height": 0,
+          "left": undefined,
+          "position": "absolute",
+          "top": -0,
+          "transform": Array [
+            Object {
+              "scale": 0.01,
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "transform": Array [
+          Object {
+            "rotate": "0deg",
+          },
+        ],
+      }
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "fontWeight": "500",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      Searchable
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+        },
+        false,
+        undefined,
+      ]
+    }
+    testID={null}
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={null}
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": 21.6,
+            "height": 43.2,
+            "left": 2.3999999999999986,
+            "opacity": 0.16,
+            "position": "absolute",
+            "top": 2.3999999999999986,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 43.2,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            },
+            Object {
+              "height": 48,
+              "width": 48,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              },
+              null,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
