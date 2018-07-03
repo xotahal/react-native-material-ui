@@ -31,9 +31,9 @@ Highly customizable material design components for React Native!
 
 ## Questions
 
-If you need anything ping us on [twitter](https://twitter.com/xotahal).
+If you need anything ping us on [twitter](http://bit.ly/t-xotahal).
 
 | Jiri Otahal                                                                                                                                | Jan Ziemba                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| [<img src="https://avatars3.githubusercontent.com/u/3531955?v=4" width="100px;" style="border-radius:50px"/>](https://twitter.com/xotahal) | [<img src="https://avatars1.githubusercontent.com/u/4710865?v=4" width="100px;" style="border-radius:50px"/>]() |
+| [<img src="https://avatars3.githubusercontent.com/u/3531955?v=4" width="100px;" style="border-radius:50px"/>](http://bit.ly/t-xotahal) | [<img src="https://avatars1.githubusercontent.com/u/4710865?v=4" width="100px;" style="border-radius:50px"/>]() |
 
