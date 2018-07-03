@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": 48,
+        "justifyContent": "center",
+      },
+      Object {
+        "paddingLeft": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "rgba(0, 0, 0, 0.54)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "lineHeight": 24,
+        },
+        undefined,
+      ]
+    }
+  >
+    Test
+  </Text>
+</View>
+`;
+
+exports[`with inset 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": 48,
+        "justifyContent": "center",
+      },
+      Object {
+        "paddingLeft": 72,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "rgba(0, 0, 0, 0.54)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "lineHeight": 24,
+        },
+        undefined,
+      ]
+    }
+  >
+    Test
+  </Text>
+</View>
+`;

@@ -1,0 +1,1462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button accent, text, icon 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#f44336",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          undefined,
+          false,
+          false,
+          undefined,
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        false,
+        false,
+        Object {
+          "color": "#f44336",
+        },
+        undefined,
+      ]
+    }
+  >
+    DISMISS
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button default color 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        false,
+        false,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    DEFAULT
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button disabled 1`] = `
+<View
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      undefined,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        Object {
+          "color": "rgba(0, 0, 0, 0.26)",
+        },
+        false,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    DISABLED
+  </Text>
+</View>
+`;
+
+exports[`Button onPress 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        false,
+        false,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    CLEAR
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button primary, text 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        false,
+        false,
+        Object {
+          "color": "#2196f3",
+        },
+        undefined,
+      ]
+    }
+  >
+    PRIMARY
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button primary, text, icon 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#2196f3",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          undefined,
+          false,
+          false,
+          undefined,
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        undefined,
+        false,
+        false,
+        false,
+        Object {
+          "color": "#2196f3",
+        },
+        undefined,
+      ]
+    }
+  >
+    ACCEPT
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button raised default 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      false,
+      Object {
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+        "zIndex": 1,
+      },
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        false,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    DEFAULT
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button raised, accent, text 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      false,
+      Object {
+        "backgroundColor": "#f44336",
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+        "zIndex": 1,
+      },
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        false,
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
+    }
+  >
+    ACCENT
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button raised, accent, text, icon 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      false,
+      Object {
+        "backgroundColor": "#f44336",
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+        "zIndex": 1,
+      },
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          false,
+          false,
+          undefined,
+          undefined,
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        false,
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
+    }
+  >
+    CLEAR
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button raised, disabled, default 1`] = `
+<View
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        Object {
+          "color": "rgba(0, 0, 0, 0.26)",
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    DISABLED
+  </Text>
+</View>
+`;
+
+exports[`Button raised, primary, text 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      false,
+      Object {
+        "backgroundColor": "#2196f3",
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+        "zIndex": 1,
+      },
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        false,
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
+    }
+  >
+    PRIMARY
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button raised, primary, text, icon 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  nativeID={undefined}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      false,
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "rgba(0,0,0,.12)",
+      },
+      false,
+      false,
+      Object {
+        "backgroundColor": "#2196f3",
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+        "zIndex": 1,
+      },
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "marginRight": 8,
+          },
+          false,
+          false,
+          undefined,
+          undefined,
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        false,
+        undefined,
+        false,
+        false,
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
+    }
+  >
+    DONE
+  </Text>
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      collapsable={undefined}
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
