@@ -2,6 +2,9 @@
 # React Native Material UI (iOS and Android supported)
 **Highly customizable material design components for React Native!**
 
+Updating readme file to see if it works
+
+
 [![npm](https://img.shields.io/npm/v/react-native-material-ui.svg)](https://www.npmjs.com/package/react-native-material-ui)
 [![codecov](https://codecov.io/gh/xotahal/react-native-material-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/xotahal/react-native-material-ui)
 [![npm](https://img.shields.io/npm/dm/react-native-material-ui.svg)](https://img.shields.io/npm/dm/react-native-material-ui.svg)
