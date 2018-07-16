@@ -1,7 +1,7 @@
 import {
   View,
   BackHandler,
-  ViewPropTypes as RNViewPropTypes
+  ViewPropTypes as RNViewPropTypes,
 } from 'react-native';
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes; // eslint-disable-line
