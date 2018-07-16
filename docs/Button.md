@@ -54,7 +54,10 @@ const propTypes = {
     /**
      * If specified it'll be shown before text
      */
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    icon: PropTypes.oneOfType([
+        PropTypes.string, 
+        PropTypes.element
+    ]),
     /**
      * Name of Icon set that should be use. From react-native-vector-icons
      */
@@ -63,7 +66,7 @@ const propTypes = {
      * You can override any style for this button
      */
     style: PropTypes.shape({
-      container: ViewPropTypes.style,
+      container: View.propTypes.style,
       text: Text.propTypes.style,
     }),
 };
