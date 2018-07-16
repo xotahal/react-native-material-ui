@@ -41,17 +41,20 @@ const propTypes = {
     */
     onPress: PropTypes.func,
     /**
-    * Called when button is long pressed. Text is passed as param
-    */
+     * Called when button is long pressed. Text is passed as param
+     */
     onLongPress: PropTypes.func,
     /**
-    * Set true if you want to hide action button
-    */
+     * Set true if you want to hide action button
+     */
     hidden: PropTypes.bool,
     /**
-    * If specified it'll be shown before text
-    */
-    icon: PropTypes.string,
+     * If specified it'll be shown before text
+     */
+    icon: PropTypes.oneOfType([
+        PropTypes.element, 
+        PropTypes.string
+    ]),
     /**
     * Leave it empty if you don't want any transition after press. Otherwise, it will be transformed
     * to another view - depends on transition value.
