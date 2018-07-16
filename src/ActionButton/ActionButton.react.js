@@ -67,7 +67,7 @@ const propTypes = {
    */
   rippleColor: PropTypes.string,
   /**
-   * You can overide any style for this button
+   * You can override any style for this button
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
