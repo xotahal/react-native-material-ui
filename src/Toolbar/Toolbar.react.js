@@ -61,7 +61,7 @@ const propTypes = {
     icon: PropTypes.string,
   }),
   /**
-   * You can overide any style for the component via this prop
+   * You can override any style for the component via this prop
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,

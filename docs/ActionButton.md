@@ -61,7 +61,7 @@ const propTypes = {
     */
     transition: PropTypes.oneOf(['toolbar', 'speedDial']),
     /**
-    * You can overide any style for this button
+    * You can override any style for this button
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
