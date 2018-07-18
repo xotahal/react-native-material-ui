@@ -148,6 +148,7 @@ class IconToggle extends PureComponent {
       rippleSize: getRippleSize(containerSize, props.percent),
     };
 
+    this.onPress = this.onPress.bind(this);
     this.onPressIn = this.onPressIn.bind(this);
     this.onPressOut = this.onPressOut.bind(this);
   }
@@ -169,6 +170,14 @@ class IconToggle extends PureComponent {
     }
   }
 
+  onPress() {
+    const { disabled, onPress } = this.props;
+
+    if (onPress && !disabled) {
+      onPress();
+    }
+  }
+
   onPressIn() {
     const { disabled } = this.props;
     const { scaleValue } = this.state;
@@ -184,7 +193,7 @@ class IconToggle extends PureComponent {
   }
 
   onPressOut() {
-    const { disabled, onPress, maxOpacity } = this.props;
+    const { disabled, maxOpacity } = this.props;
     const { scaleValue, opacityValue } = this.state;
 
     if (!disabled) {
@@ -195,10 +204,6 @@ class IconToggle extends PureComponent {
         scaleValue.setValue(0.01);
         opacityValue.setValue(maxOpacity);
       });
-
-      if (onPress) {
-        onPress();
-      }
     }
   }
 
@@ -255,6 +260,7 @@ class IconToggle extends PureComponent {
     return (
       <TouchableWithoutFeedback
         testID={testID}
+        onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
       >
