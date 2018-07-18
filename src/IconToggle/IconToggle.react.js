@@ -173,7 +173,9 @@ class IconToggle extends PureComponent {
   onPress() {
     const { disabled, onPress } = this.props;
 
-    onPress && !disabled && onPress();
+    if (onPress && !disabled) {
+      onPress();
+    }
   }
 
   onPressIn() {
@@ -191,7 +193,7 @@ class IconToggle extends PureComponent {
   }
 
   onPressOut() {
-    const { disabled, onPress, maxOpacity } = this.props;
+    const { disabled, maxOpacity } = this.props;
     const { scaleValue, opacityValue } = this.state;
 
     if (!disabled) {
