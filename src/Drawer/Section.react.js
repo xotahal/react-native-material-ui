@@ -99,7 +99,7 @@ class Section extends PureComponent {
             );
           })}
         </View>
-        {divider && <Divider />}
+        {!!divider && <Divider />}
       </View>
     );
   }
