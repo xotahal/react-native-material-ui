@@ -371,7 +371,7 @@ class ListItem extends PureComponent {
               </Text>
             </View>
           </View>
-          {secondaryText && (
+          {!!secondaryText && (
             <View>
               <Text
                 numberOfLines={secondLineNumber}
@@ -381,7 +381,7 @@ class ListItem extends PureComponent {
               </Text>
             </View>
           )}
-          {tertiaryText && (
+          {!!tertiaryText && (
             <View>
               <Text numberOfLines={thirdLineNumber} style={styles.tertiaryText}>
                 {tertiaryText}
