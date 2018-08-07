@@ -4,67 +4,78 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
+import { ViewPropTypes } from '../utils';
+import withTheme from '../styles/withTheme';
 
 const propTypes = {
-    children: PropTypes.node,
-    onPress: PropTypes.func,
-    style: PropTypes.object,
+  children: PropTypes.node,
+  onPress: PropTypes.func,
+  style: PropTypes.shape({
+    container: ViewPropTypes.style,
+  }),
 };
 const defaultProps = {
-    children: null,
-    onPress: null,
-    style: {},
-};
-const contextTypes = {
-    uiTheme: PropTypes.object.isRequired,
+  children: null,
+  onPress: null,
+  style: {},
 };
 
-function getStyles(props, context) {
-    const { card } = context.uiTheme;
+function getStyles(props) {
+  const { card } = props.theme;
 
-    const local = {};
+  const local = {};
 
-    if (props.fullWidth) {
-        local.container = {
-            marginHorizontal: 0,
-        };
-    }
-
-    return {
-        container: [
-            card.container,
-            local.container,
-            props.style.container,
-        ],
+  if (props.fullWidth) {
+    local.container = {
+      marginHorizontal: 0,
     };
+  }
+
+  return {
+    container: [card.container, local.container, props.style.container],
+  };
 }
 
 class Card extends PureComponent {
-    render() {
-        const { onPress, children } = this.props;
+  constructor(props, context) {
+    super(props, context);
 
-        const styles = getStyles(this.props, this.context);
+    this.state = {
+      styles: getStyles(props),
+    };
+  }
 
-        const content = (
-            <View style={styles.container}>
-                {children}
-            </View>
-        );
+  componentWillReceiveProps(nextProps) {
+    this.setState({ styles: getStyles(nextProps) });
+  }
 
-        if (onPress) {
-            return (
-                <RippleFeedback onPress={onPress} pointerEvents="box-only">
-                    {content}
-                </RippleFeedback>
-            );
-        }
+  renderContent = () => {
+    const { children } = this.props;
+    const { styles } = this.state;
 
-        return content;
+    return (
+      <View style={styles.container} pointerEvents="auto">
+        {children}
+      </View>
+    );
+  };
+
+  render() {
+    const { onPress } = this.props;
+
+    if (onPress) {
+      return (
+        <RippleFeedback onPress={onPress}>
+          {this.renderContent()}
+        </RippleFeedback>
+      );
     }
+
+    return this.renderContent();
+  }
 }
 
 Card.propTypes = propTypes;
 Card.defaultProps = defaultProps;
-Card.contextTypes = contextTypes;
 
-export default Card;
+export default withTheme(Card);

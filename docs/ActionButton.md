@@ -8,7 +8,7 @@
 
 ```js
 ...
-import { ActionButton } from '../react-native-material-ui';
+import { ActionButton } from 'react-native-material-ui';
 ...
 render() {
     <View>
@@ -41,24 +41,27 @@ const propTypes = {
     */
     onPress: PropTypes.func,
     /**
-    * Called when button is long pressed. Text is passed as param
-    */
+     * Called when button is long pressed. Text is passed as param
+     */
     onLongPress: PropTypes.func,
     /**
-    * Set true if you want to hide action button
-    */
+     * Set true if you want to hide action button
+     */
     hidden: PropTypes.bool,
     /**
-    * If specified it'll be shown before text
-    */
-    icon: PropTypes.string,
+     * If specified it'll be shown before text
+     */
+    icon: PropTypes.oneOfType([
+        PropTypes.element, 
+        PropTypes.string
+    ]),
     /**
-    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
+    * Leave it empty if you don't want any transition after press. Otherwise, it will be transformed
     * to another view - depends on transition value.
     */
     transition: PropTypes.oneOf(['toolbar', 'speedDial']),
     /**
-    * You can overide any style for this button
+    * You can override any style for this button
     */
     style: PropTypes.shape({
         container: View.propTypes.style,
