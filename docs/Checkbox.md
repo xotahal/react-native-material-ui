@@ -2,7 +2,7 @@
 ![Imgur](http://i.imgur.com/eUUOXMv.jpg)
 
 ### Usage
-```js
+```jsx
 ...
 import { Checkbox } from 'react-native-material-ui'
 ...
@@ -16,7 +16,7 @@ render() {
 
 
 ### API
-```js
+```jsx
 const propTypes = {
     /**
     * Text will be shown after Icon

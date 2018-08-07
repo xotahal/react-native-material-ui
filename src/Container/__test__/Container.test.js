@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import 'react-native';
 import React from 'react';
 import Container from '../index';
 
@@ -7,9 +7,7 @@ import renderer from 'react-test-renderer';
 
 it('default props', () => {
     const subheader = renderer.create(
-        <Container>
-            <View />
-        </Container>
+        <Container />
     ).toJSON();
 
     expect(subheader).toMatchSnapshot();

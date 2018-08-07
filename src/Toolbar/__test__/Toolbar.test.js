@@ -1,5 +1,6 @@
 import 'react-native';
 import React from 'react';
+import ThemeProvider from '../../styles/ThemeProvider.react';
 import Toolbar from '../index';
 import Button from '../../Button';
 
@@ -9,29 +10,33 @@ import renderer from 'react-test-renderer';
 describe('Searchable', () => {
     it('searchable object', () => {
         const subheader = renderer.create(
-            <Toolbar
-                leftElement="menu"
-                centerElement="Searchable"
-                searchable={{
-                    autoFocus: true,
-                    placeholder: 'Search',
-                }}
-            />
+            <ThemeProvider>
+                <Toolbar
+                    leftElement="menu"
+                    centerElement="Searchable"
+                    searchable={{
+                        autoFocus: true,
+                        placeholder: 'Search',
+                    }}
+                />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
     });
     it('searchable active', () => {
         const subheader = renderer.create(
-            <Toolbar
-                leftElement="menu"
-                centerElement="Searchable"
-                isSearchActive
-                searchable={{
-                    autoFocus: true,
-                    placeholder: 'Search',
-                }}
-            />
+            <ThemeProvider>
+                <Toolbar
+                    leftElement="menu"
+                    centerElement="Searchable"
+                    isSearchActive
+                    searchable={{
+                        autoFocus: true,
+                        placeholder: 'Search',
+                    }}
+                />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
@@ -40,7 +45,9 @@ describe('Searchable', () => {
 describe('Left element', () => {
     it('left element only', () => {
         const subheader = renderer.create(
-            <Toolbar leftElement="menu" centerElement="Test" />
+            <ThemeProvider>
+                <Toolbar leftElement="menu" centerElement="Test" />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
@@ -49,7 +56,9 @@ describe('Left element', () => {
 describe('Center element', () => {
     it('center element only', () => {
         const subheader = renderer.create(
-            <Toolbar centerElement="Test" />
+            <ThemeProvider>
+                <Toolbar centerElement="Test" />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
@@ -58,35 +67,41 @@ describe('Center element', () => {
 describe('Right element', () => {
     it('right element only', () => {
         const subheader = renderer.create(
-            <Toolbar centerElement="Test" rightElement="menu" />
+            <ThemeProvider>
+                <Toolbar centerElement="Test" rightElement="menu" />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
     });
     it('right element - actions, menu', () => {
         const subheader = renderer.create(
-            <Toolbar
-                centerElement="Test"
-                rightElement={{
-                    actions: ['edit'],
-                    menu: { labels: ['Item 1', 'Item 2'] },
-                }}
-            />
+            <ThemeProvider>
+                <Toolbar
+                    centerElement="Test"
+                    rightElement={{
+                        actions: ['edit'],
+                        menu: { labels: ['Item 1', 'Item 2'] },
+                    }}
+                />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();
     });
     it('right element - custom element', () => {
         const subheader = renderer.create(
-            <Toolbar
-                centerElement="Test"
-                rightElement={
-                    <Button
-                        text="Save"
-                        style={{ text: { color: 'white' } }}
-                    />
-                }
-            />
+            <ThemeProvider>
+                <Toolbar
+                    centerElement="Test"
+                    rightElement={
+                        <Button
+                            text="Save"
+                            style={{ text: { color: 'white' } }}
+                        />
+                    }
+                />
+            </ThemeProvider>
         ).toJSON();
 
         expect(subheader).toMatchSnapshot();

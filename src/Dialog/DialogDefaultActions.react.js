@@ -4,83 +4,70 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import Button from '../Button';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
 
 const propTypes = {
-  actions: PropTypes.arrayOf(PropTypes.string).isRequired,
-  options: PropTypes.objectOf(PropTypes.object),
-  onActionPress: PropTypes.func.isRequired,
-  style: PropTypes.shape({
-    defaultActionsContainer: ViewPropTypes.style,
-  }),
+    actions: PropTypes.array.isRequired,
+    onActionPress: PropTypes.func.isRequired,
 };
 const defaultProps = {
-  style: {},
-  options: {},
+    style: {},
+};
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
 };
 
-function getStyles(props) {
-  const { dialog } = props.theme;
+function getStyles(props, context) {
+    const { dialog } = context.uiTheme;
 
-  return {
-    defaultActionsContainer: [
-      dialog.defaultActionsContainer,
-      props.style.defaultActionsContainer,
-    ],
-  };
+    return {
+        defaultActionsContainer: [
+            dialog.defaultActionsContainer,
+            props.style.defaultActionsContainer,
+        ],
+    };
 }
 
 class DialogDefaultActions extends PureComponent {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.onActionPressed = this.onActionPressed.bind(this);
-  }
-
-  onActionPressed(action) {
-    const { onActionPress } = this.props;
-
-    if (onActionPress) {
-      onActionPress(action);
+        this.onActionPressed = this.onActionPressed.bind(this);
     }
-  }
+    onActionPressed(action) {
+        const { onActionPress } = this.props;
 
-  renderAction(action) {
-    const { options } = this.props;
-    const isButtonDisabled =
-      options[`${action}`] && options[`${action}`].disabled;
+        if (onActionPress) {
+            onActionPress(action);
+        }
+    }
+    render() {
+        const { actions } = this.props;
 
-    return (
-      <Button
-        key={action}
-        primary
-        disabled={isButtonDisabled}
-        text={action}
-        onPress={this.onActionPressed}
-        style={{
-          container: {
-            marginLeft: 8,
-            paddingHorizontal: 8,
-          },
-        }}
-      />
-    );
-  }
+        const styles = getStyles(this.props, this.context);
 
-  render() {
-    const { actions } = this.props;
-    const styles = getStyles(this.props);
-
-    return (
-      <View style={styles.defaultActionsContainer}>
-        {actions.map(action => this.renderAction(action))}
-      </View>
-    );
-  }
+        return (
+            <View style={styles.defaultActionsContainer}>
+                {actions.map(action => (
+                    <Button
+                        key={action}
+                        primary
+                        text={action}
+                        onPress={this.onActionPressed}
+                        style={{
+                            container: {
+                                marginLeft: 8,
+                                paddingHorizontal: 8,
+                            },
+                        }}
+                    />
+                ))}
+            </View>
+        );
+    }
 }
 
 DialogDefaultActions.propTypes = propTypes;
 DialogDefaultActions.defaultProps = defaultProps;
+DialogDefaultActions.contextTypes = contextTypes;
 
-export default withTheme(DialogDefaultActions);
+export default DialogDefaultActions;

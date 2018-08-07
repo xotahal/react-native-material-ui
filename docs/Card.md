@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Card } from 'react-native-material-ui';
+import { Card } from '../react-native-material-ui';
 ...
 render() {
     <View>

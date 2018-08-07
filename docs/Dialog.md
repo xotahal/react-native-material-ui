@@ -5,7 +5,7 @@
 
 ```js
 ...
-import { Dialog, DialogDefaultActions } from 'react-native-material-ui';
+import { Dialog, DialogDefaultActions } from '../react-native-material-ui';
 ...
 render() {
     <View>
@@ -18,11 +18,7 @@ render() {
         </Dialog.Content>
         <Dialog.Actions>
           <DialogDefaultActions
-             actions={['cancel', 'ok']}
-             /**
-             * this will disable the button for "ok"
-             */
-             options={{ ok: { disabled: true } }}
+             actions={['Dismiss', 'Keep']}
              onActionPress={() => {}}
           />
         </Dialog.Actions>
@@ -31,20 +27,9 @@ render() {
 }
 ```
 ### API
-
-### DialogDefaultActions/DialogStackedActions props
 ```js
-const propTypes = {
-    actions: PropTypes.arrayOf(PropTypes.string).isRequired,
-    options: PropTypes.shape({
-      actionName: { disabled: PropTypes.bool }
-    }),
-    onActionPress: PropTypes.func.isRequired,
-    style: PropTypes.shape({
-        defaultActionsContainer: ViewPropTypes.style,
-    }),
-};
+...
 ```
 
 ##### TODO
-- [X] Add API to doc
+- [ ] Add API to doc

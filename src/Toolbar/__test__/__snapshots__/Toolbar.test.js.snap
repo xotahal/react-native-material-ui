@@ -13,11 +13,11 @@ exports[`Center element center element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -76,7 +76,12 @@ exports[`Center element center element only 1`] = `
     />
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -90,6 +95,7 @@ exports[`Center element center element only 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -128,11 +134,11 @@ exports[`Left element left element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -201,17 +207,22 @@ exports[`Left element left element only 1`] = `
         ],
       }
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={
@@ -275,7 +286,12 @@ exports[`Left element left element only 1`] = `
     </View>
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -289,6 +305,7 @@ exports[`Left element left element only 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -327,11 +344,11 @@ exports[`Right element right element - actions, menu 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -390,7 +407,12 @@ exports[`Right element right element - actions, menu 1`] = `
     />
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -404,6 +426,7 @@ exports[`Right element right element - actions, menu 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -437,17 +460,22 @@ exports[`Right element right element - actions, menu 1`] = `
         undefined,
       ]
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={
@@ -520,14 +548,20 @@ exports[`Right element right element - actions, menu 1`] = `
         }
       />
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        testID={null}
+        style={undefined}
+        testID={undefined}
       >
         <View
           style={
@@ -607,11 +641,11 @@ exports[`Right element right element - custom element 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -670,7 +704,12 @@ exports[`Right element right element - custom element 1`] = `
     />
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -684,6 +723,7 @@ exports[`Right element right element - custom element 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -717,11 +757,14 @@ exports[`Right element right element - custom element 1`] = `
         undefined,
       ]
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
-      onLayout={[Function]}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -747,7 +790,7 @@ exports[`Right element right element - custom element 1`] = `
           undefined,
         ]
       }
-      testID={null}
+      testID={undefined}
     >
       <Text
         accessible={true}
@@ -773,59 +816,6 @@ exports[`Right element right element - custom element 1`] = `
       >
         SAVE
       </Text>
-      <View
-        pointerEvents="none"
-        style={
-          Array [
-            Object {
-              "bottom": 0,
-              "left": 0,
-              "overflow": "hidden",
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          pointerEvents="none"
-          style={
-            Object {
-              "backgroundColor": "rgba(0, 0, 0, 0.87)",
-              "bottom": 0,
-              "left": 0,
-              "opacity": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-              "zIndex": 1,
-            }
-          }
-        />
-        <View
-          pointerEvents="none"
-          style={
-            Object {
-              "backgroundColor": "rgba(0, 0, 0, 0.87)",
-              "borderRadius": 100,
-              "height": 200,
-              "left": -100,
-              "opacity": 0.12,
-              "position": "absolute",
-              "top": -100,
-              "transform": Array [
-                Object {
-                  "scale": 0,
-                },
-              ],
-              "width": 200,
-              "zIndex": 1,
-            }
-          }
-        />
-      </View>
     </View>
   </View>
 </View>
@@ -844,11 +834,11 @@ exports[`Right element right element only 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -907,7 +897,12 @@ exports[`Right element right element only 1`] = `
     />
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -921,6 +916,7 @@ exports[`Right element right element only 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -954,17 +950,22 @@ exports[`Right element right element only 1`] = `
         undefined,
       ]
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={
@@ -1043,11 +1044,11 @@ exports[`Searchable searchable active 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -1116,17 +1117,22 @@ exports[`Searchable searchable active 1`] = `
         ],
       }
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={
@@ -1190,7 +1196,12 @@ exports[`Searchable searchable active 1`] = `
     </View>
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1204,11 +1215,14 @@ exports[`Searchable searchable active 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <TextInput
-      allowFontScaling={true}
+      autoCapitalize={undefined}
+      autoCorrect={undefined}
       autoFocus={true}
       onChangeText={[Function]}
+      onSubmitEditing={undefined}
       placeholder="Search"
       style={
         Array [
@@ -1248,7 +1262,6 @@ exports[`Searchable searchable active 1`] = `
         undefined,
       ]
     }
-    testID={null}
   />
 </View>
 `;
@@ -1266,11 +1279,11 @@ exports[`Searchable searchable object 1`] = `
       "paddingHorizontal": 4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
-        "height": 1,
+        "height": 2,
         "width": 0,
       },
       "shadowOpacity": 0.3,
-      "shadowRadius": 2,
+      "shadowRadius": 4,
       "transform": Array [
         Object {
           "translateY": 0,
@@ -1339,17 +1352,22 @@ exports[`Searchable searchable object 1`] = `
         ],
       }
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={
@@ -1413,7 +1431,12 @@ exports[`Searchable searchable object 1`] = `
     </View>
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1427,6 +1450,7 @@ exports[`Searchable searchable object 1`] = `
         "opacity": 1,
       }
     }
+    testID={undefined}
   >
     <Text
       accessible={true}
@@ -1460,17 +1484,22 @@ exports[`Searchable searchable object 1`] = `
         undefined,
       ]
     }
-    testID={null}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      testID={null}
+      style={undefined}
+      testID={undefined}
     >
       <View
         style={

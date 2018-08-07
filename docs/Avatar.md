@@ -4,7 +4,7 @@
 
 ```js
 ...
-import { Avatar } from 'react-native-material-ui';
+import { Avatar } from '../react-native-material-ui';
 ...
 render() {
     <View>
