@@ -4,65 +4,57 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
 
 import Title from './Title.react';
 import Content from './Content.react';
 import Actions from './Actions.react';
 
 const propTypes = {
-  onPress: PropTypes.func,
-  children: PropTypes.node.isRequired,
-  style: PropTypes.shape({
-    container: ViewPropTypes.style,
-  }),
+    onPress: PropTypes.func,
+    children: PropTypes.node.isRequired,
+    style: PropTypes.object,
 };
 const defaultProps = {
-  onPress: null,
-  style: {},
+    onPress: null,
+    style: {},
+};
+const contextTypes = {
+    uiTheme: PropTypes.object.isRequired,
 };
 
-function getStyles(props) {
-  const { dialog } = props.theme;
+function getStyles(props, context) {
+    const { dialog } = context.uiTheme;
 
-  return {
-    container: [dialog.container, props.style.container],
-  };
+    return {
+        container: [
+            dialog.container,
+            props.style.container,
+        ],
+    };
 }
 
 class Dialog extends PureComponent {
-  renderContent = () => {
-    const { children } = this.props;
-    const styles = getStyles(this.props);
+    render() {
+        const { onPress, children } = this.props;
 
-    return (
-      <View style={styles.container} pointerEvents="auto">
-        {children}
-      </View>
-    );
-  };
+        const styles = getStyles(this.props, this.context);
 
-  render() {
-    const { onPress } = this.props;
-
-    if (onPress) {
-      return (
-        <RippleFeedback onPress={onPress}>
-          {this.renderContent()}
-        </RippleFeedback>
-      );
+        return (
+            <RippleFeedback onPress={onPress}>
+                <View style={styles.container}>
+                    {children}
+                </View>
+            </RippleFeedback>
+        );
     }
-
-    return this.renderContent();
-  }
 }
 
 Dialog.propTypes = propTypes;
 Dialog.defaultProps = defaultProps;
+Dialog.contextTypes = contextTypes;
 
 Dialog.Title = Title;
 Dialog.Content = Content;
 Dialog.Actions = Actions;
 
-export default withTheme(Dialog);
+export default Dialog;

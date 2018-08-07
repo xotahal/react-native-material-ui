@@ -6,6 +6,14 @@ import { black } from '../colors';
 
 const elevation = 4;
 
+const iOSResult = {
+    shadowColor: black,
+    shadowOpacity: 0.3,
+    shadowRadius: elevation,
+    shadowOffset: { height: 2, width: 0 },
+    zIndex: 1,
+};
+
 describe('getPlatformElevation', () => {
     it('returns empty object if elevation is not legal', () => {
         // ////////////
@@ -15,7 +23,7 @@ describe('getPlatformElevation', () => {
         // ////////////
         // ASSERTS
         // ////////////
-        expect(result).toMatchSnapshot();
+        expect(result).toEqual({});
     });
     it('iOS', () => {
         // ////////////
@@ -25,7 +33,7 @@ describe('getPlatformElevation', () => {
         // ////////////
         // ASSERTS
         // ////////////
-        expect(result).toMatchSnapshot();
+        expect(result).toEqual(iOSResult);
     });
     it('android', () => {
         // ////////////
@@ -35,6 +43,6 @@ describe('getPlatformElevation', () => {
         // ////////////
         // ASSERTS
         // ////////////
-        expect(result).toMatchSnapshot();
+        expect(result.elevation).toBe(elevation);
     });
 });
