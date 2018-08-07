@@ -127,7 +127,7 @@ Of course, sometimes we need to change style of only one component. It means, al
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/fab-to-toolbar-1.gif" width="285">
 <img src="https://raw.githubusercontent.com/xotahal/react-native-material-ui-demo-app/master/resources/bottom-navigation-anim.gif" width="285">
 
-Note: You have to allow the animations for Android ([see React Native's documentation](http://facebook.github.io/react-native/releases/0.33/docs/animations.html#layoutanimation))
+Note: You have to allow the animations for Android ([see React Native's documentation](https://facebook.github.io/react-native/docs/layoutanimation.html))
 ```js
 UIManager.setLayoutAnimationEnabledExperimental && 
 UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -165,15 +165,16 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Avatar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Avatar.md)
 - [Badge](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Badge.md)
 - [Bottom Navigation](https://github.com/xotahal/react-native-material-ui/blob/master/docs/BottomNavigation.md)
+- [Bottom Navigation Action](https://github.com/xotahal/react-native-material-ui/blob/master/docs/BottomNavigationAction.md)
 - [Button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Button.md)
 - [Card](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Card.md)
-- Checkbox
+- [Checkbox](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Checkbox.md)
 - [Dialog](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Dialog.md)
-- Divider
-- Drawer
-- Icon
-- Icon toggles
-- List item
-- Radio button
-- Subheader
+- [Drawer](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Drawer.md)
+- [Divider](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Divider.md)
+- [Icon](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Icon.md)
+- [Icon toggles](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
+- [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
+- [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
+- [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)

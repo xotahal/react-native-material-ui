@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
     Animated,
     Easing,
-    Platform,
     StyleSheet,
     Text,
     View,
@@ -34,6 +33,10 @@ const propTypes = {
         * Called when search was closed.
         */
         onSearchClosed: PropTypes.func,
+        /**
+        * Called when action to close search was requested.
+        */
+        onSearchCloseRequested: PropTypes.func,
         /**
         * Called when search was opened.
         */
@@ -122,12 +125,10 @@ const propTypes = {
         * For actions and menu. The menu will be shown as last one icon.
         */
         PropTypes.shape({
-            actions: PropTypes.arrayOf(
-                PropTypes.oneOfType([
-                    PropTypes.element,
-                    PropTypes.string,
-                ]),
-            ),
+            actions: PropTypes.arrayOf(PropTypes.oneOfType([
+                PropTypes.element,
+                PropTypes.string,
+            ])),
             menu: PropTypes.shape({
                 icon: PropTypes.string,
                 labels: PropTypes.arrayOf(PropTypes.string),
@@ -140,7 +141,6 @@ const propTypes = {
     onRightElementPress: PropTypes.func,
 };
 const defaultProps = {
-    elevation: 4, // TODO: probably useless, elevation is defined in getTheme function
     style: {},
     hidden: false,
     isSearchActive: false,
@@ -269,6 +269,10 @@ class Toolbar extends PureComponent {
     * Android's HW/SW back button
     */
     onSearchCloseRequested = () => {
+        if (this.props.searchable.onSearchCloseRequested) {
+            this.props.searchable.onSearchCloseRequested();
+        }
+
         this.setState({
             isSearchActive: false,
             searchValue: '',
@@ -321,7 +325,7 @@ class Toolbar extends PureComponent {
             toValue: 1,
             duration: 325,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(onComplete);
     }
     animateDefaultBackground = (onComplete) => {
@@ -329,7 +333,7 @@ class Toolbar extends PureComponent {
             toValue: 1,
             duration: 325,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start(onComplete);
     }
     focusSearchField() {
@@ -341,7 +345,7 @@ class Toolbar extends PureComponent {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     hide = () => {
@@ -351,7 +355,7 @@ class Toolbar extends PureComponent {
             toValue: (-1 * StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     renderAnimatedBackgrounds = (styles) => {

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Platform, Animated, Easing, StyleSheet } from 'react-native';
+import { View, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -46,6 +46,11 @@ function getStyles(props, context) {
             local.container,
             props.style.container,
         ],
+        actionsContainer: [
+            bottomNavigation.actionsContainer,
+            local.actionsContainer,
+            props.style.actionsContainer,
+        ],
     };
 }
 /**
@@ -79,7 +84,7 @@ class BottomNavigation extends PureComponent {
             toValue: 0,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     hide = () => {
@@ -89,7 +94,7 @@ class BottomNavigation extends PureComponent {
             toValue: StyleSheet.flatten(styles.container).height,
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
     render() {
@@ -104,13 +109,15 @@ class BottomNavigation extends PureComponent {
                     }],
                 }]}
             >
-                {React.Children.map(
-                    children,
-                    child => React.cloneElement(child, {
-                        ...child.props,
-                        active: child.key === active,
-                    }),
-                )}
+                <View style={styles.actionsContainer}>
+                    {React.Children.map(
+                        children,
+                        child => React.cloneElement(child, {
+                            ...child.props,
+                            active: child.key === active,
+                        }),
+                    )}
+                </View>
             </Animated.View>
         );
     }

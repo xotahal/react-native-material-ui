@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Animated, Easing, Platform, StyleSheet } from 'react-native';
+import { Text, Animated, Easing, StyleSheet } from 'react-native';
 import { ViewPropTypes } from '../utils';
 
 import Button from '../Button';
@@ -14,11 +14,11 @@ const propTypes = {
     /**
     * Whether or not the snackbar is visible.
     */
-    visible: PropTypes.bool.isRequired,
+    visible: PropTypes.bool,
     /**
     * The amount of time in milliseconds to show the snackbar.
     */
-    timeout: PropTypes.number.isRequired,
+    timeout: PropTypes.number,
     /**
     * Callback for when the timeout finishes.
     */
@@ -26,7 +26,7 @@ const propTypes = {
     /**
     * Whether or not there is a bottom navigation on the screen.
     */
-    bottomNavigation: PropTypes.bool.isRequired,
+    bottomNavigation: PropTypes.bool,
     /**
     * The function to execute when the action is clicked.
     */
@@ -99,7 +99,7 @@ class Snackbar extends PureComponent {
         const { style, visible, bottomNavigation } = this.props;
 
         if (nextProps.style !== style) {
-            this.setState({ styles: getStyles(this.props, this.context) });
+            this.setState({ styles: getStyles(nextProps, this.context) });
         }
 
         if (nextProps.visible !== visible) {
@@ -141,7 +141,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration: 225,
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -151,7 +151,7 @@ class Snackbar extends PureComponent {
             toValue: (StyleSheet.flatten(styles.container).height),
             duration: 195,
             easing: Easing.bezier(0.4, 0.0, 1, 1),
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 
@@ -166,7 +166,7 @@ class Snackbar extends PureComponent {
             toValue,
             duration,
             easing,
-            useNativeDriver: Platform.OS === 'android',
+            useNativeDriver: true,
         }).start();
     }
 

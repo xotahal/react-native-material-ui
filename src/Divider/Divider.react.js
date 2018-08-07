@@ -3,11 +3,14 @@ import { View } from 'react-native';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 
 const propTypes = {
     inset: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: ViewPropTypes.style,
+    }),
 };
 const defaultProps = {
     inset: false,

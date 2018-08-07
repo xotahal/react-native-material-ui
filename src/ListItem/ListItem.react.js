@@ -10,13 +10,14 @@ import {
     findNodeHandle,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../utils';
 
 import Divider from '../Divider';
 import Icon from '../Icon';
 import IconToggle from '../IconToggle';
 import RippleFeedback from '../RippleFeedback';
 
-const UIManager = NativeModules.UIManager;
+const { UIManager } = NativeModules;
 
 const propTypes = {
     // generally
@@ -24,13 +25,27 @@ const propTypes = {
     // should render divider after list item?
     divider: PropTypes.bool,
     onPress: PropTypes.func,
-    onPressValue: PropTypes.any,
+    onPressValue: PropTypes.any, // eslint-disable-line
     /**
     * Called when list item is long pressed.
     */
     onLongPress: PropTypes.func,
     numberOfLines: PropTypes.oneOf([1, 2, 3, 'dynamic']),
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: ViewPropTypes.style,
+        contentViewContainer: ViewPropTypes.style,
+        leftElementContainer: ViewPropTypes.style,
+        centerElementContainer: ViewPropTypes.style,
+        textViewContainer: ViewPropTypes.style,
+        primaryText: Text.propTypes.style,
+        firstLine: ViewPropTypes.style,
+        primaryTextContainer: Text.propTypes.style,
+        secondaryText: Text.propTypes.style,
+        tertiaryText: Text.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
+        leftElement: PropTypes.style,
+        rightElement: PropTypes.style,
+    }),
 
     // left side
     leftElement: PropTypes.oneOfType([
@@ -131,7 +146,7 @@ function getListItemHeight(props, state) {
     return null;
 }
 function getStyles(props, context, state) {
-    const { rightElement } = props;
+    const { leftElement, rightElement } = props;
     const { listItem } = context.uiTheme;
     const { numberOfLines } = state;
 
@@ -141,6 +156,7 @@ function getStyles(props, context, state) {
     };
     const contentViewContainer = {};
     const leftElementContainer = {};
+    const centerElementContainer = {};
 
     if (numberOfLines === 'dynamic') {
         contentViewContainer.paddingVertical = 16;
@@ -149,6 +165,9 @@ function getStyles(props, context, state) {
 
     if (!rightElement) {
         contentViewContainer.paddingRight = 16;
+    }
+    if (!leftElement) {
+        centerElementContainer.paddingLeft = 16;
     }
 
     return {
@@ -173,6 +192,7 @@ function getStyles(props, context, state) {
         ],
         centerElementContainer: [
             listItem.centerElementContainer,
+            centerElementContainer,
             props.style.centerElementContainer,
         ],
         textViewContainer: [
@@ -277,7 +297,9 @@ class ListItem extends PureComponent {
     getPointerEvents = () => {
         // 'box-only' fixes misplaced ripple effect, but ruins click events for subviews.
         // It's suitable only for simple cases with no touchable views, except the main one.
-        const { onLeftElementPress, leftElement, centerElement, rightElement } = this.props;
+        const {
+            onLeftElementPress, leftElement, centerElement, rightElement,
+        } = this.props;
         return onLeftElementPress ||
             React.isValidElement(leftElement) ||
             React.isValidElement(centerElement) ||
@@ -330,9 +352,11 @@ class ListItem extends PureComponent {
             if (typeof centerElement === 'string') {
                 primaryText = centerElement;
             } else {
+                /* eslint-disable prefer-destructuring */
                 primaryText = centerElement.primaryText;
                 secondaryText = centerElement.secondaryText;
                 tertiaryText = centerElement.tertiaryText;
+                /* eslint-enable prefer-destructuring */
             }
             const secondLineNumber = !tertiaryText ? numberOfLines : 1;
             const thirdLineNumber = tertiaryText ? numberOfLines : 1;
@@ -453,7 +477,11 @@ class ListItem extends PureComponent {
         const styles = getStyles(this.props, this.context, this.state);
 
         // renders left element, center element and right element
-        let content = this.renderContent(styles);
+        let content = (
+            <View style={styles.container}>
+                {this.renderContent(styles)}
+            </View>
+        );
 
         if (onPress || onLongPress) {
             content = (
@@ -470,9 +498,7 @@ class ListItem extends PureComponent {
 
         return (
             <View>
-                <View style={styles.container}>
-                    {content}
-                </View>
+                {content}
                 {this.renderDivider()}
             </View>
         );

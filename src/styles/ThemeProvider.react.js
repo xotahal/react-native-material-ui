@@ -6,7 +6,11 @@ import getTheme from './getTheme';
 
 const propTypes = {
     children: PropTypes.element.isRequired,
-    uiTheme: PropTypes.object.isRequired,
+    // TODO: flowtype
+    uiTheme: PropTypes.object, // eslint-disable-line
+};
+const defaultProps = {
+    uiTheme: {},
 };
 const childContextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -25,6 +29,7 @@ class ThemeProvider extends Component {
 }
 
 ThemeProvider.propTypes = propTypes;
+ThemeProvider.defaultProps = defaultProps;
 ThemeProvider.childContextTypes = childContextTypes;
 
 export default ThemeProvider;

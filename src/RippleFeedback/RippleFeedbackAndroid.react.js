@@ -1,11 +1,7 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-    Platform,
-    TouchableNativeFeedback,
-    TouchableWithoutFeedback,
-} from 'react-native';
+import { TouchableNativeFeedback, Platform } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
@@ -21,31 +17,17 @@ const defaultProps = {
     borderless: true,
 };
 
-function isCompatible() {
-    if (Platform.OS === 'ios' || Platform.OS === 'web') {
-        return false;
-    }
-
-    return Platform.Version >= 21;
-}
-
 class RippleFeedback extends PureComponent {
     render() {
-        const { children, color, borderless, ...otherProps } = this.props;
-
-        if (!isCompatible()) {
-            return (
-                <TouchableWithoutFeedback {...otherProps}>
-                    {children}
-                </TouchableWithoutFeedback>
-            );
-        }
+        const {
+            children, color, borderless, ...otherProps
+        } = this.props;
 
         // we need to get underlayColor as props to this RippleFeedback component, because we can't
         // TouchableNativeFeedback.Ripple function on iOS devices
         const mapProps = { ...otherProps };
 
-        if (color) {
+        if (color && Platform.Version >= 21) {
             mapProps.background = TouchableNativeFeedback.Ripple(color, borderless);
         }
 

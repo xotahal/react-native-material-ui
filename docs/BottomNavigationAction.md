@@ -6,7 +6,7 @@ Check [this](https://github.com/xotahal/react-native-material-ui/blob/master/doc
 
 ```js
 ...
-import { BottomNavigationAction } from '../react-native-material-ui';
+import { BottomNavigationAction } from 'react-native-material-ui';
 ...
 state = {
   navIndex: 0,

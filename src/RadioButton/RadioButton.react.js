@@ -10,6 +10,7 @@ const propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     onSelect: PropTypes.func.isRequired,
+    theme: PropTypes.string,
 };
 const defaultProps = {
     theme: 'light',
@@ -19,7 +20,9 @@ const defaultProps = {
 
 class RadioButton extends PureComponent {
     onPress = () => {
-        const { value, checked, disabled, onSelect } = this.props;
+        const {
+            value, checked, disabled, onSelect,
+        } = this.props;
 
         if (disabled && !checked) {
             return;

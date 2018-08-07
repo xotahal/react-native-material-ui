@@ -51,7 +51,7 @@ const propTypes = {
     */
     children: PropTypes.node.isRequired,
     /**
-    * Wether or not the BottomNaviagtion should show
+    * Whether or not the BottomNavigation should show
     */
     hidden: PropTypes.bool, /* DEFAULT: false */
     /*

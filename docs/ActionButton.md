@@ -8,7 +8,7 @@
 
 ```js
 ...
-import { ActionButton } from '../react-native-material-ui';
+import { ActionButton } from 'react-native-material-ui';
 ...
 render() {
     <View>
@@ -53,7 +53,7 @@ const propTypes = {
     */
     icon: PropTypes.string,
     /**
-    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
+    * Leave it empty if you don't want any transition after press. Otherwise, it will be transformed
     * to another view - depends on transition value.
     */
     transition: PropTypes.oneOf(['toolbar', 'speedDial']),

@@ -4,11 +4,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 /* eslint-enable import/no-unresolved, import/extensions */
 import RippleFeedback from '../RippleFeedback';
+import { ViewPropTypes } from '../utils';
 
 const propTypes = {
     children: PropTypes.node,
     onPress: PropTypes.func,
-    style: PropTypes.object,
+    style: PropTypes.shape({
+        container: ViewPropTypes.style,
+    }),
 };
 const defaultProps = {
     children: null,
@@ -40,26 +43,38 @@ function getStyles(props, context) {
 }
 
 class Card extends PureComponent {
-    render() {
-        const { onPress, children } = this.props;
+    constructor(props, context) {
+        super(props, context);
 
-        const styles = getStyles(this.props, this.context);
+        this.state = {
+            styles: getStyles(props, context),
+        };
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({ styles: getStyles(nextProps, this.context) });
+    }
+    renderContent = () => {
+        const { children } = this.props;
+        const { styles } = this.state;
 
-        const content = (
-            <View style={styles.container}>
+        return (
+            <View style={styles.container} pointerEvents="auto">
                 {children}
             </View>
         );
+    }
+    render() {
+        const { onPress } = this.props;
 
         if (onPress) {
             return (
-                <RippleFeedback onPress={onPress} pointerEvents="box-only">
-                    {content}
+                <RippleFeedback onPress={onPress}>
+                    {this.renderContent()}
                 </RippleFeedback>
             );
         }
 
-        return content;
+        return this.renderContent();
     }
 }
 

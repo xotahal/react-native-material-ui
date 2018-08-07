@@ -1,7 +1,9 @@
+import { Platform } from 'react-native';
+
 export const fontWeight = {
     light: '300',
     normal: '400',
-    medium: '500',
+    medium: Platform.OS === 'android' ? '500' : '800',
 };
 
 // https://material.google.com/style/typography.html
