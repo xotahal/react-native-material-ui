@@ -179,10 +179,10 @@ class IconToggle extends PureComponent {
   }
 
   onPressIn() {
-    const { disabled, noanimate } = this.props;
+    const { disabled } = this.props;
     const { scaleValue } = this.state;
 
-    if (!disabled && !noanimate) {
+    if (!disabled) {
       Animated.timing(scaleValue, {
         toValue: 1,
         duration: 225,
@@ -263,6 +263,7 @@ class IconToggle extends PureComponent {
         onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
+        delayPressIn={0}
       >
         <View>
           {this.renderRippleView(styles)}
