@@ -179,10 +179,10 @@ class IconToggle extends PureComponent {
   }
 
   onPressIn() {
-    const { disabled } = this.props;
+    const { disabled, noanimate } = this.props;
     const { scaleValue } = this.state;
 
-    if (!disabled) {
+    if (!disabled && !noanimate) {
       Animated.timing(scaleValue, {
         toValue: 1,
         duration: 225,
