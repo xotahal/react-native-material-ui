@@ -220,7 +220,7 @@ class RightElement extends PureComponent {
                     />}
           >
             {rightElement.menu.labels.map((label,index)=>
-              <MenuItem onPress={()=>{
+              <MenuItem key={index} onPress={()=>{
                 const { onRightElementPress } = this.props;
                 if(onRightElementPress){
                   onRightElementPress({action:'menu', label, index })
