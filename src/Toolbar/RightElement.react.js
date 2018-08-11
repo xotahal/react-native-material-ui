@@ -225,6 +225,7 @@ class RightElement extends PureComponent {
                 if(onRightElementPress){
                   onRightElementPress({action:'menu', label, index })
                 }
+                this.hideMenu()
               }}>{label}</MenuItem>)}
           </Menu>
         </View>
