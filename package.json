@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xotahal/react-native-material-ui"
+    "url": "https://github.com/jextrevor/react-native-material-ui"
   },
   "jest": {
     "preset": "react-native",
@@ -27,9 +27,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xotahal/react-native-material-ui/issues"
+    "url": "https://github.com/jextrevor/react-native-material-ui/issues"
   },
-  "homepage": "https://github.com/xotahal/react-native-material-ui",
+  "homepage": "https://github.com/jextrevor/react-native-material-ui",
   "peerDependencies": {
     "react-native-vector-icons": "^4.0.0"
   },
@@ -38,7 +38,8 @@
     "hoist-non-react-statics": "^2.5.5",
     "lodash.merge": "^4.0.0",
     "prop-types": "^15.5.10",
-    "react-native-material-design-styles": "^0.2.6"
+    "react-native-material-design-styles": "^0.2.6",
+    "react-native-material-menu": "^0.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

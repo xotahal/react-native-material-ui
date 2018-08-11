@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native';
+import Menu, { MenuItem } from 'react-native-material-menu';
 /* eslint-enable import/no-unresolved, import/extensions */
 import { ViewPropTypes } from '../utils';
 
@@ -65,16 +66,17 @@ class RightElement extends PureComponent {
   onMenuPressed = labels => {
     const { onRightElementPress } = this.props;
 
-    UIManager.showPopupMenu(
-      findNodeHandle(this.menu),
-      labels,
-      () => {},
-      (result, index) => {
-        if (onRightElementPress) {
-          onRightElementPress({ action: 'menu', result, index });
-        }
-      },
-    );
+    this.showMenu();
+    // UIManager.showPopupMenu(
+    //   findNodeHandle(this.menu),
+    //   labels,
+    //   () => {},
+    //   (result, index) => {
+    //     if (onRightElementPress) {
+    //       onRightElementPress({ action: 'menu', result, index });
+    //     }
+    //   },
+    // );
   };
 
   onSearchPressed = () => {
@@ -84,7 +86,18 @@ class RightElement extends PureComponent {
       onSearchPress();
     }
   };
+  _menu = null;
+  setMenuRef = ref => {
+    this._menu=ref;
+  };
 
+  hideMenu = () => {
+    this._menu.hide();
+  };
+
+  showMenu = () => {
+    this._menu.show();
+  };
   render() {
     const {
       rightElementTestID,
@@ -196,13 +209,24 @@ class RightElement extends PureComponent {
               height: StyleSheet.hairlineWidth,
             }}
           />
-          <IconToggle
-            name={rightElement.menu.icon || 'more-vert'}
-            color={flattenRightElement.color}
-            size={size}
-            onPress={() => this.onMenuPressed(rightElement.menu.labels)}
-            style={flattenRightElement}
-          />
+          <Menu
+            ref={ref=>{this.setMenuRef(ref)}}
+            button={<IconToggle
+                      name={rightElement.menu.icon || 'more-vert'}
+                      color={flattenRightElement.color}
+                      size={size}
+                      onPress={() => this.onMenuPressed()}
+                      style={flattenRightElement}
+                    />}
+          >
+            {rightElement.menu.labels.map((label,index)=>
+              <MenuItem onPress={()=>{
+                const { onRightElementPress } = this.props;
+                if(onRightElementPress){
+                  onRightElementPress({action:'menu', label, index })
+                }
+              }}>{label}</MenuItem>)}
+          </Menu>
         </View>
       );
 
