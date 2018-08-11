@@ -217,7 +217,6 @@ class RightElement extends PureComponent {
                       size={size}
                       onPress={() => this.onMenuPressed()}
                       style={flattenRightElement}
-                      noanimate={true}
                     />}
           >
             {rightElement.menu.labels.map((label,index)=>
