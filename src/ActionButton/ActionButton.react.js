@@ -56,7 +56,11 @@ const propTypes = {
   /**
    * If specified it'll be shown before text
    */
-  icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  icon: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   /**
    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
    * to another view - depends on transition value.
@@ -443,6 +447,10 @@ class ActionButton extends PureComponent {
     let result;
     if (React.isValidElement(icon)) {
       result = icon;
+    } else if (icon.name && icon.iconSet) {
+      result = (
+        <Icon name={icon.name} iconSet={icon.iconSet} style={styles.icon} />
+      );
     } else {
       result = <Icon name={icon} style={styles.icon} />;
     }
