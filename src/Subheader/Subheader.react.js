@@ -11,7 +11,7 @@ const propTypes = {
   inset: PropTypes.bool,
   lines: PropTypes.number,
   style: PropTypes.shape({
-    contaienr: ViewPropTypes.style,
+    container: ViewPropTypes.style,
     text: Text.propTypes.style, // eslint-disable-line
   }),
 };
