@@ -4,4 +4,3 @@ example/android/**
 example/ios/**
 example/node_modules/**
 example/resource/**
-**/__test__/**
