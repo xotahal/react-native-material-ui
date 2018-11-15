@@ -51,6 +51,7 @@ const propTypes = {
     children: PropTypes.node.isRequired,
     style: PropTypes.shape({
         container: ScrollView.propTypes.style,
+        contentContainer: View.propTypes.style,
     }),
 };
 ```
