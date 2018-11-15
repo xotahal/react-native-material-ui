@@ -14,7 +14,7 @@ const propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    contentContainerStyle: ViewPropTypes.style,
+    contentContainer: ViewPropTypes.style,
   }),
 };
 const defaultProps = {
