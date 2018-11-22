@@ -519,8 +519,8 @@ export default function getTheme(theme, ...more) {
             textViewContainer: {},
             primaryText: {
               lineHeight: 24,
-              color: palette.primaryTextColor,
               ...typography.subheading,
+              color: palette.primaryTextColor,
             },
             firstLine: {
               flexDirection: 'row',
@@ -530,13 +530,13 @@ export default function getTheme(theme, ...more) {
             },
             secondaryText: {
               lineHeight: 22,
-              color: palette.secondaryTextColor,
               ...typography.body1,
+              color: palette.secondaryTextColor,
             },
             tertiaryText: {
               lineHeight: 22,
-              color: palette.secondaryTextColor,
               ...typography.body1,
+              color: palette.secondaryTextColor,
             },
             rightElementContainer: {
               paddingRight: 4,
