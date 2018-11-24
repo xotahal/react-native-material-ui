@@ -633,8 +633,8 @@ export default function getTheme(theme, ...more) {
             },
             titleText: {
               fontFamily,
-              color: palette.alternateTextColor,
               ...typography.appBar,
+              color: palette.alternateTextColor,
             },
             rightElementContainer: {
               flexDirection: 'row',
