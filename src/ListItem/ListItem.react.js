@@ -23,7 +23,10 @@ const propTypes = {
     // generally
     dense: PropTypes.bool,
     // should render divider after list item?
-    divider: PropTypes.bool,
+    divider: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.bool,
+    ]),
     onPress: PropTypes.func,
     onPressValue: PropTypes.any, // eslint-disable-line
     /**
@@ -457,6 +460,10 @@ class ListItem extends PureComponent {
     }
     renderDivider = () => {
         const { divider } = this.props;
+
+        if (React.isValidElement(divider)) {
+            return divider;
+        }
 
         if (!divider) {
             return null;
