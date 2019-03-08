@@ -17,5 +17,6 @@ Here is a list of all component included in this library. (I'm working on docume
 - [Icon toggles](https://github.com/xotahal/react-native-material-ui/blob/master/docs/IconToggle.md)
 - [List item](https://github.com/xotahal/react-native-material-ui/blob/master/docs/ListItem.md)
 - [Radio button](https://github.com/xotahal/react-native-material-ui/blob/master/docs/RadioButton.md)
+- [Snackbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Snackbar.md)
 - [Subheader](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Subheader.md)
 - [Toolbar](https://github.com/xotahal/react-native-material-ui/blob/master/docs/Toolbar.md)

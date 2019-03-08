@@ -182,8 +182,8 @@ export default function getTheme(theme, ...more) {
               flexDirection: 'row',
             },
             text: {
-              color: black,
               ...typography.buttons,
+              color: black,
             },
             icon: {
               marginRight: 8,
@@ -519,8 +519,8 @@ export default function getTheme(theme, ...more) {
             textViewContainer: {},
             primaryText: {
               lineHeight: 24,
-              color: palette.primaryTextColor,
               ...typography.subheading,
+              color: palette.primaryTextColor,
             },
             firstLine: {
               flexDirection: 'row',
@@ -530,13 +530,13 @@ export default function getTheme(theme, ...more) {
             },
             secondaryText: {
               lineHeight: 22,
-              color: palette.secondaryTextColor,
               ...typography.body1,
+              color: palette.secondaryTextColor,
             },
             tertiaryText: {
               lineHeight: 22,
-              color: palette.secondaryTextColor,
               ...typography.body1,
+              color: palette.secondaryTextColor,
             },
             rightElementContainer: {
               paddingRight: 4,
@@ -577,8 +577,8 @@ export default function getTheme(theme, ...more) {
             message: {
               flex: 1,
               marginVertical: 16,
-              color: white,
               ...typography.body2,
+              color: white,
               lineHeight: 16,
             },
             actionContainer: {
@@ -601,9 +601,9 @@ export default function getTheme(theme, ...more) {
               justifyContent: 'center',
             },
             text: {
-              color: palette.secondaryTextColor,
               // https://material.google.com/components/subheaders.html#subheaders-grid-subheaders
               ...typography.body2,
+              color: palette.secondaryTextColor,
             },
           },
           mergedTheme.subheader,
@@ -633,8 +633,8 @@ export default function getTheme(theme, ...more) {
             },
             titleText: {
               fontFamily,
-              color: palette.alternateTextColor,
               ...typography.appBar,
+              color: palette.alternateTextColor,
             },
             rightElementContainer: {
               flexDirection: 'row',
