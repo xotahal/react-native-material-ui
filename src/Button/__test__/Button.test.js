@@ -1,5 +1,6 @@
 import 'react-native';
 import React from 'react';
+import { View } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import Button from '../index';
@@ -83,6 +84,13 @@ describe('Button', () => {
   it('onPress', () => {
     const subheader = renderer
       .create(<Button text="Clear" onPress={() => {}} />)
+      .toJSON();
+
+    expect(subheader).toMatchSnapshot();
+  });
+  it('children', () => {
+    const subheader = renderer
+      .create(<Button><View /></Button>)
       .toJSON();
 
     expect(subheader).toMatchSnapshot();
