@@ -52,7 +52,7 @@ const propTypes = {
      * If specified it'll be shown before text
      */
     icon: PropTypes.oneOfType([
-        PropTypes.element, 
+        PropTypes.element,
         PropTypes.string
     ]),
     /**
@@ -66,6 +66,14 @@ const propTypes = {
     style: PropTypes.shape({
         container: View.propTypes.style,
         icon: Text.propTypes.style,
+        positionContainer: View.propTypes.style,
+        // Toolbar styles
+        toolbarContainer: View.propTypes.style,
+        toolbarActionContainer: View.propTypes.style,
+        // Speed Dial styles
+        speedDialActionIcon: View.propTypes.style,
+        speedDialActionLabel: Text.propTypes.style,
+        speedDialActionLabelContainer: View.propTypes.style
     }),
 };
 ```
