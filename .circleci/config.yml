@@ -1,3 +1,7 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 version: 2
 
 # Used Workspace
@@ -13,6 +17,7 @@ node_config: &node_config
 # Key to cache gradle dependecies
 yarn_key: &yarn_key
   yarn-cache-{{ checksum "yarn.lock" }}
+
 
 jobs:
   install-dependencies:
@@ -57,11 +62,8 @@ jobs:
       - attach_workspace:
           at: *workspace
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/mui/.npmrc
-      - run:
           name: Publish
-          command: npm publish
+          command: yarn semantic-release
 
 
 workflows:
@@ -81,4 +83,4 @@ workflows:
               - test
           filters:
               branches:
-                only: 'publish'
+                only: 'master'
