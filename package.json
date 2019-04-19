@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-ui",
-  "version": "2.0.0",
+  "version": "0.0.1",
   "description": "React Native Material Design Components",
   "main": "./index.js",
   "scripts": {
@@ -62,6 +62,7 @@
     "react": "16.4.1",
     "react-native": "0.57.4",
     "react-native-vector-icons": "^6.0.2",
-    "react-test-renderer": "16.4.1"
+    "react-test-renderer": "16.4.1",
+    "semantic-release": "^15.13.3"
   }
 }
