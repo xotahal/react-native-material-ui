@@ -1,30 +1,33 @@
 // @flow
-export default {
-  // fontFamily: null,
-  h1: {
-    fontSize: 42,
-  },
-  h2: {
-    fontSize: 32,
-  },
-  h3: {
-    fontSize: 28,
-  },
-  h4: {
-    fontSize: 22,
-  },
-  h5: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+const defaultFontFamily = null
+
+const defaultTypography = {
+  fontFamily: defaultFontFamily,
   body: {
     fontSize: 18,
-  },
-  paragraph: {
-    fontSize: 16,
   },
   button: {
     fontWeight: '500',
     fontSize: 14,
   },
+}
+
+export type Typography = typeof defaultTypography
+
+export default (typography?: Typography = {}): Typography => {
+  const fontFamily = (typography && typography.fontFamily) || defaultFontFamily
+
+  return {
+    fontFamily,
+    body: {
+      fontFamily,
+      ...defaultTypography.button,
+      ...typography.button,
+    },
+    button: {
+      fontFamily,
+      ...defaultTypography.button,
+      ...typography.button,
+    },
+  }
 }

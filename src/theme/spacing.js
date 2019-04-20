@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 
 const base = 8
 
-const spacing = {
+const defaultSpacing = {
   base,
   // The extra large height - List Items with two line text
   sizeXLarge: base * 8,
@@ -19,11 +19,18 @@ const spacing = {
   spaceSmall: base,
   spaceXSmall: base / 2,
 
+  buttonRadius: base / 4,
+
   radiusSmall: base / 4,
   radiusRegular: base / 2,
   border: StyleSheet.hairlineWidth,
 }
 
-export type Spacing = typeof spacing
+export type Spacing = typeof defaultSpacing
 
-export default spacing
+export default (spacing?: Spacing): Spacing => {
+  return {
+    ...defaultSpacing,
+    ...spacing,
+  }
+}

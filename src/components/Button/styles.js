@@ -13,7 +13,7 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: spacing.spaceRegular,
-        borderRadius: spacing.radiusSmall,
+        borderRadius: spacing.buttonRadius,
         flexDirection: 'row',
       },
       iconLeft: {

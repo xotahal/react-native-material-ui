@@ -1,13 +1,9 @@
 // @flow
-import palette from './palette'
-import spacing from './spacing'
-import typography from './typography'
+import type { Palette } from './palette'
+import type { Spacing } from './spacing'
+import type { Typography } from './typography'
 
 import type { GetButtonStyles } from '../components/Button/types'
-
-export type Palette = typeof palette
-export type Spacing = typeof spacing
-export type Typography = typeof typography
 
 export type StyleParams = {
   palette: Palette,
@@ -16,8 +12,8 @@ export type StyleParams = {
 }
 
 export type Theme = {|
-  palette: typeof palette,
-  spacing: typeof spacing,
-  typography: typeof typography,
+  palette: Palette,
+  spacing: Spacing,
+  typography: Typography,
   getButtonStyles: GetButtonStyles,
 |}

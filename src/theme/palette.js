@@ -2,7 +2,7 @@
 import Color from 'color'
 import { blue500, red500, white, black } from './colors'
 
-const palette = {
+const defaultPalette = {
   primary: blue500,
   accent: red500,
 
@@ -34,4 +34,11 @@ const palette = {
     .toString(),
 }
 
-export default palette
+export type Palette = typeof defaultPalette
+
+export default (palette?: Palette): Palette => {
+  return {
+    ...defaultPalette,
+    ...palette,
+  }
+}
