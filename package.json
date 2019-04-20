@@ -40,7 +40,8 @@
     "hoist-non-react-statics": "^2.5.5",
     "lodash.merge": "^4.0.0",
     "prop-types": "^15.5.10",
-    "react-native-material-design-styles": "^0.2.6"
+    "react-native-material-design-styles": "^0.2.6",
+    "react-native-material-menu": "^0.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
