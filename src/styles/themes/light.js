@@ -1,8 +1,8 @@
-import Color from 'color';
-import { blue500, red500, white, black } from '../colors';
+import Color from 'color'
+import { blue500, red500, white, black } from '../colors'
 
-import spacing from '../spacing';
-import typography from '../typography';
+import spacing from '../spacing'
+import typography from '../typography'
 
 export default {
   spacing,
@@ -43,4 +43,4 @@ export default {
     // clockCircleColor: faintBlack,
     // shadowColor: fullBlack,
   },
-};
+}

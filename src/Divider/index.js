@@ -1,1 +1,1 @@
-export { default } from './Divider.react';
+export { default } from './Divider.react'

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import {
   StyleSheet,
   View,
@@ -8,17 +8,17 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
   findNodeHandle,
-} from 'react-native';
+} from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
-import Divider from '../Divider';
-import Icon from '../Icon';
-import IconToggle from '../IconToggle';
-import RippleFeedback from '../RippleFeedback';
+import Divider from '../Divider'
+import Icon from '../Icon'
+import IconToggle from '../IconToggle'
+import RippleFeedback from '../RippleFeedback'
 
-const { UIManager } = NativeModules;
+const { UIManager } = NativeModules
 
 const propTypes = {
   testID: PropTypes.string,
@@ -83,7 +83,7 @@ const propTypes = {
    * Children passed into the `ListItem`.
    */
   children: PropTypes.node,
-};
+}
 const defaultProps = {
   testID: null,
   dense: false,
@@ -100,17 +100,17 @@ const defaultProps = {
   children: null,
   style: {},
   iconSet: null,
-};
+}
 
 function getNumberOfSecondaryTextLines(numberOfLines) {
   if (numberOfLines === 'dynamic') {
-    return null;
+    return null
   }
 
-  return numberOfLines - 1;
+  return numberOfLines - 1
 }
 function getNumberOfLines(props) {
-  const { numberOfLines, centerElement } = props;
+  const { numberOfLines, centerElement } = props
 
   if (
     centerElement &&
@@ -118,67 +118,67 @@ function getNumberOfLines(props) {
     centerElement.tertiaryText &&
     (!numberOfLines || numberOfLines < 3)
   ) {
-    return 3;
+    return 3
   }
   if (
     centerElement &&
     centerElement.secondaryText &&
     (!numberOfLines || numberOfLines < 2)
   ) {
-    return 2;
+    return 2
   }
 
-  return numberOfLines || 1;
+  return numberOfLines || 1
 }
 /**
  * Please see this: https://material.google.com/components/lists.html#lists-specs
  */
 function getListItemHeight(props, state) {
-  const { leftElement, dense } = props;
-  const { numberOfLines } = state;
+  const { leftElement, dense } = props
+  const { numberOfLines } = state
 
   if (numberOfLines === 'dynamic') {
-    return null;
+    return null
   }
 
   if (!leftElement && numberOfLines === 1) {
-    return dense ? 40 : 48;
+    return dense ? 40 : 48
   }
 
   if (numberOfLines === 1) {
-    return dense ? 48 : 56;
+    return dense ? 48 : 56
   }
   if (numberOfLines === 2) {
-    return dense ? 60 : 72;
+    return dense ? 60 : 72
   }
   if (numberOfLines === 3) {
-    return dense ? 80 : 88;
+    return dense ? 80 : 88
   }
 
-  return null;
+  return null
 }
 function getStyles(props, state) {
-  const { leftElement, rightElement, theme } = props;
-  const { listItem } = theme;
-  const { numberOfLines } = state;
+  const { leftElement, rightElement, theme } = props
+  const { listItem } = theme
+  const { numberOfLines } = state
 
   const container = {
     height: getListItemHeight(props, state),
-  };
-  const contentViewContainer = {};
-  const leftElementContainer = {};
-  const centerElementContainer = {};
+  }
+  const contentViewContainer = {}
+  const leftElementContainer = {}
+  const centerElementContainer = {}
 
   if (numberOfLines === 'dynamic') {
-    contentViewContainer.paddingVertical = 16;
-    leftElementContainer.alignSelf = 'flex-start';
+    contentViewContainer.paddingVertical = 16
+    leftElementContainer.alignSelf = 'flex-start'
   }
 
   if (!rightElement) {
-    contentViewContainer.paddingRight = 16;
+    contentViewContainer.paddingRight = 16
   }
   if (!leftElement) {
-    centerElementContainer.paddingLeft = 16;
+    centerElementContainer.paddingLeft = 16
   }
 
   return {
@@ -217,24 +217,24 @@ function getStyles(props, state) {
     ],
     leftElement: [listItem.leftElement, props.style.leftElement],
     rightElement: [listItem.rightElement, props.style.rightElement],
-  };
+  }
 }
 
 class ListItem extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       numberOfLines: getNumberOfLines(props),
-    };
+    }
   }
 
   componentWillReceiveProps(nextPros) {
-    this.setState({ numberOfLines: getNumberOfLines(nextPros) });
+    this.setState({ numberOfLines: getNumberOfLines(nextPros) })
   }
 
   onMenuPressed = labels => {
-    const { onRightElementPress, onPressValue } = this.props;
+    const { onRightElementPress, onPressValue } = this.props
 
     UIManager.showPopupMenu(
       findNodeHandle(this.menu),
@@ -247,45 +247,45 @@ class ListItem extends PureComponent {
             result,
             index,
             value: onPressValue,
-          });
+          })
         }
       },
-    );
-  };
+    )
+  }
 
   onListItemPressed = () => {
-    const { onPress, onPressValue } = this.props;
+    const { onPress, onPressValue } = this.props
 
     if (onPress) {
-      onPress(onPressValue);
+      onPress(onPressValue)
     }
-  };
+  }
 
   onListItemLongPressed = () => {
-    const { onLongPress, onPressValue } = this.props;
+    const { onLongPress, onPressValue } = this.props
 
     if (onLongPress) {
-      onLongPress(onPressValue);
+      onLongPress(onPressValue)
     }
-  };
+  }
 
   onLeftElementPressed = () => {
-    const { onLeftElementPress, onPress, onPressValue } = this.props;
+    const { onLeftElementPress, onPress, onPressValue } = this.props
 
     if (onLeftElementPress) {
-      onLeftElementPress(onPressValue);
+      onLeftElementPress(onPressValue)
     } else if (onPress) {
-      onPress(onPressValue);
+      onPress(onPressValue)
     }
-  };
+  }
 
   onRightElementPressed = () => {
-    const { onRightElementPress, onPressValue } = this.props;
+    const { onRightElementPress, onPressValue } = this.props
 
     if (onRightElementPress) {
-      onRightElementPress(onPressValue);
+      onRightElementPress(onPressValue)
     }
-  };
+  }
 
   getPointerEvents = () => {
     // 'box-only' fixes misplaced ripple effect, but ruins click events for subviews.
@@ -295,24 +295,24 @@ class ListItem extends PureComponent {
       leftElement,
       centerElement,
       rightElement,
-    } = this.props;
+    } = this.props
     return onLeftElementPress ||
       React.isValidElement(leftElement) ||
       React.isValidElement(centerElement) ||
       rightElement
       ? 'auto'
-      : 'box-only';
-  };
+      : 'box-only'
+  }
 
   renderLeftElement = styles => {
-    const { leftElement, iconSet } = this.props;
+    const { leftElement, iconSet } = this.props
 
     if (!leftElement) {
-      return null;
+      return null
     }
 
-    const flattenLeftElement = StyleSheet.flatten(styles.leftElement);
-    let content = null;
+    const flattenLeftElement = StyleSheet.flatten(styles.leftElement)
+    let content = null
 
     if (typeof leftElement === 'string') {
       content = (
@@ -323,45 +323,45 @@ class ListItem extends PureComponent {
             color={flattenLeftElement.color}
           />
         </TouchableWithoutFeedback>
-      );
+      )
     } else {
       content = (
         <TouchableWithoutFeedback onPress={this.onLeftElementPressed}>
           <View>{leftElement}</View>
         </TouchableWithoutFeedback>
-      );
+      )
     }
 
-    return <View style={styles.leftElementContainer}>{content}</View>;
-  };
+    return <View style={styles.leftElementContainer}>{content}</View>
+  }
 
   renderCenterElement = styles => {
-    const { centerElement } = this.props;
-    const { numberOfLines } = this.state;
+    const { centerElement } = this.props
+    const { numberOfLines } = this.state
 
     const numberOfSecondaryTextLines = getNumberOfSecondaryTextLines(
       numberOfLines,
-    );
-    let content = null;
+    )
+    let content = null
 
     if (React.isValidElement(centerElement)) {
-      content = centerElement;
+      content = centerElement
     } else if (centerElement) {
-      let primaryText = null;
-      let secondaryText = null;
-      let tertiaryText = null;
+      let primaryText = null
+      let secondaryText = null
+      let tertiaryText = null
 
       if (typeof centerElement === 'string') {
-        primaryText = centerElement;
+        primaryText = centerElement
       } else {
         /* eslint-disable prefer-destructuring */
-        primaryText = centerElement.primaryText;
-        secondaryText = centerElement.secondaryText;
-        tertiaryText = centerElement.tertiaryText;
+        primaryText = centerElement.primaryText
+        secondaryText = centerElement.secondaryText
+        tertiaryText = centerElement.tertiaryText
         /* eslint-enable prefer-destructuring */
       }
-      const secondLineNumber = !tertiaryText ? numberOfSecondaryTextLines : 1;
-      const thirdLineNumber = tertiaryText ? numberOfSecondaryTextLines : 1;
+      const secondLineNumber = !tertiaryText ? numberOfSecondaryTextLines : 1
+      const thirdLineNumber = tertiaryText ? numberOfSecondaryTextLines : 1
       content = (
         <View style={styles.textViewContainer}>
           <View style={styles.firstLine}>
@@ -389,27 +389,27 @@ class ListItem extends PureComponent {
             </View>
           )}
         </View>
-      );
+      )
     }
 
-    return <View style={styles.centerElementContainer}>{content}</View>;
-  };
+    return <View style={styles.centerElementContainer}>{content}</View>
+  }
 
   renderRightElement = styles => {
-    const { rightElement, iconSet } = this.props;
+    const { rightElement, iconSet } = this.props
 
-    let content = [];
-    let elements = null;
+    let content = []
+    let elements = null
 
     if (typeof rightElement === 'string') {
-      elements = [rightElement];
+      elements = [rightElement]
     } else if (Array.isArray(rightElement)) {
-      elements = rightElement;
+      elements = rightElement
     } else if (rightElement && rightElement.actions) {
-      elements = rightElement.actions;
+      elements = rightElement.actions
     }
 
-    const flattenRightElement = StyleSheet.flatten(styles.rightElement);
+    const flattenRightElement = StyleSheet.flatten(styles.rightElement)
 
     if (elements) {
       content = elements.map(action => (
@@ -422,13 +422,13 @@ class ListItem extends PureComponent {
           style={styles.rightElement}
           onPress={() => this.onRightElementPressed({ action })}
         />
-      ));
+      ))
     }
 
     if (React.isValidElement(rightElement)) {
       content.push(
         React.cloneElement(rightElement, { key: 'customRightElement' }),
-      );
+      )
     }
 
     if (rightElement && rightElement.menu) {
@@ -438,7 +438,7 @@ class ListItem extends PureComponent {
         <View key="menuIcon">
           <View
             ref={c => {
-              this.menu = c;
+              this.menu = c
             }}
             style={{
               backgroundColor: 'transparent',
@@ -454,21 +454,21 @@ class ListItem extends PureComponent {
             style={flattenRightElement}
           />
         </View>,
-      );
+      )
     }
 
-    return <View style={styles.rightElementContainer}>{content}</View>;
-  };
+    return <View style={styles.rightElementContainer}>{content}</View>
+  }
 
   renderDivider = () => {
-    const { divider } = this.props;
+    const { divider } = this.props
 
     if (!divider) {
-      return null;
+      return null
     }
 
-    return <Divider />;
-  };
+    return <Divider />
+  }
 
   renderContent = styles => (
     <View
@@ -479,17 +479,17 @@ class ListItem extends PureComponent {
       {this.renderCenterElement(styles)}
       {this.renderRightElement(styles)}
     </View>
-  );
+  )
 
   render() {
-    const { onPress, onLongPress, testID } = this.props;
+    const { onPress, onLongPress, testID } = this.props
 
-    const styles = getStyles(this.props, this.state);
+    const styles = getStyles(this.props, this.state)
 
     // renders left element, center element and right element
     let content = (
       <View style={styles.container}>{this.renderContent(styles)}</View>
-    );
+    )
 
     if (onPress || onLongPress) {
       content = (
@@ -500,7 +500,7 @@ class ListItem extends PureComponent {
         >
           {content}
         </RippleFeedback>
-      );
+      )
     }
 
     return (
@@ -508,11 +508,11 @@ class ListItem extends PureComponent {
         {content}
         {this.renderDivider()}
       </View>
-    );
+    )
   }
 }
 
-ListItem.propTypes = propTypes;
-ListItem.defaultProps = defaultProps;
+ListItem.propTypes = propTypes
+ListItem.defaultProps = defaultProps
 
-export default withTheme(ListItem);
+export default withTheme(ListItem)

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import Color from 'color';
-import React, { PureComponent } from 'react';
+import Color from 'color'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -8,21 +8,21 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Animated,
-} from 'react-native';
-import PropTypes from 'prop-types';
-import { ViewPropTypes } from '../utils';
+} from 'react-native'
+import PropTypes from 'prop-types'
+import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Icon from '../Icon';
-import IconToggle from '../IconToggle';
-import RippleFeedback from '../RippleFeedback';
+import Icon from '../Icon'
+import IconToggle from '../IconToggle'
+import RippleFeedback from '../RippleFeedback'
 /* eslint-disable import/no-unresolved, import/extensions */
-import getPlatformElevation from '../styles/getPlatformElevation';
+import getPlatformElevation from '../styles/getPlatformElevation'
 /* eslint-enable import/no-unresolved, import/extensions */
-import withTheme from '../styles/withTheme';
+import withTheme from '../styles/withTheme'
 
 function darkenOrLighten(color, ratio = 0.5) {
-  const c = Color(color);
-  return c.luminosity() > 0.5 ? c.darken(ratio) : c.lighten(ratio);
+  const c = Color(color)
+  return c.luminosity() > 0.5 ? c.darken(ratio) : c.lighten(ratio)
 }
 
 const propTypes = {
@@ -77,7 +77,7 @@ const propTypes = {
     container: ViewPropTypes.style,
     icon: Text.propTypes.style, // eslint-disable-line
   }),
-};
+}
 const defaultProps = {
   actions: null,
   onPress: null,
@@ -87,28 +87,28 @@ const defaultProps = {
   style: {},
   hidden: false,
   rippleColor: null,
-};
+}
 
 function getStyles(props, state) {
-  const { size, theme } = props;
-  const { actionButton } = theme;
+  const { size, theme } = props
+  const { actionButton } = theme
 
   const local = {
     container: {},
-  };
+  }
 
   if (size) {
     local.container = {
       height: size,
       width: size,
       borderRadius: size / 2,
-    };
+    }
   }
 
   local.container = {
     ...local.container,
     ...getPlatformElevation(state.elevation),
-  };
+  }
 
   return {
     positionContainer: [
@@ -168,89 +168,89 @@ function getStyles(props, state) {
       props.style.speedDialActionIcon,
     ],
     icon: [actionButton.icon, local.icon, props.style.icon],
-  };
+  }
 }
 
 const getRippleContainerStyle = containerStyle => {
-  const flattenContainer = StyleSheet.flatten(containerStyle);
-  const { height, width, borderRadius } = flattenContainer;
+  const flattenContainer = StyleSheet.flatten(containerStyle)
+  const { height, width, borderRadius } = flattenContainer
 
-  return { container: { height, width, borderRadius } };
-};
+  return { container: { height, width, borderRadius } }
+}
 
 class ActionButton extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { render: 'button' };
+    this.state = { render: 'button' }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { hidden } = this.props;
+    const { hidden } = this.props
 
     if (nextProps.hidden !== hidden) {
       if (nextProps.hidden === true) {
-        this.hide();
+        this.hide()
       } else {
-        this.show();
+        this.show()
       }
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const { render } = this.state;
+    const { render } = this.state
 
     if (render !== nextState.render) {
-      LayoutAnimation.easeInEaseOut();
+      LayoutAnimation.easeInEaseOut()
     }
   }
 
   onPress = action => {
-    const { onPress } = this.props;
+    const { onPress } = this.props
 
-    this.toggleState();
+    this.toggleState()
 
     if (onPress) {
-      onPress(action);
+      onPress(action)
     }
-  };
+  }
 
   getActionItemKey = ({ icon, name }) => {
-    let key = icon;
+    let key = icon
     if (name) {
-      key = name;
+      key = name
     } else if (React.isValidElement(icon) && icon.key) {
       key = icon.key; // eslint-disable-line
     }
-    return key;
-  };
+    return key
+  }
 
   getRippleColor() {
-    const { rippleColor } = this.props;
+    const { rippleColor } = this.props
 
     if (rippleColor) {
-      return rippleColor;
+      return rippleColor
     }
 
-    const styles = getStyles(this.props, this.state);
+    const styles = getStyles(this.props, this.state)
 
-    const { backgroundColor } = StyleSheet.flatten(styles.container);
+    const { backgroundColor } = StyleSheet.flatten(styles.container)
 
-    return darkenOrLighten(backgroundColor).toString();
+    return darkenOrLighten(backgroundColor).toString()
   }
 
   toggleState = () => {
-    const { transition } = this.props;
-    const { render } = this.state;
+    const { transition } = this.props
+    const { render } = this.state
 
     if (render === 'button') {
       if (transition) {
-        this.setState({ render: transition });
+        this.setState({ render: transition })
       }
     } else {
-      this.setState({ render: 'button' });
+      this.setState({ render: 'button' })
     }
-  };
+  }
 
   show = () => {
     // Animated.timing(this.state.scaleValue, {
@@ -259,7 +259,7 @@ class ActionButton extends PureComponent {
     //     easing: Easing.bezier(0.0, 0.0, 0.2, 1),
     //     useNativeDriver: true,
     // }).start();
-  };
+  }
 
   hide = () => {
     // Animated.timing(this.state.scaleValue, {
@@ -270,33 +270,33 @@ class ActionButton extends PureComponent {
     //     easing: Easing.bezier(0.4, 0.0, 0.6, 1),
     //     useNativeDriver: true,
     // }).start();
-  };
+  }
 
   renderToolbarTransition = styles => {
-    const { actions } = this.props;
+    const { actions } = this.props
 
     return (
       <View style={styles.toolbarPositionContainer}>
         <View key="main-button" style={styles.toolbarContainer}>
           {actions.map(action => {
             if (typeof action === 'string') {
-              return this.renderToolbarAction(styles, action);
+              return this.renderToolbarAction(styles, action)
             }
             if (React.isValidElement(action)) {
-              return this.renderToolbarElementAction(styles, action);
+              return this.renderToolbarElementAction(styles, action)
             }
 
-            const { icon, label, name } = action;
+            const { icon, label, name } = action
             // TODO: pass action
-            return this.renderToolbarLabelAction(styles, icon, label, name);
+            return this.renderToolbarLabelAction(styles, icon, label, name)
           })}
         </View>
       </View>
-    );
-  };
+    )
+  }
 
   renderSpeedDialTransition = styles => {
-    const { actions } = this.props;
+    const { actions } = this.props
 
     return (
       <View style={[StyleSheet.absoluteFillObject, { flex: 1 }]}>
@@ -311,16 +311,16 @@ class ActionButton extends PureComponent {
               >
                 {actions.map(action => {
                   if (typeof action === 'string') {
-                    return this.renderAction(styles, action);
+                    return this.renderAction(styles, action)
                   }
 
                   if (React.isValidElement(action)) {
-                    return this.renderElementAction(styles, action);
+                    return this.renderElementAction(styles, action)
                   }
 
-                  const { icon, label, name } = action;
+                  const { icon, label, name } = action
                   // TODO: pass action
-                  return this.renderLabelAction(styles, icon, label, name);
+                  return this.renderLabelAction(styles, icon, label, name)
                 })}
               </View>
               {this.renderMainButton(styles)}
@@ -328,14 +328,14 @@ class ActionButton extends PureComponent {
           </View>
         </TouchableWithoutFeedback>
       </View>
-    );
-  };
+    )
+  }
 
   renderMainButton = styles => {
-    const { onLongPress, icon } = this.props;
-    const { render } = this.state;
+    const { onLongPress, icon } = this.props
+    const { render } = this.state
 
-    const mainIcon = render !== 'button' ? 'clear' : icon;
+    const mainIcon = render !== 'button' ? 'clear' : icon
 
     return (
       <View key="main-button" style={styles.container}>
@@ -349,12 +349,12 @@ class ActionButton extends PureComponent {
           {this.renderIconButton(styles, mainIcon)}
         </RippleFeedback>
       </View>
-    );
-  };
+    )
+  }
 
   renderToolbarAction = (styles, icon, name) => {
-    let content;
-    const key = this.getActionItemKey({ icon, name });
+    let content
+    const key = this.getActionItemKey({ icon, name })
 
     if (React.isValidElement(icon)) {
       content = (
@@ -365,7 +365,7 @@ class ActionButton extends PureComponent {
         >
           {this.renderIconButton(styles, icon)}
         </RippleFeedback>
-      );
+      )
     } else {
       content = (
         <IconToggle
@@ -374,38 +374,38 @@ class ActionButton extends PureComponent {
           onPress={() => this.onPress(key)}
           style={{ icon: styles.icon }}
         />
-      );
+      )
     }
     return (
       <View key={key} style={styles.toolbarActionContainer}>
         {content}
       </View>
-    );
-  };
+    )
+  }
 
   renderToolbarElementAction = (styles, icon) => {
-    const key = this.getActionItemKey({ icon });
+    const key = this.getActionItemKey({ icon })
     return (
       <View key={key} style={styles.toolbarActionContainer}>
         {this.renderToolbarAction(styles, icon)}
       </View>
-    );
-  };
+    )
+  }
 
   /**
    * TODO: implement labels for toolbar?
    */
   renderToolbarLabelAction = (styles, icon, label, name) => {
-    const key = this.getActionItemKey({ icon, name });
+    const key = this.getActionItemKey({ icon, name })
     return (
       <View key={key} style={styles.toolbarActionContainer}>
         {this.renderToolbarAction(styles, icon, name)}
       </View>
-    );
-  };
+    )
+  }
 
   renderAction = (styles, icon, name) => {
-    const key = this.getActionItemKey({ icon, name });
+    const key = this.getActionItemKey({ icon, name })
     return (
       <View key={key} style={styles.speedDialActionIconContainer}>
         <View style={styles.speedDialActionIcon}>
@@ -419,20 +419,20 @@ class ActionButton extends PureComponent {
           </RippleFeedback>
         </View>
       </View>
-    );
-  };
+    )
+  }
 
   renderElementAction = (styles, icon) => {
-    const key = this.getActionItemKey({ icon });
+    const key = this.getActionItemKey({ icon })
     return (
       <View key={key} style={styles.speedDialActionContainer}>
         {this.renderAction(styles, icon)}
       </View>
-    );
-  };
+    )
+  }
 
   renderLabelAction = (styles, icon, label, name) => {
-    const key = this.getActionItemKey({ icon, name });
+    const key = this.getActionItemKey({ icon, name })
     return (
       <View key={key} style={styles.speedDialActionContainer}>
         <View style={styles.speedDialActionLabelContainer}>
@@ -440,19 +440,19 @@ class ActionButton extends PureComponent {
         </View>
         {this.renderAction(styles, icon, name)}
       </View>
-    );
-  };
+    )
+  }
 
   renderIconButton = (styles, icon) => {
-    let result;
+    let result
     if (React.isValidElement(icon)) {
-      result = icon;
+      result = icon
     } else if (icon.name && icon.iconSet) {
       result = (
         <Icon name={icon.name} iconSet={icon.iconSet} style={styles.icon} />
-      );
+      )
     } else {
-      result = <Icon name={icon} style={styles.icon} />;
+      result = <Icon name={icon} style={styles.icon} />
     }
     return (
       <View
@@ -465,32 +465,32 @@ class ActionButton extends PureComponent {
       >
         {result}
       </View>
-    );
-  };
+    )
+  }
 
   renderButton = styles => (
     <Animated.View style={styles.positionContainer}>
       {this.renderMainButton(styles)}
     </Animated.View>
-  );
+  )
 
   render() {
-    const { render } = this.state;
+    const { render } = this.state
 
-    const styles = getStyles(this.props, this.state);
+    const styles = getStyles(this.props, this.state)
 
     if (render === 'toolbar') {
-      return this.renderToolbarTransition(styles);
+      return this.renderToolbarTransition(styles)
     }
     if (render === 'speedDial') {
-      return this.renderSpeedDialTransition(styles);
+      return this.renderSpeedDialTransition(styles)
     }
 
-    return this.renderButton(styles);
+    return this.renderButton(styles)
   }
 }
 
-ActionButton.propTypes = propTypes;
-ActionButton.defaultProps = defaultProps;
+ActionButton.propTypes = propTypes
+ActionButton.defaultProps = defaultProps
 
-export default withTheme(ActionButton);
+export default withTheme(ActionButton)

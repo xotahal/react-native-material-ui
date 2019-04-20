@@ -1,58 +1,9 @@
 // @flow
 import { StyleSheet } from 'react-native'
 
-import type { ViewStyleProp, TextStyleProp } from '../../types'
-import { getElevation } from '../../utils'
-import type { StyleParams } from '../../theme'
-
-type Props = {
-  icon?: string,
-  neutral?: boolean,
-  raised?: boolean,
-  outlined?: boolean,
-  dense?: boolean,
-  trimmed?: boolean,
-  disabled?: boolean,
-  textColor?: string,
-  text?: ?string,
-  iconPosition: 'left' | 'right',
-  style: ViewStyleProp,
-}
-
-type DefinedStyles = {
-  shared: {
-    container: ViewStyleProp,
-    iconLeft: ViewStyleProp,
-    iconRight: ViewStyleProp,
-    text: TextStyleProp,
-  },
-  raised: {
-    container: ViewStyleProp,
-    text: TextStyleProp,
-  },
-  outlined: {
-    container: ViewStyleProp,
-    text: TextStyleProp,
-  },
-  trimmed: {
-    container: ViewStyleProp,
-  },
-  dense: {
-    container: ViewStyleProp,
-  },
-  disabled: {
-    container: ViewStyleProp,
-    text: TextStyleProp,
-  },
-}
-
-type Styles = {
-  container: ViewStyleProp,
-  iconContainer: ViewStyleProp,
-  text: TextStyleProp,
-}
-
-export type ButtonStyles = Props => Styles
+import { getPlatformElevation } from '../../utils'
+import type { StyleParams } from '../../theme/types'
+import type { StyleProps, ButtonStyles } from './types'
 
 const getStyles = ({ palette, spacing, typography }: StyleParams) => {
   const styles = {
@@ -108,7 +59,7 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
       container: {
         backgroundColor: palette.disabled,
         borderColor: palette.disabled,
-        ...getElevation(0),
+        ...getPlatformElevation(0),
       },
       text: {
         color: palette.disabledText,
@@ -116,7 +67,7 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
     }),
   }
 
-  return (props: Props) => {
+  return (props: StyleProps): ButtonStyles => {
     const {
       raised,
       outlined,

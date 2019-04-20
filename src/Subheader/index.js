@@ -1,1 +1,1 @@
-export { default } from './Subheader.react';
+export { default } from './Subheader.react'

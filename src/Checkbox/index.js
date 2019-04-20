@@ -1,1 +1,1 @@
-export { default } from './Checkbox.react';
+export { default } from './Checkbox.react'

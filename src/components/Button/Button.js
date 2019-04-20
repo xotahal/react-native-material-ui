@@ -4,12 +4,10 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Icon from '../Icon'
-import RippleFeedback from '../RippleFeedback'
-/* eslint-disable import/no-unresolved, import/extensions */
-import getPlatformElevation from '../styles/getPlatformElevation'
-/* eslint-enable import/no-unresolved, import/extensions */
-import withTheme from '../styles/withTheme'
+import Icon from '../../Icon'
+import RippleFeedback from '../../RippleFeedback'
+import getPlatformElevation from '../../styles/getPlatformElevation'
+import withTheme from '../../styles/withTheme'
 
 const propTypes = {
   testID: PropTypes.string,

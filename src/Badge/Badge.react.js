@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { Text, View } from 'react-native';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { Text, View } from 'react-native'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Icon from '../Icon';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import Icon from '../Icon'
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   /**
@@ -46,7 +46,7 @@ const propTypes = {
     }),
     PropTypes.array,
   ]),
-};
+}
 const defaultProps = {
   children: null,
   text: null,
@@ -59,37 +59,37 @@ const defaultProps = {
       right: -8,
     },
   },
-};
+}
 
 function getStyles(props) {
-  const { accent, size, stroke, theme } = props;
-  const { badge, palette } = theme;
+  const { accent, size, stroke, theme } = props
+  const { badge, palette } = theme
 
   const local = {
     container: {},
     strokeContainer: {},
-  };
+  }
 
   if (size && stroke) {
-    const strokeSize = size;
-    const contentSize = size - stroke;
+    const strokeSize = size
+    const contentSize = size - stroke
 
-    local.strokeContainer.width = strokeSize;
-    local.strokeContainer.height = strokeSize;
-    local.strokeContainer.borderRadius = strokeSize / 2;
+    local.strokeContainer.width = strokeSize
+    local.strokeContainer.height = strokeSize
+    local.strokeContainer.borderRadius = strokeSize / 2
 
-    local.container.position = null;
-    local.container.width = contentSize;
-    local.container.height = contentSize;
-    local.container.borderRadius = contentSize / 2;
+    local.container.position = null
+    local.container.width = contentSize
+    local.container.height = contentSize
+    local.container.borderRadius = contentSize / 2
   } else if (size && !stroke) {
-    local.container.width = size;
-    local.container.height = size;
-    local.container.borderRadius = size / 2;
+    local.container.width = size
+    local.container.height = size
+    local.container.borderRadius = size / 2
   }
 
   if (accent) {
-    local.container.backgroundColor = palette.accentColor;
+    local.container.backgroundColor = palette.accentColor
   }
 
   return {
@@ -100,76 +100,76 @@ function getStyles(props) {
       props.style.strokeContainer,
     ],
     content: [badge.content, local.content, props.style.content],
-  };
+  }
 }
 const mapIconProps = ({ icon, size }) => {
-  let iconProps = {};
+  let iconProps = {}
 
   if (typeof icon === 'string') {
-    iconProps.name = icon;
+    iconProps.name = icon
   } else {
-    iconProps = icon;
+    iconProps = icon
   }
 
   if (!iconProps.size && size) {
-    iconProps.size = size / 2;
+    iconProps.size = size / 2
   }
 
-  return iconProps;
-};
+  return iconProps
+}
 
 class Badge extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
-    this.renderContent = this.renderContent.bind(this);
-    this.renderChildren = this.renderChildren.bind(this);
+    this.renderContent = this.renderContent.bind(this)
+    this.renderChildren = this.renderChildren.bind(this)
   }
 
   renderContent(styles) {
-    const { text, icon, stroke } = this.props;
+    const { text, icon, stroke } = this.props
 
-    let content = null;
+    let content = null
 
     if (icon) {
-      const iconProps = mapIconProps(this.props);
-      content = <Icon {...iconProps} />;
+      const iconProps = mapIconProps(this.props)
+      content = <Icon {...iconProps} />
     } else if (text) {
-      content = <Text style={styles.content}>{text}</Text>;
+      content = <Text style={styles.content}>{text}</Text>
     }
 
-    const contentWrapper = <View style={styles.container}>{content}</View>;
+    const contentWrapper = <View style={styles.container}>{content}</View>
 
     if (!stroke) {
-      return contentWrapper;
+      return contentWrapper
     }
 
-    return <View style={styles.strokeContainer}>{contentWrapper}</View>;
+    return <View style={styles.strokeContainer}>{contentWrapper}</View>
   }
 
   renderChildren() {
-    const { children } = this.props;
+    const { children } = this.props
 
     if (!children) {
-      return null;
+      return null
     }
 
-    return children;
+    return children
   }
 
   render() {
-    const styles = getStyles(this.props);
+    const styles = getStyles(this.props)
 
     return (
       <View style={{ flexDirection: 'row' }}>
         {this.renderChildren()}
         {this.renderContent(styles)}
       </View>
-    );
+    )
   }
 }
 
-Badge.propTypes = propTypes;
-Badge.defaultProps = defaultProps;
+Badge.propTypes = propTypes
+Badge.defaultProps = defaultProps
 
-export default withTheme(Badge);
+export default withTheme(Badge)

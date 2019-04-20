@@ -1,4 +1,4 @@
-import getTheme from '../getTheme';
+import getTheme from '../getTheme'
 
 const uiTheme = {
   palette: {
@@ -9,25 +9,25 @@ const uiTheme = {
       width: 100,
     },
   },
-};
+}
 
 describe('getTheme', () => {
   it('objects exist', () => {
-    const theme = getTheme(uiTheme);
+    const theme = getTheme(uiTheme)
 
-    expect(!!theme.palette).toBeTruthy();
-    expect(!!theme.fontFamily).toBeTruthy();
-    expect(!!theme.spacing).toBeTruthy();
-    expect(!!theme.typography).toBeTruthy();
+    expect(!!theme.palette).toBeTruthy()
+    expect(!!theme.fontFamily).toBeTruthy()
+    expect(!!theme.spacing).toBeTruthy()
+    expect(!!theme.typography).toBeTruthy()
 
-    expect(!!theme.actionButton).toBeTruthy();
-    expect(!!theme.actionButton.container).toBeTruthy();
-    expect(!!theme.listItem).toBeTruthy();
-  });
+    expect(!!theme.actionButton).toBeTruthy()
+    expect(!!theme.actionButton.container).toBeTruthy()
+    expect(!!theme.listItem).toBeTruthy()
+  })
   it('merges properly', () => {
-    const theme = getTheme(uiTheme);
+    const theme = getTheme(uiTheme)
 
-    expect(theme.palette.primaryColor).toBe('#fff');
-    expect(theme.actionButton.container.width).toBe(100);
-  });
-});
+    expect(theme.palette.primaryColor).toBe('#fff')
+    expect(theme.actionButton.container.width).toBe(100)
+  })
+})

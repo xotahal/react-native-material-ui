@@ -2,34 +2,34 @@
 export default {
   // fontFamily: null,
   h1: {
-    fontSize: 42
+    fontSize: 42,
   },
   h2: {
-    fontSize: 32
+    fontSize: 32,
   },
   h3: {
-    fontSize: 28
+    fontSize: 28,
   },
   h4: {
-    fontSize: 22
+    fontSize: 22,
   },
   h5: {
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   body: {
-    fontSize: 18
+    fontSize: 18,
   },
   paragraph: {
-    fontSize: 16
+    fontSize: 16,
   },
   button: {
-    fontSize: 18
+    fontSize: 18,
   },
   buttonUpperCase: {
-    fontSize: 14
+    fontSize: 14,
   },
   numberPlate: {
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 }

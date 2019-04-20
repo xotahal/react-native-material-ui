@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, Text } from 'react-native';
-import { ViewPropTypes } from '../utils';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { StyleSheet, View, Text } from 'react-native'
+import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
-import withTheme from '../styles/withTheme';
+import withTheme from '../styles/withTheme'
 
-import RippleFeedback from '../RippleFeedback';
-import Icon from '../Icon';
+import RippleFeedback from '../RippleFeedback'
+import Icon from '../Icon'
 
 const propTypes = {
   testID: PropTypes.string,
@@ -42,7 +42,7 @@ const propTypes = {
     disabled: Text.propTypes.style, // eslint-disable-line
   }),
   disabled: PropTypes.bool,
-};
+}
 const defaultProps = {
   testID: null,
   label: null,
@@ -51,21 +51,21 @@ const defaultProps = {
   active: false,
   disabled: false,
   style: {},
-};
+}
 
 function getStyles(props) {
-  const { bottomNavigationAction } = props.theme;
+  const { bottomNavigationAction } = props.theme
 
-  const local = {};
+  const local = {}
 
   if (props.active) {
-    local.container = bottomNavigationAction.containerActive;
-    local.icon = bottomNavigationAction.iconActive;
-    local.label = bottomNavigationAction.labelActive;
+    local.container = bottomNavigationAction.containerActive
+    local.icon = bottomNavigationAction.iconActive
+    local.label = bottomNavigationAction.labelActive
   }
 
   if (!props.label) {
-    local.container = { paddingTop: 16, paddingBottom: 16 };
+    local.container = { paddingTop: 16, paddingBottom: 16 }
   }
 
   return {
@@ -76,41 +76,41 @@ function getStyles(props) {
     ],
     icon: [bottomNavigationAction.icon, local.icon, props.style.icon],
     label: [bottomNavigationAction.label, local.label, props.style.label],
-  };
+  }
 }
 
 class BottomNavigationAction extends PureComponent {
   renderIcon(styles) {
-    const { icon, iconSet } = this.props;
-    const { color } = StyleSheet.flatten(styles.icon);
+    const { icon, iconSet } = this.props
+    const { color } = StyleSheet.flatten(styles.icon)
 
-    let element;
+    let element
     if (React.isValidElement(icon)) {
       // we need icon to change color after it's selected, so we send the color and style to
       // custom element
-      element = React.cloneElement(icon, { style: styles.icon, color });
+      element = React.cloneElement(icon, { style: styles.icon, color })
     } else {
       element = (
         <Icon name={icon} style={styles.icon} color={color} iconSet={iconSet} />
-      );
+      )
     }
-    return element;
+    return element
   }
 
   renderLabel(styles) {
-    const { label } = this.props;
+    const { label } = this.props
 
     if (!label) {
-      return null;
+      return null
     }
 
-    return <Text style={styles.label}>{label}</Text>;
+    return <Text style={styles.label}>{label}</Text>
   }
 
   render() {
-    const { onPress, testID, disabled } = this.props;
+    const { onPress, testID, disabled } = this.props
 
-    const styles = getStyles(this.props, this.context);
+    const styles = getStyles(this.props, this.context)
 
     return (
       <RippleFeedback disabled={disabled} testID={testID} onPress={onPress}>
@@ -119,11 +119,11 @@ class BottomNavigationAction extends PureComponent {
           {this.renderLabel(styles)}
         </View>
       </RippleFeedback>
-    );
+    )
   }
 }
 
-BottomNavigationAction.propTypes = propTypes;
-BottomNavigationAction.defaultProps = defaultProps;
+BottomNavigationAction.propTypes = propTypes
+BottomNavigationAction.defaultProps = defaultProps
 
-export default withTheme(BottomNavigationAction);
+export default withTheme(BottomNavigationAction)

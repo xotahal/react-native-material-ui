@@ -3,7 +3,7 @@ import palette from './palette'
 import spacing from './spacing'
 import typography from './typography'
 
-import type { ButtonStyles } from '../components/Button/styles'
+import type { GetButtonStyles } from '../components/Button/types'
 
 export type Palette = typeof palette
 export type Spacing = typeof spacing
@@ -19,5 +19,5 @@ export type Theme = {|
   palette: typeof palette,
   spacing: typeof spacing,
   typography: typeof typography,
-  getButtonStyles: ButtonStyles,
+  getButtonStyles: GetButtonStyles,
 |}

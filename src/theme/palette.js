@@ -13,7 +13,7 @@ const palette = {
   secondaryText: '#768389',
   tertiaryText: '#495962',
   placeholderText: '#ACADAE',
-  disabledText: '#FFFFFF'
+  disabledText: '#FFFFFF',
 }
 
 export default palette

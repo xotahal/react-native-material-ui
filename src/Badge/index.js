@@ -1,1 +1,1 @@
-export { default } from './Badge.react';
+export { default } from './Badge.react'

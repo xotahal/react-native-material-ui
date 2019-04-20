@@ -1,1 +1,1 @@
-export { default } from './RippleFeedbackIOS.react';
+export { default } from './RippleFeedbackIOS.react'

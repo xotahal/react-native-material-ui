@@ -21,7 +21,7 @@ const spacing = {
 
   radiusSmall: base / 4,
   radiusRegular: base / 2,
-  border: StyleSheet.hairlineWidth
+  border: StyleSheet.hairlineWidth,
 }
 
 export type Spacing = typeof spacing

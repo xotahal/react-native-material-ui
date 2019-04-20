@@ -2,7 +2,7 @@ export const fontWeight = {
   light: '300',
   normal: '400',
   medium: '500',
-};
+}
 
 // https://material.google.com/style/typography.html
 
@@ -34,4 +34,4 @@ export default {
     fontSize: 14,
     lineHeight: 20,
   },
-};
+}

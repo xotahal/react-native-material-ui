@@ -5,4 +5,4 @@ module.exports = {
     { name: 'beta', type: 'prerelease', prerelease: 'beta' },
     { name: 'rc-*', type: 'prerelease', prerelease: 'rc' },
   ],
-};
+}

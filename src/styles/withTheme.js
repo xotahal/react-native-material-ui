@@ -1,6 +1,6 @@
-import React from 'react';
-import hoistNonReactStatics from 'hoist-non-react-statics';
-import ThemeContext from './themeContext';
+import React from 'react'
+import hoistNonReactStatics from 'hoist-non-react-statics'
+import ThemeContext from './themeContext'
 
 // This function takes a component...
 const withTheme = WrappedComponent => {
@@ -11,13 +11,13 @@ const withTheme = WrappedComponent => {
         <ThemeContext.Consumer>
           {theme => <WrappedComponent {...this.props} theme={theme} />}
         </ThemeContext.Consumer>
-      );
+      )
     }
   }
 
-  hoistNonReactStatics(ThemedComponent, WrappedComponent);
+  hoistNonReactStatics(ThemedComponent, WrappedComponent)
 
-  return ThemedComponent;
-};
+  return ThemedComponent
+}
 
-export default withTheme;
+export default withTheme

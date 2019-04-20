@@ -1,12 +1,12 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Animated, Easing, StyleSheet, Text } from 'react-native';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { Animated, Easing, StyleSheet, Text } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
-import IconToggle from '../IconToggle';
+import IconToggle from '../IconToggle'
 
 const propTypes = {
   leftElementTestID: PropTypes.string,
@@ -23,7 +23,7 @@ const propTypes = {
    * Name of Icon set that should be use. From react-native-vector-icons
    */
   iconSet: PropTypes.string,
-};
+}
 const defaultProps = {
   leftElementTestID: null,
   leftElement: null,
@@ -32,23 +32,23 @@ const defaultProps = {
   style: {},
   size: 24,
   iconSet: null,
-};
+}
 
-const SEARCH_FORWARD_ICON = 'arrow-forward';
+const SEARCH_FORWARD_ICON = 'arrow-forward'
 
 function shouldUpdateStyles(props, nextProps) {
   if (props.style !== nextProps.styles) {
-    return true;
+    return true
   }
   if (props.isSearchActive !== nextProps.isSearchActive) {
-    return true;
+    return true
   }
 
-  return false;
+  return false
 }
 function getStyles(props) {
-  const { isSearchActive, theme } = props;
-  const { toolbar, toolbarSearchActive } = theme;
+  const { isSearchActive, theme } = props
+  const { toolbar, toolbarSearchActive } = theme
 
   return {
     leftElementContainer: [
@@ -61,12 +61,12 @@ function getStyles(props) {
       isSearchActive && toolbarSearchActive.leftElement,
       props.style.leftElement,
     ],
-  };
+  }
 }
 
 class LeftElement extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     this.state = {
       styles: getStyles(this.props),
@@ -74,30 +74,30 @@ class LeftElement extends PureComponent {
         ? SEARCH_FORWARD_ICON
         : props.leftElement,
       spinValue: new Animated.Value(props.isSearchActive ? 1 : 0),
-    };
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { isSearchActive, leftElement } = this.props;
+    const { isSearchActive, leftElement } = this.props
 
     if (nextProps.isSearchActive !== isSearchActive) {
-      this.animateIcon(nextProps.isSearchActive);
+      this.animateIcon(nextProps.isSearchActive)
     }
 
     if (leftElement !== nextProps.leftElement) {
-      this.setState({ leftElement: nextProps.leftElement });
+      this.setState({ leftElement: nextProps.leftElement })
     }
 
     if (shouldUpdateStyles(this.props, nextProps)) {
-      this.setState({ styles: getStyles(nextProps, this.context) });
+      this.setState({ styles: getStyles(nextProps, this.context) })
     }
   }
 
   animateIcon = activate => {
-    const { spinValue } = this.state;
-    const { leftElement } = this.props;
+    const { spinValue } = this.state
+    const { leftElement } = this.props
 
-    const toValue = activate ? 1 : 0;
+    const toValue = activate ? 1 : 0
 
     Animated.timing(spinValue, {
       toValue: 0.5,
@@ -107,19 +107,19 @@ class LeftElement extends PureComponent {
     }).start(() => {
       this.setState({
         leftElement: activate ? SEARCH_FORWARD_ICON : leftElement,
-      });
+      })
 
       Animated.timing(spinValue, {
         toValue,
         duration: 112,
         easing: Easing.linear,
         useNativeDriver: true,
-      }).start();
-    });
-  };
+      }).start()
+    })
+  }
 
   render() {
-    const { styles, leftElement, spinValue } = this.state;
+    const { styles, leftElement, spinValue } = this.state
     const {
       leftElementTestID,
       isSearchActive,
@@ -127,10 +127,10 @@ class LeftElement extends PureComponent {
       onSearchClose,
       size,
       iconSet,
-    } = this.props;
+    } = this.props
 
     if (!leftElement) {
-      return null;
+      return null
     }
 
     if (!isSearchActive && React.isValidElement(leftElement)) {
@@ -140,20 +140,20 @@ class LeftElement extends PureComponent {
             key: 'customLeftElement',
           })}
         </Animated.View>
-      );
+      )
     }
 
-    let onPress = onLeftElementPress;
+    let onPress = onLeftElementPress
 
     if (isSearchActive) {
-      onPress = onSearchClose;
+      onPress = onSearchClose
     }
 
-    const flattenLeftElement = StyleSheet.flatten(styles.leftElement);
+    const flattenLeftElement = StyleSheet.flatten(styles.leftElement)
     const spin = spinValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '180deg'],
-    });
+    })
 
     return (
       <Animated.View
@@ -170,11 +170,11 @@ class LeftElement extends PureComponent {
           style={flattenLeftElement}
         />
       </Animated.View>
-    );
+    )
   }
 }
 
-LeftElement.propTypes = propTypes;
-LeftElement.defaultProps = defaultProps;
+LeftElement.propTypes = propTypes
+LeftElement.defaultProps = defaultProps
 
-export default withTheme(LeftElement);
+export default withTheme(LeftElement)

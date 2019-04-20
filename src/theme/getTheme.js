@@ -10,7 +10,7 @@ import type { Theme, StyleParams } from './types'
 const params: StyleParams = {
   palette,
   typography,
-  spacing
+  spacing,
 }
 
 const getTheme = (): Theme => {

@@ -1,1 +1,1 @@
-export { default } from './IconToggle.react';
+export { default } from './IconToggle.react'

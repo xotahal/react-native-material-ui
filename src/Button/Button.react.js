@@ -1,15 +1,15 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { View, Text, StyleSheet } from 'react-native';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { ViewPropTypes } from '../utils';
+import { View, Text, StyleSheet } from 'react-native'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Icon from '../Icon';
-import RippleFeedback from '../RippleFeedback';
+import Icon from '../Icon'
+import RippleFeedback from '../RippleFeedback'
 /* eslint-disable import/no-unresolved, import/extensions */
-import getPlatformElevation from '../styles/getPlatformElevation';
+import getPlatformElevation from '../styles/getPlatformElevation'
 /* eslint-enable import/no-unresolved, import/extensions */
-import withTheme from '../styles/withTheme';
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   testID: PropTypes.string,
@@ -54,7 +54,7 @@ const propTypes = {
   }),
   primary: PropTypes.bool,
   accent: PropTypes.bool,
-};
+}
 const defaultProps = {
   testID: null,
   icon: null,
@@ -67,10 +67,10 @@ const defaultProps = {
   upperCase: true,
   iconSet: null,
   style: {},
-};
+}
 
 function getStyles(props, state) {
-  const { primary, accent, disabled, raised, theme } = props;
+  const { primary, accent, disabled, raised, theme } = props
   const {
     button,
     buttonFlat,
@@ -78,25 +78,25 @@ function getStyles(props, state) {
     buttonDisabled,
     buttonRaisedDisabled,
     palette,
-  } = theme;
+  } = theme
 
   const local = {
     container: {},
-  };
+  }
 
   if (!disabled) {
     if (primary && !raised) {
-      local.text = { color: palette.primaryColor };
+      local.text = { color: palette.primaryColor }
     } else if (accent && !raised) {
-      local.text = { color: palette.accentColor };
+      local.text = { color: palette.accentColor }
     }
 
     if (primary && raised) {
-      local.container.backgroundColor = palette.primaryColor;
-      local.text = { color: palette.canvasColor };
+      local.container.backgroundColor = palette.primaryColor
+      local.text = { color: palette.canvasColor }
     } else if (accent && raised) {
-      local.container.backgroundColor = palette.accentColor;
-      local.text = { color: palette.canvasColor };
+      local.container.backgroundColor = palette.accentColor
+      local.text = { color: palette.canvasColor }
     }
   }
 
@@ -104,7 +104,7 @@ function getStyles(props, state) {
     local.container = {
       ...local.container,
       ...getPlatformElevation(state.elevation),
-    };
+    }
   }
 
   return {
@@ -134,49 +134,49 @@ function getStyles(props, state) {
       local.icon,
       props.style.icon,
     ],
-  };
+  }
 }
 
 class Button extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       elevation: 2, // eslint-disable-line
-    };
+    }
   }
 
   onPress = () => {
-    const { text, onPress } = this.props;
+    const { text, onPress } = this.props
 
     if (onPress) {
-      onPress(text);
+      onPress(text)
     }
-  };
+  }
 
   setElevation = () => {
     this.setState({
       elevation: 4, // eslint-disable-line
-    });
-  };
+    })
+  }
 
   removeElevation = () => {
     this.setState({
       elevation: 2, // eslint-disable-line
-    });
-  };
+    })
+  }
 
   renderIcon = styles => {
-    const { icon, iconSet } = this.props;
-    const textFlatten = StyleSheet.flatten(styles.text);
+    const { icon, iconSet } = this.props
+    const textFlatten = StyleSheet.flatten(styles.text)
 
     if (!icon) {
-      return null;
+      return null
     }
 
-    let result;
+    let result
 
     if (React.isValidElement(icon)) {
-      result = icon;
+      result = icon
     } else if (typeof icon === 'string') {
       result = (
         <Icon
@@ -186,11 +186,11 @@ class Button extends PureComponent {
           style={styles.icon}
           size={24}
         />
-      );
+      )
     }
 
-    return result;
-  };
+    return result
+  }
 
   render() {
     const {
@@ -200,19 +200,19 @@ class Button extends PureComponent {
       upperCase,
       onLongPress,
       testID,
-    } = this.props;
+    } = this.props
 
-    const styles = getStyles(this.props, this.state);
+    const styles = getStyles(this.props, this.state)
 
     const content = (
       <View style={styles.container} pointerEvents="box-only">
         {this.renderIcon(styles)}
         <Text style={styles.text}>{upperCase ? text.toUpperCase() : text}</Text>
       </View>
-    );
+    )
 
     if (disabled) {
-      return content;
+      return content
     }
 
     return (
@@ -226,11 +226,11 @@ class Button extends PureComponent {
       >
         {content}
       </RippleFeedback>
-    );
+    )
   }
 }
 
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
+Button.propTypes = propTypes
+Button.defaultProps = defaultProps
 
-export default withTheme(Button);
+export default withTheme(Button)

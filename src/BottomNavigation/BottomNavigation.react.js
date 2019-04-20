@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { View, Animated, Easing, StyleSheet } from 'react-native';
-import { ViewPropTypes } from '../utils';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { View, Animated, Easing, StyleSheet } from 'react-native'
+import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
 
-import withTheme from '../styles/withTheme';
+import withTheme from '../styles/withTheme'
 
-import BottomNavigationAction from './BottomNavigationAction.react';
+import BottomNavigationAction from './BottomNavigationAction.react'
 
 const propTypes = {
   /**
@@ -28,16 +28,16 @@ const propTypes = {
   style: PropTypes.shape({
     container: ViewPropTypes.style,
   }),
-};
+}
 const defaultProps = {
   active: null,
   hidden: false,
   style: {},
-};
+}
 
 function getStyles(props) {
-  const { bottomNavigation } = props.theme;
-  const local = {};
+  const { bottomNavigation } = props.theme
+  const local = {}
 
   return {
     container: [
@@ -50,7 +50,7 @@ function getStyles(props) {
       local.actionsContainer,
       props.style.actionsContainer,
     ],
-  };
+  }
 }
 /**
  * Component for bottom navigation
@@ -58,55 +58,55 @@ function getStyles(props) {
  */
 class BottomNavigation extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     this.state = {
       styles: getStyles(props, context),
       moveAnimated: new Animated.Value(0),
-    };
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { style, hidden } = this.props;
+    const { style, hidden } = this.props
 
     if (nextProps.style !== style) {
-      this.setState({ styles: getStyles(nextProps, this.context) });
+      this.setState({ styles: getStyles(nextProps, this.context) })
     }
 
     if (nextProps.hidden !== hidden) {
       if (nextProps.hidden === true) {
-        this.hide();
+        this.hide()
       } else {
-        this.show();
+        this.show()
       }
     }
   }
 
   show = () => {
-    const { moveAnimated } = this.state;
+    const { moveAnimated } = this.state
 
     Animated.timing(moveAnimated, {
       toValue: 0,
       duration: 225,
       easing: Easing.bezier(0.0, 0.0, 0.2, 1),
       useNativeDriver: true,
-    }).start();
-  };
+    }).start()
+  }
 
   hide = () => {
-    const { moveAnimated, styles } = this.state;
+    const { moveAnimated, styles } = this.state
 
     Animated.timing(moveAnimated, {
       toValue: StyleSheet.flatten(styles.container).height,
       duration: 195,
       easing: Easing.bezier(0.4, 0.0, 0.6, 1),
       useNativeDriver: true,
-    }).start();
-  };
+    }).start()
+  }
 
   render() {
-    const { active, children } = this.props;
-    const { styles, moveAnimated } = this.state;
+    const { active, children } = this.props
+    const { styles, moveAnimated } = this.state
 
     return (
       <Animated.View
@@ -124,15 +124,15 @@ class BottomNavigation extends PureComponent {
           )}
         </View>
       </Animated.View>
-    );
+    )
   }
 }
 
-BottomNavigation.propTypes = propTypes;
-BottomNavigation.defaultProps = defaultProps;
+BottomNavigation.propTypes = propTypes
+BottomNavigation.defaultProps = defaultProps
 
-BottomNavigation.Action = BottomNavigationAction;
+BottomNavigation.Action = BottomNavigationAction
 
-const ThemedBottomNavigation = withTheme(BottomNavigation);
+const ThemedBottomNavigation = withTheme(BottomNavigation)
 
-export default ThemedBottomNavigation;
+export default ThemedBottomNavigation

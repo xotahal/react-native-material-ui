@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { View, Text } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Subheader from '../Subheader';
-import Divider from '../Divider';
-import ListItem from '../ListItem';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import Subheader from '../Subheader'
+import Divider from '../Divider'
+import ListItem from '../ListItem'
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   title: PropTypes.string,
@@ -37,17 +37,17 @@ const propTypes = {
    * Theme
    */
   theme: PropTypes.any, // eslint-disable-line
-};
+}
 const defaultProps = {
   title: null,
   items: [],
   divider: false,
   style: {},
   key: '',
-};
+}
 
 function getStyles(props) {
-  const { drawerSection } = props.theme;
+  const { drawerSection } = props.theme
 
   return {
     container: [drawerSection.container, props.style.container],
@@ -56,35 +56,35 @@ function getStyles(props) {
     icon: [drawerSection.icon, props.style.icon],
     value: [drawerSection.value, props.style.value],
     label: [drawerSection.label, props.style.label],
-  };
+  }
 }
 
 class Section extends PureComponent {
   renderTitle = () => {
-    const { title } = this.props;
+    const { title } = this.props
 
     if (!title) {
-      return null;
+      return null
     }
 
-    return <Subheader text={title} />;
-  };
+    return <Subheader text={title} />
+  }
 
   render() {
-    const { items, divider, key, theme } = this.props;
-    const { typography } = theme;
+    const { items, divider, key, theme } = this.props
+    const { typography } = theme
 
-    const styles = getStyles(this.props);
+    const styles = getStyles(this.props)
 
     return (
       <View key={key}>
         <View style={styles.container}>
           {this.renderTitle(styles)}
           {items.map(item => {
-            let style = { primaryText: typography.buttons };
+            let style = { primaryText: typography.buttons }
 
             if (item.active) {
-              style = theme.drawerSectionActiveItem;
+              style = theme.drawerSectionActiveItem
             }
 
             return (
@@ -96,16 +96,16 @@ class Section extends PureComponent {
                 onPress={item.onPress}
                 style={style}
               />
-            );
+            )
           })}
         </View>
         {!!divider && <Divider />}
       </View>
-    );
+    )
   }
 }
 
-Section.propTypes = propTypes;
-Section.defaultProps = defaultProps;
+Section.propTypes = propTypes
+Section.defaultProps = defaultProps
 
-export default withTheme(Section);
+export default withTheme(Section)

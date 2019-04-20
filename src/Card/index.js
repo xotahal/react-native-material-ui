@@ -1,1 +1,1 @@
-export { default } from './Card.react';
+export { default } from './Card.react'

@@ -1,17 +1,17 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import {
   Text,
   Animated,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
-} from 'react-native';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+} from 'react-native'
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
-import Button from '../Button';
+import Button from '../Button'
 
 const propTypes = {
   /**
@@ -68,7 +68,7 @@ const propTypes = {
    * Theme
    */
   theme: PropTypes.any, // eslint-disable-line
-};
+}
 const defaultProps = {
   onActionPress: null,
   actionText: null,
@@ -79,17 +79,17 @@ const defaultProps = {
   button: {},
   onHeightChange: null,
   onPress: null,
-};
+}
 
 function getStyles(props) {
-  const { snackbar } = props.theme;
-  const local = {};
+  const { snackbar } = props.theme
+  const local = {}
 
   return {
     container: [snackbar.container, local.container, props.style.container],
     content: [snackbar.content, local.content, props.style.content],
     message: [snackbar.message, local.message, props.style.message],
-  };
+  }
 }
 
 /**
@@ -98,55 +98,55 @@ function getStyles(props) {
  */
 class Snackbar extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
-    this.onTextLayout = this.onTextLayout.bind(this);
+    this.onTextLayout = this.onTextLayout.bind(this)
 
-    const styles = getStyles(props, context);
+    const styles = getStyles(props, context)
 
     this.state = {
       bottomPosition: 0,
       styles,
       visible: props.visible,
-    };
+    }
   }
 
   componentWillMount() {
-    const { bottomNavigation, visible } = this.props;
+    const { bottomNavigation, visible } = this.props
 
-    this.visibility = new Animated.Value(visible ? 1 : 0);
+    this.visibility = new Animated.Value(visible ? 1 : 0)
 
-    this.move(bottomNavigation);
+    this.move(bottomNavigation)
   }
 
   componentWillReceiveProps(nextProps) {
-    const { style, visible, bottomNavigation } = this.props;
+    const { style, visible, bottomNavigation } = this.props
 
     if (nextProps.style !== style) {
-      this.setState({ styles: getStyles(nextProps, this.context) });
+      this.setState({ styles: getStyles(nextProps, this.context) })
     }
 
     if (nextProps.visible !== visible) {
       if (nextProps.visible) {
-        this.setState({ visible: true });
-        this.setHideTimer(nextProps);
+        this.setState({ visible: true })
+        this.setHideTimer(nextProps)
       }
 
       Animated.timing(this.visibility, {
         toValue: nextProps.visible ? 1 : 0,
         duration: 300,
       }).start(() => {
-        this.setState({ visible: nextProps.visible });
-      });
+        this.setState({ visible: nextProps.visible })
+      })
     }
 
     if (nextProps.bottomNavigation !== bottomNavigation) {
-      this.move(nextProps.bottomNavigation);
+      this.move(nextProps.bottomNavigation)
     }
   }
 
   componentWillUnmount() {
-    clearTimeout(this.hideTimer);
+    clearTimeout(this.hideTimer)
   }
 
   onTextLayout({
@@ -154,57 +154,57 @@ class Snackbar extends PureComponent {
       layout: { height },
     },
   }) {
-    const { message, onHeightChange } = this.props;
-    const { styles } = this.state;
+    const { message, onHeightChange } = this.props
+    const { styles } = this.state
 
     if (message && onHeightChange) {
       onHeightChange(
         height + StyleSheet.flatten(styles.message).marginVertical * 2,
-      );
+      )
     }
   }
 
   setHideTimer(props) {
-    const { timeout, onRequestClose } = props;
+    const { timeout, onRequestClose } = props
 
     if (timeout > 0) {
-      clearTimeout(this.hideTimer);
+      clearTimeout(this.hideTimer)
       this.hideTimer = setTimeout(() => {
-        onRequestClose();
-      }, timeout);
+        onRequestClose()
+      }, timeout)
     }
   }
 
   move = bottomNavigation => {
-    const { theme } = this.props;
-    const { container } = theme.bottomNavigation;
+    const { theme } = this.props
+    const { container } = theme.bottomNavigation
 
-    const toValue = bottomNavigation ? StyleSheet.flatten(container).height : 0;
+    const toValue = bottomNavigation ? StyleSheet.flatten(container).height : 0
 
-    this.setState({ bottomPosition: toValue });
-  };
+    this.setState({ bottomPosition: toValue })
+  }
 
   renderAction = () => {
-    const { button, actionText, onActionPress, theme } = this.props;
-    const { snackbar } = theme;
-    const styles = {};
+    const { button, actionText, onActionPress, theme } = this.props
+    const { snackbar } = theme
+    const styles = {}
 
     if (actionText && typeof onActionPress === 'function') {
-      styles.container = snackbar.actionContainer;
-      styles.text = snackbar.actionText;
+      styles.container = snackbar.actionContainer
+      styles.text = snackbar.actionText
 
       if (button !== 'undefined' && 'style' in button) {
         if ('container' in button.style) {
           styles.container = {
             ...StyleSheet.flatten(snackbar.actionContainer),
             ...button.style.container,
-          };
+          }
         }
         if ('text' in button.style) {
           styles.text = {
             ...StyleSheet.flatten(snackbar.actionText),
             ...button.style.text,
-          };
+          }
         }
       }
 
@@ -215,27 +215,27 @@ class Snackbar extends PureComponent {
           text={actionText}
           onPress={onActionPress}
         />
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   render() {
-    const { message, onPress } = this.props;
-    const { styles, bottomPosition, visible } = this.state;
+    const { message, onPress } = this.props
+    const { styles, bottomPosition, visible } = this.state
 
     const containerStyle = {
       opacity: this.visibility.interpolate({
         inputRange: [0, 1],
         outputRange: [0, 1],
       }),
-    };
+    }
 
     const combinedStyle = [
       containerStyle,
       { bottom: bottomPosition },
       styles.container,
-    ];
+    ]
 
     return (
       <Animated.View style={visible ? combinedStyle : containerStyle}>
@@ -248,11 +248,11 @@ class Snackbar extends PureComponent {
           </View>
         </TouchableWithoutFeedback>
       </Animated.View>
-    );
+    )
   }
 }
 
-Snackbar.propTypes = propTypes;
-Snackbar.defaultProps = defaultProps;
+Snackbar.propTypes = propTypes
+Snackbar.defaultProps = defaultProps
 
-export default withTheme(Snackbar);
+export default withTheme(Snackbar)

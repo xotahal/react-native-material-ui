@@ -1,3 +1,2 @@
 // @flow
-export { default as ThemeContext } from './ThemeContext'
-export * from './types'
+export { default as ThemeContext } from './ThemeContext' // eslint-disable-line import/prefer-default-export

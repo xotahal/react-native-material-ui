@@ -1,15 +1,15 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import { ViewPropTypes } from '../utils';
+import { ViewPropTypes } from '../utils'
 
-import withTheme from '../styles/withTheme';
-import IconToggle from '../IconToggle';
-import isFunction from '../utils/isFunction';
+import withTheme from '../styles/withTheme'
+import IconToggle from '../IconToggle'
+import isFunction from '../utils/isFunction'
 
-const { UIManager } = NativeModules;
+const { UIManager } = NativeModules
 
 const propTypes = {
   rightElementTestID: PropTypes.string,
@@ -32,7 +32,7 @@ const propTypes = {
    * Name of Icon set that should be use. From react-native-vector-icons
    */
   iconSet: PropTypes.string,
-};
+}
 const defaultProps = {
   rightElementTestID: null,
   rightElement: null,
@@ -41,11 +41,11 @@ const defaultProps = {
   style: {},
   searchable: null,
   iconSet: null,
-};
+}
 
 function getStyles(props) {
-  const { isSearchActive, theme } = props;
-  const { toolbar, toolbarSearchActive } = theme;
+  const { isSearchActive, theme } = props
+  const { toolbar, toolbarSearchActive } = theme
 
   return {
     rightElementContainer: [
@@ -58,12 +58,12 @@ function getStyles(props) {
       isSearchActive && toolbarSearchActive.rightElement,
       props.style.rightElement,
     ],
-  };
+  }
 }
 
 class RightElement extends PureComponent {
   onMenuPressed = labels => {
-    const { onRightElementPress } = this.props;
+    const { onRightElementPress } = this.props
 
     UIManager.showPopupMenu(
       findNodeHandle(this.menu),
@@ -71,19 +71,19 @@ class RightElement extends PureComponent {
       () => {},
       (result, index) => {
         if (onRightElementPress) {
-          onRightElementPress({ action: 'menu', result, index });
+          onRightElementPress({ action: 'menu', result, index })
         }
       },
-    );
-  };
+    )
+  }
 
   onSearchPressed = () => {
-    const { onSearchPress } = this.props;
+    const { onSearchPress } = this.props
 
     if (isFunction(onSearchPress)) {
-      onSearchPress();
+      onSearchPress()
     }
-  };
+  }
 
   render() {
     const {
@@ -96,35 +96,35 @@ class RightElement extends PureComponent {
       searchValue,
       onSearchClearRequest,
       iconSet,
-    } = this.props;
+    } = this.props
 
-    const styles = getStyles(this.props, this.context, this.state);
+    const styles = getStyles(this.props, this.context, this.state)
 
     // if there is no rightElement and searchable feature is off then we are sure on the right
     // is nothing
     if (!rightElement && !searchable) {
-      return null;
+      return null
     }
 
-    let actionsMap = [];
-    let result = [];
+    let actionsMap = []
+    let result = []
 
     if (rightElement) {
       if (typeof rightElement === 'string') {
-        actionsMap.push(rightElement);
+        actionsMap.push(rightElement)
       } else if (Array.isArray(rightElement)) {
-        actionsMap = rightElement;
+        actionsMap = rightElement
       } else if (rightElement.actions) {
-        actionsMap = rightElement.actions;
+        actionsMap = rightElement.actions
       }
     }
 
-    const flattenRightElement = StyleSheet.flatten(styles.rightElement);
+    const flattenRightElement = StyleSheet.flatten(styles.rightElement)
 
     if (actionsMap) {
       result = actionsMap.map((action, index) => {
         if (React.isValidElement(action)) {
-          return action;
+          return action
         }
 
         return (
@@ -137,14 +137,14 @@ class RightElement extends PureComponent {
             iconSet={iconSet}
             onPress={() => onRightElementPress({ action, index })}
           />
-        );
-      });
+        )
+      })
     }
 
     if (React.isValidElement(rightElement)) {
       result.push(
         React.cloneElement(rightElement, { key: 'customRightElement' }),
-      );
+      )
     }
 
     // if searchable feature is on and search is active with some text, then we show clear
@@ -152,7 +152,7 @@ class RightElement extends PureComponent {
     if (searchable) {
       if (isSearchActive) {
         // clear result to hide other icons
-        result = [];
+        result = []
 
         if (searchValue.length > 0) {
           result.push(
@@ -164,7 +164,7 @@ class RightElement extends PureComponent {
               style={flattenRightElement}
               onPress={onSearchClearRequest}
             />,
-          );
+          )
         }
       } else {
         result.push(
@@ -176,7 +176,7 @@ class RightElement extends PureComponent {
             style={flattenRightElement}
             onPress={this.onSearchPressed}
           />,
-        );
+        )
       }
     }
 
@@ -188,7 +188,7 @@ class RightElement extends PureComponent {
                     */}
           <View
             ref={c => {
-              this.menu = c;
+              this.menu = c
             }}
             style={{
               backgroundColor: 'transparent',
@@ -204,20 +204,20 @@ class RightElement extends PureComponent {
             style={flattenRightElement}
           />
         </View>
-      );
+      )
 
-      result.push(view);
+      result.push(view)
     }
 
     return (
       <View testID={rightElementTestID} style={styles.rightElementContainer}>
         {result}
       </View>
-    );
+    )
   }
 }
 
-RightElement.propTypes = propTypes;
-RightElement.defaultProps = defaultProps;
+RightElement.propTypes = propTypes
+RightElement.defaultProps = defaultProps
 
-export default withTheme(RightElement);
+export default withTheme(RightElement)
