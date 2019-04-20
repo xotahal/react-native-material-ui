@@ -83,11 +83,7 @@ workflows:
       - test:
           requires:
             - install-dependencies
-      - flow:
-          requires:
-            - install-dependencies
       - publish:
           requires:
-            - flow
             - lint
             - test
