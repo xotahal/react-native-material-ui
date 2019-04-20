@@ -53,6 +53,15 @@ jobs:
           name: Jest
           command: yarn test
 
+  test:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Flow
+          command: yarn flow
+
   publish:
     <<: *node_config
     steps:
@@ -74,7 +83,11 @@ workflows:
       - test:
           requires:
             - install-dependencies
+      - flow:
+          requires:
+            - install-dependencies
       - publish:
           requires:
+            - flow
             - lint
             - test

@@ -1,7 +1,7 @@
 // @flow
 import type { ViewStyleProp, TextStyleProp } from '../../types/rn-styles'
 
-type StyleProps = {
+export type StyleProps = {
   icon?: string,
   neutral?: boolean,
   raised?: boolean,
