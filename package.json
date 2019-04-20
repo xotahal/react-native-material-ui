@@ -14,7 +14,10 @@
   "jest": {
     "preset": "react-native",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   },
   "keywords": [
     "react-native",
