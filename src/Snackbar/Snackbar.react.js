@@ -11,7 +11,7 @@ import {
 import { ViewPropTypes } from '../utils'
 import withTheme from '../styles/withTheme'
 
-import Button from '../Button'
+import Button from '../components/Button'
 
 const propTypes = {
   /**

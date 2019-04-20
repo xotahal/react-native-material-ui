@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Button from '../Button'
+import Button from '../components/Button'
 import { ViewPropTypes } from '../utils'
 import withTheme from '../styles/withTheme'
 
