@@ -42,6 +42,10 @@ const propTypes = {
    */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
+   * You can use to provide a custom button content
+   */
+  children: PropTypes.element,
+  /**
    * Name of Icon set that should be use. From react-native-vector-icons
    */
   iconSet: PropTypes.string,
@@ -200,6 +204,7 @@ class Button extends PureComponent {
       upperCase,
       onLongPress,
       testID,
+      children,
     } = this.props;
 
     const styles = getStyles(this.props, this.state);
@@ -207,7 +212,11 @@ class Button extends PureComponent {
     const content = (
       <View style={styles.container} pointerEvents="box-only">
         {this.renderIcon(styles)}
-        <Text style={styles.text}>{upperCase ? text.toUpperCase() : text}</Text>
+        {
+          children
+            ? children
+            : <Text style={styles.text}>{upperCase ? text.toUpperCase() : text}</Text>
+        }
       </View>
     );
 

@@ -141,6 +141,94 @@ exports[`Button accent, text, icon 1`] = `
 </View>
 `;
 
+exports[`Button children 1`] = `
+<View
+  accessible={true}
+  onLayout={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 2,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "center",
+        "paddingHorizontal": 16,
+      },
+      undefined,
+      false,
+      false,
+      false,
+      Object {},
+      undefined,
+    ]
+  }
+  testID={null}
+>
+  <View />
+  <View
+    pointerEvents="none"
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+    <View
+      pointerEvents="none"
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": 100,
+          "height": 200,
+          "left": -100,
+          "opacity": 0.12,
+          "position": "absolute",
+          "top": -100,
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+          "width": 200,
+          "zIndex": 1,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`Button default color 1`] = `
 <View
   accessible={true}
