@@ -1,9 +1,7 @@
-/* eslint-disable import/no-unresolved, import/extensions */
 import { View, Text, StyleSheet } from 'react-native'
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { ViewPropTypes } from '../utils'
-/* eslint-enable import/no-unresolved, import/extensions */
+import { ViewPropTypes } from '../../utils'
 import Icon from '../../Icon'
 import RippleFeedback from '../../RippleFeedback'
 import getPlatformElevation from '../../styles/getPlatformElevation'
