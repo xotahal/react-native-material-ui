@@ -5,19 +5,16 @@
 version: 2.1
 
 # Used Workspace
-workspace: &workspace
-  ~/mui
+workspace: &workspace ~/mui
 
 # Config for node
 node_config: &node_config
-    working_directory: *workspace
-    docker:
-      - image: circleci/node:8
+  working_directory: *workspace
+  docker:
+    - image: circleci/node:8
 
 # Key to cache gradle dependecies
-yarn_key: &yarn_key
-  yarn-cache-{{ checksum "yarn.lock" }}
-
+yarn_key: &yarn_key yarn-cache-{{ checksum "yarn.lock" }}
 
 jobs:
   install-dependencies:
@@ -65,7 +62,6 @@ jobs:
           name: Publish
           command: yarn semantic-release
 
-
 workflows:
   version: 2
   test-and-deploy:
@@ -73,15 +69,11 @@ workflows:
       - install-dependencies
       - lint:
           requires:
-              - install-dependencies
+            - install-dependencies
       - test:
           requires:
-              - install-dependencies
+            - install-dependencies
       - publish:
           requires:
-              - lint
-              - test
-              branches:
-                only:
-                  - 'develop'
-                  - 'master'
+            - lint
+            - test
