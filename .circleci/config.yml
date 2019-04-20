@@ -53,7 +53,7 @@ jobs:
           name: Jest
           command: yarn test
 
-  test:
+  flow:
     <<: *node_config
     steps:
       - attach_workspace:
