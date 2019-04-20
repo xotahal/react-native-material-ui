@@ -1,19 +1,37 @@
 // @flow
+import Color from 'color'
+import { blue500, red500, white, black } from './colors'
+
 const palette = {
-  primary: '#5FA753',
-  accent: '#45525C',
+  primary: blue500,
+  accent: red500,
 
-  error: '#E50F0F',
-  disabled: '#ACADAE',
+  primaryText: Color(black)
+    .alpha(0.87)
+    .toString(),
+  secondaryText: Color(black)
+    .alpha(0.54)
+    .toString(),
+  alternateText: white,
 
-  border: '#D4D3D3',
-  lightBackground: '#FAFAFA',
+  canvas: white,
 
-  primaryText: '#1B303B',
-  secondaryText: '#768389',
-  tertiaryText: '#495962',
-  placeholderText: '#ACADAE',
-  disabledText: '#FFFFFF',
+  border: Color(black)
+    .alpha(0.12)
+    .toString(),
+  // https://material.google.com/style/color.html#color-text-background-colors
+  disabled: Color(black)
+    .alpha(0.12)
+    .toString(),
+  disabledText: Color(black)
+    .alpha(0.38)
+    .toString(),
+  activeIcon: Color(black)
+    .alpha(0.54)
+    .toString(),
+  inactiveIcon: Color(black)
+    .alpha(0.38)
+    .toString(),
 }
 
 export default palette

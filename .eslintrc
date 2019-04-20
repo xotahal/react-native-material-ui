@@ -23,9 +23,24 @@
     "import/default": 2,
     "import/namespace": 2,
     "import/export": 2,
-    "react/no-unused-prop-types": 0,
+    "react/require-default-props": 0,
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx"] }
+    ],
+    "react/sort-comp": [
+      2,
+      {
+        "order": [
+          "/^context$/",
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]
+      }
+    ]
   },
   "globals": {
     "after": false,

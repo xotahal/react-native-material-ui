@@ -24,12 +24,7 @@ export default {
     fontSize: 16,
   },
   button: {
-    fontSize: 18,
-  },
-  buttonUpperCase: {
+    fontWeight: '500',
     fontSize: 14,
-  },
-  numberPlate: {
-    fontSize: 18,
   },
 }

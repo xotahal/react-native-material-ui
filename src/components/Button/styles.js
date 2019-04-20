@@ -9,12 +9,12 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
   const styles = {
     shared: StyleSheet.create({
       container: {
-        height: spacing.sizeRegular,
-        flexDirection: 'row',
+        height: 36,
         alignItems: 'center',
         justifyContent: 'center',
+        paddingHorizontal: spacing.spaceRegular,
         borderRadius: spacing.radiusSmall,
-        paddingHorizontal: spacing.spaceLarge,
+        flexDirection: 'row',
       },
       iconLeft: {
         marginRight: spacing.base,
@@ -24,45 +24,32 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
       },
       text: {
         ...typography.button,
-        color: palette.primary,
+        color: palette.primaryText,
+      },
+    }),
+    pressedIn: StyleSheet.create({
+      container: {
+        ...getPlatformElevation(4),
       },
     }),
     raised: StyleSheet.create({
       container: {
-        backgroundColor: palette.primary,
+        backgroundColor: '#FFFFFF',
+        ...getPlatformElevation(2),
       },
       text: {
-        ...typography.buttonUpperCase,
-        color: 'white',
+        color: palette.primaryText,
       },
     }),
     outlined: StyleSheet.create({
       container: {
         borderWidth: spacing.border,
-        borderColor: palette.primary,
-      },
-      text: typography.buttonUpperCase,
-    }),
-    dense: StyleSheet.create({
-      container: {
-        height: spacing.sizeSmall,
-        paddingHorizontal: spacing.spaceRegular,
-      },
-    }),
-    trimmed: StyleSheet.create({
-      container: {
-        height: spacing.sizeSmall,
-        paddingHorizontal: 0,
+        borderColor: palette.primaryText,
       },
     }),
     disabled: StyleSheet.create({
       container: {
-        backgroundColor: palette.disabled,
-        borderColor: palette.disabled,
         ...getPlatformElevation(0),
-      },
-      text: {
-        color: palette.disabledText,
       },
     }),
   }
@@ -70,15 +57,15 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
   return (props: StyleProps): ButtonStyles => {
     const {
       raised,
+      primary,
+      accent,
       outlined,
-      dense,
-      trimmed,
       disabled,
       style,
-      iconPosition,
-      text,
-      neutral,
+      textStyle,
+      isPressed,
     } = props
+
     const { shared } = styles
 
     return {
@@ -86,22 +73,27 @@ const getStyles = ({ palette, spacing, typography }: StyleParams) => {
         shared.container,
         raised && styles.raised.container,
         outlined && styles.outlined.container,
-        dense && styles.dense.container,
-        trimmed && styles.trimmed.container,
-        neutral && outlined ? { borderColor: palette.primaryText } : null,
+        primary && raised && { backgroundColor: palette.primary },
+        primary && outlined && { borderColor: palette.primary },
+        accent && raised && { backgroundColor: palette.accent },
+        accent && outlined && { borderColor: palette.accent },
+        disabled && styles.disabled.container,
         disabled && raised ? { backgroundColor: palette.disabled } : null,
-        disabled && outlined ? { borderColor: palette.disabled } : null,
+        disabled && outlined ? { borderColor: palette.disabledText } : null,
+        isPressed && styles.pressedIn.container,
         style,
       ],
-      iconContainer:
-        text && (iconPosition === 'left' ? shared.iconLeft : shared.iconRight),
+      iconContainer: shared.iconLeft,
       text: [
         shared.text,
         raised && styles.raised.text,
-        outlined && styles.outlined.text,
-        neutral && outlined ? { color: palette.primaryText } : null,
-        disabled ? { color: palette.disabled } : null,
+        raised && (primary || accent) && { color: '#FFFFFF' },
+        primary && !raised && { color: palette.primary },
+        accent && outlined && { color: palette.accent },
+        accent && !raised && { color: palette.accent },
+        disabled ? { color: palette.disabledText } : null,
         disabled && raised ? { color: palette.disabledText } : null,
+        textStyle,
       ],
     }
   }

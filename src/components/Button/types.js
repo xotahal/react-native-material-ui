@@ -1,19 +1,17 @@
 // @flow
 import type { ViewStyleProp, TextStyleProp } from '../../types/rn-styles'
 
-export type StyleProps = {
+export type StyleProps = {|
   icon?: string,
-  neutral?: boolean,
   raised?: boolean,
   outlined?: boolean,
-  dense?: boolean,
-  trimmed?: boolean,
   disabled?: boolean,
-  textColor?: string,
-  text?: ?string,
-  iconPosition: 'left' | 'right',
-  style: ViewStyleProp,
-}
+  primary?: boolean,
+  accent?: boolean,
+  isPressed?: boolean,
+  style?: ViewStyleProp,
+  textStyle?: TextStyleProp,
+|}
 
 export type ButtonStyles = {
   container: ViewStyleProp,
