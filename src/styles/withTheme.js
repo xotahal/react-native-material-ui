@@ -7,9 +7,10 @@ const withTheme = WrappedComponent => {
   // ...and returns another component...
   class ThemedComponent extends React.PureComponent {
     render() {
+      const {forwardedRef, ...rest} = this.props;
       return (
         <ThemeContext.Consumer>
-          {theme => <WrappedComponent {...this.props} theme={theme} />}
+          {theme => <WrappedComponent ref={forwardedRef} {...rest} theme={theme} />}
         </ThemeContext.Consumer>
       );
     }
