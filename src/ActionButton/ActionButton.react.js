@@ -62,6 +62,10 @@ const propTypes = {
     PropTypes.object,
   ]),
   /**
+   * Allows overriding the icon of the main button when the speed dial is open.
+   */
+  clearIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  /**
    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
    * to another view - depends on transition value.
    */
@@ -84,6 +88,7 @@ const defaultProps = {
   onLongPress: null,
   transition: null,
   icon: 'add',
+  clearIcon: 'clear',
   style: {},
   hidden: false,
   rippleColor: null,
@@ -332,10 +337,10 @@ class ActionButton extends PureComponent {
   };
 
   renderMainButton = styles => {
-    const { onLongPress, icon } = this.props;
+    const { onLongPress, icon, clearIcon } = this.props;
     const { render } = this.state;
 
-    const mainIcon = render !== 'button' ? 'clear' : icon;
+    const mainIcon = render !== 'button' ? clearIcon : icon;
 
     return (
       <View key="main-button" style={styles.container}>
