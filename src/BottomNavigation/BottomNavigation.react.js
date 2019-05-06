@@ -117,11 +117,12 @@ class BottomNavigation extends PureComponent {
       >
         <View style={styles.actionsContainer}>
           {React.Children.map(children, child =>
-            React.cloneElement(child, {
-              ...child.props,
-              active: child.key === active,
-            }),
-          )}
+            (child != null && child !== false &&
+              React.cloneElement(child, {
+                ...child.props,
+                active: child.key === active,
+              }),
+          ))}
         </View>
       </Animated.View>
     );
