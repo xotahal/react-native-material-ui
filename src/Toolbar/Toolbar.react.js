@@ -353,8 +353,7 @@ class Toolbar extends PureComponent {
   };
 
   show = () => {
-    const { moveAnimated } = this.state;
-    Animated.timing(moveAnimated, {
+    Animated.timing(this.state.positionValue, {
       toValue: 0,
       duration: 225,
       easing: Easing.bezier(0.0, 0.0, 0.2, 1),
@@ -363,9 +362,8 @@ class Toolbar extends PureComponent {
   };
 
   hide = () => {
-    const { moveAnimated } = this.state;
     const styles = getStyles(this.props);
-    Animated.timing(moveAnimated, {
+    Animated.timing(this.state.positionValue, {
       toValue: -1 * StyleSheet.flatten(styles.container).height,
       duration: 195,
       easing: Easing.bezier(0.4, 0.0, 0.6, 1),
