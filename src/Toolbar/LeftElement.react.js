@@ -101,8 +101,8 @@ class LeftElement extends PureComponent {
 
     Animated.timing(spinValue, {
       toValue: 0.5,
-      duration: 112,
-      easing: Easing.linear,
+      duration: 160,
+      easing: Easing.bezier(0.5, 0, 1, 0.5),
       useNativeDriver: true,
     }).start(() => {
       this.setState({
@@ -111,8 +111,8 @@ class LeftElement extends PureComponent {
 
       Animated.timing(spinValue, {
         toValue,
-        duration: 112,
-        easing: Easing.linear,
+        duration: 160,
+        easing: Easing.bezier(0, 0.5, 0.5, 1),
         useNativeDriver: true,
       }).start();
     });
