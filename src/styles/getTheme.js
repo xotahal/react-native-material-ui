@@ -44,7 +44,7 @@ export default function getTheme(theme, ...more) {
           {
             positionContainer: {
               position: 'absolute',
-              bottom: 20,
+              bottom: 76,
               right: 20,
             },
             container: {
@@ -182,8 +182,8 @@ export default function getTheme(theme, ...more) {
               flexDirection: 'row',
             },
             text: {
-              ...typography.buttons,
               color: black,
+              ...typography.buttons,
             },
             icon: {
               marginRight: 8,
@@ -231,7 +231,11 @@ export default function getTheme(theme, ...more) {
         merge(
           {
             container: {
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
               height: 56,
+              width: '100%',
               backgroundColor: palette.canvasColor,
               borderTopColor: palette.borderColor,
               borderTopWidth: StyleSheet.hairlineWidth,
@@ -519,8 +523,8 @@ export default function getTheme(theme, ...more) {
             textViewContainer: {},
             primaryText: {
               lineHeight: 24,
-              ...typography.subheading,
               color: palette.primaryTextColor,
+              ...typography.subheading,
             },
             firstLine: {
               flexDirection: 'row',
@@ -530,13 +534,13 @@ export default function getTheme(theme, ...more) {
             },
             secondaryText: {
               lineHeight: 22,
-              ...typography.body1,
               color: palette.secondaryTextColor,
+              ...typography.body1,
             },
             tertiaryText: {
               lineHeight: 22,
-              ...typography.body1,
               color: palette.secondaryTextColor,
+              ...typography.body1,
             },
             rightElementContainer: {
               paddingRight: 4,
@@ -564,10 +568,12 @@ export default function getTheme(theme, ...more) {
               alignItems: 'center',
               backgroundColor: snackbarColor,
               paddingHorizontal: 16,
+              ...getPlatformElevation(4),
               zIndex: 4,
               borderRadius: 4,
               margin: 8,
               position: 'absolute',
+              bottom: 0,
             },
             content: {
               flex: 1,
@@ -577,8 +583,8 @@ export default function getTheme(theme, ...more) {
             message: {
               flex: 1,
               marginVertical: 16,
-              ...typography.body2,
               color: white,
+              ...typography.body2,
               lineHeight: 16,
             },
             actionContainer: {
@@ -601,9 +607,9 @@ export default function getTheme(theme, ...more) {
               justifyContent: 'center',
             },
             text: {
+              color: palette.secondaryTextColor,
               // https://material.google.com/components/subheaders.html#subheaders-grid-subheaders
               ...typography.body2,
-              color: palette.secondaryTextColor,
             },
           },
           mergedTheme.subheader,
@@ -633,8 +639,8 @@ export default function getTheme(theme, ...more) {
             },
             titleText: {
               fontFamily,
-              ...typography.appBar,
               color: palette.alternateTextColor,
+              ...typography.appBar,
             },
             rightElementContainer: {
               flexDirection: 'row',

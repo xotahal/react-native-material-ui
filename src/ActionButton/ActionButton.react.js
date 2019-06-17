@@ -8,6 +8,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Animated,
+  Easing
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { ViewPropTypes } from '../utils';
@@ -56,11 +57,7 @@ const propTypes = {
   /**
    * If specified it'll be shown before text
    */
-  icon: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
-    PropTypes.object,
-  ]),
+  icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /**
    * Leave it empty if you don't want any transition after press. Otherwise, it will be trnasform
    * to another view - depends on transition value.
@@ -71,7 +68,7 @@ const propTypes = {
    */
   rippleColor: PropTypes.string,
   /**
-   * You can override any style for this button
+   * You can overide any style for this button
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
@@ -182,7 +179,10 @@ class ActionButton extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = { render: 'button' };
+    this.state = {
+      moveAnimated: new Animated.Value(0),
+      render: 'button'
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -253,23 +253,25 @@ class ActionButton extends PureComponent {
   };
 
   show = () => {
-    // Animated.timing(this.state.scaleValue, {
-    //     toValue: 1,
-    //     duration: 225,
-    //     easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-    //     useNativeDriver: true,
-    // }).start();
+    const { moveAnimated } = this.state;
+
+    Animated.timing(moveAnimated, {
+      toValue: 0,
+      duration: 225,
+      easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+      useNativeDriver: true,
+    }).start();
   };
 
   hide = () => {
-    // Animated.timing(this.state.scaleValue, {
-    //     // TODO: why is not 0 here?
-    //     // see: https://github.com/facebook/react-native/issues/10510
-    //     toValue: 0.01,
-    //     duration: 195,
-    //     easing: Easing.bezier(0.4, 0.0, 0.6, 1),
-    //     useNativeDriver: true,
-    // }).start();
+    const { moveAnimated } = this.state;
+
+    Animated.timing(moveAnimated, {
+      toValue: 80,
+      duration: 195,
+      easing: Easing.bezier(0.4, 0.0, 0.6, 1),
+      useNativeDriver: true,
+    }).start();
   };
 
   renderToolbarTransition = styles => {
@@ -447,10 +449,6 @@ class ActionButton extends PureComponent {
     let result;
     if (React.isValidElement(icon)) {
       result = icon;
-    } else if (icon.name && icon.iconSet) {
-      result = (
-        <Icon name={icon.name} iconSet={icon.iconSet} style={styles.icon} />
-      );
     } else {
       result = <Icon name={icon} style={styles.icon} />;
     }
@@ -469,7 +467,9 @@ class ActionButton extends PureComponent {
   };
 
   renderButton = styles => (
-    <Animated.View style={styles.positionContainer}>
+    <Animated.View style={[
+      styles.positionContainer, { transform: [{ translateX: this.state.moveAnimated }] }
+    ]}>
       {this.renderMainButton(styles)}
     </Animated.View>
   );
