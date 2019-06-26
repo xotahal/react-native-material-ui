@@ -12,6 +12,7 @@ import getPlatformElevation from '../styles/getPlatformElevation';
 import withTheme from '../styles/withTheme';
 
 const propTypes = {
+  accessibilityLabel: PropTypes.string,
   testID: PropTypes.string,
   /**
    * If true button will be disabled
@@ -56,6 +57,7 @@ const propTypes = {
   accent: PropTypes.bool,
 };
 const defaultProps = {
+  accessibilityLabel: null,
   testID: null,
   icon: null,
   onPress: null,
@@ -200,6 +202,7 @@ class Button extends PureComponent {
       upperCase,
       onLongPress,
       testID,
+      accessibilityLabel,
     } = this.props;
 
     const styles = getStyles(this.props, this.state);
@@ -217,6 +220,7 @@ class Button extends PureComponent {
 
     return (
       <RippleFeedback
+        accessibilityLabel={accessibilityLabel}
         testID={testID}
         onPress={!disabled ? this.onPress : null}
         onLongPress={!disabled ? onLongPress : null}
