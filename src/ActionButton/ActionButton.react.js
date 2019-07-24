@@ -193,7 +193,10 @@ class ActionButton extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.state = { render: 'button' };
+        this.state = { 
+            render: 'button',
+            elevation: 2
+        };
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.hidden !== this.props.hidden) {
