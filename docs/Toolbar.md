@@ -9,21 +9,23 @@
 import { Toolbar } from 'react-native-material-ui';
 ...
 render() {
-      <Toolbar
-        leftElement="menu"
-        centerElement="Searchable"
-        searchable={{
-          autoFocus: true,
-          placeholder: 'Search',
-        }}
-        rightElement={{
-            menu: {
-                icon: "more-vert",
-                labels: ["item 1", "item 2"]
-            }
-        }}
-        onRightElementPress={ (label) => { console.log(label) }}
-      />
+    return (
+        <Toolbar
+            leftElement="menu"
+            centerElement="Searchable"
+            searchable={{
+                autoFocus: true,
+                placeholder: 'Search',
+            }}
+            rightElement={{
+                menu: {
+                    icon: "more-vert",
+                    labels: ["item 1", "item 2"]
+                }
+            }}
+            onRightElementPress={(label) => { console.log(label) }}
+        />
+    )
 }
 ```
 ### API
