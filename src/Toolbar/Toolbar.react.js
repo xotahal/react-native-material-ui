@@ -10,6 +10,9 @@ import RightElement from './RightElement.react';
 import isFunction from '../utils/isFunction';
 import withTheme from '../styles/withTheme';
 
+const RNPackage = require('../../../react-native/package.json');
+const RNVersion = parseInt(RNPackage.version.split('.').join(''));
+
 const propTypes = {
   /**
    * Indicates if search is active or not
@@ -309,6 +312,10 @@ class Toolbar extends PureComponent {
   };
 
   onLayout = event => {
+    //the logic after breaks it on newer versions
+    if (RNVersion > 600) {
+      return;
+    }
     const { width, height } = event.nativeEvent.layout;
 
     // pythagorean
