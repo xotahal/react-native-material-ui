@@ -1,1 +1,1 @@
-export { default } from './Toolbar.react';
+export { default } from './Toolbar.react'

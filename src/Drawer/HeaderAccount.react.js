@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { View, TouchableWithoutFeedback } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import ListItem from '../ListItem';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import ListItem from '../ListItem'
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   avatar: PropTypes.element,
@@ -28,16 +28,16 @@ const propTypes = {
    * Theme
    */
   theme: PropTypes.any, // eslint-disable-line
-};
+}
 const defaultProps = {
   avatar: null,
   accounts: null,
   footer: null,
   style: {},
-};
+}
 
 function getStyles(props) {
-  const { drawerHeaderAccount } = props.theme;
+  const { drawerHeaderAccount } = props.theme
 
   return {
     container: [drawerHeaderAccount.container, props.style.container],
@@ -58,7 +58,7 @@ function getStyles(props) {
       drawerHeaderAccount.inactiveAvatarContainer,
       props.style.inactiveAvatarContainer,
     ],
-  };
+  }
 }
 
 class HeaderAcount extends PureComponent {
@@ -66,26 +66,26 @@ class HeaderAcount extends PureComponent {
     // We need to change state if relevant props are changed
     this.setState({
       styles: getStyles(this.props),
-    });
-  };
+    })
+  }
 
   renderFooter = () => {
-    const { footer, theme } = this.props;
+    const { footer, theme } = this.props
 
     if (!footer) {
-      return null;
+      return null
     }
 
     const props = {
       ...footer,
       style: theme.drawerHeaderListItem,
-    };
+    }
 
-    return <ListItem {...props} />;
-  };
+    return <ListItem {...props} />
+  }
 
   renderAccount = account => {
-    const { styles } = this.state;
+    const { styles } = this.state
 
     // invariant(account.key, 'Please provide key prop to account object in accounts array.');
 
@@ -93,24 +93,24 @@ class HeaderAcount extends PureComponent {
       <TouchableWithoutFeedback key={account.key} onPress={account.onPress}>
         <View style={[styles.inactiveAvatarContainer]}>{account.avatar}</View>
       </TouchableWithoutFeedback>
-    );
-  };
+    )
+  }
 
   renderAccounts = () => {
-    const { accounts } = this.props;
+    const { accounts } = this.props
 
     if (!accounts) {
-      return null;
+      return null
     }
 
     // TODO: slice of accounts
     // add more soficticated slice when there will be lots of accounts
-    return accounts.slice(0, 3).map(this.renderAccount);
-  };
+    return accounts.slice(0, 3).map(this.renderAccount)
+  }
 
   render() {
-    const { avatar } = this.props;
-    const { styles } = this.state;
+    const { avatar } = this.props
+    const { styles } = this.state
 
     return (
       <View style={styles.container}>
@@ -126,11 +126,11 @@ class HeaderAcount extends PureComponent {
         </View>
         {this.renderFooter()}
       </View>
-    );
+    )
   }
 }
 
-HeaderAcount.propTypes = propTypes;
-HeaderAcount.defaultProps = defaultProps;
+HeaderAcount.propTypes = propTypes
+HeaderAcount.defaultProps = defaultProps
 
-export default withTheme(HeaderAcount);
+export default withTheme(HeaderAcount)

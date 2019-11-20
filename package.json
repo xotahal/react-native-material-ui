@@ -14,7 +14,10 @@
   "jest": {
     "preset": "react-native",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   },
   "keywords": [
     "react-native",
@@ -37,32 +40,33 @@
   },
   "dependencies": {
     "color": "3.1.0",
+    "flow-bin": "^0.97.0",
     "hoist-non-react-statics": "^2.5.5",
     "lodash.merge": "^4.0.0",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.7.2",
     "react-native-material-design-styles": "^0.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "10.0.1",
-    "babel-jest": "23.6.0",
+    "babel-jest": "24.7.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-native": "4.0.1",
-    "eslint": "5.8.0",
+    "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "3.1.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-prettier": "3.0.0",
-    "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-react-native": "^3.5.0",
-    "jest": "23.6.0",
-    "prettier": "1.14.3",
-    "react": "16.4.1",
-    "react-native": "0.57.4",
-    "react-native-vector-icons": "^6.0.2",
-    "react-test-renderer": "16.4.1",
-    "semantic-release": "^15.13.3"
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-native": "^3.6.0",
+    "jest": "24.7.1",
+    "prettier": "1.17.0",
+    "react": "16.8.6",
+    "react-native": "0.59.5",
+    "react-native-vector-icons": "^6.4.2",
+    "react-test-renderer": "16.8.6",
+    "semantic-release": "16.0.0-beta.18"
   }
 }

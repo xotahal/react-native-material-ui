@@ -1,1 +1,1 @@
-export { default } from './BottomNavigation.react';
+export { default } from './BottomNavigation.react'

@@ -1,12 +1,12 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { StyleSheet, Text, View } from 'react-native';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { StyleSheet, Text, View } from 'react-native'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 /* eslint-enable import/no-unresolved, import/extensions */
-import IconToggle from '../IconToggle';
-import RippleFeedback from '../RippleFeedback';
-import { ViewPropTypes } from '../utils';
-import withTheme from '../styles/withTheme';
+import IconToggle from '../IconToggle'
+import RippleFeedback from '../RippleFeedback'
+import { ViewPropTypes } from '../utils'
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   /**
@@ -51,7 +51,7 @@ const propTypes = {
    * Size of icon
    */
   size: PropTypes.number,
-};
+}
 const defaultProps = {
   checked: false,
   checkedIcon: 'check-box',
@@ -60,13 +60,13 @@ const defaultProps = {
   style: {},
   size: 24,
   iconSet: null,
-};
+}
 
 function getStyles(props) {
-  const { disabled, theme } = props;
-  const { checkbox, palette } = theme;
+  const { disabled, theme } = props
+  const { checkbox, palette } = theme
 
-  const local = {};
+  const local = {}
 
   return {
     container: [checkbox.container, local.container, props.style.container],
@@ -78,17 +78,17 @@ function getStyles(props) {
       // disabled has the highest priority
       disabled && { color: palette.disabledTextColor },
     ],
-  };
+  }
 }
 
 class Checkbox extends PureComponent {
   onPress = () => {
-    const { checked, disabled, onCheck, value } = this.props;
+    const { checked, disabled, onCheck, value } = this.props
 
     if (!disabled && onCheck) {
-      onCheck(!checked, value);
+      onCheck(!checked, value)
     }
-  };
+  }
 
   render() {
     const {
@@ -100,12 +100,12 @@ class Checkbox extends PureComponent {
       size,
       label,
       iconSet,
-    } = this.props;
+    } = this.props
 
-    const styles = getStyles(this.props);
+    const styles = getStyles(this.props)
 
-    const labelColor = StyleSheet.flatten(styles.label).color;
-    const iconColor = StyleSheet.flatten(styles.icon).color;
+    const labelColor = StyleSheet.flatten(styles.label).color
+    const iconColor = StyleSheet.flatten(styles.icon).color
 
     const content = (
       <View style={styles.container} pointerEvents="box-only">
@@ -120,17 +120,17 @@ class Checkbox extends PureComponent {
         />
         <Text style={styles.label}>{label}</Text>
       </View>
-    );
+    )
 
     if (disabled) {
-      return content;
+      return content
     }
 
-    return <RippleFeedback onPress={this.onPress}>{content}</RippleFeedback>;
+    return <RippleFeedback onPress={this.onPress}>{content}</RippleFeedback>
   }
 }
 
-Checkbox.propTypes = propTypes;
-Checkbox.defaultProps = defaultProps;
+Checkbox.propTypes = propTypes
+Checkbox.defaultProps = defaultProps
 
-export default withTheme(Checkbox);
+export default withTheme(Checkbox)

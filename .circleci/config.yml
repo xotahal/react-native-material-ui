@@ -5,19 +5,31 @@
 version: 2.1
 
 # Used Workspace
-workspace: &workspace
-  ~/mui
+workspace: &workspace ~/mui
 
 # Config for node
 node_config: &node_config
-    working_directory: *workspace
-    docker:
-      - image: circleci/node:8
+  working_directory: *workspace
+  docker:
+    - image: circleci/node:8
 
 # Key to cache gradle dependecies
-yarn_key: &yarn_key
-  yarn-cache-{{ checksum "yarn.lock" }}
+yarn_key: &yarn_key yarn-cache-{{ checksum "yarn.lock" }}
 
+## FILTERS
+filter-publish-only: &filter-publish-only
+  filters:
+    branches:
+      only:
+        - 'master'
+
+# Used for workflow runs on PR (all others than these default branches)
+filter-ignore-defaults: &filter-ignore-defaults
+  filters:
+    branches:
+      ignore:
+        - 'develop'
+        - 'master'
 
 jobs:
   install-dependencies:
@@ -56,31 +68,92 @@ jobs:
           name: Jest
           command: yarn test
 
+  flow:
+    <<: *node_config
+    steps:
+      - attach_workspace:
+          at: *workspace
+      - run:
+          name: Flow
+          command: yarn flow
+
   publish:
     <<: *node_config
     steps:
+      - checkout
       - attach_workspace:
           at: *workspace
       - run:
           name: Publish
           command: yarn semantic-release
 
-
 workflows:
   version: 2
-  test-and-deploy:
+  test-code-quality:
+    jobs:
+      - install-dependencies:
+          <<: *filter-ignore-defaults
+
+      - lint:
+          <<: *filter-ignore-defaults
+          requires:
+            - install-dependencies
+      - flow:
+          <<: *filter-ignore-defaults
+          requires:
+            - install-dependencies
+      - test:
+          <<: *filter-ignore-defaults
+          requires:
+            - install-dependencies
+
+  publish:
+    jobs:
+      - install-dependencies:
+          <<: *filter-publish-only
+
+      - lint:
+          <<: *filter-publish-only
+          requires:
+            - install-dependencies
+      - flow:
+          <<: *filter-publish-only
+          requires:
+            - install-dependencies
+      - test:
+          <<: *filter-publish-only
+          requires:
+            - install-dependencies
+      - publish:
+          <<: *filter-publish-only
+          requires:
+            - flow
+            - lint
+            - test
+
+  publish-alpha:
+    triggers:
+      - schedule:
+          cron: '0 14 * * *'
+          filters:
+            branches:
+              only:
+                - develop
+
     jobs:
       - install-dependencies
       - lint:
           requires:
-              - install-dependencies
+            - install-dependencies
+      - flow:
+          requires:
+            - install-dependencies
       - test:
           requires:
-              - install-dependencies
+            - install-dependencies
+
       - publish:
           requires:
-              - lint
-              - test
-          filters:
-              branches:
-                only: 'master'
+            - flow
+            - lint
+            - test

@@ -1,1 +1,1 @@
-export { default } from './Dialog.react';
+export { default } from './Dialog.react'

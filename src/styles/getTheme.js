@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
 
-import Color from 'color';
-import merge from 'lodash.merge';
+import Color from 'color'
+import merge from 'lodash.merge'
 
-import { fontWeight } from './typography';
+import { fontWeight } from './typography'
 import {
   black,
   grey100,
@@ -13,29 +13,29 @@ import {
   white,
   transparent,
   snackbarColor,
-} from './colors';
+} from './colors'
 
-import lightTheme from './themes/light';
+import lightTheme from './themes/light'
 /* eslint-disable import/no-unresolved, import/extensions */
-import getPlatformElevation from './getPlatformElevation';
+import getPlatformElevation from './getPlatformElevation'
 /* eslint-enable import/no-unresolved, import/extensions */
 
 function darkenOrLighten(color, ratio = 0.15) {
-  const c = Color(color);
-  return c.luminosity() > 0.5 ? c.darken(ratio) : c.lighten(ratio);
+  const c = Color(color)
+  return c.luminosity() > 0.5 ? c.darken(ratio) : c.lighten(ratio)
 }
 
 export default function getTheme(theme, ...more) {
-  let mergedTheme = merge(lightTheme, theme, ...more);
+  let mergedTheme = merge(lightTheme, theme, ...more)
 
-  const { iconSet, spacing, fontFamily, typography, palette } = mergedTheme;
+  const { iconSet, spacing, fontFamily, typography, palette } = mergedTheme
   const baseTheme = {
     iconSet,
     spacing,
     fontFamily,
     typography,
     palette,
-  };
+  }
 
   mergedTheme = merge(
     {
@@ -673,7 +673,7 @@ export default function getTheme(theme, ...more) {
       ),
     },
     baseTheme,
-  );
+  )
 
-  return mergedTheme;
+  return mergedTheme
 }

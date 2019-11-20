@@ -1,1 +1,1 @@
-export { default } from './Drawer.react';
+export { default } from './Drawer.react'

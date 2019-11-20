@@ -7,16 +7,16 @@ import {
   Platform,
   Easing,
   TouchableWithoutFeedback,
-} from 'react-native';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+} from 'react-native'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Color from 'color';
+import Color from 'color'
 
-import withTheme from '../styles/withTheme';
-import { ViewPropTypes } from '../utils';
-import { ELEVATION_ZINDEX } from '../styles/constants';
-import Icon from '../Icon';
+import withTheme from '../styles/withTheme'
+import { ViewPropTypes } from '../utils'
+import { ELEVATION_ZINDEX } from '../styles/constants'
+import Icon from '../Icon'
 
 const propTypes = {
   testID: PropTypes.string,
@@ -64,7 +64,7 @@ const propTypes = {
     }),
     PropTypes.array,
   ]),
-};
+}
 const defaultProps = {
   testID: null,
   children: null,
@@ -78,24 +78,24 @@ const defaultProps = {
   maxOpacity: 0.16,
   style: {},
   iconSet: null,
-};
+}
 
 function getStyles(props, state) {
-  const { iconToggle, palette } = props.theme;
+  const { iconToggle, palette } = props.theme
 
-  const local = {};
+  const local = {}
 
   if (props.color) {
     local.icon = {
       color: props.color,
-    };
+    }
   }
 
   if (state.containerSize) {
     local.container = {
       width: state.containerSize,
       height: state.containerSize,
-    };
+    }
   }
 
   return {
@@ -108,37 +108,37 @@ function getStyles(props, state) {
       // together
       props.disabled && { color: palette.disabledColor },
     ],
-  };
+  }
 }
 /**
  * Returns size of icon. Priority order: style prop, size prop, spacing.iconSize.
  */
 function getIconSize(props) {
-  const { spacing } = props.theme;
-  const { icon } = props.style;
+  const { spacing } = props.theme
+  const { icon } = props.style
 
   if (icon && icon.width) {
-    return icon.width;
+    return icon.width
   }
   if (props.size) {
-    return props.size;
+    return props.size
   }
 
-  return spacing.iconSize;
+  return spacing.iconSize
 }
 function getContainerSize(iconSize) {
-  return iconSize * 2;
+  return iconSize * 2
 }
 function getRippleSize(containerSize, percent) {
-  return (percent / 100) * containerSize;
+  return (percent / 100) * containerSize
 }
 
 class IconToggle extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
-    const iconSize = getIconSize(props);
-    const containerSize = getContainerSize(iconSize);
+    const iconSize = getIconSize(props)
+    const containerSize = getContainerSize(iconSize)
 
     this.state = {
       scaleValue: new Animated.Value(0.01),
@@ -146,41 +146,41 @@ class IconToggle extends PureComponent {
       containerSize,
       iconSize,
       rippleSize: getRippleSize(containerSize, props.percent),
-    };
+    }
 
-    this.onPress = this.onPress.bind(this);
-    this.onPressIn = this.onPressIn.bind(this);
-    this.onPressOut = this.onPressOut.bind(this);
+    this.onPress = this.onPress.bind(this)
+    this.onPressIn = this.onPressIn.bind(this)
+    this.onPressOut = this.onPressOut.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
-    const { iconSize } = this.state;
-    const { percent } = this.props;
+    const { iconSize } = this.state
+    const { percent } = this.props
 
-    const nextIconSize = getIconSize(nextProps);
+    const nextIconSize = getIconSize(nextProps)
 
     if (iconSize !== nextIconSize || nextProps.percent !== percent) {
-      const containerSize = getContainerSize(iconSize);
+      const containerSize = getContainerSize(iconSize)
 
       this.setState({
         containerSize,
         iconSize,
         rippleSize: getRippleSize(containerSize, nextProps.percent),
-      });
+      })
     }
   }
 
   onPress() {
-    const { disabled, onPress } = this.props;
+    const { disabled, onPress } = this.props
 
     if (onPress && !disabled) {
-      onPress();
+      onPress()
     }
   }
 
   onPressIn() {
-    const { disabled } = this.props;
-    const { scaleValue } = this.state;
+    const { disabled } = this.props
+    const { scaleValue } = this.state
 
     if (!disabled) {
       Animated.timing(scaleValue, {
@@ -188,33 +188,33 @@ class IconToggle extends PureComponent {
         duration: 225,
         easing: Easing.bezier(0.0, 0.0, 0.2, 1),
         useNativeDriver: true,
-      }).start();
+      }).start()
     }
   }
 
   onPressOut() {
-    const { disabled, maxOpacity } = this.props;
-    const { scaleValue, opacityValue } = this.state;
+    const { disabled, maxOpacity } = this.props
+    const { scaleValue, opacityValue } = this.state
 
     if (!disabled) {
       Animated.timing(opacityValue, {
         toValue: 0,
         useNativeDriver: true,
       }).start(() => {
-        scaleValue.setValue(0.01);
-        opacityValue.setValue(maxOpacity);
-      });
+        scaleValue.setValue(0.01)
+        opacityValue.setValue(maxOpacity)
+      })
     }
   }
 
   renderRippleView = styles => {
-    const { scaleValue, opacityValue, containerSize, rippleSize } = this.state;
+    const { scaleValue, opacityValue, containerSize, rippleSize } = this.state
 
-    const color = Color(StyleSheet.flatten(styles.icon).color);
+    const color = Color(StyleSheet.flatten(styles.icon).color)
     // https://material.google.com/components/buttons.html#buttons-toggle-buttons
-    this.maxOpacity = color.isDark() ? 0.12 : 0.3;
+    this.maxOpacity = color.isDark() ? 0.12 : 0.3
 
-    const top = (containerSize - rippleSize) / 2;
+    const top = (containerSize - rippleSize) / 2
 
     return (
       // we need set zindex for iOS, because the components with elevation have the
@@ -236,26 +236,26 @@ class IconToggle extends PureComponent {
           },
         ]}
       />
-    );
-  };
+    )
+  }
 
   renderIcon = styles => {
-    const { name, children, iconSet } = this.props;
-    const { iconSize } = this.state;
+    const { name, children, iconSet } = this.props
+    const { iconSize } = this.state
 
     if (children) {
-      return children;
+      return children
     }
 
-    const { color } = StyleSheet.flatten(styles.icon);
+    const { color } = StyleSheet.flatten(styles.icon)
 
-    return <Icon iconSet={iconSet} name={name} color={color} size={iconSize} />;
-  };
+    return <Icon iconSet={iconSet} name={name} color={color} size={iconSize} />
+  }
 
   render() {
-    const { testID } = this.props;
+    const { testID } = this.props
 
-    const styles = getStyles(this.props, this.state);
+    const styles = getStyles(this.props, this.state)
 
     return (
       <TouchableWithoutFeedback
@@ -269,11 +269,11 @@ class IconToggle extends PureComponent {
           <View style={styles.container}>{this.renderIcon(styles)}</View>
         </View>
       </TouchableWithoutFeedback>
-    );
+    )
   }
 }
 
-IconToggle.propTypes = propTypes;
-IconToggle.defaultProps = defaultProps;
+IconToggle.propTypes = propTypes
+IconToggle.defaultProps = defaultProps
 
-export default withTheme(IconToggle);
+export default withTheme(IconToggle)

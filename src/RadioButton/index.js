@@ -1,1 +1,1 @@
-export { default } from './RadioButton.react';
+export { default } from './RadioButton.react'

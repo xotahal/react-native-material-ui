@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { ViewPropTypes } from '../utils';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { ViewPropTypes } from '../utils'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Icon from '../Icon';
-import withTheme from '../styles/withTheme';
+import Icon from '../Icon'
+import withTheme from '../styles/withTheme'
 
 const propTypes = {
   /**
@@ -44,7 +44,7 @@ const propTypes = {
    * Theme
    */
   theme: PropTypes.any, // eslint-disable-line
-};
+}
 const defaultProps = {
   image: null,
   icon: null,
@@ -54,26 +54,26 @@ const defaultProps = {
   size: 48,
   style: {},
   iconSet: null,
-};
+}
 
 function getStyles(props) {
-  const { size, theme } = props;
-  const { avatar } = theme;
+  const { size, theme } = props
+  const { avatar } = theme
 
-  const local = {};
+  const local = {}
 
   if (size) {
     local.container = {
       height: size,
       width: size,
       borderRadius: size / 2,
-    };
+    }
   }
 
   return {
     container: [avatar.container, local.container, props.style.container],
     content: [avatar.content, local.content, props.style.content],
-  };
+  }
 }
 
 class Avatar extends PureComponent {
@@ -87,12 +87,12 @@ class Avatar extends PureComponent {
       text,
       theme,
       size,
-    } = this.props;
-    const { avatar, spacing } = theme;
+    } = this.props
+    const { avatar, spacing } = theme
 
-    let content = null;
+    let content = null
 
-    const styles = getStyles(this.props);
+    const styles = getStyles(this.props)
 
     if (icon) {
       content = (
@@ -102,29 +102,29 @@ class Avatar extends PureComponent {
           color={iconColor || StyleSheet.flatten(avatar.content).color}
           size={iconSize || spacing.iconSize}
         />
-      );
+      )
     } else if (text) {
-      content = <Text style={styles.content}>{text}</Text>;
+      content = <Text style={styles.content}>{text}</Text>
     } else if (React.isValidElement(image)) {
-      content = image;
+      content = image
     } else if (typeof image === 'string') {
       content = (
         <Image
           style={{ width: size, height: size, borderRadius: size / 2 }}
           source={{ uri: image }}
         />
-      );
+      )
     }
 
     return (
       <View style={{ flexGrow: 1 }}>
         <View style={styles.container}>{content}</View>
       </View>
-    );
+    )
   }
 }
 
-Avatar.propTypes = propTypes;
-Avatar.defaultProps = defaultProps;
+Avatar.propTypes = propTypes
+Avatar.defaultProps = defaultProps
 
-export default withTheme(Avatar);
+export default withTheme(Avatar)

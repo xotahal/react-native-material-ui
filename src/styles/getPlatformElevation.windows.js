@@ -1,3 +1,3 @@
-const getPlatformElevation = elevation => ({ elevation });
+const getPlatformElevation = elevation => ({ elevation })
 
-export default getPlatformElevation;
+export default getPlatformElevation

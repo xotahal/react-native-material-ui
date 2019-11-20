@@ -1,18 +1,18 @@
 /* eslint-disable import/no-unresolved, import/extensions */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import {
   Animated,
   Easing,
   View,
   TouchableWithoutFeedback,
   StyleSheet,
-} from 'react-native';
+} from 'react-native'
 /* eslint-enable import/no-unresolved, import/extensions */
-import Color from 'color';
-import { ViewPropTypes } from '../utils';
-import { black } from '../styles/colors';
-import { ELEVATION_ZINDEX } from '../styles/constants';
+import Color from 'color'
+import { ViewPropTypes } from '../utils'
+import { black } from '../styles/colors'
+import { ELEVATION_ZINDEX } from '../styles/constants'
 
 const propTypes = {
   testID: PropTypes.string,
@@ -39,7 +39,7 @@ const propTypes = {
   style: PropTypes.shape({
     container: ViewPropTypes.style,
   }),
-};
+}
 const defaultProps = {
   testID: null,
   children: null,
@@ -53,30 +53,30 @@ const defaultProps = {
   disabled: false,
   maxOpacity: 0.16,
   style: {},
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     overflow: 'hidden',
   },
-});
+})
 
 /**
  * Usualy we use width and height to compute this. In case, the width of container is too big
  * we use this constant as a width of ripple effect.
  */
-const MAX_DIAMETER = 200;
+const MAX_DIAMETER = 200
 
 const isRippleVisible = ({ onPress, onLongPress, onPressIn, onPressOut }) =>
-  onPress || onLongPress || onPressIn || onPressOut;
+  onPress || onLongPress || onPressIn || onPressOut
 
 class RippleFeedbackIOS extends PureComponent {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     // https://material.google.com/components/buttons.html#buttons-toggle-buttons
-    const maxOpacity = Color(props.color).isDark() ? 0.12 : 0.3;
+    const maxOpacity = Color(props.color).isDark() ? 0.12 : 0.3
 
     this.state = {
       scaleValue: new Animated.Value(0),
@@ -85,7 +85,7 @@ class RippleFeedbackIOS extends PureComponent {
       diameter: MAX_DIAMETER,
       maxOpacity,
       rippleColor: Color(props.color),
-    };
+    }
   }
 
   onLayoutChanged = event => {
@@ -95,48 +95,48 @@ class RippleFeedbackIOS extends PureComponent {
         nativeEvent: {
           layout: { width, height },
         },
-      } = event;
-      const diameter = Math.ceil(Math.sqrt(width * width + height * height));
+      } = event
+      const diameter = Math.ceil(Math.sqrt(width * width + height * height))
 
       this.setState({
         diameter: Math.min(diameter, MAX_DIAMETER),
-      });
+      })
     } catch (e) {
       this.setState({
         diameter: MAX_DIAMETER,
-      });
+      })
     }
-  };
+  }
 
   onLongPress = () => {
-    const { onLongPress } = this.props;
+    const { onLongPress } = this.props
 
-    const { maxOpacity, opacityBackgroundValue } = this.state;
+    const { maxOpacity, opacityBackgroundValue } = this.state
     // Long press has to be indicated like this because we need to animate containers back to
     // default values in onPressOut function
-    this.longPress = true;
+    this.longPress = true
 
     // Animation of long press is slightly different than onPress animation
     Animated.timing(opacityBackgroundValue, {
       toValue: maxOpacity / 2,
       duration: 700,
       useNativeDriver: true,
-    }).start();
+    }).start()
 
     if (onLongPress) {
-      onLongPress();
+      onLongPress()
     }
-  };
+  }
 
   onPress = () => {
-    const { onPress } = this.props;
+    const { onPress } = this.props
     const {
       maxOpacity,
       diameter,
       opacityBackgroundValue,
       opacityRippleValue,
       scaleValue,
-    } = this.state;
+    } = this.state
 
     Animated.parallel([
       // Display background layer thru whole over the view
@@ -166,45 +166,45 @@ class RippleFeedbackIOS extends PureComponent {
         duration: 225,
         easing: Easing.out(Easing.quad),
         useNativeDriver: true,
-      }).start();
+      }).start()
 
-      this.setDefaultAnimatedValues();
-    });
+      this.setDefaultAnimatedValues()
+    })
 
     if (onPress) {
-      onPress();
+      onPress()
     }
-  };
+  }
 
   onPressIn = event => {
-    const { onPressIn } = this.props;
+    const { onPressIn } = this.props
 
     // because we need ripple effect to be displayed exactly from press point
     this.setState({
       pressX: event.nativeEvent.locationX,
       pressY: event.nativeEvent.locationY,
-    });
+    })
 
     if (onPressIn) {
-      onPressIn();
+      onPressIn()
     }
-  };
+  }
 
   onPressOut = () => {
-    const { diameter } = this.state;
-    const { onPressOut } = this.props;
+    const { diameter } = this.state
+    const { onPressOut } = this.props
 
     const {
       opacityBackgroundValue,
       opacityRippleValue,
       scaleValue,
-    } = this.state;
+    } = this.state
 
     // When user use onPress all animation happens in onPress method. But when user use long
     // press. We displaye background layer in onLongPress and then we need to animate ripple
     // effect that is done here.
     if (this.longPress) {
-      this.longPress = false;
+      this.longPress = false
       Animated.parallel([
         // Hide opacity background layer, slowly. It has to be done later than ripple
         // effect
@@ -226,20 +226,20 @@ class RippleFeedbackIOS extends PureComponent {
           easing: Easing.out(Easing.quad),
           useNativeDriver: true,
         }),
-      ]).start(this.setDefaultAnimatedValues);
+      ]).start(this.setDefaultAnimatedValues)
     }
 
     if (onPressOut) {
-      onPressOut();
+      onPressOut()
     }
-  };
+  }
 
   setDefaultAnimatedValues = () => {
-    const { maxOpacity, scaleValue, opacityRippleValue } = this.state;
+    const { maxOpacity, scaleValue, opacityRippleValue } = this.state
     // We can set up scale to 0 and opacity back to maxOpacity
-    scaleValue.setValue(0);
-    opacityRippleValue.setValue(maxOpacity);
-  };
+    scaleValue.setValue(0)
+    opacityRippleValue.setValue(maxOpacity)
+  }
 
   renderRippleView = () => {
     const {
@@ -249,7 +249,7 @@ class RippleFeedbackIOS extends PureComponent {
       pressX,
       pressY,
       rippleColor,
-    } = this.state;
+    } = this.state
 
     return (
       // we need set zindex for iOS, because the components with elevation have the
@@ -273,11 +273,11 @@ class RippleFeedbackIOS extends PureComponent {
           },
         ]}
       />
-    );
-  };
+    )
+  }
 
   renderOpacityBackground = () => {
-    const { opacityBackgroundValue, rippleColor } = this.state;
+    const { opacityBackgroundValue, rippleColor } = this.state
 
     return (
       // we need set zindex for iOS, because the components with elevation have the
@@ -295,17 +295,17 @@ class RippleFeedbackIOS extends PureComponent {
           },
         ]}
       />
-    );
-  };
+    )
+  }
 
   render() {
-    const { children, disabled, style, testID } = this.props;
+    const { children, disabled, style, testID } = this.props
 
     if (!isRippleVisible(this.props)) {
-      return children;
+      return children
     }
 
-    const parent = React.Children.only(children);
+    const parent = React.Children.only(children)
 
     const ripple = (
       <View
@@ -316,7 +316,7 @@ class RippleFeedbackIOS extends PureComponent {
         {this.renderOpacityBackground()}
         {this.renderRippleView()}
       </View>
-    );
+    )
 
     return (
       <TouchableWithoutFeedback
@@ -330,11 +330,11 @@ class RippleFeedbackIOS extends PureComponent {
       >
         {React.cloneElement(parent, [], parent.props.children, ripple)}
       </TouchableWithoutFeedback>
-    );
+    )
   }
 }
 
-RippleFeedbackIOS.propTypes = propTypes;
-RippleFeedbackIOS.defaultProps = defaultProps;
+RippleFeedbackIOS.propTypes = propTypes
+RippleFeedbackIOS.defaultProps = defaultProps
 
-export default RippleFeedbackIOS;
+export default RippleFeedbackIOS
