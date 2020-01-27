@@ -340,7 +340,7 @@ class ActionButton extends PureComponent {
     const mainIcon = render !== 'button' ? 'clear' : icon;
 
     return (
-      <View key="main-button" style={styles.container}>
+      <View key="main-button" style={[styles.container, {shadowRadius: 30}]}>
         <RippleFeedback
           style={getRippleContainerStyle(styles.container)}
           color={this.getRippleColor()}
