@@ -135,6 +135,7 @@ class Snackbar extends PureComponent {
       Animated.timing(this.visibility, {
         toValue: nextProps.visible ? 1 : 0,
         duration: 300,
+        useNativeDriver: true,
       }).start(() => {
         this.setState({ visible: nextProps.visible });
       });
