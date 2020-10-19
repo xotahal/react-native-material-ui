@@ -77,7 +77,7 @@ class LeftElement extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isSearchActive, leftElement } = this.props;
 
     if (nextProps.isSearchActive !== isSearchActive) {

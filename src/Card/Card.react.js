@@ -45,7 +45,7 @@ class Card extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ styles: getStyles(nextProps) });
   }
 

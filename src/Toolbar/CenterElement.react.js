@@ -82,7 +82,7 @@ class CenterElement extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isSearchActive } = this.props;
 
     if (isSearchActive !== nextProps.isSearchActive) {

@@ -54,7 +54,7 @@ const propTypes = {
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    message: ViewPropTypes.style,
+    message: Text.propTypes.style,
   }),
   /**
    * The function to execute when the snackbar's height changes.
@@ -111,7 +111,7 @@ class Snackbar extends PureComponent {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { bottomNavigation, visible } = this.props;
 
     this.visibility = new Animated.Value(visible ? 1 : 0);
@@ -119,7 +119,7 @@ class Snackbar extends PureComponent {
     this.move(bottomNavigation);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { style, visible, bottomNavigation } = this.props;
 
     if (nextProps.style !== style) {
@@ -135,6 +135,7 @@ class Snackbar extends PureComponent {
       Animated.timing(this.visibility, {
         toValue: nextProps.visible ? 1 : 0,
         duration: 300,
+        useNativeDriver: true,
       }).start(() => {
         this.setState({ visible: nextProps.visible });
       });
