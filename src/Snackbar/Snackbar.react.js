@@ -54,7 +54,7 @@ const propTypes = {
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    message: ViewPropTypes.style,
+    message: Text.propTypes.style,
   }),
   /**
    * The function to execute when the snackbar's height changes.
