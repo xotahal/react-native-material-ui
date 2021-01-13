@@ -229,7 +229,7 @@ class ListItem extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextPros) {
+  UNSAFE_componentWillReceiveProps(nextPros) {
     this.setState({ numberOfLines: getNumberOfLines(nextPros) });
   }
 

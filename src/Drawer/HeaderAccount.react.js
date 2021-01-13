@@ -62,7 +62,7 @@ function getStyles(props) {
 }
 
 class HeaderAcount extends PureComponent {
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     // We need to change state if relevant props are changed
     this.setState({
       styles: getStyles(this.props),

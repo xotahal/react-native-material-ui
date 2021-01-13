@@ -153,7 +153,7 @@ class IconToggle extends PureComponent {
     this.onPressOut = this.onPressOut.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { iconSize } = this.state;
     const { percent } = this.props;
 

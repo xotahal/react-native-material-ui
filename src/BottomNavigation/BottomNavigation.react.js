@@ -66,7 +66,7 @@ class BottomNavigation extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { style, hidden } = this.props;
 
     if (nextProps.style !== style) {
