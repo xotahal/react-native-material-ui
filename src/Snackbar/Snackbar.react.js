@@ -111,7 +111,7 @@ class Snackbar extends PureComponent {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { bottomNavigation, visible } = this.props;
 
     this.visibility = new Animated.Value(visible ? 1 : 0);
@@ -119,7 +119,7 @@ class Snackbar extends PureComponent {
     this.move(bottomNavigation);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { style, visible, bottomNavigation } = this.props;
 
     if (nextProps.style !== style) {
