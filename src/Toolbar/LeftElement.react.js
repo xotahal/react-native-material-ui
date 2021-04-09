@@ -13,7 +13,7 @@ const propTypes = {
   isSearchActive: PropTypes.bool.isRequired,
   style: PropTypes.shape({
     leftElementContainer: ViewPropTypes.style,
-    leftElement: Text.propTypes.style, // eslint-disable-line
+    leftElement: PropTypes.any,
   }),
   size: PropTypes.number,
   leftElement: PropTypes.node,

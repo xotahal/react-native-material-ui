@@ -1,11 +1,11 @@
 import {
   View,
   BackHandler,
-  ViewPropTypes as RNViewPropTypes,
   BackAndroid as DeprecatedBackAndroid,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
-const ViewPropTypes = RNViewPropTypes || View.propTypes; // eslint-disable-line
+const ViewPropTypes = { style: PropTypes.any };
 const BackAndroid = BackHandler || DeprecatedBackAndroid;
 
 export { ViewPropTypes, BackAndroid };

@@ -38,8 +38,8 @@ const propTypes = {
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    active: Text.propTypes.style, // eslint-disable-line
-    disabled: Text.propTypes.style, // eslint-disable-line
+    active: PropTypes.any,
+    disabled: PropTypes.any,
   }),
   disabled: PropTypes.bool,
 };

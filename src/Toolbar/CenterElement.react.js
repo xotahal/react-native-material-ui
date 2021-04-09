@@ -17,7 +17,7 @@ const propTypes = {
   searchValue: PropTypes.string.isRequired,
   searchable: PropTypes.shape({
     autoFocus: PropTypes.bool,
-    autoCapitalize: TextInput.propTypes.autoCapitalize, // eslint-disable-line
+    autoCapitalize: PropTypes.string,
     autoCorrect: PropTypes.bool,
     onChangeText: PropTypes.func,
     onSubmitEditing: PropTypes.func,
@@ -25,7 +25,7 @@ const propTypes = {
   }),
   style: PropTypes.shape({
     centerElementContainer: ViewPropTypes.style,
-    titleText: Text.propTypes.style, // eslint-disable-line
+    titleText: PropTypes.any,
   }),
   centerElement: PropTypes.node,
   onPress: PropTypes.func,

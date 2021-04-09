@@ -71,7 +71,7 @@ const propTypes = {
    */
   style: PropTypes.shape({
     container: ViewPropTypes.style,
-    icon: Text.propTypes.style, // eslint-disable-line
+    icon: PropTypes.any,
   }),
 };
 const defaultProps = {
