@@ -69,7 +69,7 @@ const propTypes = {
     // FIXME
     leftElement: PropTypes.any, // eslint-disable-line
     centerElementContainer: ViewPropTypes.style,
-    titleText: Text.propTypes.style, // eslint-disable-line
+    titleText: PropTypes.any,
     rightElementContainer: ViewPropTypes.style,
     rightElement: PropTypes.any, // eslint-disable-line
   }),

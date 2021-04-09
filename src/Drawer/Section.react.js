@@ -28,9 +28,9 @@ const propTypes = {
     container: ViewPropTypes.style,
     item: ViewPropTypes.style,
     subheader: ViewPropTypes.style,
-    icon: Text.propTypes.style, // eslint-disable-line
-    value: Text.propTypes.style, // eslint-disable-line
-    label: Text.propTypes.style, // eslint-disable-line
+    icon: PropTypes.any,
+    value: PropTypes.any,
+    label: PropTypes.any,
   }),
   key: PropTypes.string,
   /**

@@ -42,7 +42,7 @@ const propTypes = {
     PropTypes.shape({
       container: ViewPropTypes.style,
       strokeContainer: ViewPropTypes.style,
-      content: Text.propTypes.style, // eslint-disable-line
+      content: PropTypes.any,
     }),
     PropTypes.array,
   ]),

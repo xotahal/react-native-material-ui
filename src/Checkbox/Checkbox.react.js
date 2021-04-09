@@ -45,7 +45,7 @@ const propTypes = {
     container: ViewPropTypes.style,
     // FIXME:
     icon: PropTypes.any, // eslint-disable-line
-    label: Text.propTypes.style, // eslint-disable-line
+    label: PropTypes.any,
   }),
   /**
    * Size of icon

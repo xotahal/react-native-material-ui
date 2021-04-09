@@ -10,7 +10,7 @@ const propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({
     titleContainer: ViewPropTypes.style,
-    titleText: Text.propTypes.style, // eslint-disable-line
+    titleText: PropTypes.any,
   }),
 };
 const defaultProps = {
