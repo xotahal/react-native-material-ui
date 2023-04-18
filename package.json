@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "color": "3.1.0",
+    "deprecated-react-native-prop-types": "^4.0.0",
     "hoist-non-react-statics": "^2.5.5",
     "lodash.merge": "^4.0.0",
     "prop-types": "^15.5.10",
