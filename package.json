@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "color": "3.1.0",
+    "deprecated-react-native-prop-types": "^4.0.0",
     "hoist-non-react-statics": "^2.5.5",
     "lodash.merge": "^4.0.0",
     "prop-types": "^15.5.10",
@@ -60,7 +61,7 @@
     "jest": "23.6.0",
     "prettier": "1.14.3",
     "react": "16.4.1",
-    "react-native": "0.57.4",
+    "react-native": "0.69.9",
     "react-native-vector-icons": "^6.0.2",
     "react-test-renderer": "16.4.1",
     "semantic-release": "^15.13.3"
